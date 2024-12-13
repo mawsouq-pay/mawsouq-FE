@@ -1,6 +1,14 @@
+import ProtectedRouteWrapper from "@/protectRoutesWrapper";
+import { protectedRoutes } from "@/routes";
 
-export default function MyApp({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps }: any) {
+    //const authStore = useAuthStore(); 
+
     return (
-        <Component {...pageProps} />
+        <ProtectedRouteWrapper protectedRoutes={protectedRoutes} store={"authStore"}>
+            <Component {...pageProps} />
+        </ProtectedRouteWrapper>
     );
 }
+
+export default MyApp;
