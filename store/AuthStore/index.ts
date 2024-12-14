@@ -33,7 +33,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
                 return;
             }
             console.log("------USING REFRESH TOKEN TO GET NEW ACC AND REFRESH TOKEN-------")
-            const res = await queryClient.post('/auth/refresh', { refresh_token: refreshToken });
+            const res = await apiClient.post('/auth/refresh', { refresh_token: refreshToken });
             if (!res || !res.data) {
                 console.log("----------GENERATION OF TOKENS FAILED--------")
                 set({ isLoggedIn: false, isSetUpLoading: false });

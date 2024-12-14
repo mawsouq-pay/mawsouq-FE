@@ -1,4 +1,4 @@
-import queryClient from "@/client";
+import queryClient from "@/client/reactQClient";
 import ProtectedRouteWrapper from "@/protectedRouteWrapper";
 import { protectedRoutes, clientRoutes } from "@/routes";
 import useAuthStore from "@/store/AuthStore";
