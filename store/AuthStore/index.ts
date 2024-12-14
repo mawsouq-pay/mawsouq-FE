@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { clientRoutes } from "@/routes";
-import apiClient from "@/client/apiClient";
+import apiClient from "@/client/axiosClient";
+import { User } from "@/types/authenticationTypes";
 
 export interface AuthStore {
     isLoggedIn: boolean;
@@ -9,9 +10,11 @@ export interface AuthStore {
     isSetUpLoading: boolean;
     setUpApp: () => Promise<void>;
     login: (tokens: { accessToken: string; refreshToken: string }) => void;
+    register: (tokens: { accessToken: string; refreshToken: string }) => void;
     logout: () => void;
     getAccessToken: () => string | null;
-    renewSession: (accessToken: string, refreshToken: string) => void
+    renewSession: (accessToken: string, refreshToken: string) => void;
+    user: User | null
 }
 
 export const useAuthStore = create<AuthStore>((set, get) => ({
@@ -19,6 +22,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     accessToken: null,
     refreshToken: null,
     isSetUpLoading: true,
+    user: null,
 
     setUpApp: async () => {
         try {
@@ -62,6 +66,18 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     },
 
     login: ({ accessToken, refreshToken }) => {
+        console.log("----------------LOGGING IN (STORE) ------------------")
+
+        set({
+            isLoggedIn: true,
+            accessToken,
+            refreshToken,
+        });
+        apiClient.defaults.headers['x-auth-token'] = accessToken;
+    },
+    register: ({ accessToken, refreshToken }) => {
+        console.log("----------------REGISTER (STORE)  ------------------")
+
         set({
             isLoggedIn: true,
             accessToken,
@@ -70,7 +86,6 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
         apiClient.defaults.headers['x-auth-token'] = accessToken;
 
     },
-
     logout: () => {
         set({
             isLoggedIn: false,

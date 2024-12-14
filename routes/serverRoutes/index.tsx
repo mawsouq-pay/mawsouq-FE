@@ -1,9 +1,8 @@
 const serverRoutes = {
-    login: '/api/auth/login',
-    register: '/api/auth/register',
-    fetchOrders: '/api/orders',
-    startTransaction: '/api/transaction/start',
-    confirmOrder: '/api/order/confirm',
+    login: '/user/login',
+    register: '/user/register',
+    fetchOrders: '/order/my-orders',
+    createOrder: '/order/create'
 };
 
 export default serverRoutes;
