@@ -11,18 +11,18 @@ interface ProtectedRouteProps {
 
 const ProtectedRouteWrapper = ({ children, protectedRoutes, store }: ProtectedRouteProps) => {
     const router = useRouter();
-    const { isLoggedIn, accessToken } = store;
+    const { isLoggedIn, accessToken, isSetUpLoading } = store;
     console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn, accessToken)
     useEffect(() => {
         console.log("------PROTECTED WRAPPER USE EFFECT-------")
 
-        if (protectedRoutes.includes(router.pathname) && !isLoggedIn) {
+        if (protectedRoutes.includes(router.pathname) && !isLoggedIn && !isSetUpLoading) {
             console.log("------PROTECTED WRAPPER ANAUTHRIZED NAVIGATE TO LOGIN-------")
             router.push(clientRoutes.login);
         }
     }, [isLoggedIn, router.pathname]);
 
-    if (protectedRoutes.includes(router.pathname) && !isLoggedIn) {
+    if (protectedRoutes.includes(router.pathname) && !isLoggedIn && isSetUpLoading) {
         return <div>Loading...</div>;
     }
 

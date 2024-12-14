@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 
 const Register = () => {
     const data = {
-        "name": "Jana Elbehesy4",
-        "phone": "01116008414",
-        "email": "nazeer224@gmail.com",
+        "name": "Jana33 Elbehesy4",
+        "phone": "01336108414",
+        "email": "n2aze3er2214@gmail.com",
         "password": "nazeer123!"
     }
     const { mutate: registerUser, isPending, error } = useRegister();

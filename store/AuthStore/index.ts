@@ -1,103 +1,119 @@
 import { create } from "zustand";
-import { clientRoutes } from "@/routes";
+import { serverRoutes } from "@/routes";
 import apiClient from "@/client/axiosClient";
 import { User } from "@/types/authenticationTypes";
+import Cookies from "js-cookie";
 
 export interface AuthStore {
     isLoggedIn: boolean;
     accessToken: string | null;
-    refreshToken: string | null;
     isSetUpLoading: boolean;
     setUpApp: () => Promise<void>;
     login: (tokens: { accessToken: string; refreshToken: string }) => void;
     register: (tokens: { accessToken: string; refreshToken: string }) => void;
     logout: () => void;
-    getAccessToken: () => string | null;
     renewSession: (accessToken: string, refreshToken: string) => void;
-    user: User | null
+    user: User | null;
 }
 
 export const useAuthStore = create<AuthStore>((set, get) => ({
     isLoggedIn: false,
     accessToken: null,
-    refreshToken: null,
     isSetUpLoading: true,
     user: null,
 
     setUpApp: async () => {
         try {
-            console.log("-------ENTERING SET UP-------")
+            console.log("-------ENTERING SET UP-------");
             set({ isSetUpLoading: true });
 
-            const refreshToken = get().refreshToken;
+            const refreshToken = Cookies.get("refreshToken");
 
             if (!refreshToken) {
-                console.log("---------REFRESH TOKEN DOES NOT EXIST-----")
-                set({ isLoggedIn: false, isSetUpLoading: false });
-                return;
-            }
-            console.log("------USING REFRESH TOKEN TO GET NEW ACC AND REFRESH TOKEN-------")
-            const res = await apiClient.post('/auth/refresh', { refresh_token: refreshToken });
-            if (!res || !res.data) {
-                console.log("----------GENERATION OF TOKENS FAILED--------")
                 set({ isLoggedIn: false, isSetUpLoading: false });
                 return;
             }
 
-            const { access_token, refresh_token } = res.data;
-            get().renewSession(access_token, refresh_token);
+            const res = await apiClient.post(
+                serverRoutes.regenerateTokens,
+                {},
+                {
+                    headers: {
+                        "x-refresh-token": refreshToken,
+                    },
+                }
+            );
+            const new_access_token = res.headers["x-auth-token"];
+            const new_refresh_Token = res.headers["x-refresh-token"];
+            if (!new_access_token || !new_refresh_Token) {
+                console.log("----------NO TOKENS FOUND --------");
+                set({ isLoggedIn: false, isSetUpLoading: false });
+                return;
+            }
+
+
+            get().renewSession(new_access_token, new_refresh_Token);
         } catch (error) {
+            console.error("Set up failed:", error);
             set({ isSetUpLoading: false });
-
         }
     },
 
     renewSession: (accessToken: string, refreshToken: string) => {
-        console.log("----------------SAVING NEW TOKENS ------------------")
+        console.log("----------------SAVING NEW TOKENS ------------------");
+
+        Cookies.set("refreshToken", refreshToken, { expires: 1 });
 
         set({
             isLoggedIn: true,
             accessToken: accessToken,
-            refreshToken: refreshToken,
-            isSetUpLoading: false
+            isSetUpLoading: false,
         });
-        apiClient.defaults.headers['x-auth-token'] = accessToken;
 
+        apiClient.defaults.headers["x-auth-token"] = accessToken;
     },
 
     login: ({ accessToken, refreshToken }) => {
-        console.log("----------------LOGGING IN (STORE) ------------------")
+        console.log("----------------LOGGING IN (STORE) ------------------");
+
+        Cookies.set("refreshToken", refreshToken, { expires: 7 });
 
         set({
             isLoggedIn: true,
             accessToken,
-            refreshToken,
         });
-        apiClient.defaults.headers['x-auth-token'] = accessToken;
+
+        apiClient.defaults.headers["x-auth-token"] = accessToken;
     },
+
     register: ({ accessToken, refreshToken }) => {
-        console.log("----------------REGISTER (STORE)  ------------------")
+        console.log("----------------REGISTER (STORE)  ------------------");
+
+        Cookies.set("refreshToken", refreshToken, { expires: 1 });
 
         set({
             isLoggedIn: true,
             accessToken,
-            refreshToken,
         });
-        apiClient.defaults.headers['x-auth-token'] = accessToken;
 
+        apiClient.defaults.headers["x-auth-token"] = accessToken;
     },
+
     logout: () => {
+        console.log("----------------LOGGING OUT (STORE) ------------------");
+
+        Cookies.remove("refreshToken");
+
         set({
             isLoggedIn: false,
             accessToken: null,
-            refreshToken: null,
+            isSetUpLoading: false,
         });
 
+        delete apiClient.defaults.headers["x-auth-token"];
     },
 
-    getAccessToken: () => {
-        return get().accessToken;
-    },
+
 }));
 
 export default useAuthStore;
