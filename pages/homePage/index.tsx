@@ -1,7 +1,10 @@
+import { useFetchOrders } from "@/hooks/orderHooks";
+
 const HomePage = () => {
+    const { data: ordersData, isPending, error } = useFetchOrders()
+    console.log(ordersData?.orders)
     return (
-        <div>HOME PAGE</div>
+        <h1>hey</h1>
     );
 };
-
-export default HomePage;
+export default HomePage
