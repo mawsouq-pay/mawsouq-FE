@@ -36,3 +36,22 @@ apiClient.interceptors.response.use(
 );
 
 export default apiClient;
+
+
+
+-------------------------------------------------------------------------------------------------------------
+export const Wrapper = styled.div`
+  background-color: #f5f5f5;
+  padding: 20px;
+
+  ${media.mobile`
+    background-color: #ff0000; // Red background on mobile
+    padding: 10px;
+  `}
+
+  ${media.tablet`
+    background-color: #00ff00; // Green background on tablet
+    padding: 15px;
+  `}
+`;
+---------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 import queryClient from "@/client/reactQClient";
-import ProtectedRouteWrapper from "@/protectedRouteWrapper";
+import { GlobalStyles } from "@/constants/globalStyle";
+import MainLayout from "@/layouts/MainLayout";
+import ProtectedRouteWrapper from "@/ProtectedRouteWrapper";
 import { protectedRoutes, clientRoutes } from "@/routes";
 import useAuthStore from "@/store/AuthStore";
 import { QueryClientProvider } from '@tanstack/react-query';
@@ -19,7 +21,16 @@ function MyApp({ Component, pageProps }: any) {
     return (
         <QueryClientProvider client={queryClient}>
             <ProtectedRouteWrapper protectedRoutes={protectedRoutes} store={authStore}>
-                <Component {...pageProps} />
+                <GlobalStyles />
+                {Component.CustomLayout ? (
+                    <Component.CustomLayout >
+                        <Component {...pageProps} />
+                    </Component.CustomLayout>
+                ) : (
+                    <MainLayout>
+                        <Component {...pageProps} />
+                    </MainLayout>
+                )}
             </ProtectedRouteWrapper>
         </QueryClientProvider>
     );
