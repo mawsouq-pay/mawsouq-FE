@@ -11,22 +11,30 @@ interface ProtectedRouteProps {
 
 const ProtectedRouteWrapper = ({ children, protectedRoutes, store }: ProtectedRouteProps) => {
     const router = useRouter();
-    const { isLoggedIn, accessToken, isSetUpLoading } = store;
-    console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn, accessToken)
-    useEffect(() => {
-        console.log("------PROTECTED WRAPPER USE EFFECT-------")
+    const { isLoggedIn, isSetUpLoading } = store;
 
-        if (protectedRoutes.includes(router.pathname) && !isLoggedIn && !isSetUpLoading) {
-            console.log("------PROTECTED WRAPPER ANAUTHRIZED NAVIGATE TO LOGIN-------")
+    // Check if the route is protected
+    const isProtected = protectedRoutes.includes(router.pathname);
+
+    console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn);
+
+    useEffect(() => {
+        if (isProtected && !isLoggedIn && !isSetUpLoading) {
+            console.log("------PROTECTED WRAPPER UNAUTHORIZED: NAVIGATE TO LOGIN-------");
             router.push(clientRoutes.login);
         }
-    }, [isLoggedIn, router.pathname]);
+    }, [isLoggedIn, isSetUpLoading, router.pathname]);
 
-    if (protectedRoutes.includes(router.pathname) && !isLoggedIn && isSetUpLoading) {
+    if (isProtected && isSetUpLoading) {
         return <div>Loading...</div>;
+    }
+
+    if (isProtected && !isLoggedIn && !isSetUpLoading) {
+        return null;
     }
 
     return <>{children}</>;
 };
+
 
 export default ProtectedRouteWrapper;
