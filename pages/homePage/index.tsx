@@ -4,11 +4,8 @@ import ActionSection from "@/components/ActionsSection";
 import { useFetchOrders } from "@/hooks/orderHooks";
 
 const HomePage = () => {
-    const { data: ordersData, isPending, error } = useFetchOrders()
-    console.log(ordersData?.orders)
-    return (
-        <ActionSection />
-
-    );
+  const { data: ordersData, isPending, error } = useFetchOrders();
+  console.log(ordersData?.orders);
+  return <ActionSection />;
 };
-export default HomePage
+export default HomePage;
