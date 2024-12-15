@@ -1,40 +1,45 @@
-import { clientRoutes } from '@/routes';
-import { AuthStore } from '@/store';
-import { useRouter } from 'next/router';
-import { ReactNode, useEffect } from 'react';
+import { clientRoutes } from "@/routes";
+import { AuthStore } from "@/store";
+import { useRouter } from "next/router";
+import { ReactNode, useEffect } from "react";
 
 interface ProtectedRouteProps {
-    children: ReactNode;
-    protectedRoutes: string[];
-    store: AuthStore;
+  children: ReactNode;
+  protectedRoutes: string[];
+  store: AuthStore;
 }
 
-const ProtectedRouteWrapper = ({ children, protectedRoutes, store }: ProtectedRouteProps) => {
-    const router = useRouter();
-    const { isLoggedIn, isSetUpLoading } = store;
+const ProtectedRouteWrapper = ({
+  children,
+  protectedRoutes,
+  store,
+}: ProtectedRouteProps) => {
+  const router = useRouter();
+  const { isLoggedIn, isSetUpLoading } = store;
 
-    // Check if the route is protected
-    const isProtected = protectedRoutes.includes(router.pathname);
+  // Check if the route is protected
+  const isProtected = protectedRoutes.includes(router.pathname);
 
-    console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn);
+  console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn);
 
-    useEffect(() => {
-        if (isProtected && !isLoggedIn && !isSetUpLoading) {
-            console.log("------PROTECTED WRAPPER UNAUTHORIZED: NAVIGATE TO LOGIN-------");
-            router.push(clientRoutes.login);
-        }
-    }, [isLoggedIn, isSetUpLoading, router.pathname]);
-
-    if (isProtected && isSetUpLoading) {
-        return <div>Loading...</div>;
-    }
-
+  useEffect(() => {
     if (isProtected && !isLoggedIn && !isSetUpLoading) {
-        return null;
+      console.log(
+        "------PROTECTED WRAPPER UNAUTHORIZED: NAVIGATE TO LOGIN-------"
+      );
+      router.push(clientRoutes.login);
     }
+  }, [isLoggedIn, isSetUpLoading, router.pathname]);
 
-    return <>{children}</>;
+  if (isProtected && isSetUpLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isProtected && !isLoggedIn && !isSetUpLoading) {
+    return null;
+  }
+
+  return <>{children}</>;
 };
-
 
 export default ProtectedRouteWrapper;
