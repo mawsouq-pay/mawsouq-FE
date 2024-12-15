@@ -15,35 +15,35 @@ export const Text = styled.p<{
 `;
 export const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins'),
+    font-family: 'ProximaNova';
+    src: local('proximaNova'),
       url(../../assets/fonts/proximaNova/ProximaNova_Regular.ttf) format('truetype');
   }
 
   @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins'),
+    font-family: 'ProximaNova';
+    src: local('proximaNova'),
       url(../../assets/fonts/proximaNova/ProximaNova_Semi_Bold.ttf) format('truetype');
     font-weight: 600;
   }
 
   @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins'),
+    font-family: 'ProximaNova';
+    src: local('proximaNova'),
       url(../../assets/fonts/proximaNova/ProximaNova_Bold.ttf) format('truetype');
     font-weight: bold;
   }
 
   @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins'),
+    font-family: 'ProximaNova';
+    src: local('proximaNova'),
       url(../../assets/fonts/proximaNova/ProximaNova-Italic.ttf) format('truetype');
     font-style: italic;
   }
 
   @font-face {
-    font-family: 'Poppins';
-    src: local('Poppins'),
+    font-family: 'ProximaNova';
+    src: local('proximaNova'),
       url(../../assets/fonts/proximaNova/ProximaNova-BoldItalic.ttf) format('truetype');
     font-weight: bold;
     font-style: italic;
