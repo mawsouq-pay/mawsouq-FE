@@ -18,4 +18,4 @@ const ActionSection = () => {
         </MainWrapper>
     );
 };
-export default ActionSection
+export default ActionSection;
