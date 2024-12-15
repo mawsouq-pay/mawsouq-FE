@@ -1,14 +1,14 @@
 @font-face {
   font-family: "ProximaNova";
   src: local("proximaNova"),
-    url(../../Assets/Fonts/ProximaNova/ProximaNova_Regular.ttf)
+    url(../../Assets/Fonts/proximaNova/ProximaNova_Regular.ttf)
       format("truetype");
 }
 
 @font-face {
   font-family: "ProximaNova";
   src: local("proximaNova"),
-    url(../../Assets/Fonts/ProximaNova/ProximaNova_Semi_Bold.ttf)
+    url(../../Assets/Fonts/proximaNova/ProximaNova_Semi_Bold.ttf)
       format("truetype");
   font-weight: 500 600;
 }
@@ -16,14 +16,14 @@
 @font-face {
   font-family: "ProximaNova";
   src: local("proximaNova"),
-    url(../../Assets/Fonts/ProximaNova/ProximaNova_Bold.ttf) format("truetype");
+    url(../../Assets/Fonts/proximaNova/ProximaNova_Bold.ttf) format("truetype");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "ProximaNova";
   src: local("proximaNova"),
-    url(../../Assets/Fonts/ProximaNova/ProximaNova-Italic.ttf)
+    url(../../Assets/Fonts/proximaNova/ProximaNova-Italic.ttf)
       format("truetype");
   font-style: italic;
 }
@@ -31,7 +31,7 @@
 @font-face {
   font-family: "ProximaNova";
   src: local("proximaNova"),
-    url(../../Assets/Fonts/ProximaNova/ProximaNova-BoldItalic.ttf)
+    url(../../Assets/Fonts/proximaNova/ProximaNova-BoldItalic.ttf)
       format("truetype");
   font-weight: bold;
   font-style: italic;
