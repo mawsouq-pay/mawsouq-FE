@@ -1,14 +1,20 @@
-import { StartTransactionIcon } from "@/assets/icons";
+import { StartTransactionIcon, ViewTransactionIcon } from "@/assets/icons";
 import ActionCard from "../ActionCard";
-import { MainWrapper } from "./ActionSection.style";
+import { MainWrapper, RowFlex } from "./ActionSection.style";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 const ActionSection = () => {
-
+    const { locale } = useLocaleStore()
+    const text = textTr(locale);
+    console.log(locale)
     return (
         <MainWrapper>
-            <ActionCard Icon={StartTransactionIcon} title={"a"} onPress={() => { console.log("Start Transaftion") }} />
-            <ActionCard Icon={StartTransactionIcon} title={"a"} onPress={() => { console.log("Start Transaftion") }} />
-
+            <h1>{text.whatWouldYouLikeToDoTod}</h1>
+            <RowFlex>
+                <ActionCard Icon={StartTransactionIcon} title={text.createANewTransaction} onPress={() => { console.log("Start Transaftion") }} />
+                <ActionCard Icon={ViewTransactionIcon} title={text.viewMyTransactions} onPress={() => { console.log("Start Transaftion") }} />
+            </RowFlex>
         </MainWrapper>
     );
 };

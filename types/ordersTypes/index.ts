@@ -7,6 +7,7 @@ export interface Order {
     description: string;
     otherPartyEmail?: string | null;
     otherPartyNumber?: string | null;
+    isFetcherSeller: boolean;
 }
 
 export interface FetchOrdersResponse {

@@ -5,18 +5,14 @@ import { media } from "@/helpers/mediaQueryHelper";
 export const MainWrapper = styled.div`
     background-color: ${colors.white};
     border-radius:16px ;
-    gap:13px;
+    gap:20px;
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding-top:31px;
-    padding-bottom: 27px;
-    
-    ${media.mobile`
-    padding-top:21px;
-    padding-bottom: 17px;
-  `}
-
+    justify-content:flex-start;
+    padding: 15px  25px;
 `;
+export const FlexEnd = styled.div`
+     margin-left: auto;
+`

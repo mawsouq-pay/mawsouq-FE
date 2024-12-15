@@ -2,12 +2,13 @@ import { MainWrapper } from "./ActionCard.style";
 
 const ActionCard = (props: ActionCardProps) => {
     const {
-        Icon
+        Icon,
+        title
     } = props
     return (
         <MainWrapper>
             <Icon />
-            <h1>bye</h1>
+            <h1>title</h1>
         </MainWrapper >
     );
 };
