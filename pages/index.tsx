@@ -1,3 +1,17 @@
+import { useRouter } from 'next/router';
+import { clientRoutes } from '@/routes/clientRoutes';
+
 export default function Home() {
-    return <h1>Welcome to Mawsouq</h1>;
+    const router = useRouter();
+
+    const navigateToHomePage = () => {
+        router.push(clientRoutes.homePage);
+    };
+
+    return (
+        <div>
+            <h1>Welcome to Mawsouq</h1>
+            <button onClick={navigateToHomePage}>Go to Homepage</button>
+        </div>
+    );
 }
