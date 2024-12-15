@@ -1,6 +1,7 @@
 import { Skeleton } from "@mui/material";
-import { GlobalStyle, Text } from "./MSText.style";
+import { Text } from "./MSText.style";
 import { MSTextProps } from "./types";
+import Styles from "./MSText.module.css";
 
 const MSText: React.FC<MSTextProps> = ({
   children,
@@ -25,11 +26,10 @@ const MSText: React.FC<MSTextProps> = ({
         />
       ) : (
         <>
-          <GlobalStyle />
           <Text
             {...props}
             style={style}
-            className={className}
+            className={`${Styles.text} ${className}`}
             fontSize={fontSize}
             color={color}
             fontWeight={fontWeight}
