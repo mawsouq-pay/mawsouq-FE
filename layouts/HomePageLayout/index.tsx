@@ -4,16 +4,16 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div`
 	background-color: ${colors.backgroundColor};
-	padding: 20px;
+	padding: 20px clamp(30px, 8vw, 150px);
 	min-height: 100vh;
 `;
 
-interface MainLayoutProps {
+interface HomePageLayoutProps {
 	children: React.ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const HomePageLayout: React.FC<HomePageLayoutProps> = ({ children }) => {
 	return <StyledWrapper>{children}</StyledWrapper>;
 };
 
-export default MainLayout;
+export default HomePageLayout;
