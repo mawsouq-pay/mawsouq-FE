@@ -1,7 +1,7 @@
+import ProtectedRouteWrapper from "@/components/ProtectedRouteWrapper";
 import queryClient from "@/client/reactQClient";
 import { GlobalStyles } from "@/constants/globalStyle";
 import MainLayout from "@/layouts/MainLayout";
-import ProtectedRouteWrapper from "@/ProtectedRouteWrapper";
 import { protectedRoutes, clientRoutes } from "@/routes";
 import useAuthStore from "@/store/AuthStore";
 import { QueryClientProvider } from "@tanstack/react-query";
