@@ -2,7 +2,7 @@
 	font-family: "ProximaNova";
 	src:
 		local("proximaNova"),
-		url(../../assets/fonts/ProximaNova/ProximaNova_Regular.ttf)
+		url(../../assets/fonts/proximaNova/ProximaNova_Regular.ttf)
 			format("truetype");
 }
 
@@ -10,7 +10,7 @@
 	font-family: "ProximaNova";
 	src:
 		local("proximaNova"),
-		url(../../assets/fonts/ProximaNova/ProximaNova_Semi_Bold.ttf)
+		url(../../assets/fonts/proximaNova/ProximaNova_Semi_Bold.ttf)
 			format("truetype");
 	font-weight: 500 600;
 }

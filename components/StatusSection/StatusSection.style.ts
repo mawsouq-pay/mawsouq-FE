@@ -30,5 +30,5 @@ export const Circle = styled.div`
 export const GreetingDiv = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 5px;
 `;
