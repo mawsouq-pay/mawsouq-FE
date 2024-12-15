@@ -7,7 +7,7 @@ const ActionSection = () => {
     <MainWrapper>
       <ActionCard
         Icon={StartTransactionIcon}
-        title={"Start a transaction"}
+        title={"Ahmed NasrElDin"}
         onPress={() => {
           console.log("Start Transaftion");
         }}
