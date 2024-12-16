@@ -4,14 +4,15 @@ import { MainWrapper, RowFlex } from "./ActionSection.style";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
+import useCustomBreakpoint from "@/helpers/screenSizes";
 
 const ActionSection = () => {
 	const { locale } = useLocaleStore();
+	const { isMobile } = useCustomBreakpoint();
 	const text = textTr(locale);
-	console.log(locale);
 	return (
 		<MainWrapper>
-			<MSText fontSize="20px" fontWeight="600">
+			<MSText fontSize={isMobile ? "16px" : "20px"} fontWeight="600">
 				{text.whatWouldYouLikeToDoTod}
 			</MSText>
 			<RowFlex>

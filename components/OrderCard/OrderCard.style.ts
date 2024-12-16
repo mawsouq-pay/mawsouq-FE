@@ -9,7 +9,7 @@ export const MainWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 	justify-content: flex-start;
 	padding: 20px 35px;
 	${media.below925`
@@ -28,6 +28,9 @@ export const MobileCardHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eaeaea;
+	text-align: center;
 `;
 
 interface StatusBadgeProps {
@@ -40,17 +43,26 @@ export const StatusBadge = styled.span<StatusBadgeProps>`
 	border-radius: 16px;
 	font-weight: bold;
 `;
-
+export const StatusDot = styled.span<{ color: string }>`
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	border: 2px solid ${({ color }) => color};
+	background-color: transparent;
+	display: inline-block;
+	margin-right: 8px;
+`;
 export const MobileCardContent = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: 8px;
 	margin-top: 10px;
 `;
 
 export const FlexEnd = styled.div`
 	display: flex;
-	margin-left: auto;
+	//margin-left: auto;
 	align-items: center;
+	margin-top: 12px;
 	gap: 5px;
 `;

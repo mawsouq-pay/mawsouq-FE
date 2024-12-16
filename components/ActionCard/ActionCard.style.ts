@@ -13,9 +13,10 @@ export const MainWrapper = styled.div`
 	justify-content: center;
 	padding: 31px;
 	text-align: center;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 
-	${media.mobile`
-    padding-top:21px;
-    padding-bottom: 17px;
+	${media.below925`
+   	padding: 18px ;
+
   `}
 `;

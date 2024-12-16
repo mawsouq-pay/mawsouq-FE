@@ -56,7 +56,7 @@ const StatusSection = () => {
 							color={colors.green}
 							fontWeight="medium"
 						>
-							$5,000
+							$3,000
 						</MSText>
 					}
 				/>
