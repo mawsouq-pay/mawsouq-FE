@@ -12,5 +12,6 @@ const ar = {
 	item: "العنصر",
 	amount: "المبلغ",
 	status: "الحالة",
+	myTransactions: "معاملاتي",
 };
 export default ar;

@@ -12,5 +12,6 @@ const en = {
 	item: "Item",
 	amount: "Amount",
 	status: "Status",
+	myTransactions: "My Transactions",
 };
 export default en;
