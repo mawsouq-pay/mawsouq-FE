@@ -16,7 +16,6 @@ function MyApp({ Component, pageProps }: any) {
 	if (isSetUpLoading) {
 		return <div>Loading...</div>;
 	}
-	console.log(Component.CustomLayout, "a");
 	return (
 		<QueryClientProvider client={queryClient}>
 			<ProtectedRouteWrapper
