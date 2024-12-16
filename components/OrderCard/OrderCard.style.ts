@@ -5,7 +5,7 @@ import { media } from "@/helpers/mediaQueryHelper";
 export const MainWrapper = styled.div`
 	background-color: ${colors.white};
 	border-radius: 16px;
-	flex: 1;
+	//flex: 1;
 	display: flex;
 	flex-direction: row;
 	align-items: center;

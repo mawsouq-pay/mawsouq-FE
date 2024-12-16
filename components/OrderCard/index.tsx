@@ -16,6 +16,7 @@ import useCustomBreakpoint from "@/helpers/screenSizes";
 import { Grid2 } from "@mui/material";
 import { orderStatusObject } from "@/constants";
 import { DueDateIcon } from "@/assets/icons";
+import OrderListItem from "../OrderListItem";
 
 const OrderCard = (props: HorizontalCardProps) => {
 	const { locale } = useLocaleStore();
@@ -74,74 +75,57 @@ const OrderCard = (props: HorizontalCardProps) => {
 			</MSText>
 		);
 	};
-
 	return (
 		<MainWrapper>
-			<Grid2
-				container
-				direction={isMobile ? "column" : "row"}
-				sx={{
-					justifyContent: "space-between",
-					alignItems: isMobile ? "flex-start" : "center",
-					flex: 1,
-				}}
-				spacing={isMobile ? 4 : 20}
-			>
-				{!isMobile ? (
-					dataPairs.map((item) => (
-						<Grid2
-							container
-							direction="column"
-							sx={{ gap: 1 }}
-							key={item.title}
-						>
-							{renderTitle(item.title)}
-							{item.title === text.status ? (
-								<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
-									<StatusDot color="#90EE90" />
-									{renderValue(
-										orderStatusInfo.text,
-										colors.lightBlack,
-										"14px",
-										"normal"
-									)}
-								</StatusBadge>
-							) : (
-								renderValue(item.value, item.color)
-							)}
-						</Grid2>
-					))
-				) : (
-					<MobileCardWrapper>
-						<MobileCardHeader>
+			{!isMobile ? (
+				// dataPairs.map((item) => (
+				// 	<Grid2
+				// 		container
+				// 		direction="column"
+				// 		sx={{ gap: 1 }}
+				// 		key={item.title}
+				// 	>
+				// 		{renderTitle(item.title)}
+				// 		{item.title === text.status ? (
+				// 			<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
+				// 				<StatusDot color="#90EE90" />
+				// 				{renderValue(
+				// 					orderStatusInfo.text,
+				// 					colors.lightBlack,
+				// 					"14px",
+				// 					"normal"
+				// 				)}
+				// 			</StatusBadge>
+				// 		) : (
+				// 			renderValue(item.value, item.color)
+				// 		)}
+				// 	</Grid2>
+				// ))
+				<OrderListItem />
+			) : (
+				<MobileCardWrapper>
+					<MobileCardHeader>
+						{renderValue(`${amount}`, colors.semiBlack, "24px", "bold", "EGP")}{" "}
+						<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
+							<StatusDot color="#90EE90" />
 							{renderValue(
-								`${amount}`,
-								colors.semiBlack,
-								"24px",
-								"bold",
-								"EGP"
-							)}{" "}
-							<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
-								<StatusDot color="#90EE90" />
-								{renderValue(
-									orderStatusInfo.text,
-									colors.lightBlack,
-									"14px",
-									"normal"
-								)}
-							</StatusBadge>
-						</MobileCardHeader>
-						<MobileCardContent>
-							{renderValue("S1234", colors.gray, "14px", "normal")}{" "}
-							{renderValue("Portrait glasses", colors.black, "16px", "600")}
-						</MobileCardContent>
-						<FlexEnd>
-							<DueDateIcon />
-							{renderValue("December 12, 2024", colors.gray, "14px", "normal")}
-						</FlexEnd>
-					</MobileCardWrapper>
-				)}
-			</Grid2>
+								orderStatusInfo.text,
+								colors.lightBlack,
+								"14px",
+								"normal"
+							)}
+						</StatusBadge>
+					</MobileCardHeader>
+					<MobileCardContent>
+						{renderValue("S1234", colors.gray, "14px", "normal")}{" "}
+						{renderValue("Portrait glasses", colors.black, "16px", "600")}
+					</MobileCardContent>
+					<FlexEnd>
+						<DueDateIcon />
+						{renderValue("December 12, 2024", colors.gray, "14px", "normal")}
+					</FlexEnd>
+				</MobileCardWrapper>
+			)}
 		</MainWrapper>
 	);
 };

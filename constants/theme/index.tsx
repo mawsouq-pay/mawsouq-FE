@@ -8,4 +8,8 @@ export const colors = {
 	gray: "gray",
 	semiBlack: "#232b2b",
 	lightBlack: "#2C2D2D",
+
+	//OrderListItem:
+	LabelValue: "#75859E",
+	NameContainerBackground: "#F7F9FC",
 };
