@@ -1,6 +1,6 @@
 const en = {
-	createANewTransaction: "Create a New Transaction",
-	viewMyTransactions: "View My Transactions",
+	createANewTransaction: "Start Transaction",
+	viewMyTransactions: "View Transactions",
 	whatWouldYouLikeToDoTod: "What would you like to do today?",
 	walletBalance: "Wallet Balance",
 	activeTransactions: "Active Transactions",

@@ -1,6 +1,12 @@
-import { screenSizes } from "@/constants/screenSizes";
 import { css } from "styled-components";
 
+const screenSizes = {
+	mobile: "480px",
+	tablet: "768px",
+	laptop: "1024px",
+	desktop: "1200px",
+	largeDesktop: "1440px",
+};
 export const media = {
 	mobile: (styles: TemplateStringsArray | string) => css`
 		@media (max-width: ${screenSizes.mobile}) {

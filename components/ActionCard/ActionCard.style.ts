@@ -12,6 +12,7 @@ export const MainWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	padding: 31px;
+	text-align: center;
 
 	${media.mobile`
     padding-top:21px;

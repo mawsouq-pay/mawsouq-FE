@@ -1,34 +1,60 @@
 import MSText from "../MSText";
-import { MainWrapper } from "./OrderCard.style";
+import {
+	FlexEnd,
+	MainWrapper,
+	MobileCardContent,
+	MobileCardHeader,
+	MobileCardWrapper,
+	StatusBadge,
+} from "./OrderCard.style";
 import { HorizontalCardProps } from "./types";
 import { textTr } from "@/constants/locales";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { colors } from "@/constants/theme";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import { Grid2 } from "@mui/material";
+import { orderStatusObject } from "@/constants";
+import { DueDateIcon } from "@/assets/icons";
 
 const OrderCard = (props: HorizontalCardProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { isMobile } = useCustomBreakpoint();
-	const { orderNo, itemName, amount, status } = props;
+	const { orderNo, itemName, amount } = props;
+	const status = "DELIVERED";
+	const orderStatusInfo = orderStatusObject[status];
+	console.log(orderStatusInfo, "HEY");
 	const dataPairs = [
 		{ title: text.orderNo, value: orderNo, color: colors.blue },
 		{ title: text.item, value: itemName, color: colors.black },
 		{ title: text.amount, value: amount, color: colors.black },
-		{ title: text.status, value: status, color: colors.green },
+		{
+			title: text.status,
+			value: status,
+			color: orderStatusInfo.backgroundColor,
+		},
 	];
-	const title = (titleName: any) => {
+
+	const renderTitle = (titleName: string) => (
+		<MSText color={colors.gray} fontSize="16px">
+			{titleName}
+		</MSText>
+	);
+
+	const renderValue = (value: string, color: string, size?: string) => {
+		const fontSize = size || "16px";
+
+		const [amount, currency] = value.split(" ");
 		return (
-			<MSText color={colors.gray} fontSize="16px">
-				{titleName}
-			</MSText>
-		);
-	};
-	const value = (value: string, color: string) => {
-		return (
-			<MSText color={color} fontSize="16px">
-				{value}
+			<MSText
+				color={color}
+				fontSize={fontSize}
+				style={{ display: "inline-flex", alignItems: "baseline" }}
+			>
+				{amount}{" "}
+				<span style={{ fontSize: "14px", marginLeft: "4px", lineHeight: "1" }}>
+					{currency}
+				</span>
 			</MSText>
 		);
 	};
@@ -46,53 +72,38 @@ const OrderCard = (props: HorizontalCardProps) => {
 				spacing={isMobile ? 4 : 16}
 			>
 				{!isMobile ? (
-					<>
-						{dataPairs.map((item) => {
-							return (
-								<Grid2 container direction="column" sx={{ gap: 1 }}>
-									{title(item.title)}
-									{value(item.value, item.color)}
-								</Grid2>
-							);
-						})}
-					</>
+					dataPairs.map((item) => (
+						<Grid2
+							container
+							direction="column"
+							sx={{ gap: 1 }}
+							key={item.title}
+						>
+							{renderTitle(item.title)}
+							{renderValue(item.value, item.color)}
+						</Grid2>
+					))
 				) : (
-					<>
-						<Grid2
-							container
-							direction="row"
-							justifyContent="space-between"
-							sx={{ gap: isMobile ? 2 : 0, width: "100%" }}
-						>
-							<Grid2 container direction="column" sx={{ gap: 1 }}>
-								{title(text.orderNo)}
-								{value("#36633", colors.blue)}
-							</Grid2>
-							<Grid2 container direction="column" sx={{ gap: 1 }}>
-								{title(text.amount)}
-								{value("$120", colors.black)}
-							</Grid2>
-						</Grid2>
-
-						<Grid2
-							container
-							direction="row"
-							justifyContent="space-between"
-							sx={{ gap: isMobile ? 2 : 0, width: "100%" }}
-						>
-							<Grid2 container direction="column" sx={{ gap: 1 }}>
-								{title(text.item)}
-								{value("Painting", colors.black)}
-							</Grid2>
-							<Grid2 container direction="column" sx={{ gap: 1 }}>
-								{title(text.status)}
-								{value("Delivered", colors.green)}
-							</Grid2>
-						</Grid2>
-					</>
+					<MobileCardWrapper>
+						<MobileCardHeader>
+							{renderValue(`${amount} EGP`, colors.semiBlack, "20px")}
+							<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
+								{renderValue(orderStatusInfo.text, colors.semiBlack, "14px")}
+							</StatusBadge>
+						</MobileCardHeader>
+						<MobileCardContent>
+							{renderValue("S1234", colors.gray, "14px")}
+							{renderValue("Portrait glasses", colors.black)}
+						</MobileCardContent>
+						<FlexEnd>
+							<DueDateIcon />
+							{renderValue("12/2", colors.gray, "14px")}
+						</FlexEnd>
+					</MobileCardWrapper>
 				)}
 			</Grid2>
 		</MainWrapper>
 	);
 };
+
 export default OrderCard;
