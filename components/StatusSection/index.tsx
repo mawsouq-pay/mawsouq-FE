@@ -11,9 +11,11 @@ import StatusCard from "../StatusCard";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
 import { getGreetingAndDate } from "@/utility/helperFunctions";
+import { useAuthStore } from "@/store";
 
 const StatusSection = () => {
 	const { locale } = useLocaleStore();
+	const { user } = useAuthStore();
 	const text = textTr(locale);
 	console.log(locale);
 	const { greeting, formattedDate } = getGreetingAndDate(locale);
@@ -21,7 +23,9 @@ const StatusSection = () => {
 	return (
 		<MainWrapper>
 			<GreetingDiv>
-				<MSText>{greeting},Nada</MSText>
+				<MSText>
+					{greeting} , {user?.name ?? "User"}
+				</MSText>
 				<MSText fontSize="12px" color={colors.gray}>
 					{text.todayIs} {formattedDate}
 				</MSText>

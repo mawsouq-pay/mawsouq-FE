@@ -3,14 +3,16 @@ import StatusSection from "@/components/StatusSection";
 import { useFetchOrders } from "@/hooks/orderHooks";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import { HomePageWrapper } from "./HomePage.style";
+import OrdersOverviewSection from "@/components/OrdersOverviewSection";
 
 const HomePage = () => {
 	const { data: ordersData, isPending, error } = useFetchOrders();
-	console.log(ordersData?.orders);
+	console.log("Orders Data:", ordersData?.orders);
 	return (
 		<HomePageWrapper>
 			<StatusSection />
-			<ActionSection />;
+			<ActionSection />
+			<OrdersOverviewSection />
 		</HomePageWrapper>
 	);
 };

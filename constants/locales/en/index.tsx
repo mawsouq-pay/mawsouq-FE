@@ -7,5 +7,10 @@ const en = {
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",
 	todayIs: "Today is",
+	transactionsOverview: "Transactions Overview",
+	orderNo: "Order No.",
+	item: "Item",
+	amount: "Amount",
+	status: "Status",
 };
 export default en;

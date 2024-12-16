@@ -7,5 +7,10 @@ const ar = {
 	goodMorning: "صباح الخير،",
 	goodEvening: "مساء الخير،",
 	todayIs: "اليوم هو",
+	transactionsOverview: "أحدث المعاملات",
+	orderNo: "رقم الطلب",
+	item: "العنصر",
+	amount: "المبلغ",
+	status: "الحالة",
 };
 export default ar;
