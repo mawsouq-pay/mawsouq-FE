@@ -12,12 +12,13 @@ import MSText from "../MSText";
 import { colors } from "@/constants/theme";
 import { getGreetingAndDate } from "@/utility/helperFunctions";
 import { useAuthStore } from "@/store";
+import useCustomBreakpoint from "@/helpers/screenSizes";
 
 const StatusSection = () => {
 	const { locale } = useLocaleStore();
 	const { user } = useAuthStore();
 	const text = textTr(locale);
-	console.log(locale);
+	const { isMobile } = useCustomBreakpoint();
 	const { greeting, formattedDate } = getGreetingAndDate(locale);
 
 	return (
@@ -36,7 +37,11 @@ const StatusSection = () => {
 					title={text.activeTransactions}
 					Status={
 						<Circle>
-							<MSText fontSize="30px" color={colors.blue} fontWeight="bold">
+							<MSText
+								fontSize={isMobile ? "24px" : "30px"}
+								color={colors.blue}
+								fontWeight={isMobile ? "600" : "bold"}
+							>
 								05
 							</MSText>
 						</Circle>
@@ -46,8 +51,12 @@ const StatusSection = () => {
 					Icon={WalletIcon}
 					title={text.walletBalance}
 					Status={
-						<MSText fontSize="30px" color={colors.green} fontWeight="medium">
-							$1,000
+						<MSText
+							fontSize={isMobile ? "24px" : "30px"}
+							color={colors.green}
+							fontWeight="medium"
+						>
+							$5,000
 						</MSText>
 					}
 				/>

@@ -1,18 +1,23 @@
 import styled from "styled-components";
-import { colors } from "@/constants/theme"
+import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainWrapper = styled.div`
-    background-color: ${colors.white};
-    border-radius:16px ;
-    gap:20px;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:flex-start;
-    padding: 15px  25px;
+	background-color: ${colors.white};
+	border-radius: 16px;
+	gap: 20px;
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 10px 16px 10px 24px;
+	min-height: 80px;
+	${media.below925`
+	min-height: 70px;
+
+    `}
 `;
 export const FlexEnd = styled.div`
-     margin-left: auto;
-`
+	margin-left: auto;
+`;

@@ -6,7 +6,7 @@ const StatusCard = (props: StatusCardProps) => {
 	return (
 		<MainWrapper>
 			<Icon />
-			<MSText fontSize="18px" fontWeight="regular">
+			<MSText fontSize="16px" fontWeight="regular">
 				{title}
 			</MSText>
 			<FlexEnd>{Status}</FlexEnd>
