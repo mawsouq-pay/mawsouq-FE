@@ -13,7 +13,7 @@ export const MainWrapper = styled.div`
 	justify-content: center;
 	padding: 31px;
 	text-align: center;
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 
 	${media.below925`
    	padding: 18px ;

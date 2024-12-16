@@ -13,7 +13,7 @@ export const MainWrapper = styled.div`
 	justify-content: flex-start;
 	padding: 10px 16px 10px 24px;
 	min-height: 80px;
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 
 	${media.below925`
 	min-height: 70px;

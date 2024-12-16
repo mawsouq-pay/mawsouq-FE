@@ -9,7 +9,7 @@ export const MainWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 	justify-content: flex-start;
 	padding: 20px 35px;
 	${media.below925`
