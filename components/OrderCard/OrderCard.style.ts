@@ -18,13 +18,3 @@ export const MainWrapper = styled.div`
 
     `}
 `;
-
-export const StyledGrid = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	${media.below925`
-     flex-direction:row;
-     gap:20px;
-    `}
-`;

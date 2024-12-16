@@ -1,10 +1,11 @@
+import Navbar from "@/components/NavBar";
 import { colors } from "@/constants/theme";
 import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
 	background-color: ${colors.backgroundColor};
-	padding: 20px clamp(30px, 8vw, 150px);
+	padding: 40px clamp(30px, 8vw, 150px);
 	min-height: 100vh;
 `;
 
@@ -13,7 +14,12 @@ interface HomePageLayoutProps {
 }
 
 const HomePageLayout: React.FC<HomePageLayoutProps> = ({ children }) => {
-	return <StyledWrapper>{children}</StyledWrapper>;
+	return (
+		<>
+			<Navbar />
+			<StyledWrapper>{children}</StyledWrapper>
+		</>
+	);
 };
 
 export default HomePageLayout;
