@@ -12,7 +12,9 @@ const ActionCard = (props: ActionCardProps) => {
 			}}
 		>
 			<Icon width={isMobile ? 24 : null} />
-			<MSText fontSize={isMobile ? "12px" : "16px"}>{title}</MSText>
+			<MSText fontSize={"16px"} mobileFontSize="12px">
+				{title}
+			</MSText>
 		</MainWrapper>
 	);
 };

@@ -18,6 +18,8 @@ const MSText: React.FC<MSTextProps> = ({
 	...props
 }) => {
 	const { isMobile } = useCustomBreakpoint();
+	const adjustedFontSize =
+		isMobile && mobileFontSize ? mobileFontSize : fontSize;
 	return (
 		<>
 			{isLoading ? (
@@ -33,7 +35,7 @@ const MSText: React.FC<MSTextProps> = ({
 						{...props}
 						style={style}
 						className={`${Styles.text} ${className}`}
-						fontSize={isMobile ? fontSize : mobileFontSize}
+						fontSize={adjustedFontSize}
 						color={color}
 						fontWeight={fontWeight}
 					>

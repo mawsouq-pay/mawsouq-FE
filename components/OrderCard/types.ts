@@ -4,3 +4,11 @@ export interface HorizontalCardProps {
 	amount: string;
 	status: string;
 }
+export interface RenderValueProps {
+	value: string;
+	color: string;
+	size?: string;
+	weight?: string;
+	currencyText?: string;
+	mobileFontSize?: string;
+}

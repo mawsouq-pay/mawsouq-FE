@@ -38,7 +38,8 @@ const StatusSection = () => {
 					Status={
 						<Circle>
 							<MSText
-								fontSize={isMobile ? "24px" : "30px"}
+								fontSize={"30px"}
+								mobileFontSize={"20px"}
 								color={colors.blue}
 								fontWeight={isMobile ? "600" : "bold"}
 							>
@@ -52,9 +53,10 @@ const StatusSection = () => {
 					title={text.walletBalance}
 					Status={
 						<MSText
-							fontSize={isMobile ? "24px" : "30px"}
+							fontSize={"30px"}
+							mobileFontSize={"20px"}
 							color={colors.green}
-							fontWeight="medium"
+							fontWeight="600"
 						>
 							$3,000
 						</MSText>

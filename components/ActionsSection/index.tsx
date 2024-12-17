@@ -12,7 +12,7 @@ const ActionSection = () => {
 	const text = textTr(locale);
 	return (
 		<MainWrapper>
-			<MSText fontSize={isMobile ? "16px" : "20px"} fontWeight="600">
+			<MSText fontSize={"20px"} mobileFontSize="16px" fontWeight="600">
 				{text.whatWouldYouLikeToDoTod}
 			</MSText>
 			<RowFlex>

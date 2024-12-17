@@ -8,7 +8,7 @@ import {
 	StatusBadge,
 	StatusDot,
 } from "./OrderCard.style";
-import { HorizontalCardProps } from "./types";
+import { HorizontalCardProps, RenderValueProps } from "./types";
 import { textTr } from "@/constants/locales";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { colors } from "@/constants/theme";
@@ -43,22 +43,21 @@ const OrderCard = (props: HorizontalCardProps) => {
 		</MSText>
 	);
 
-	const renderValue = (
-		value: string,
-		color: string,
-		size?: string,
-		weight?: string,
-		currencyText?: string
-	) => {
-		const fontSize = size || "16px";
-		const fontWeight = weight || "normal";
-
+	const renderValue = ({
+		value,
+		color,
+		size = "16px",
+		weight = "normal",
+		currencyText,
+		mobileFontSize,
+	}: RenderValueProps) => {
 		return (
 			<MSText
 				color={color}
-				fontSize={fontSize}
+				fontSize={size}
 				style={{ display: "inline-flex", alignItems: "baseline" }}
-				fontWeight={fontWeight}
+				fontWeight={weight}
+				mobileFontSize={mobileFontSize}
 			>
 				{value}{" "}
 				{currencyText && (
@@ -75,6 +74,7 @@ const OrderCard = (props: HorizontalCardProps) => {
 			</MSText>
 		);
 	};
+
 	return (
 		<MainWrapper>
 			{!isMobile ? (
@@ -105,24 +105,48 @@ const OrderCard = (props: HorizontalCardProps) => {
 			) : (
 				<MobileCardWrapper>
 					<MobileCardHeader>
-						{renderValue(`${amount}`, colors.semiBlack, "24px", "bold", "EGP")}{" "}
+						{renderValue({
+							value: `${amount}`,
+							color: colors.semiBlack,
+							size: "24px",
+							weight: "bold",
+							currencyText: "EGP",
+						})}
+
 						<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
 							<StatusDot color="#90EE90" />
-							{renderValue(
-								orderStatusInfo.text,
-								colors.lightBlack,
-								"14px",
-								"normal"
-							)}
+							{renderValue({
+								value: orderStatusInfo.text,
+								color: colors.lightBlack,
+								size: "14px",
+								weight: "normal",
+							})}
 						</StatusBadge>
 					</MobileCardHeader>
+
 					<MobileCardContent>
-						{renderValue("S1234", colors.gray, "14px", "normal")}{" "}
-						{renderValue("Portrait glasses", colors.black, "16px", "600")}
+						{renderValue({
+							value: "S1234",
+							color: colors.gray,
+							size: "14px",
+							weight: "normal",
+						})}
+						{renderValue({
+							value: "Portrait glasses",
+							color: colors.black,
+							size: "16px",
+							weight: "600",
+						})}
 					</MobileCardContent>
+
 					<FlexEnd>
 						<DueDateIcon />
-						{renderValue("December 12, 2024", colors.gray, "14px", "normal")}
+						{renderValue({
+							value: "December 12, 2024",
+							color: colors.gray,
+							size: "14px",
+							weight: "normal",
+						})}
 					</FlexEnd>
 				</MobileCardWrapper>
 			)}
