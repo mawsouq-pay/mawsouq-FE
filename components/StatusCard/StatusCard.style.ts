@@ -3,7 +3,8 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainWrapper = styled.div`
-	background-color: ${colors.white};
+	background-color: ${colors.divBackground};
+	border: 1px solid ${colors.divBorder};
 	border-radius: 16px;
 	gap: 20px;
 	flex: 1;
