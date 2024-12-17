@@ -13,5 +13,6 @@ const ar = {
 	amount: "المبلغ",
 	status: "الحالة",
 	myTransactions: "معاملاتي",
+	createOrder: "إنشاء طلب",
 };
 export default ar;

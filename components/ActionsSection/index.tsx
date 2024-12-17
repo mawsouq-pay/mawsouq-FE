@@ -5,11 +5,13 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
 import useCustomBreakpoint from "@/helpers/screenSizes";
+import { useRouter } from "next/router";
+import { clientRoutes } from "@/routes";
 
 const ActionSection = () => {
 	const { locale } = useLocaleStore();
-	const { isMobile } = useCustomBreakpoint();
 	const text = textTr(locale);
+	const { push } = useRouter();
 	return (
 		<MainWrapper>
 			<MSText fontSize={"20px"} mobileFontSize="16px" fontWeight="600">
@@ -20,7 +22,7 @@ const ActionSection = () => {
 					Icon={StartTransactionIcon}
 					title={text.createANewTransaction}
 					onPress={() => {
-						console.log("Start Transaftion");
+						push(clientRoutes.startTransaction);
 					}}
 				/>
 				<ActionCard

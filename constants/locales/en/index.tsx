@@ -13,5 +13,6 @@ const en = {
 	amount: "Amount",
 	status: "Status",
 	myTransactions: "My Transactions",
+	createOrder: "Create an Order",
 };
 export default en;
