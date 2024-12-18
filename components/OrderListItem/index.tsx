@@ -17,10 +17,10 @@ const OrderListItem = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const OrderItems = [
-		{ title: text.orderNo, value: "Order #1234" },
-		{ title: text.item, value: "Domain for website" },
+		{ title: text.transactionTitle, value: "Order #1234" },
+		{ title: text.itemName, value: "Domain for website" },
 		{ title: text.amount, value: "$120" },
-		{ title: "due date", value: "December 16, 2024" },
+		{ title: text.deliverDate, value: "December 16, 2024" },
 	];
 	return (
 		<MainWrapper>
