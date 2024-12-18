@@ -8,6 +8,7 @@ import StepConnector, {
 	stepConnectorClasses,
 } from "@mui/material/StepConnector";
 import { StepIconProps } from "@mui/material/StepIcon";
+import { colors } from "@/constants/theme";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
 	[`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -17,12 +18,12 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 	},
 	[`&.${stepConnectorClasses.active}`]: {
 		[`& .${stepConnectorClasses.line}`]: {
-			borderColor: "#784af4",
+			borderColor: `${colors.green}`,
 		},
 	},
 	[`&.${stepConnectorClasses.completed}`]: {
 		[`& .${stepConnectorClasses.line}`]: {
-			borderColor: "#784af4",
+			borderColor: `${colors.green}`,
 		},
 	},
 	[`& .${stepConnectorClasses.line}`]: {
@@ -34,12 +35,12 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 
 const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(
 	({ ownerState }) => ({
-		color: ownerState.active ? "#784af4" : "#eaeaf0",
+		color: ownerState.active ? `${colors.green}` : "#eaeaf0",
 		display: "flex",
 		height: 22,
 		alignItems: "center",
 		"& .QontoStepIcon-completedIcon": {
-			color: "#784af4",
+			color: `${colors.green}`,
 			zIndex: 1,
 			fontSize: 18,
 		},

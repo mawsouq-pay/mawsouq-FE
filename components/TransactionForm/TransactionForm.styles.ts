@@ -52,11 +52,11 @@ export const TextAreaField = styled(Field)`
 	height: 80px;
 `;
 
-export const StyledButton = styled.button<{ isSteps: Boolean }>`
+export const StyledButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	align-self: ${({ isSteps }) => (isSteps ? "flex-end" : "auto")};
+	align-self: flex-end;
 	background: ${colors.buttonGreenBackground};
 	color: white;
 	padding: 15px 18px;

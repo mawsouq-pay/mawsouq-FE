@@ -10,18 +10,13 @@ import { Formik } from "formik";
 import FormItem from "../FormItem";
 import { TransactionFormProps, createValidationSchema } from "./types";
 const TransactionForm = (props: TransactionFormProps) => {
-	const { onSubmit, isSteps } = props;
+	const { onSubmit, initialValues } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const initialValues = {
-		title: "",
-		description: "",
-		amount: "",
-		deliveryDate: "",
-		quantity: "",
-	};
+
 	const validationSchema = createValidationSchema(text);
-	const handleSubmit = (values: any) => {
+	const handleSubmit = (values: typeof initialValues) => {
+		onSubmit(initialValues);
 		console.log("Form Data:", values);
 	};
 	return (
@@ -35,10 +30,17 @@ const TransactionForm = (props: TransactionFormProps) => {
 					<StyledForm>
 						{/* Title */}
 						<FormItem
-							label={text.title}
-							id="title"
-							name="title"
-							placeholder="Enter title"
+							label={text.transactionTitle}
+							id="transactionTitle"
+							name="transactionTitle"
+							placeholder={text.enterTitle}
+						/>
+						{/* Item Name */}
+						<FormItem
+							label={text.itemName}
+							id="itemName"
+							name="itemName"
+							placeholder={text.enterItemName}
 						/>
 
 						{/* Description */}
@@ -46,7 +48,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 							label={text.description}
 							id="description"
 							name="description"
-							placeholder="Enter description"
+							placeholder={text.enterDescription}
 							as="textarea"
 						/>
 
@@ -75,14 +77,12 @@ const TransactionForm = (props: TransactionFormProps) => {
 									type="number"
 									id="quantity"
 									name="quantity"
-									placeholder="Enter quantity"
+									placeholder={text.enterQuantity}
 								/>
 							</div>
 						</FlexRow>
 
-						<StyledButton type="submit" isSteps={isSteps ?? false}>
-							{isSteps ? text.next : text.submit}
-						</StyledButton>
+						<StyledButton type="submit">{text.next}</StyledButton>
 						{/* <pre style={{ marginTop: "20px", color: "#333" }}>
 							{JSON.stringify(values, null, 2)}
 						</pre> */}

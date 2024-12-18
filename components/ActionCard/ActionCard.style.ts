@@ -15,7 +15,16 @@ export const MainWrapper = styled.div`
 	padding: 31px;
 	text-align: center;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
 
+	&:hover {
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+		transform: translateY(-2px);
+		opacity: 0.95;
+	}
 	${media.below925`
    	padding: 18px ;
 

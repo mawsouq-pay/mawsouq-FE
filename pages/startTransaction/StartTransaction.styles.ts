@@ -8,7 +8,6 @@ export const MainWrapper = styled.div`
 	margin: 0 auto;
 	background-color: ${colors.white};
 	border-radius: 20px;
-	//padding: 30px 30px 50px 30px;
 `;
 export const TitleWrapper = styled.div`
 	display: flex;

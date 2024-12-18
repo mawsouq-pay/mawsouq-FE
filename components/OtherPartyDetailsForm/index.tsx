@@ -9,20 +9,18 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { Formik } from "formik";
 import FormItem from "../FormItem";
-import { OtherPartyDetailsFormProps, validationSchema } from "./types";
+import { OtherPartyDetailsFormProps, createValidationSchema } from "./types";
 import PaymentSummarySection from "../PaymentSummarySection";
 const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { onSubmit, isSteps, onBack } = props;
-	const initialValues = {
-		phoneNumber: "",
-		email: "",
-	};
+	const { onSubmit, onBack, initialValues, paymentDetails } = props;
+
+	const validationSchema = createValidationSchema(text);
 
 	const handleSubmit = (values: typeof initialValues) => {
 		console.log("Buyer Details Submitted:", values);
-		onSubmit();
+		onSubmit(values);
 	};
 	return (
 		<FormContainer>
@@ -46,14 +44,15 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 						placeholder={text.emailPlaceHolder}
 						type="email"
 					/>
-					{isSteps && (
-						<PaymentSummarySection amount={80} escrowFee={20} totalDue={100} />
-					)}
+
+					<PaymentSummarySection
+						amount={paymentDetails?.amount ?? 1}
+						escrowFee={paymentDetails?.escrowFee ?? 1}
+						totalDue={paymentDetails?.totalDue ?? 1}
+					/>
 					<FlexRow>
-						{isSteps && <BackButton onClick={onBack}>{text.back}</BackButton>}
-						<StyledButton type="submit" isSteps={isSteps ?? false}>
-							{isSteps ? text.next : text.submit}
-						</StyledButton>
+						<BackButton onClick={onBack}>{text.back}</BackButton>
+						<StyledButton type="submit">{text.createOrder}</StyledButton>
 					</FlexRow>
 				</StyledForm>
 			</Formik>
