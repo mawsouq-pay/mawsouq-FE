@@ -20,7 +20,7 @@ const Navbar = () => {
 	const [open, setOpen] = useState(false);
 	const { locale, setLocale } = useLocaleStore();
 
-	const isMobile = useMediaQuery("(max-width: 768px)");
+	const isMobile = useMediaQuery("(max-width: 925px)");
 
 	const toggleMenu = () => setOpen(!open);
 

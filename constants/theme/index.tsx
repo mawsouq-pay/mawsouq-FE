@@ -6,12 +6,16 @@ export const colors = {
 	backgroundColor: `#f7f8fa`,
 	lightBlue: "#F7F9FC",
 	gray: "gray",
+	lightGray: "#F5F5F5",
+	backgroundHover: "#F0F8FF",
 	semiBlack: "#232b2b",
 	lightBlack: "#2C2D2D",
 	divBackground: "#fafafa",
 	divBorder: "#e5e7eb",
-
+	buttonGreenBackground: " #28a745",
+	buttonGreenHover: "#218838",
 	//OrderListItem:
 	LabelValue: "#75859E",
 	NameContainerBackground: "#F7F9FC",
+	red: "#F5222D",
 };

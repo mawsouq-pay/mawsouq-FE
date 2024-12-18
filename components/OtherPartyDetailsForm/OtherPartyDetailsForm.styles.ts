@@ -69,6 +69,23 @@ export const StyledButton = styled.button<{ isSteps: Boolean }>`
 		background: ${colors.buttonGreenHover};
 	}
 `;
+export const BackButton = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: flex-end;
+	background: transparent;
+	border: 1px solid ${colors.buttonGreenBackground};
+	color: black;
+	padding: 15px 18px;
+	cursor: pointer;
+	border-radius: 8px;
+	margin-top: 10px;
+
+	&:hover {
+		background: ${colors.buttonGreenHover};
+	}
+`;
 
 export const FlexRow = styled.div`
 	display: flex;
@@ -76,9 +93,4 @@ export const FlexRow = styled.div`
 	width: 100%;
 	justify-content: space-between;
 	gap: 30px;
-
-	${media.below925`
-		flex-direction: column;
-		gap: 20px;
-	`}
 `;
