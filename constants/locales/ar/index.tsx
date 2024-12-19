@@ -55,9 +55,8 @@ const ar = {
 	invalidEmailFormat: "يرجى إدخال عنوان بريد إلكتروني صحيح.",
 
 	// Transaction Details
-	orderNo: "رقم الطلب",
 	item: "العنصر",
-	amount: "المبلغ",
+	price: "السعر",
 	status: "الحالة",
 
 	// Payment Summary

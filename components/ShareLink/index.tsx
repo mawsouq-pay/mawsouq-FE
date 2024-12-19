@@ -10,12 +10,13 @@ import {
 	LinkSection,
 	Tooltip,
 } from "./ShareLink.styles";
+import { ShareLinkProps } from "./types";
 
-const ShareOrderLink = () => {
+const ShareOrderLink = (props: ShareLinkProps) => {
+	const { isPending, error, orderLink } = props;
 	const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0 });
 
 	const handleCopy = (e: React.MouseEvent) => {
-		console.log("HEYEYY");
 		const textToCopy = "https://mawsouq/order/#7888305";
 		navigator.clipboard.writeText(textToCopy);
 		const { clientX, clientY } = e;
@@ -26,6 +27,9 @@ const ShareOrderLink = () => {
 			setTooltip((prev) => ({ ...prev, visible: false }));
 		}, 1500);
 	};
+	if (isPending) {
+		return <h3>...loading</h3>;
+	}
 
 	return (
 		<Wrapper>

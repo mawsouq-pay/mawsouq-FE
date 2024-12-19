@@ -15,11 +15,9 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { onSubmit, onBack, initialValues, paymentDetails } = props;
-
 	const validationSchema = createValidationSchema(text);
 
 	const handleSubmit = (values: typeof initialValues) => {
-		console.log("Buyer Details Submitted:", values);
 		onSubmit(values);
 	};
 	return (
@@ -27,34 +25,43 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
-				onSubmit={handleSubmit}
+				//onSubmit={handleSubmit}
 			>
-				<StyledForm>
-					<FormItem
-						label={text.phoneNumber}
-						id="phoneNumber"
-						name="phoneNumber"
-						placeholder={text.phoneNumberPlaceHolder}
-						type="tel"
-					/>
-					<FormItem
-						label={text.email}
-						id="email"
-						name="email"
-						placeholder={text.emailPlaceHolder}
-						type="email"
-					/>
+				{({ values }) => (
+					<StyledForm>
+						<FormItem
+							label={text.phoneNumber}
+							id={initialValues.otherPartyPhone}
+							name="otherPartyPhone"
+							placeholder={text.phoneNumberPlaceHolder}
+							type="tel"
+						/>
+						<FormItem
+							label={text.email}
+							id={initialValues.otherPartyEmail}
+							name="otherPartyEmail"
+							placeholder={text.emailPlaceHolder}
+							type="email"
+						/>
 
-					<PaymentSummarySection
-						amount={paymentDetails?.amount ?? 1}
-						escrowFee={paymentDetails?.escrowFee ?? 1}
-						totalDue={paymentDetails?.totalDue ?? 1}
-					/>
-					<FlexRow>
-						<BackButton onClick={onBack}>{text.back}</BackButton>
-						<StyledButton type="submit">{text.createOrder}</StyledButton>
-					</FlexRow>
-				</StyledForm>
+						<PaymentSummarySection
+							amount={paymentDetails?.price ?? 1}
+							escrowFee={paymentDetails?.escrowFee ?? 1}
+							totalDue={paymentDetails?.totalDue ?? 1}
+						/>
+						<FlexRow>
+							<BackButton onClick={onBack}>{text.back}</BackButton>
+							<StyledButton
+								type="submit"
+								onClick={() => {
+									handleSubmit(values);
+								}}
+							>
+								{text.createOrder}
+							</StyledButton>
+						</FlexRow>
+					</StyledForm>
+				)}
 			</Formik>
 		</FormContainer>
 	);

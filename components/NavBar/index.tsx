@@ -41,7 +41,7 @@ const Navbar = () => {
 					</HamburgerMenu>
 				) : (
 					<NavLinks>
-						<NavLink href="/" isActive={isActive("/homePage")}>
+						<NavLink href="/homePage" isActive={isActive("/homePage")}>
 							Home
 						</NavLink>
 						<NavLink href="/how-it-works" isActive={isActive("/how-it-works")}>

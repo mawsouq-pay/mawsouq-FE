@@ -27,9 +27,9 @@ const OrderCard = (props: HorizontalCardProps) => {
 	const orderStatusInfo = orderStatusObject[status];
 
 	const dataPairs = [
-		{ title: text.orderNo, value: orderNo, color: colors.blue },
+		{ title: text.transactionTitle, value: orderNo, color: colors.blue },
 		{ title: text.item, value: itemName, color: colors.black },
-		{ title: text.amount, value: `${amount} EGP`, color: colors.black },
+		{ title: text.price, value: `${amount} EGP`, color: colors.black },
 		{
 			title: text.status,
 			value: status,

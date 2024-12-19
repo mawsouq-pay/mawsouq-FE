@@ -16,29 +16,28 @@ const TransactionForm = (props: TransactionFormProps) => {
 
 	const validationSchema = createValidationSchema(text);
 	const handleSubmit = (values: typeof initialValues) => {
-		onSubmit(initialValues);
-		console.log("Form Data:", values);
+		onSubmit(values);
 	};
 	return (
 		<FormContainer>
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
-				onSubmit={onSubmit}
+				onSubmit={handleSubmit}
 			>
 				{({ values }) => (
 					<StyledForm>
 						{/* Title */}
 						<FormItem
 							label={text.transactionTitle}
-							id="transactionTitle"
+							id={initialValues.transactionTitle}
 							name="transactionTitle"
 							placeholder={text.enterTitle}
 						/>
 						{/* Item Name */}
 						<FormItem
 							label={text.itemName}
-							id="itemName"
+							id={initialValues.itemName}
 							name="itemName"
 							placeholder={text.enterItemName}
 						/>
@@ -46,7 +45,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 						{/* Description */}
 						<FormItem
 							label={text.description}
-							id="description"
+							id={initialValues.description}
 							name="description"
 							placeholder={text.enterDescription}
 							as="textarea"
@@ -54,10 +53,10 @@ const TransactionForm = (props: TransactionFormProps) => {
 
 						{/* Amount */}
 						<FormItem
-							label={text.amount}
+							label={text.price}
 							type="number"
-							id="amount"
-							name="amount"
+							id={initialValues.price}
+							name="price"
 							placeholder="$"
 						/>
 
@@ -67,7 +66,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 								<FormItem
 									label={text.deliverDate}
 									type="date"
-									id="deliveryDate"
+									id={initialValues.deliveryDate}
 									name="deliveryDate"
 								/>
 							</div>
@@ -75,14 +74,21 @@ const TransactionForm = (props: TransactionFormProps) => {
 								<FormItem
 									label={text.quantity}
 									type="number"
-									id="quantity"
+									id={initialValues.quantity}
 									name="quantity"
 									placeholder={text.enterQuantity}
 								/>
 							</div>
 						</FlexRow>
 
-						<StyledButton type="submit">{text.next}</StyledButton>
+						<StyledButton
+							onClick={() => {
+								handleSubmit(values);
+							}}
+							type="submit"
+						>
+							{text.next}
+						</StyledButton>
 						{/* <pre style={{ marginTop: "20px", color: "#333" }}>
 							{JSON.stringify(values, null, 2)}
 						</pre> */}

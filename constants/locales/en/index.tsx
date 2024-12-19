@@ -55,9 +55,8 @@ const en = {
 	minLength: "Minimum length is not met",
 
 	// Transaction Details
-	orderNo: "Order No.",
 	item: "Item",
-	amount: "Amount",
+	price: "Price",
 	status: "Status",
 
 	// Payment Summary

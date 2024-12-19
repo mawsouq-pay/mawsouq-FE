@@ -13,33 +13,61 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import ShareLink from "@/components/ShareLink";
 import { StartTransactionData } from "./types";
+import { useCreateOrder } from "@/hooks/orderHooks";
+import { CreateOrderResponse, RolesEnum } from "@/types/ordersTypes";
 
 const steps = ["Transaction Details", "Buyer Details", "Share Link"];
 
 const StartTransaction = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-
+	const { mutate: createOrder, isPending, error } = useCreateOrder();
+	const [orderLink, setOrderLink] = useState<string | null>();
 	const [activeStep, setActiveStep] = useState(0);
 	const [formData, setFormData] = useState<StartTransactionData>({
 		transactionTitle: "",
 		itemName: "",
 		description: "",
-		amount: "",
+		price: "",
 		deliveryDate: "",
 		quantity: "",
 		otherPartyEmail: "",
-		otherPartyPhoneNumber: "",
+		otherPartyPhone: "",
 	});
 
 	const handleNext = (updatedData: Partial<StartTransactionData>) => {
 		setFormData((prev) => ({ ...prev, ...updatedData }));
 		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
 	};
+	const handleCreateOrder = (updatedData: Partial<StartTransactionData>) => {
+		const orderData = {
+			...formData,
+			...updatedData,
+			quantity: parseFloat(updatedData.quantity || formData.quantity || "1"),
+			price: parseFloat(updatedData.price || formData.price || "1"),
+			deliveryDate: new Date(
+				updatedData.deliveryDate || formData.deliveryDate || ""
+			),
+			otherPartyPhone: `+2${updatedData.otherPartyPhone}`,
+			role: RolesEnum.SELLER,
+		};
+		console.log("------CREATING ORDER-------", orderData);
+		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+
+		createOrder(orderData, {
+			onSuccess: (response) => {
+				console.log("-----CREATE ORDER SUCCESS-------", response);
+				setOrderLink(response?.data?.order?._id);
+			},
+		});
+
+		setFormData((prev) => ({ ...prev, ...updatedData }));
+	};
 
 	const handleBack = () => {
 		setActiveStep((prev) => Math.max(prev - 1, 0));
 	};
+	console.log(formData);
 
 	return (
 		<MainWrapper>
@@ -65,16 +93,24 @@ const StartTransaction = () => {
 					{activeStep === 1 && (
 						<OtherPartyDetailsForm
 							initialValues={formData}
-							onSubmit={(data) => handleNext(data)}
+							onSubmit={(data) => {
+								handleCreateOrder(data);
+							}}
 							onBack={handleBack}
 							paymentDetails={{
-								amount: parseFloat(formData.amount ?? "1"),
+								price: parseFloat(formData.price ?? "1"),
 								escrowFee: 50,
-								totalDue: parseFloat(formData.amount ?? "1") + 50,
+								totalDue: parseFloat(formData.price ?? "1") + 50,
 							}}
 						/>
 					)}
-					{activeStep === 2 && <ShareLink />}
+					{activeStep === 2 && (
+						<ShareLink
+							orderLink={orderLink}
+							isPending={isPending}
+							error={error}
+						/>
+					)}
 				</div>
 			</ContentWrapper>
 		</MainWrapper>

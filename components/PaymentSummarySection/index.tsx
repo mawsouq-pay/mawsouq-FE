@@ -21,7 +21,7 @@ const PaymentSummarySection = (props: PaymentSummarySectionProps) => {
 
 	const paymentItems = [
 		{
-			title: text.amount,
+			title: text.price,
 			value: `EGP ${amount}`,
 			fontWeight: "600",
 			fontSize: "16px",
