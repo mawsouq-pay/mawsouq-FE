@@ -15,15 +15,13 @@ export interface OtherPartyDetailsFormProps {
 export const createValidationSchema = (text: any) => {
 	return Yup.object({
 		otherPartyPhone: Yup.string()
+			.required(text.requiredPhone)
 			.trim()
-			.required(text.phoneRequired)
-			.matches(/^[0-9]+$/, text.phoneOnlyDigits)
-			.min(10, text.phoneMinLength)
-			.max(15, text.phoneMaxLength),
+			.matches(/^01[0-9]{9}$/, text.invalidPhone),
 		otherPartyEmail: Yup.string()
 			.trim()
-			.required(text.emailRequired)
-			.email(text.invalidEmailFormat)
-			.matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, text.invalidEmailFormat),
+			.required(text.requiredEmail)
+			.email(text.invalidEmail)
+			.matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, text.invalidEmail),
 	});
 };

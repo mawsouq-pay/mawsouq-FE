@@ -43,21 +43,18 @@ const StartTransaction = () => {
 		const orderData = {
 			...formData,
 			...updatedData,
-			quantity: parseFloat(updatedData.quantity || formData.quantity || "1"),
-			price: parseFloat(updatedData.price || formData.price || "1"),
-			deliveryDate: new Date(
-				updatedData.deliveryDate || formData.deliveryDate || ""
-			),
+			quantity: parseFloat(formData.quantity),
+			price: parseFloat(formData.price),
+			deliveryDate: new Date(formData.deliveryDate),
 			otherPartyPhone: `+2${updatedData.otherPartyPhone}`,
 			role: RolesEnum.SELLER,
 		};
-		console.log("------CREATING ORDER-------", orderData);
 		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
 
 		createOrder(orderData, {
 			onSuccess: (response) => {
 				console.log("-----CREATE ORDER SUCCESS-------", response);
-				setOrderLink(response?.data?.order?._id);
+				setOrderLink(`https://mawsouq/order/id=${response?.data?.order?._id}`);
 			},
 		});
 
@@ -98,9 +95,9 @@ const StartTransaction = () => {
 							}}
 							onBack={handleBack}
 							paymentDetails={{
-								price: parseFloat(formData.price ?? "1"),
+								price: parseFloat(formData.price),
 								escrowFee: 50,
-								totalDue: parseFloat(formData.price ?? "1") + 50,
+								totalDue: parseFloat(formData.price) + 50,
 							}}
 						/>
 					)}

@@ -19,7 +19,7 @@ const ar = {
 	transactionsOverview: "أحدث المعاملات",
 	myTransactions: "معاملاتي",
 
-	// Form Labels
+	// Order Attributes
 	description: "الوصف",
 	deliverDate: "تاريخ التسليم",
 	quantity: "الكمية",
@@ -27,6 +27,8 @@ const ar = {
 	email: "البريد الإلكتروني",
 	transactionTitle: "عنوان المعاملة",
 	itemName: "اسم العنصر",
+	price: "السعر",
+	status: "الحالة",
 
 	// Placeholders
 	phoneNumberPlaceHolder: "أدخل رقم الهاتف",
@@ -37,27 +39,24 @@ const ar = {
 	enterItemName: "أدخل اسم العنصر",
 
 	// Error Messages
-	requiredTitle: "العنوان مطلوب",
-	requiredDescription: "الوصف مطلوب",
-	requiredAmount: "المبلغ مطلوب",
-	mustBePositive: "يجب أن يكون الرقم موجبًا",
-	deliveryDateRequired: "تاريخ التسليم مطلوب",
-	futureDateOnly: "يجب أن يكون التاريخ في المستقبل",
-	quantityRequired: "الكمية مطلوبة",
+	requiredTitle: "عنوان المعاملة مطلوب",
+	minLength: "الحد الأدنى للطول هو 3 أحرف",
+	maxLength: "الحد الأقصى للطول هو 255 حرفًا",
 	itemNameRequired: "اسم العنصر مطلوب",
-	mustBeNumber: "يجب أن يكون رقمًا",
-	minLength: "الحد الأدنى للطول لم يتم تحقيقه",
-	phoneRequired: "رقم الهاتف مطلوب.",
-	phoneOnlyDigits: "يجب أن يحتوي رقم الهاتف على أرقام فقط.",
-	phoneMinLength: "يجب أن يكون رقم الهاتف 10 أرقام على الأقل.",
-	phoneMaxLength: "يجب ألا يتجاوز رقم الهاتف 15 رقمًا.",
-	emailRequired: "البريد الإلكتروني مطلوب.",
-	invalidEmailFormat: "يرجى إدخال عنوان بريد إلكتروني صحيح.",
-
-	// Transaction Details
-	item: "العنصر",
-	price: "السعر",
-	status: "الحالة",
+	requiredDescription: "الوصف مطلوب",
+	requiredAmount: "السعر مطلوب",
+	mustBePositive: "القيمة يجب أن تكون أكبر من الصفر",
+	mustBeNumber: "القيمة يجب أن تكون رقمًا صالحًا",
+	deliveryDateRequired: "تاريخ التسليم مطلوب",
+	futureDateOnly: "يجب أن يكون تاريخ التسليم في المستقبل",
+	quantityRequired: "الكمية مطلوبة",
+	mustBeInteger: "الكمية يجب أن تكون عددًا صحيحًا",
+	requiredEmail: "البريد الإلكتروني مطلوب",
+	invalidEmail: "عنوان البريد الإلكتروني غير صالح",
+	requiredPhone: "رقم الهاتف مطلوب",
+	invalidPhone:
+		"يرجى إدخال رقم هاتف صالح بالتنسيق الصحيح. يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
+	invalidStatus: "قيمة الحالة غير صالحة",
 
 	// Payment Summary
 	subTotal: "الإجمالي الفرعي",

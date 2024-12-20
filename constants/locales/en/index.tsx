@@ -19,14 +19,16 @@ const en = {
 	transactionsOverview: "Transactions Overview",
 	myTransactions: "My Transactions",
 
-	// Form Labels
+	// Order attributes
 	transactionTitle: "Transaction title",
 	itemName: "Item Name",
 	description: "Description",
 	deliverDate: "Delivery Date",
 	quantity: "Quantity",
+	price: "Price",
 	phoneNumber: "Phone Number",
 	email: "Email",
+	status: "Status",
 
 	// Placeholders
 	phoneNumberPlaceHolder: "Enter phone number",
@@ -37,27 +39,24 @@ const en = {
 	enterItemName: "Enter item name",
 
 	// Error Messages
-	requiredTitle: "Title is required",
-	requiredDescription: "Description is required",
-	requiredAmount: "Amount is required",
-	mustBePositive: "Must be positive",
-	deliveryDateRequired: "Delivery date is required",
-	futureDateOnly: "Date has to be in the future",
-	quantityRequired: "Quantity is required",
+	requiredTitle: "Transaction title is required",
+	minLength: "Minimum length is 3 characters",
+	maxLength: "Maximum length is 255 characters",
 	itemNameRequired: "Item name is required",
-	phoneRequired: "Phone number is required.",
-	phoneOnlyDigits: "Phone number must contain only digits.",
-	phoneMinLength: "Phone number must be at least 10 digits.",
-	phoneMaxLength: "Phone number must not exceed 15 digits.",
-	emailRequired: "Email is required.",
-	invalidEmailFormat: "Please enter a valid email address.",
-	mustBeNumber: "Must be a number",
-	minLength: "Minimum length is not met",
-
-	// Transaction Details
-	item: "Item",
-	price: "Price",
-	status: "Status",
+	requiredDescription: "Description is required",
+	requiredPrice: "Price is required",
+	mustBePositive: "Value must be greater than zero",
+	mustBeNumber: "Value must be a valid number",
+	deliveryDateRequired: "Delivery date is required",
+	futureDateOnly: "Delivery date must be in the future",
+	quantityRequired: "Quantity is required",
+	mustBeInteger: "Quantity must be an integer",
+	requiredEmail: "Email is required",
+	invalidEmail: "Invalid email address",
+	requiredPhone: "Phone number is required",
+	invalidPhone:
+		"A valid phone number should start with '01' followed by 9 digits.",
+	invalidStatus: "Invalid status value",
 
 	// Payment Summary
 	subTotal: "Sub total",

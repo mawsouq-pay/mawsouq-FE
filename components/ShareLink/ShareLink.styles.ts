@@ -55,3 +55,6 @@ export const Tooltip = styled.div`
 	z-index: 1000;
 	white-space: nowrap;
 `;
+export const ErrorWrapper = styled(Wrapper)`
+	border: 1px solid ${colors.red};
+`;

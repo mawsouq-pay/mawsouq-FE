@@ -89,9 +89,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 						>
 							{text.next}
 						</StyledButton>
-						{/* <pre style={{ marginTop: "20px", color: "#333" }}>
-							{JSON.stringify(values, null, 2)}
-						</pre> */}
 					</StyledForm>
 				)}
 			</Formik>

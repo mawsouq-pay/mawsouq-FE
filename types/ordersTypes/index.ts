@@ -1,3 +1,7 @@
+//WHEN SENDING ANYTHING IN THE ENUMS WE SEND IT AS OrderStatusEnum.PENDING maslan
+//backend sees it as "Pending"
+//WHen receiveing anything from backend it is sent the same so we get it as "Pending" so its type is
+//(typeof OrderStatusEnum)[keyof typeof OrderStatusEnum]
 const OrderStatusEnum = Object.freeze({
 	PENDING: "Pending", //the order was created but not paid for
 	IN_PROGRESS: "In Progress", //order is paidd for , seller is "creating ig"

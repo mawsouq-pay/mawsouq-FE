@@ -25,7 +25,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
-				//onSubmit={handleSubmit}
+				onSubmit={handleSubmit}
 			>
 				{({ values }) => (
 					<StyledForm>
