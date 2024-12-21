@@ -21,7 +21,6 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 
 	const { isPending, error, orderLink } = props;
 	const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0 });
-	console.log(error);
 	const handleCopy = (e: React.MouseEvent) => {
 		const textToCopy = orderLink ?? "";
 		navigator.clipboard.writeText(textToCopy);

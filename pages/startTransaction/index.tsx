@@ -15,11 +15,13 @@ import ShareLink from "@/components/ShareLink";
 import { StartTransactionData } from "./types";
 import { useCreateOrder } from "@/hooks/orderHooks";
 import { CreateOrderResponse, RolesEnum } from "@/types/ordersTypes";
-
+import ConfirmOrderEmail from "@/emails/confirm-order";
+import { useAuthStore } from "@/store";
 const steps = ["Transaction Details", "Buyer Details", "Share Link"];
 
 const StartTransaction = () => {
 	const { locale } = useLocaleStore();
+	const { user } = useAuthStore();
 	const text = textTr(locale);
 	const { mutate: createOrder, isPending, error } = useCreateOrder();
 	const [orderLink, setOrderLink] = useState<string | null>();
@@ -39,26 +41,74 @@ const StartTransaction = () => {
 		setFormData((prev) => ({ ...prev, ...updatedData }));
 		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
 	};
-	const handleCreateOrder = (updatedData: Partial<StartTransactionData>) => {
-		const orderData = {
-			...formData,
-			...updatedData,
-			quantity: parseFloat(formData.quantity),
-			price: parseFloat(formData.price),
-			deliveryDate: new Date(formData.deliveryDate),
-			otherPartyPhone: `+2${updatedData.otherPartyPhone}`,
-			role: RolesEnum.SELLER,
-		};
-		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+	const handleSendEmail = async (orderData: any) => {
+		try {
+			const response = await fetch("/api/send-email", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					to: orderData.otherPartyEmail,
+					subject: "Order Confirmation",
+					reactComponent: <ConfirmOrderEmail />,
+					emailData: {
+						...orderData,
+						total: orderData.price + 50,
+						escrowFee: 50,
+						senderEmail: "nadanazeer11@gmail.com",
+						confirmUrl: "https://www.youtube.com/watch?v=WiinVuzh4DA",
+					},
+				}),
+			});
 
-		createOrder(orderData, {
-			onSuccess: (response) => {
-				console.log("-----CREATE ORDER SUCCESS-------", response);
-				setOrderLink(`https://mawsouq/order/id=${response?.data?.order?._id}`);
-			},
-		});
+			const result = await response.json();
+			if (response.ok) {
+				console.log("Email sent successfully:", result);
+			} else {
+				console.error("Error sending email:", result.error);
+			}
+		} catch (err) {
+			console.error("Failed to send email:", err);
+		}
+	};
 
-		setFormData((prev) => ({ ...prev, ...updatedData }));
+	const handleCreateOrder = async (
+		updatedData: Partial<StartTransactionData>
+	) => {
+		try {
+			// Prepare the order data
+			const orderData = {
+				...formData,
+				...updatedData,
+				quantity: parseFloat(updatedData.quantity ?? formData.quantity),
+				price: parseFloat(updatedData.price ?? formData.price),
+				deliveryDate: new Date(
+					updatedData.deliveryDate ?? formData.deliveryDate
+				),
+				otherPartyPhone: `+2${updatedData.otherPartyPhone ?? formData.otherPartyPhone}`,
+				role: RolesEnum.SELLER,
+			};
+
+			//setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+
+			createOrder(orderData, {
+				onSuccess: async (response) => {
+					console.log("-----CREATE ORDER SUCCESS-------", response);
+					const orderId = response?.data?.order?._id;
+					setOrderLink(`https://mawsouq/order/id=${orderId}`);
+
+					handleSendEmail(orderData);
+				},
+				onError: (error) => {
+					console.error("Error creating order:", error);
+				},
+			});
+
+			setFormData((prev) => ({ ...prev, ...updatedData }));
+		} catch (error) {
+			console.error("Error in handleCreateOrder:", error);
+		}
 	};
 
 	const handleBack = () => {
