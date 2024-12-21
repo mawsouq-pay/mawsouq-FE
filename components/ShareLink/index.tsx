@@ -8,16 +8,22 @@ import {
 	ImageWrapper,
 	LinkSection,
 	Tooltip,
+	NavButton,
 } from "./ShareLink.styles";
 import { ShareLinkProps } from "./types";
 import ErrorAndLoadingWrapper from "../ErrorAndLoadingWrapper";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 const ShareOrderLink = (props: ShareLinkProps) => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
 	const { isPending, error, orderLink } = props;
 	const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0 });
 	console.log(error);
 	const handleCopy = (e: React.MouseEvent) => {
-		const textToCopy = "https://mawsouq/order/#7888305";
+		const textToCopy = orderLink ?? "";
 		navigator.clipboard.writeText(textToCopy);
 		const { clientX, clientY } = e;
 
@@ -27,9 +33,19 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 			setTooltip((prev) => ({ ...prev, visible: false }));
 		}, 1500);
 	};
+	const retryButton = (
+		<NavButton onClick={() => console.log("Retry clicked!")}>
+			Please Try Again
+		</NavButton>
+	);
 
 	return (
-		<ErrorAndLoadingWrapper isLoading={isPending} error={error}>
+		<ErrorAndLoadingWrapper
+			isLoading={isPending}
+			error={error}
+			errorButton={retryButton}
+			displayErrorReason={true}
+		>
 			<Wrapper>
 				<ImageWrapper>
 					<Image
@@ -57,6 +73,11 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 				<MSText fontSize="14px" color={colors.gray}>
 					An email with the order details has also been sent to the buyer.
 				</MSText>
+				<NavButton>
+					<MSText color={colors.white} fontSize={"14px"} fontWeight="600">
+						{text.viewOrder}
+					</MSText>
+				</NavButton>
 			</Wrapper>
 		</ErrorAndLoadingWrapper>
 	);

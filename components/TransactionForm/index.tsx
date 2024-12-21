@@ -81,14 +81,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 							</div>
 						</FlexRow>
 
-						<StyledButton
-							onClick={() => {
-								handleSubmit(values);
-							}}
-							type="submit"
-						>
-							{text.next}
-						</StyledButton>
+						<StyledButton type="submit">{text.next}</StyledButton>
 					</StyledForm>
 				)}
 			</Formik>

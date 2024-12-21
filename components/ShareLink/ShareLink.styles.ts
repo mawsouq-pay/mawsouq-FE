@@ -55,6 +55,23 @@ export const Tooltip = styled.div`
 	z-index: 1000;
 	white-space: nowrap;
 `;
-export const ErrorWrapper = styled(Wrapper)`
-	border: 1px solid ${colors.red};
+export const NavButton = styled.button`
+	margin-top: 4px;
+	padding: 10px 20px;
+	background-color: ${colors.buttonGreenBackground};
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: ${colors.buttonGreenHover};
+	}
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 4px ${colors.buttonGreenHover};
+	}
 `;

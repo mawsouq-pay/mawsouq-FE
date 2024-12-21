@@ -51,14 +51,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 						/>
 						<FlexRow>
 							<BackButton onClick={onBack}>{text.back}</BackButton>
-							<StyledButton
-								type="submit"
-								onClick={() => {
-									handleSubmit(values);
-								}}
-							>
-								{text.createOrder}
-							</StyledButton>
+							<StyledButton type="submit">{text.createOrder}</StyledButton>
 						</FlexRow>
 					</StyledForm>
 				)}

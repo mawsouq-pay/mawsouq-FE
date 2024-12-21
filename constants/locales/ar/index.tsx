@@ -38,7 +38,7 @@ const ar = {
 	enterTitle: "أدخل عنوان المعاملة",
 	enterItemName: "أدخل اسم العنصر",
 
-	// Error Messages
+	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",
 	minLength: "الحد الأدنى للطول هو 3 أحرف",
 	maxLength: "الحد الأقصى للطول هو 255 حرفًا",
@@ -58,10 +58,16 @@ const ar = {
 		"يرجى إدخال رقم هاتف صالح بالتنسيق الصحيح. يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
 	invalidStatus: "قيمة الحالة غير صالحة",
 
+	//Backend Error Messages
+	refreshAndTryAgain: "حدث خطأ غير متوقع، يرجى التحديث والمحاولة مرة أخرى.",
+
 	// Payment Summary
 	subTotal: "الإجمالي الفرعي",
 	escrowFee: "الرسوم",
 	totalDue: "الإجمالي المستحق",
+
+	//Button CTA
+	viewOrder: "عرض الطلب",
 };
 
 export default ar;

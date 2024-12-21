@@ -1,18 +1,31 @@
 import React from "react";
 import Image from "next/image";
 import MSText from "../MSText";
-import { Wrapper, MessageWrapper } from "./ErrorAndLoadingWrapper.styles";
+import {
+	Wrapper,
+	MessageWrapper,
+	ErrorMessageBox,
+} from "./ErrorAndLoadingWrapper.styles";
 import { ErrorAndLoadingWrapperProps } from "./types";
 import MSLoader from "../MSLoader";
-
+import { ErrorStateIcon } from "@/assets/icons";
+import { colors } from "@/constants/theme";
+import { extractErrorMessage } from "@/hooks/errorHooks";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 const ErrorAndLoadingWrapper = ({
 	isLoading = false,
 	error = null,
-	errorMessage = "Something went wrong.",
-	errorImageSrc = "/assets/images/default_error.png",
+	errorMessage,
+	ErrorIcon,
 	loadingComponent = <MSLoader />,
 	children,
+	errorButton,
+	displayErrorReason = false,
 }: ErrorAndLoadingWrapperProps) => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
 	if (isLoading) {
 		return <Wrapper>{loadingComponent}</Wrapper>;
 	}
@@ -20,12 +33,16 @@ const ErrorAndLoadingWrapper = ({
 	if (error) {
 		return (
 			<Wrapper>
-				{/* <Image src={errorImageSrc} alt="Error" width={150} height={150} /> */}
+				{ErrorIcon ? <ErrorIcon /> : <ErrorStateIcon />}
 				<MessageWrapper>
-					<MSText fontSize="16px" fontWeight="500" color="red">
-						{errorMessage}
+					<MSText fontSize="16px" fontWeight="bold" color={colors.error}>
+						{errorMessage ?? text.refreshAndTryAgain}
 					</MSText>
 				</MessageWrapper>
+				{displayErrorReason && (
+					<ErrorMessageBox>{extractErrorMessage(error)}</ErrorMessageBox>
+				)}{" "}
+				{errorButton && errorButton}
 			</Wrapper>
 		);
 	}

@@ -12,10 +12,11 @@ export const colors = {
 	lightBlack: "#2C2D2D",
 	divBackground: "#fafafa",
 	divBorder: "#e5e7eb",
-	buttonGreenBackground: " #28a745",
-	buttonGreenHover: "#218838",
+	buttonGreenBackground: " #218838",
+	buttonGreenHover: "#28a745",
 	//OrderListItem:
 	LabelValue: "#75859E",
 	NameContainerBackground: "#F7F9FC",
 	red: "#F5222D",
+	error: "#4A4A4A",
 };

@@ -38,7 +38,7 @@ const en = {
 	enterTitle: "Enter transaction title",
 	enterItemName: "Enter item name",
 
-	// Error Messages
+	//FORM Error Messages
 	requiredTitle: "Transaction title is required",
 	minLength: "Minimum length is 3 characters",
 	maxLength: "Maximum length is 255 characters",
@@ -58,10 +58,17 @@ const en = {
 		"A valid phone number should start with '01' followed by 9 digits.",
 	invalidStatus: "Invalid status value",
 
+	//Backend Error Messages
+	refreshAndTryAgain:
+		"An unexpected error occurred, please refresh and try again.",
+
 	// Payment Summary
 	subTotal: "Sub total",
 	escrowFee: "Fee",
 	totalDue: "Total due",
+
+	//Button CTA
+	viewOrder: "View Order",
 };
 
 export default en;
