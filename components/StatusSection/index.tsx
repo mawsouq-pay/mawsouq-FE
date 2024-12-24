@@ -10,10 +10,10 @@ import {
 import StatusCard from "../StatusCard";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
-import { getGreetingAndDate } from "@/utility/helperFunctions";
 import { useAuthStore } from "@/store";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import { StatusSectionProps } from "./types";
+import { getGreetingAndDate } from "@/helpers";
 
 const StatusSection = (props: StatusSectionProps) => {
 	const { locale } = useLocaleStore();
