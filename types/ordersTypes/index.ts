@@ -27,7 +27,7 @@ export interface CreateOrderInput {
 	price: number;
 	description: string;
 	quantity: number;
-	deliveryDate: string; // "2025-01-01T00:00:00.000Z"
+	deliveryDate: Date;
 	otherPartyEmail: string;
 	otherPartyPhone: string;
 	role: (typeof RolesEnum)[keyof typeof RolesEnum];
