@@ -18,6 +18,8 @@ const en = {
 	activeTransactions: "Active Transactions",
 	transactionsOverview: "Transactions Overview",
 	myTransactions: "My Transactions",
+	actionsRequired: "Actions Required",
+	actionRequired: "Action Required",
 
 	// Order attributes
 	transactionTitle: "Transaction title",

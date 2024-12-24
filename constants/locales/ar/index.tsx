@@ -18,6 +18,8 @@ const ar = {
 	activeTransactions: "المعاملات الجارية",
 	transactionsOverview: "أحدث المعاملات",
 	myTransactions: "معاملاتي",
+	actionsRequired: "إجراءات مطلوبة",
+	actionRequired: "إجراء مطلوب",
 
 	// Order Attributes
 	description: "الوصف",

@@ -9,12 +9,12 @@ import { useUserStats } from "@/hooks/statusHooks";
 const HomePage = () => {
 	const { data: ordersData, isPending, error } = useFetchOrders();
 	console.log("Orders Data:", ordersData?.orders);
-	const { numberOfactiveTransactions, walletBalance } = useUserStats(
+	const { numberOfActiveTransactions, walletBalance } = useUserStats(
 		ordersData?.orders
 	);
 	return (
 		<HomePageWrapper>
-			<StatusSection numberOfactiveTransactions={numberOfactiveTransactions} />
+			<StatusSection numberOfactiveTransactions={numberOfActiveTransactions} />
 			<ActionSection />
 			<OrdersOverviewSection latestOrders={ordersData?.orders?.slice(0, 3)} />
 		</HomePageWrapper>

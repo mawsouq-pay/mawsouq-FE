@@ -13,7 +13,6 @@ import { textTr } from "@/constants/locales";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { colors } from "@/constants/theme";
 import useCustomBreakpoint from "@/helpers/screenSizes";
-import { Grid2 } from "@mui/material";
 import { orderStatusObject } from "@/constants";
 import { DueDateIcon } from "@/assets/icons";
 import OrderListItem from "../OrderListItem";
