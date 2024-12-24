@@ -12,15 +12,20 @@ import {
 } from "./OrderListItem.style";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { OrderListItemProps } from "./types";
+import { formatDate } from "@/helpers";
 
-const OrderListItem = () => {
+const OrderListItem = (props: OrderListItemProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	const { transactionTitle, itemName, price, deliveryDate } = props;
+	const formattedDate = formatDate(deliveryDate);
+
 	const OrderItems = [
-		{ title: text.transactionTitle, value: "Order #1234" },
-		{ title: text.itemName, value: "Domain for website" },
-		{ title: text.amount, value: "$120" },
-		{ title: text.deliverDate, value: "December 16, 2024" },
+		{ title: text.transactionTitle, value: transactionTitle },
+		{ title: text.itemName, value: itemName },
+		{ title: text.price, value: price },
+		{ title: text.deliverDate, value: formattedDate },
 	];
 	return (
 		<MainWrapper>

@@ -58,9 +58,10 @@ const en = {
 		"A valid phone number should start with '01' followed by 9 digits.",
 	invalidStatus: "Invalid status value",
 
-	//Backend Error Messages
+	//Error Messages
 	refreshAndTryAgain:
 		"An unexpected error occurred, please refresh and try again.",
+	pleaseTryAgain: "Please Try Again",
 
 	// Payment Summary
 	subTotal: "Sub total",
@@ -69,6 +70,12 @@ const en = {
 
 	//Button CTA
 	viewOrder: "View Order",
+
+	//Order Success messages
+	emailSentToOtherParty:
+		"An email with the order details has also been sent to the buyer.",
+	shareOrderLink: "Share Order Link",
+	copied: "Copied!",
 };
 
 export default en;

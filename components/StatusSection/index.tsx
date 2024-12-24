@@ -13,11 +13,13 @@ import { colors } from "@/constants/theme";
 import { getGreetingAndDate } from "@/utility/helperFunctions";
 import { useAuthStore } from "@/store";
 import useCustomBreakpoint from "@/helpers/screenSizes";
+import { StatusSectionProps } from "./types";
 
-const StatusSection = () => {
+const StatusSection = (props: StatusSectionProps) => {
 	const { locale } = useLocaleStore();
-	const { user } = useAuthStore();
 	const text = textTr(locale);
+	const { user } = useAuthStore();
+	const { numberOfactiveTransactions } = props;
 	const { isMobile } = useCustomBreakpoint();
 	const { greeting, formattedDate } = getGreetingAndDate(locale);
 
@@ -43,7 +45,7 @@ const StatusSection = () => {
 								color={colors.blue}
 								fontWeight={isMobile ? "600" : "bold"}
 							>
-								05
+								{numberOfactiveTransactions}
 							</MSText>
 						</Circle>
 					}

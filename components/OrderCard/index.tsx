@@ -17,32 +17,15 @@ import { Grid2 } from "@mui/material";
 import { orderStatusObject } from "@/constants";
 import { DueDateIcon } from "@/assets/icons";
 import OrderListItem from "../OrderListItem";
+import { formatDate } from "@/helpers";
 
 const OrderCard = (props: HorizontalCardProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { isMobile } = useCustomBreakpoint();
-	const { orderNo, itemName, amount } = props;
-	const status = "DELIVERED";
+	const { transactionTitle, itemName, price, status, deliveryDate } = props;
 	const orderStatusInfo = orderStatusObject[status];
-
-	const dataPairs = [
-		{ title: text.transactionTitle, value: orderNo, color: colors.blue },
-		{ title: text.itemName, value: itemName, color: colors.black },
-		{ title: text.price, value: `${amount} EGP`, color: colors.black },
-		{
-			title: text.status,
-			value: status,
-			color: orderStatusInfo.backgroundColor,
-		},
-	];
-
-	const renderTitle = (titleName: string) => (
-		<MSText color={colors.gray} fontSize="16px">
-			{titleName}
-		</MSText>
-	);
-
+	const formattedDate = formatDate(deliveryDate);
 	const renderValue = ({
 		value,
 		color,
@@ -78,35 +61,18 @@ const OrderCard = (props: HorizontalCardProps) => {
 	return (
 		<MainWrapper>
 			{!isMobile ? (
-				// dataPairs.map((item) => (
-				// 	<Grid2
-				// 		container
-				// 		direction="column"
-				// 		sx={{ gap: 1 }}
-				// 		key={item.title}
-				// 	>
-				// 		{renderTitle(item.title)}
-				// 		{item.title === text.status ? (
-				// 			<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
-				// 				<StatusDot color="#90EE90" />
-				// 				{renderValue(
-				// 					orderStatusInfo.text,
-				// 					colors.lightBlack,
-				// 					"14px",
-				// 					"normal"
-				// 				)}
-				// 			</StatusBadge>
-				// 		) : (
-				// 			renderValue(item.value, item.color)
-				// 		)}
-				// 	</Grid2>
-				// ))
-				<OrderListItem />
+				<OrderListItem
+					transactionTitle={transactionTitle}
+					price={price}
+					itemName={itemName}
+					status={status}
+					deliveryDate={deliveryDate}
+				/>
 			) : (
 				<MobileCardWrapper>
 					<MobileCardHeader>
 						{renderValue({
-							value: `${amount}`,
+							value: `${price}`,
 							color: colors.semiBlack,
 							size: "24px",
 							weight: "bold",
@@ -126,13 +92,13 @@ const OrderCard = (props: HorizontalCardProps) => {
 
 					<MobileCardContent>
 						{renderValue({
-							value: "S1234",
+							value: transactionTitle,
 							color: colors.gray,
 							size: "14px",
 							weight: "normal",
 						})}
 						{renderValue({
-							value: "Portrait glasses",
+							value: itemName,
 							color: colors.black,
 							size: "16px",
 							weight: "600",
@@ -142,7 +108,7 @@ const OrderCard = (props: HorizontalCardProps) => {
 					<FlexEnd>
 						<DueDateIcon />
 						{renderValue({
-							value: "December 12, 2024",
+							value: formattedDate,
 							color: colors.gray,
 							size: "14px",
 							weight: "normal",

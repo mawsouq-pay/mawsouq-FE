@@ -4,15 +4,19 @@ import { useFetchOrders } from "@/hooks/orderHooks";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import { HomePageWrapper } from "./HomePage.style";
 import OrdersOverviewSection from "@/components/OrdersOverviewSection";
+import { useUserStats } from "@/hooks/statusHooks";
 
 const HomePage = () => {
 	const { data: ordersData, isPending, error } = useFetchOrders();
 	console.log("Orders Data:", ordersData?.orders);
+	const { numberOfactiveTransactions, walletBalance } = useUserStats(
+		ordersData?.orders
+	);
 	return (
 		<HomePageWrapper>
-			<StatusSection />
+			<StatusSection numberOfactiveTransactions={numberOfactiveTransactions} />
 			<ActionSection />
-			<OrdersOverviewSection />
+			<OrdersOverviewSection latestOrders={ordersData?.orders?.slice(0, 3)} />
 		</HomePageWrapper>
 	);
 };

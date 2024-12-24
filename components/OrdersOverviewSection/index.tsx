@@ -4,9 +4,11 @@ import MSText from "../MSText";
 import { MainWrapper } from "./OrdersOverview.style";
 import OrderCard from "../OrderCard";
 import useCustomBreakpoint from "@/helpers/screenSizes";
+import { OrdersOverViewSectionProps } from "./types";
+import { Order } from "@/types/ordersTypes";
 
-const OrdersOverviewSection = () => {
-	const { isMobile } = useCustomBreakpoint();
+const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
+	const { latestOrders } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	return (
@@ -14,18 +16,17 @@ const OrdersOverviewSection = () => {
 			<MSText fontSize={"20px"} mobileFontSize={"16px"} fontWeight="600">
 				{text.transactionsOverview}
 			</MSText>
-			<OrderCard
-				orderNo={"22"}
-				itemName={"Portrait"}
-				amount={"20"}
-				status={"Delivered"}
-			/>
-			<OrderCard
-				orderNo={"22"}
-				itemName={"Portrait"}
-				amount={"20"}
-				status={"Delivered"}
-			/>
+			{latestOrders?.map((order: Order) => {
+				return (
+					<OrderCard
+						transactionTitle={order.transactionTitle}
+						itemName={order.itemName}
+						price={order.price}
+						status={order.status}
+						deliveryDate={order.deliveryDate}
+					/>
+				);
+			})}
 		</MainWrapper>
 	);
 };

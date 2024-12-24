@@ -58,8 +58,9 @@ const ar = {
 		"يرجى إدخال رقم هاتف صالح بالتنسيق الصحيح. يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
 	invalidStatus: "قيمة الحالة غير صالحة",
 
-	//Backend Error Messages
+	//Error Messages
 	refreshAndTryAgain: "حدث خطأ غير متوقع، يرجى التحديث والمحاولة مرة أخرى.",
+	pleaseTryAgain: "يرجى المحاولة مرة أخرى",
 
 	// Payment Summary
 	subTotal: "الإجمالي الفرعي",
@@ -68,6 +69,12 @@ const ar = {
 
 	//Button CTA
 	viewOrder: "عرض الطلب",
+
+	//Order Success messages
+	emailSentToOtherParty:
+		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",
+	shareOrderLink: "نسخ رابط الطلب",
+	copied: "تم النسخ!",
 };
 
 export default ar;

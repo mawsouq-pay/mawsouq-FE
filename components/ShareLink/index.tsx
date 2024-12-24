@@ -14,14 +14,17 @@ import { ShareLinkProps } from "./types";
 import ErrorAndLoadingWrapper from "../ErrorAndLoadingWrapper";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { useRouter } from "next/router";
+import { clientRoutes } from "@/routes";
 
 const ShareOrderLink = (props: ShareLinkProps) => {
+	const { isPending, error, orderLink, navigateToFirstStep } = props;
+
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	const router = useRouter();
 
-	const { isPending, error, orderLink } = props;
 	const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0 });
-	console.log(error);
 	const handleCopy = (e: React.MouseEvent) => {
 		const textToCopy = orderLink ?? "";
 		navigator.clipboard.writeText(textToCopy);
@@ -34,9 +37,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 		}, 1500);
 	};
 	const retryButton = (
-		<NavButton onClick={() => console.log("Retry clicked!")}>
-			Please Try Again
-		</NavButton>
+		<NavButton onClick={navigateToFirstStep}>{text.pleaseTryAgain}</NavButton>
 	);
 
 	return (
@@ -65,15 +66,21 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 					>
 						https://mawsouq/order/#7888305
 					</a>
-					<MSText style={{ alignSelf: "center" }}>Share Order Link</MSText>
+					<MSText style={{ alignSelf: "center" }} fontSize={"14px"}>
+						{text.shareOrderLink}
+					</MSText>
 
-					{tooltip.visible && <Tooltip>Copied!</Tooltip>}
+					{tooltip.visible && <Tooltip>{text.copied}</Tooltip>}
 				</LinkSection>
 
 				<MSText fontSize="14px" color={colors.gray}>
-					An email with the order details has also been sent to the buyer.
+					{text.emailSentToOtherParty}
 				</MSText>
-				<NavButton>
+				<NavButton
+					onClick={() => {
+						router.push(clientRoutes.homePage);
+					}}
+				>
 					<MSText color={colors.white} fontSize={"14px"} fontWeight="600">
 						{text.viewOrder}
 					</MSText>

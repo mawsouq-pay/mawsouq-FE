@@ -14,7 +14,7 @@ import { textTr } from "@/constants/locales";
 import ShareLink from "@/components/ShareLink";
 import { StartTransactionData } from "./types";
 import { useCreateOrder } from "@/hooks/orderHooks";
-import { CreateOrderResponse, RolesEnum } from "@/types/ordersTypes";
+import { RolesEnum } from "@/constants";
 
 const steps = ["Transaction Details", "Buyer Details", "Share Link"];
 
@@ -64,7 +64,9 @@ const StartTransaction = () => {
 	const handleBack = () => {
 		setActiveStep((prev) => Math.max(prev - 1, 0));
 	};
-	console.log(formData);
+	const navigateToFirstStep = () => {
+		setActiveStep(0);
+	};
 
 	return (
 		<MainWrapper>
@@ -106,6 +108,7 @@ const StartTransaction = () => {
 							orderLink={orderLink}
 							isPending={isPending}
 							error={error}
+							navigateToFirstStep={navigateToFirstStep}
 						/>
 					)}
 				</div>

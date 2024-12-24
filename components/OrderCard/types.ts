@@ -1,8 +1,11 @@
+import { OrderStatusEnum } from "@/constants";
+
 export interface HorizontalCardProps {
-	orderNo: string;
+	transactionTitle: string;
 	itemName: string;
-	amount: string;
-	status: string;
+	price: number;
+	status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
+	deliveryDate: string;
 }
 export interface RenderValueProps {
 	value: string;
