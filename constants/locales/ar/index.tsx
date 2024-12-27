@@ -1,4 +1,15 @@
 const ar = {
+	//Hero Section
+	secureEveryTransaction: "أمّن كل معاملة مع",
+	confidence: "الثقة",
+	mawsouqMission:
+		"Mawsouq هو شريكك الموثوق به، يضمن معاملات آمنة وسهلة عبر الإنترنت للمشترين والبائعين.",
+
+	imSelling: "أنا أبيع",
+	for: "مقابل",
+	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
+	getStartedNow: "ابدأ الآن!",
+
 	// General
 	goodMorning: "صباح الخير،",
 	goodEvening: "مساء الخير،",

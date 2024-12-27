@@ -1,4 +1,13 @@
 const en = {
+	//Hero Section
+	secureEveryTransaction: "Secure Every Transaction With",
+	confidence: "Confidence",
+	mawsouqMission:
+		"Mawsouq is your trusted middle-man partner, ensuring safe, hassle-free online transactions for buyers and sellers.",
+	imSelling: "I'm Selling",
+	for: "For",
+	moneyStaysSecure: "Your money stays secure until the deal is complete.",
+	getStartedNow: "Get Started Now!",
 	// General
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",

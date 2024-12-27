@@ -4,18 +4,21 @@ export const NavWrapper = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #111;
-	padding: 20px 24px;
+	//background-color: #111;
+	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
+	padding: 20px 0px;
 	color: #fff;
+	border-radius: 10px;
 `;
 
 export const Logo = styled.div`
 	font-size: 24px;
 	font-weight: bold;
 	color: #fff;
+	padding-inline-start: clamp(20px, 5vw, 84px);
 
 	span {
-		color: #2f80ed; /* Blue part of the logo */
+		color: #2f80ed;
 		font-style: italic;
 	}
 `;
@@ -89,7 +92,7 @@ export const SidebarLink = styled.a`
 
 export const LogoutButton = styled.button`
 	margin-top: auto;
-	background-color: #2e5633; /* Green color for logout */
+	background-color: #2e5633;
 	color: #fff;
 	font-weight: bold;
 	padding: 8px;

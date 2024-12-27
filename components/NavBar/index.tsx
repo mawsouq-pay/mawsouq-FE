@@ -27,7 +27,6 @@ const Navbar = () => {
 	const isActive = (path: string) => router.pathname === path;
 	return (
 		<>
-			{/* Navbar Wrapper */}
 			<NavWrapper>
 				<Logo>
 					Maw<span>souq</span>
@@ -60,7 +59,6 @@ const Navbar = () => {
 				)}
 			</NavWrapper>
 
-			{/* Sidebar for Mobile */}
 			{isMobile && open && (
 				<Sidebar>
 					<CloseIcon onClick={toggleMenu}>X</CloseIcon>
