@@ -7,6 +7,7 @@ const ScribbledCircleText = ({ text }: { text: string }) => {
 				alignItems: "center",
 				position: "relative",
 				bottom: "20px",
+				alignSelf: "center",
 			}}
 		>
 			<svg
@@ -33,7 +34,7 @@ const ScribbledCircleText = ({ text }: { text: string }) => {
 					</clipPath>
 				</defs>
 				<text
-					x="44%"
+					x="50%"
 					y="50%"
 					dominantBaseline="middle"
 					textAnchor="middle"

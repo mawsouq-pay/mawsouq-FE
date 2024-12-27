@@ -14,7 +14,7 @@ export const DirectionFlex = styled.div`
 	flex-direction: row;
 	gap: 15px;
 
-	${media.mobile`
+	${media.below925`
        flex-direction: column;
     `}
 `;

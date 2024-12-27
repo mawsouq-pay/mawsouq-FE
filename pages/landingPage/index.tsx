@@ -1,3 +1,4 @@
+import BenefitsSection from "@/components/BenefitsSection";
 import HeroSection from "@/components/HeroSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import LandingPageLayout from "@/layouts/LandingPageLayout";
@@ -8,6 +9,7 @@ const LandingPage = () => {
 		<div style={{ display: "flex", flexDirection: "column", gap: "100px" }}>
 			<HeroSection />
 			<HowItWorksSection />
+			<BenefitsSection />
 		</div>
 	);
 };

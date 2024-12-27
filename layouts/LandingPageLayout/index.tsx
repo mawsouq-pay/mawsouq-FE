@@ -1,5 +1,3 @@
-import Navbar from "@/components/NavBar";
-import { colors } from "@/constants/theme";
 import React from "react";
 import styled from "styled-components";
 

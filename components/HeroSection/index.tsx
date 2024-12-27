@@ -23,7 +23,7 @@ const HeroSection = () => {
 
 	return (
 		<HeroWrapper>
-			<Navbar />
+			<Navbar isLandingPage={true} />
 			<PaddingContainer>
 				<TitleWrapper>
 					<MSText

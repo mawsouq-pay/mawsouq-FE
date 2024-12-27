@@ -16,6 +16,7 @@ import {
 	ImageWrapper,
 } from "./StepTimeLine.styles";
 import Image from "next/image";
+import MSText from "../MSText";
 
 const VerticalConnector = styled(StepConnector)(({ theme }) => ({
 	[`& .${stepConnectorClasses.line}`]: {
@@ -59,49 +60,64 @@ function VerticalStepIcon(props: StepIconProps) {
 }
 
 const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
-	const { steps, activeStep, setActiveStep } = props;
-	console.log(activeStep, "HERE");
+	const { steps, activeStep, setActiveStep, stopAnimation } = props;
 	return (
 		<MainWrapper>
-			<Stepper
-				orientation="vertical"
-				activeStep={activeStep}
-				connector={<VerticalConnector />}
-				style={{ cursor: "pointer" }}
-			>
-				{steps.map((step, index) => (
-					<Step key={step.title} active={index === activeStep}>
-						<StepLabel StepIconComponent={VerticalStepIcon}>
-							<StepContainer active={index === activeStep}>
-								<div
-									onClick={() => {
-										setActiveStep(index);
-									}}
-								>
-									<Typography
-										variant="h6"
-										style={{
-											fontWeight: index === activeStep ? "bold" : "normal",
+			<div style={{ width: "40%" }}>
+				<Stepper
+					orientation="vertical"
+					activeStep={activeStep}
+					connector={<VerticalConnector />}
+					style={{ cursor: "pointer" }}
+				>
+					{steps.map((step, index) => (
+						<Step key={step.title} active={index === activeStep}>
+							<StepLabel StepIconComponent={VerticalStepIcon}>
+								<StepContainer active={index === activeStep}>
+									<div
+										onClick={() => {
+											stopAnimation();
+											setActiveStep(index);
 										}}
 									>
-										{step.title}
-									</Typography>
-									<Typography variant="body2" color="textSecondary">
-										{step.description}
-									</Typography>
-								</div>
-							</StepContainer>
-						</StepLabel>
-					</Step>
-				))}
-			</Stepper>
+										<MSText
+											fontSize="35px"
+											mobileFontSize="20px"
+											fontWeight={index === activeStep ? "bold" : "normal"}
+										>
+											{step.title}
+										</MSText>
+										<MSText
+											fontSize="25px"
+											mobileFontSize="20px"
+											color="textSecondary"
+										>
+											{step.description}
+										</MSText>
+									</div>
+								</StepContainer>
+							</StepLabel>
+						</Step>
+					))}
+				</Stepper>
+			</div>
 			<ImageWrapper>
-				<Image
-					src={steps[activeStep].imageSource}
-					alt="Order Success"
-					width={100}
-					height={100}
-				/>
+				<div
+					style={{
+						width: "55%",
+						margin: "0 auto",
+						position: "relative",
+						alignSelf: "center",
+					}}
+				>
+					<Image
+						src={steps[activeStep].imageSource}
+						alt="Order Success"
+						layout="responsive"
+						width={500}
+						height={375}
+					/>
+				</div>
 			</ImageWrapper>
 		</MainWrapper>
 	);

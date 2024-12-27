@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
-export const NavWrapper = styled.nav`
+export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	//background-color: #111;
-	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
+	background: ${({ isLandingPage }) =>
+		isLandingPage ? "transparent" : "#111"};
 	padding: 20px 0px;
 	color: #fff;
-	border-radius: 10px;
 `;
 
 export const Logo = styled.div`

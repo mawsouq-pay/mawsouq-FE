@@ -6,24 +6,30 @@ export const HeroWrapper = styled.section`
 	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
 	color: white;
 	border-radius: 10px;
-	padding-bottom: 60px;
 `;
 export const PaddingContainer = styled.div`
-	padding-top: 50px;
-	padding-inline: clamp(20px, 5vw, 84px);
+	/* padding-top: 50px; */
+	//padding-inline: clamp(20px, 5vw, 84px);
+
+	//to be removed
+	padding: 80px 20px;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
 `;
 export const TitleWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 60%;
-	//padding-bottom: 35px;
+	align-items: center;
+	text-align: center;
 `;
 
 export const DescriptionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding-bottom: 35px;
-	gap: 3px;
 `;
 
 export const HeroInputsWrapper = styled.div`
@@ -37,11 +43,12 @@ export const HeroInputsWrapper = styled.div`
 		width: 80%;
 	}
 `;
-export const Divider = styled.div`
-	border: none;
-	border-left: 1px solid ${colors.black};
+export const Divider = styled.hr`
+	width: 111px;
 	height: 100%;
-	margin-inline-start: 5px;
+	background-color: red;
+	border: none;
+	margin: 0 10px;
 `;
 
 export const InputFieldDiv = styled.div`
@@ -56,18 +63,20 @@ export const InputFieldDiv = styled.div`
 		#2a75d4 100%
 	);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	min-height: 40px;
 `;
 export const StyledButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: ${colors.buttonGreenBackground};
+	background: ${colors.buttonGreenHover};
 	color: white;
-	padding: 15px 18px;
+	padding: 15px 100px;
 	border: none;
 	cursor: pointer;
 	border-radius: 8px;
 	margin-top: 10px;
+	flex: 1;
 
 	&:hover {
 		background: ${colors.buttonGreenHover};
@@ -75,8 +84,10 @@ export const StyledButton = styled.button`
 `;
 export const SubmitWrapper = styled.div`
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	gap: 15px;
+	gap: 4px;
 	text-align: center;
+	flex: 1;
+	//align-self: flex-start;
 `;

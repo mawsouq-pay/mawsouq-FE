@@ -14,7 +14,8 @@ import { useMediaQuery } from "@mui/material";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { useRouter } from "next/router";
 
-const Navbar = () => {
+const Navbar = (props: NavBarProps) => {
+	const { isLandingPage = false } = props;
 	const router = useRouter();
 
 	const [open, setOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navbar = () => {
 	const isActive = (path: string) => router.pathname === path;
 	return (
 		<>
-			<NavWrapper>
+			<NavWrapper isLandingPage={isLandingPage}>
 				<Logo>
 					Maw<span>souq</span>
 				</Logo>
