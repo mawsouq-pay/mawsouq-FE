@@ -8,11 +8,7 @@ export const HeroWrapper = styled.section`
 	border-radius: 10px;
 `;
 export const PaddingContainer = styled.div`
-	/* padding-top: 50px; */
-	//padding-inline: clamp(20px, 5vw, 84px);
-
-	//to be removed
-	padding: 80px 20px;
+	padding: 200px 20px;
 
 	display: flex;
 	align-items: center;

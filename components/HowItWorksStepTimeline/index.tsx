@@ -1,54 +1,20 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import StepConnector, {
-	stepConnectorClasses,
-} from "@mui/material/StepConnector";
 import { StepIconProps } from "@mui/material/StepIcon";
-import { Typography } from "@mui/material";
 import Check from "@mui/icons-material/Check";
-import { colors } from "@/constants/theme";
 import {
 	MainWrapper,
 	StepContainer,
 	ImageWrapper,
+	VerticalStepIconRoot,
+	VerticalConnector,
+	BlobContainer,
 } from "./StepTimeLine.styles";
 import Image from "next/image";
 import MSText from "../MSText";
-
-const VerticalConnector = styled(StepConnector)(({ theme }) => ({
-	[`& .${stepConnectorClasses.line}`]: {
-		borderColor: "#eaeaf0",
-		borderLeftWidth: 3,
-		minHeight: 50,
-	},
-	[`&.${stepConnectorClasses.active} .${stepConnectorClasses.line}`]: {
-		borderColor: colors.black,
-	},
-	[`&.${stepConnectorClasses.completed} .${stepConnectorClasses.line}`]: {
-		borderColor: colors.black,
-	},
-}));
-
-const VerticalStepIconRoot = styled("div")<{
-	ownerState: { active?: boolean };
-}>(({ ownerState }) => ({
-	color: ownerState.active ? colors.blue : "#eaeaf0",
-	display: "flex",
-	height: 30,
-	width: 30,
-	alignItems: "center",
-	justifyContent: "center",
-	borderRadius: "50%",
-	backgroundColor: "currentColor",
-	zIndex: 1,
-	"& .VerticalStepIcon-completedIcon": {
-		color: colors.blue,
-		fontSize: 20,
-	},
-}));
+import { HowItWorksStepTimeLineProps } from "./types";
 
 function VerticalStepIcon(props: StepIconProps) {
 	const { active, completed, className } = props;
@@ -81,15 +47,15 @@ const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
 										}}
 									>
 										<MSText
-											fontSize="35px"
-											mobileFontSize="20px"
+											fontSize="30px"
+											mobileFontSize="16px"
 											fontWeight={index === activeStep ? "bold" : "normal"}
 										>
 											{step.title}
 										</MSText>
 										<MSText
-											fontSize="25px"
-											mobileFontSize="20px"
+											fontSize="22px"
+											mobileFontSize="14px"
 											color="textSecondary"
 										>
 											{step.description}
@@ -102,14 +68,7 @@ const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
 				</Stepper>
 			</div>
 			<ImageWrapper>
-				<div
-					style={{
-						width: "55%",
-						margin: "0 auto",
-						position: "relative",
-						alignSelf: "center",
-					}}
-				>
+				<BlobContainer active={true}>
 					<Image
 						src={steps[activeStep].imageSource}
 						alt="Order Success"
@@ -117,7 +76,7 @@ const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
 						width={500}
 						height={375}
 					/>
-				</div>
+				</BlobContainer>
 			</ImageWrapper>
 		</MainWrapper>
 	);

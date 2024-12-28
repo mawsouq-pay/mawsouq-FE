@@ -1,4 +1,4 @@
-interface HowItWorksStepTimeLineProps {
+export interface HowItWorksStepTimeLineProps {
 	steps: {
 		title: string;
 		description: string;

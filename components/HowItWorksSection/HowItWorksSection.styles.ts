@@ -1,3 +1,4 @@
+import { colors } from "@/constants/theme";
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
@@ -7,7 +8,6 @@ export const Wrapper = styled.section`
 	padding-inline: clamp(20px, 5vw, 84px);
 	gap: 80px;
 `;
-
 export const TitleWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -24,4 +24,10 @@ export const StepsAndImagesWrapper = styled.div`
 	flex: 1;
 	width: "100%";
 	padding-inline-start: 60px;
+`;
+
+export const Divider = styled.hr`
+	border: none;
+	border-top: 1px solid ${colors.gray};
+	margin: 10px 0;
 `;
