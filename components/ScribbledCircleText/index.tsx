@@ -7,7 +7,7 @@ const ScribbledCircleText = ({ text }: { text: string }) => {
 				alignItems: "center",
 				position: "relative",
 				bottom: "20px",
-				alignSelf: "center",
+				alignSelf: "flex-start",
 			}}
 		>
 			<svg

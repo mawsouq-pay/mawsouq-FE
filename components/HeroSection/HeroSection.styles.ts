@@ -1,19 +1,27 @@
 import { colors } from "@/constants/theme";
-import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const HeroWrapper = styled.section`
 	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
 	color: white;
 	border-radius: 10px;
+	height: 75vh;
+`;
+export const RowDiv = styled.div`
+	display: flex;
+	flex-direction: row;
+	padding: 120px 90px 150px 90px;
 `;
 export const PaddingContainer = styled.div`
-	padding: 200px 20px;
-
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
-	text-align: center;
+	//text-align: center;
+`;
+export const ListWrapper = styled.div`
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
 `;
 export const TitleWrapper = styled.div`
 	display: flex;
@@ -34,19 +42,13 @@ export const HeroInputsWrapper = styled.div`
 	flex-direction: column;
 	gap: 10px;
 	margin-bottom: 20px;
-	width: 40%;
-	@media (max-width: 1282px) {
-		width: 80%;
-	}
+	width: 80%;
 `;
 export const Divider = styled.hr`
-	width: 111px;
-	height: 100%;
-	background-color: red;
 	border: none;
-	margin: 0 10px;
+	border-top: 1px solid ${colors.red};
+	margin: 10px 0;
 `;
-
 export const InputFieldDiv = styled.div`
 	display: flex;
 	align-items: center;
@@ -59,15 +61,16 @@ export const InputFieldDiv = styled.div`
 		#2a75d4 100%
 	);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	min-height: 40px;
+	min-height: 50px;
 `;
 export const StyledButton = styled.button`
 	display: flex;
+	align-self: flex-start;
 	justify-content: center;
 	align-items: center;
-	background: ${colors.buttonGreenHover};
+	background-color: #31c48d;
 	color: white;
-	padding: 15px 100px;
+	padding: 20px;
 	border: none;
 	cursor: pointer;
 	border-radius: 8px;

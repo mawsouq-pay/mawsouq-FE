@@ -32,7 +32,7 @@ export const NavLinks = styled.div`
 export const NavLink = styled.a<{ isActive: boolean }>`
 	text-decoration: none;
 	color: #fff;
-	font-size: 16px;
+	font-size: 18px;
 	position: relative;
 
 	&::after {
