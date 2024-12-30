@@ -1,33 +1,46 @@
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const HeroWrapper = styled.section`
 	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
 	color: white;
 	border-radius: 10px;
-	height: 75vh;
+
+	height: 65vh;
+	@media (max-width: 1000px) {
+		height: fit-content;
+	}
 `;
 export const RowDiv = styled.div`
 	display: flex;
 	flex-direction: row;
-	padding: 120px 90px 150px 90px;
+	padding: 55px 90px 70px 90px;
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+	}
 `;
 export const PaddingContainer = styled.div`
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
-	//text-align: center;
+	width: 65%;
+	@media (max-width: 1000px) {
+		width: 100%;
+	}
 `;
 export const ListWrapper = styled.div`
 	display: flex;
 	flex: 1;
 	justify-content: flex-end;
+	@media (max-width: 1000px) {
+		display: none;
+	}
 `;
 export const TitleWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	text-align: center;
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -75,7 +88,6 @@ export const StyledButton = styled.button`
 	cursor: pointer;
 	border-radius: 8px;
 	margin-top: 10px;
-	flex: 1;
 
 	&:hover {
 		background: ${colors.buttonGreenHover};

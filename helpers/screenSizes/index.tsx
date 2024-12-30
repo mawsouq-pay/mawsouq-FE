@@ -23,7 +23,7 @@ function useCustomBreakpoint(): {
 			xxl: width > 1599,
 			xl: width > 1199,
 			lg: width > 991,
-			isMobile: width <= 991,
+			isMobile: width <= 900,
 		}),
 		[width]
 	);

@@ -1,25 +1,19 @@
 import React from "react";
 import { Container, StepList, StepItem } from "./HeroList.styles";
-import { CheckCircleOutline } from "@mui/icons-material";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
 import { CircleTickIcon } from "@/assets/icons";
-
-interface Step {
-	label: string;
-	isActive: boolean;
-}
-
-interface StepsListProps {
-	title: string;
-	steps: Step[];
-}
 
 const StepsList = (props: StepsListProps) => {
 	const { title, steps } = props;
 	return (
 		<Container>
-			<MSText fontSize="40px" fontWeight="bold" color={colors.white}>
+			<MSText
+				fontSize="30px"
+				mobileFontSize="16px"
+				fontWeight="bold"
+				color={colors.white}
+			>
 				{title}
 			</MSText>
 			<StepList>
@@ -30,6 +24,7 @@ const StepsList = (props: StepsListProps) => {
 						/>
 						<MSText
 							fontSize="18px"
+							mobileFontSize="14px"
 							color={step.isActive ? colors.buttonGreenHover : colors.white}
 						>
 							{step.label}

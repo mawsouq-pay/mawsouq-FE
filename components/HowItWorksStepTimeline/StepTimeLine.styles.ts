@@ -47,7 +47,7 @@ export const StepContainer = styled.div<{ active?: boolean }>(({ active }) => ({
 	borderRadius: "8px",
 	transition: "all 0.3s ease-in-out",
 	padding: "10px",
-	zIndex: active ? 2 : 1, // Higher z-index for active container
+	zIndex: active ? 2 : 1,
 	position: "relative",
 	backgroundColor: active ? "rgba(52, 152, 219, 0.1)" : "transparent",
 }));
