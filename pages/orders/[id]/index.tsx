@@ -11,6 +11,7 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { colors } from "@/constants/theme";
 import OrderAction from "@/components/OrderAction";
+import OrderInfo from "@/components/OrderInfo";
 
 const OrderDetails = () => {
 	const { locale } = useLocaleStore();
@@ -35,6 +36,15 @@ const OrderDetails = () => {
 			<MainWrapper>
 				<InfoSection>
 					<OrderAction />
+					<OrderInfo
+						transactionTitle={data?.order?.transactionTitle || ""}
+						itemName={data?.order?.itemName || ""}
+						description={data?.order.description || ""}
+						price={data?.order?.price || 0}
+						status={data?.order?.status || "PENDING"}
+						deliveryDate={data?.order?.deliveryDate || ""}
+					/>
+
 					<OrderPaymentSummary
 						price={data?.order.price || 0}
 						escrowFee={20}

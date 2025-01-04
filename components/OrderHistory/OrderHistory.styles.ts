@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "@/constants/theme";
 
 export const HistoryContainer = styled.div`
-	background: ${colors.white};
+	background: ${colors.lightGray};
 	border-radius: 8px;
 	padding: 20px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);

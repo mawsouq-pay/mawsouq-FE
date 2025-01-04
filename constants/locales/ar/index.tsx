@@ -79,6 +79,7 @@ const ar = {
 	subTotal: "الإجمالي الفرعي",
 	escrowFee: "الرسوم",
 	totalDue: "الإجمالي المستحق",
+	paymentSummary: "Payment Summary",
 
 	//Button CTA
 	viewOrder: "عرض الطلب",
@@ -92,6 +93,9 @@ const ar = {
 	//OrderDetails
 	history: "History",
 	orderDetails: "Order Details",
+	ordersList: "Orders List",
+	sellerName: "Seller Name",
+	buyerName: "Buyer Name",
 };
 
 export default ar;

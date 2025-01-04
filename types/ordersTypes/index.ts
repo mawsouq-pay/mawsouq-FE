@@ -1,9 +1,10 @@
 import { OrderStatusEnum, RolesEnum } from "@/constants";
+import { User } from "../authenticationTypes";
 
 export interface Order {
 	_id: string;
-	buyer?: string | null;
-	seller?: string | null;
+	buyer?: User | null;
+	seller?: User | null;
 	transactionTitle: string;
 	itemName: string;
 	price: number;

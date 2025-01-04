@@ -7,6 +7,8 @@ export interface OrderCardProps {
 	status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
 	deliveryDate: string;
 	onPress: () => void;
+	isFetcherSeller: boolean;
+	otherPartyName?: string | null;
 }
 export interface RenderValueProps {
 	value: string;
