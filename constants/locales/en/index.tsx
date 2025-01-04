@@ -8,6 +8,7 @@ const en = {
 	for: "For",
 	moneyStaysSecure: "Your money stays secure until the deal is complete.",
 	getStartedNow: "Get Started Now!",
+
 	// General
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",
@@ -87,6 +88,10 @@ const en = {
 		"An email with the order details has also been sent to the buyer.",
 	shareOrderLink: "Share Order Link",
 	copied: "Copied!",
+
+	//OrderDetails
+	history: "History",
+	orderDetails: "Order Details",
 };
 
 export default en;

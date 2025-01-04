@@ -3,9 +3,11 @@ const clientRoutes = {
 	landingPage: "/landingPage",
 	login: "/login",
 	register: "/register",
+
+	startTransaction: "/startTransaction",
 	orderConfirmation: "/orderConfirmation",
 	orders: "/orders",
-	startTransaction: "/startTransaction",
+	order: "/orders/[id]",
 };
 
 const publicRoutes = [

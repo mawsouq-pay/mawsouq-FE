@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 export const MainWrapper = styled.div`
 	border-radius: 20px;
-	/* width: 680px;
-	height: 220px; */
 	margin-top: 12px;
 	margin-bottom: 12px;
 	display: flex;

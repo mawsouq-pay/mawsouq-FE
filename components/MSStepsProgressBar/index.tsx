@@ -10,9 +10,10 @@ import StepConnector, {
 import { StepIconProps } from "@mui/material/StepIcon";
 import { colors } from "@/constants/theme";
 
+// Custom Connector
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
 	[`&.${stepConnectorClasses.alternativeLabel}`]: {
-		top: 10,
+		top: 15,
 		left: "calc(-50% + 16px)",
 		right: "calc(50% + 16px)",
 	},
@@ -33,37 +34,64 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 	},
 }));
 
-const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(
-	({ ownerState }) => ({
-		color: ownerState.active ? `${colors.green}` : "#eaeaf0",
-		display: "flex",
-		height: 22,
-		alignItems: "center",
-		"& .QontoStepIcon-completedIcon": {
-			color: `${colors.green}`,
-			zIndex: 1,
-			fontSize: 18,
-		},
-		"& .QontoStepIcon-circle": {
-			width: 16,
-			height: 16,
-			borderRadius: "50%",
-			backgroundColor: "currentColor",
-		},
-	})
-);
+// Custom Step Icon Styles
+const QontoStepIconRoot = styled("div")<{
+	ownerState: { active?: boolean; completed?: boolean };
+}>(({ ownerState }) => ({
+	color: ownerState.completed
+		? `${colors.green}`
+		: ownerState.active
+			? `${colors.green}`
+			: "#eaeaf0",
+	display: "flex",
+	alignItems: "center",
+	height: 30,
+	width: 30,
+	justifyContent: "center",
+	borderRadius: "50%",
+	border: ownerState.active ? `3px solid ${colors.green}` : "3px solid #eaeaf0",
+	backgroundColor: ownerState.completed
+		? `${colors.green}`
+		: ownerState.active
+			? "#ffffff"
+			: "#eaeaf0",
+	zIndex: 1,
+	"& .QontoStepIcon-number": {
+		color: ownerState.completed
+			? "#ffffff"
+			: ownerState.active
+				? `${colors.green}`
+				: "#555555",
+		fontWeight: 600,
+		fontSize: "16px",
+	},
+	"& .QontoStepIcon-check": {
+		color: "#ffffff",
+		width: 16,
+		height: 16,
+		borderRadius: "50%",
+		fontSize: "18px",
+	},
+}));
 
+// Custom Step Icon
 function QontoStepIcon(props: StepIconProps) {
-	const { active, completed, className } = props;
+	const { active, completed, icon, className } = props;
 	return (
-		<QontoStepIconRoot ownerState={{ active }} className={className}>
+		<QontoStepIconRoot ownerState={{ active, completed }} className={className}>
 			{completed ? (
-				<Check className="QontoStepIcon-completedIcon" />
+				<Check className="QontoStepIcon-check" />
 			) : (
-				<div className="QontoStepIcon-circle" />
+				<span className="QontoStepIcon-number">{icon}</span>
 			)}
 		</QontoStepIconRoot>
 	);
+}
+
+// Step Progress Bar Component
+interface StepProgressBarProps {
+	steps: string[];
+	activeStep: number;
 }
 
 const MSStepProgressBar = (props: StepProgressBarProps) => {
@@ -73,8 +101,9 @@ const MSStepProgressBar = (props: StepProgressBarProps) => {
 			alternativeLabel
 			activeStep={activeStep}
 			connector={<QontoConnector />}
+			style={{ display: "flex", flex: 1 }}
 		>
-			{steps.map((label) => (
+			{steps.map((label, index) => (
 				<Step key={label}>
 					<StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
 				</Step>

@@ -7,7 +7,7 @@ import OrdersOverviewSection from "@/components/OrdersOverviewSection";
 import { useUserStats } from "@/hooks/statusHooks";
 
 const HomePage = () => {
-	const { data: ordersData, isPending, error } = useFetchOrders();
+	const { data: ordersData, isLoading, error } = useFetchOrders();
 	console.log("Orders Data:", ordersData?.orders);
 	const { numberOfActiveTransactions, walletBalance } = useUserStats(
 		ordersData?.orders

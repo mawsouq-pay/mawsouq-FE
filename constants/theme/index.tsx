@@ -5,11 +5,17 @@ export const colors = {
 	blue: "#2A75D4",
 	backgroundColor: `#f7f8fa`,
 	lightBlue: "#F7F9FC",
+
 	gray: "gray",
+	darkGray: "#555555",
 	lightGray: "#F5F5F5",
-	backgroundHover: "#F0F8FF",
+	gray22: "#CDD9EC",
+
 	semiBlack: "#232b2b",
 	lightBlack: "#2C2D2D",
+	jetBlack: "#333333",
+
+	backgroundHover: "#F0F8FF",
 	divBackground: "#fafafa",
 	divBorder: "#e5e7eb",
 	buttonGreenBackground: " #218838",

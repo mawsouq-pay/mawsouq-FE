@@ -8,9 +8,7 @@ import {
 	StatusBadge,
 	StatusDot,
 } from "./OrderCard.style";
-import { HorizontalCardProps, RenderValueProps } from "./types";
-import { textTr } from "@/constants/locales";
-import { useLocaleStore } from "@/store/LocaleStore";
+import { OrderCardProps, RenderValueProps } from "./types";
 import { colors } from "@/constants/theme";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import { orderStatusObject } from "@/constants";
@@ -18,11 +16,10 @@ import { DueDateIcon } from "@/assets/icons";
 import OrderListItem from "../OrderListItem";
 import { formatDate } from "@/helpers";
 
-const OrderCard = (props: HorizontalCardProps) => {
-	const { locale } = useLocaleStore();
-	const text = textTr(locale);
+const OrderCard = (props: OrderCardProps) => {
 	const { isMobile } = useCustomBreakpoint();
-	const { transactionTitle, itemName, price, status, deliveryDate } = props;
+	const { transactionTitle, itemName, price, status, deliveryDate, onPress } =
+		props;
 	const orderStatusInfo = orderStatusObject[status];
 	const formattedDate = formatDate(deliveryDate);
 	const renderValue = ({
@@ -58,7 +55,7 @@ const OrderCard = (props: HorizontalCardProps) => {
 	};
 
 	return (
-		<MainWrapper>
+		<MainWrapper onClick={onPress}>
 			{!isMobile ? (
 				<OrderListItem
 					transactionTitle={transactionTitle}

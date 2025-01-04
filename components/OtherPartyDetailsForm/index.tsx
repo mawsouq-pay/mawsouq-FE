@@ -45,7 +45,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 						/>
 
 						<PaymentSummarySection
-							amount={paymentDetails?.price ?? 1}
+							price={paymentDetails?.price ?? 1}
 							escrowFee={paymentDetails?.escrowFee ?? 1}
 							totalDue={paymentDetails?.totalDue ?? 1}
 						/>

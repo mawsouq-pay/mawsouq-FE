@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: any) {
 	const theme = createTheme();
 
 	useEffect(() => {
-		console.log("------MY APP SETUP USE EFFECT");
+		console.log("------MY APP SETUP USE EFFECT", Component.CustomLayout);
 		setUpApp();
 	}, []);
 	if (isSetUpLoading) {

@@ -3,6 +3,8 @@ import { serverRoutes } from "@/routes";
 import {
 	CreateOrderInput,
 	CreateOrderResponse,
+	FetchOrderDetailsInput,
+	FetchOrderDetailsResponse,
 	FetchOrdersResponse,
 } from "@/types/ordersTypes";
 
@@ -13,4 +15,10 @@ export const useCreateOrder = () => {
 };
 export const useFetchOrders = () => {
 	return useFetch<FetchOrdersResponse>(serverRoutes.fetchOrders);
+};
+
+export const useFetchOrderById = (orderId: string) => {
+	return useFetch<FetchOrderDetailsResponse>(
+		`${serverRoutes.fetchOrderById}/${orderId}`
+	);
 };

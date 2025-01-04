@@ -16,8 +16,7 @@ export interface Order {
 	status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
 	statusHistory: {
 		status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
-		updatedAt: string; // "2025-01-01T00:00:00.000Z"
-		updatedBy: string;
+		timestamp: string; // "2025-01-01T00:00:00.000Z"
 	}[];
 }
 
@@ -41,4 +40,11 @@ export interface CreateOrderResponse {
 export interface FetchOrdersResponse {
 	message: string;
 	orders?: Order[];
+}
+
+export interface FetchOrderDetailsInput {
+	id: string;
+}
+export interface FetchOrderDetailsResponse {
+	order: Order;
 }

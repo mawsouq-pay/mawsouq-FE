@@ -88,6 +88,10 @@ const ar = {
 		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",
 	shareOrderLink: "نسخ رابط الطلب",
 	copied: "تم النسخ!",
+
+	//OrderDetails
+	history: "History",
+	orderDetails: "Order Details",
 };
 
 export default ar;

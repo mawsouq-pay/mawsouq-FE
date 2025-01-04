@@ -17,12 +17,12 @@ import { colors } from "@/constants/theme";
 const PaymentSummarySection = (props: PaymentSummarySectionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { amount, escrowFee, totalDue } = props;
+	const { price, escrowFee, totalDue } = props;
 
 	const paymentItems = [
 		{
 			title: text.price,
-			value: `EGP ${amount}`,
+			value: `EGP ${price}`,
 			fontWeight: "600",
 			fontSize: "16px",
 			mobileFontSize: "14px",

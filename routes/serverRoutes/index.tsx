@@ -6,6 +6,7 @@ const serverRoutes = {
 
 	fetchOrders: "/order/my-orders",
 	createOrder: "/order/create",
+	fetchOrderById: "/order", //"/order:id"
 };
 
 export default serverRoutes;
