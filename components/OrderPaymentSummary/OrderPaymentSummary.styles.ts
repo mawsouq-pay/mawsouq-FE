@@ -7,5 +7,5 @@ export const MainWrapper = styled.div`
 	background-color: ${colors.white};
 	flex: 1;
 	border-radius: 20px;
-	padding: 20px;
+	padding: 25px;
 `;

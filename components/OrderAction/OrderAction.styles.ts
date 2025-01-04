@@ -7,8 +7,8 @@ export const MainWrapper = styled.div`
 	background-color: ${colors.white};
 	flex: 1;
 	border-radius: 20px;
-	padding: 20px;
-	gap: 30px;
+	padding: 25px;
+	gap: 20px;
 `;
 
 export const MessageDiv = styled.div`

@@ -5,13 +5,13 @@ import { media } from "@/helpers/mediaQueryHelper";
 export const MainWrapper = styled.div`
 	background-color: ${colors.white};
 	border-radius: 16px;
-	//flex: 1;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 	justify-content: flex-start;
 	padding: 20px 35px;
+	cursor: pointer;
 	${media.below925`
     align-items: center;
 	padding: 20px 20px;
