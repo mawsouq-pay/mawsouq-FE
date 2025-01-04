@@ -1,15 +1,50 @@
+import { OrderStatusEnum, RolesEnum } from "@/constants";
+
 export interface Order {
-    buyer?: string | null;
-    seller?: string | null;
-    title: string;
-    itemName: string;
-    price: number;
-    description: string;
-    otherPartyEmail?: string | null;
-    otherPartyNumber?: string | null;
+	_id: string;
+	buyer?: string | null;
+	seller?: string | null;
+	transactionTitle: string;
+	itemName: string;
+	price: number;
+	description: string;
+	quantity: number;
+	deliveryDate: string;
+	otherPartyEmail?: string | null;
+	otherPartyPhone?: string | null;
+	isFetcherSeller: boolean;
+	status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
+	statusHistory: {
+		status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
+		timestamp: string; // "2025-01-01T00:00:00.000Z"
+	}[];
+}
+
+export interface CreateOrderInput {
+	transactionTitle: string;
+	itemName: string;
+	price: number;
+	description: string;
+	quantity: number;
+	deliveryDate: Date;
+	otherPartyEmail: string;
+	otherPartyPhone: string;
+	role: (typeof RolesEnum)[keyof typeof RolesEnum];
+}
+
+export interface CreateOrderResponse {
+	message: string;
+	order: Order;
 }
 
 export interface FetchOrdersResponse {
-    message: string;
-    orders?: Order[];
+	message: string;
+	orders?: Order[];
+}
+
+export interface FetchOrderDetailsInput {
+	id: string;
+}
+export interface FetchOrderDetailsResponse {
+	order: Order;
 }

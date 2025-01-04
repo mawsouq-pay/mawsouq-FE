@@ -12,9 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     background: #fff; 
   }
 
-  body {
-    font-family: Arial, sans-serif;
-  }
+
 
   #__next {
     height: 100%; 
