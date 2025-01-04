@@ -1,0 +1,57 @@
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  timeout: 10000, // Set a timeout for requests
+});
+
+// Request Interceptor
+apiClient.interceptors.request.use(
+  (config) => {
+    // Modify or add headers, e.g., add Authorization token
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+// Response Interceptor
+apiClient.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    // Handle token refresh logic or API errors
+    if (error.response?.status === 401) {
+      // Log out the user or refresh the token
+      console.error('Unauthorized, logging out...');
+      localStorage.removeItem('accessToken');
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;
+
+
+
+-------------------------------------------------------------------------------------------------------------
+export const Wrapper = styled.div`
+  background-color: #f5f5f5;
+  padding: 20px;
+
+  ${media.mobile`
+    background-color: #ff0000; // Red background on mobile
+    padding: 10px;
+  `}
+
+  ${media.tablet`
+    background-color: #00ff00; // Green background on tablet
+    padding: 15px;
+  `}
+`;
+---------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,28 @@
 export const colors = {
-    primary: '#FF7717',
+	white: "#FFFFFF",
+	black: "#000000",
+	green: "#218838",
+	blue: "#2A75D4",
+	backgroundColor: `#f7f8fa`,
+	lightBlue: "#F7F9FC",
 
-}
+	gray: "gray",
+	darkGray: "#555555",
+	lightGray: "#F5F5F5",
+	gray22: "#CDD9EC",
+
+	semiBlack: "#232b2b",
+	lightBlack: "#2C2D2D",
+	jetBlack: "#333333",
+
+	backgroundHover: "#F0F8FF",
+	divBackground: "#fafafa",
+	divBorder: "#e5e7eb",
+	buttonGreenBackground: " #218838",
+	buttonGreenHover: "#28a745",
+	//OrderListItem:
+	LabelValue: "#75859E",
+	NameContainerBackground: "#F7F9FC",
+	red: "#F5222D",
+	error: "#4A4A4A",
+};
