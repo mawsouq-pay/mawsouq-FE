@@ -24,6 +24,7 @@ const StartTransaction = () => {
 	const text = textTr(locale);
 	const { mutate: createOrder, isPending, error } = useCreateOrder();
 	const [orderLink, setOrderLink] = useState<string | null>();
+	const [orderId, setOrderId] = useState<string | null>();
 	const [activeStep, setActiveStep] = useState(0);
 	const [formData, setFormData] = useState<StartTransactionData>({
 		transactionTitle: "",
@@ -56,6 +57,7 @@ const StartTransaction = () => {
 			onSuccess: (response) => {
 				console.log("-----CREATE ORDER SUCCESS-------", response);
 				setOrderLink(`https://mawsouq/order/id=${response?.data?.order?._id}`);
+				setOrderId(response?.data?.order?._id);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
 			},
 		});
@@ -111,6 +113,7 @@ const StartTransaction = () => {
 							isPending={isPending}
 							error={error}
 							navigateToFirstStep={navigateToFirstStep}
+							orderId={orderId}
 						/>
 					)}
 				</div>
