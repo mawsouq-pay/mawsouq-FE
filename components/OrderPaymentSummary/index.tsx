@@ -1,12 +1,12 @@
 import React from "react";
 import { OrderPaymentSummaryProps } from "./types";
-import { MainWrapper } from "./OrderPaymentSummary.styles";
+import { MainWrapper, RowDiv } from "./OrderPaymentSummary.styles";
 import PaymentSummarySection from "../PaymentSummarySection";
 import MSText from "../MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { colors } from "@/constants/theme";
-
+import PaymentIcon from "@mui/icons-material/Payment";
 const OrderPaymentSummary = (props: OrderPaymentSummaryProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -15,12 +15,16 @@ const OrderPaymentSummary = (props: OrderPaymentSummaryProps) => {
 
 	return (
 		<MainWrapper>
-			<MSText fontSize={"16px"} fontWeight={"600"} color={colors.gray}>
-				{text.orderDetails}
-			</MSText>
+			<RowDiv>
+				<MSText fontSize={"16px"} fontWeight={"600"} color={colors.gray}>
+					{text.paymentSummary}
+				</MSText>
+				<PaymentIcon />
+			</RowDiv>
+
 			<PaymentSummarySection
 				price={price}
-				escrowFee={totalDue - price}
+				escrowFee={escrowFee}
 				totalDue={totalDue}
 			/>
 		</MainWrapper>

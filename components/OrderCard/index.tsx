@@ -18,8 +18,16 @@ import { formatDate } from "@/helpers";
 
 const OrderCard = (props: OrderCardProps) => {
 	const { isMobile } = useCustomBreakpoint();
-	const { transactionTitle, itemName, price, status, deliveryDate, onPress } =
-		props;
+	const {
+		transactionTitle,
+		itemName,
+		price,
+		status,
+		deliveryDate,
+		onPress,
+		isFetcherSeller,
+		otherPartyName,
+	} = props;
 	const orderStatusInfo = orderStatusObject[status];
 	const formattedDate = formatDate(deliveryDate);
 	const renderValue = ({
@@ -63,6 +71,8 @@ const OrderCard = (props: OrderCardProps) => {
 					itemName={itemName}
 					status={status}
 					deliveryDate={deliveryDate}
+					isFetcherSeller={isFetcherSeller}
+					otherPartyName={otherPartyName}
 				/>
 			) : (
 				<MobileCardWrapper>

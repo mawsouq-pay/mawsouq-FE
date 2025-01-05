@@ -14,9 +14,10 @@ export const useCreateOrder = () => {
 	);
 };
 export const useFetchOrders = () => {
-	return useFetch<FetchOrdersResponse>(serverRoutes.fetchOrders);
+	return useFetch<FetchOrdersResponse>(serverRoutes.fetchOrders, {
+		queryKey: ["fetchOrders"],
+	});
 };
-
 export const useFetchOrderById = (orderId: string) => {
 	return useFetch<FetchOrderDetailsResponse>(
 		`${serverRoutes.fetchOrderById}/${orderId}`

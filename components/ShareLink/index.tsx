@@ -18,7 +18,7 @@ import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 
 const ShareOrderLink = (props: ShareLinkProps) => {
-	const { isPending, error, orderLink, navigateToFirstStep } = props;
+	const { isPending, error, orderLink, navigateToFirstStep, orderId } = props;
 
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -39,6 +39,13 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 	const retryButton = (
 		<NavButton onClick={navigateToFirstStep}>{text.pleaseTryAgain}</NavButton>
 	);
+	const navigateToOrder = () => {
+		console.log(orderId);
+		router.push({
+			pathname: clientRoutes.order,
+			query: { id: orderId },
+		});
+	};
 
 	return (
 		<ErrorAndLoadingWrapper
@@ -76,11 +83,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 				<MSText fontSize="14px" color={colors.gray}>
 					{text.emailSentToOtherParty}
 				</MSText>
-				<NavButton
-					onClick={() => {
-						router.push(clientRoutes.homePage);
-					}}
-				>
+				<NavButton onClick={navigateToOrder}>
 					<MSText color={colors.white} fontSize={"14px"} fontWeight="600">
 						{text.viewOrder}
 					</MSText>

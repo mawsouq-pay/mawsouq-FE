@@ -12,42 +12,54 @@ export const OrderStatusEnum = Object.freeze({
 });
 export const orderStatusObject: Record<
 	keyof typeof OrderStatusEnum,
-	{ text: string; backgroundColor: string; textColor: string }
+	{
+		text: string;
+		backgroundColor: string;
+		textColor: string;
+		historyMessage: string;
+	}
 > = {
 	PENDING: {
 		text: "pending",
-		backgroundColor: "#FFF9C4", // Light Yellow
+		backgroundColor: "#FFF9C4",
 		textColor: "#000000",
+		historyMessage: "Order was created and is pending payment from the buyer.",
 	},
 	IN_PROGRESS: {
 		text: "in_progress",
-		backgroundColor: "#BBDEFB", // Light Blue
+		backgroundColor: "#BBDEFB",
 		textColor: "#000000",
+		historyMessage: "Order is in progress; the seller is working on the item.",
 	},
 	IN_TRANSIT: {
 		text: "in_transit",
-		backgroundColor: "#FFE0B2", // Light Orange
+		backgroundColor: "#FFE0B2",
 		textColor: "#000000",
+		historyMessage: "Order is on the way; the seller has dispatched the item.",
 	},
 	DELIVERED: {
 		text: "delivered",
-		backgroundColor: "#C8E6C9", // Light Green
+		backgroundColor: "#C8E6C9",
 		textColor: "#000000",
+		historyMessage: "Order has been delivered to the buyer.",
 	},
 	COMPLETED: {
 		text: "completed",
-		backgroundColor: "#A5D6A7", // Soft Green
+		backgroundColor: "#A5D6A7",
 		textColor: "#000000",
+		historyMessage: "Order is completed; the buyer approved the delivery.",
 	},
 	DISPUTED: {
 		text: "disputed",
-		backgroundColor: "#FFCCBC", // Light Red/Orange
+		backgroundColor: "#FFCCBC",
 		textColor: "#000000",
+		historyMessage: "The order is disputed; the buyer has raised an issue.",
 	},
 	CANCELLED: {
 		text: "cancelled",
-		backgroundColor: "#F0F0F0", // Light Gray
+		backgroundColor: "#F0F0F0",
 		textColor: "#000000",
+		historyMessage: "The order has been cancelled and is no longer active.",
 	},
 };
 

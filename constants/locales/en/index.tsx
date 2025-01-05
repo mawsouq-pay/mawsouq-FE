@@ -79,6 +79,7 @@ const en = {
 	subTotal: "Sub total",
 	escrowFee: "Fee",
 	totalDue: "Total due",
+	paymentSummary: "Payment Summary",
 
 	//Button CTA
 	viewOrder: "View Order",
@@ -92,6 +93,9 @@ const en = {
 	//OrderDetails
 	history: "History",
 	orderDetails: "Order Details",
+	ordersList: "Orders List",
+	sellerName: "Seller Name",
+	buyerName: "Buyer Name",
 };
 
 export default en;
