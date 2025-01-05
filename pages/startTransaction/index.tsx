@@ -16,6 +16,7 @@ import { StartTransactionData } from "./types";
 import { useCreateOrder } from "@/hooks/orderHooks";
 import { RolesEnum } from "@/constants";
 import queryClient from "@/client/reactQClient";
+import { trackStartTransaction } from "@/hooks/mixpanelHooks";
 
 const steps = ["Transaction Details", "Buyer Details", "Share Link"];
 
@@ -59,6 +60,7 @@ const StartTransaction = () => {
 				setOrderLink(`https://mawsouq/order/id=${response?.data?.order?._id}`);
 				setOrderId(response?.data?.order?._id);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
+				trackStartTransaction(orderData);
 			},
 		});
 
