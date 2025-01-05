@@ -6,7 +6,6 @@ import {
 	LabelValue,
 	MainWrapper,
 	TextValue,
-	Divider,
 	RowDiv,
 } from "./OrderInfo.styles";
 import MSText from "../MSText";
@@ -16,7 +15,7 @@ import { textTr } from "@/constants/locales";
 import { OrderInfoProps } from "./types";
 import { formatDate } from "@/helpers";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-import { List } from "@mui/material";
+import { Divider } from "@mui/material";
 const OrderInfo = (props: OrderInfoProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -33,7 +32,7 @@ const OrderInfo = (props: OrderInfoProps) => {
 	return (
 		<MainWrapper>
 			<RowDiv>
-				<MSText fontSize={"20px"} color={colors.gray} fontWeight={"600"}>
+				<MSText fontSize={"16px"} mobileFontSize={"14px"} color={colors.gray}>
 					Order Details
 				</MSText>
 				<ListAltIcon />

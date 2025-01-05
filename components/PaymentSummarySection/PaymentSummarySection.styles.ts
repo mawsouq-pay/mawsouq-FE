@@ -35,11 +35,6 @@ export const TextValue = styled.div`
 	width: auto;
 	margin: 0;
 `;
-export const Divider = styled.hr`
-	border: none;
-	border-top: 1px solid ${colors.gray};
-	margin: 10px 0;
-`;
 
 export const TotalWrapper = styled.div`
 	display: flex;

@@ -38,11 +38,7 @@ export const ColumnDiv = styled.div`
 	gap: 8px;
 	padding-bottom: 20px;
 `;
-export const Divider = styled.hr`
-	border: none;
-	border-top: 1px solid ${colors.gray};
-	margin: 10px 0;
-`;
+
 export const RowDiv = styled.div`
 	display: flex;
 	flex-direction: row;

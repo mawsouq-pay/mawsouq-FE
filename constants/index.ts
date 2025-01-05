@@ -62,6 +62,69 @@ export const orderStatusObject: Record<
 		historyMessage: "The order has been cancelled and is no longer active.",
 	},
 };
+export const orderProgressBarData: Record<
+	keyof typeof OrderStatusEnum,
+	{
+		activeStep: number;
+		messageForBuyer: string;
+		messageForSeller: string;
+		buyerCTA: string | null;
+		sellerCTA: string | null;
+	}
+> = {
+	PENDING: {
+		activeStep: 0,
+		messageForBuyer: "Waiting for your payment to proceed with the order.",
+		messageForSeller: "Waiting for the buyer to make the payment.",
+		buyerCTA: "Make Payment",
+		sellerCTA: null,
+	},
+	IN_PROGRESS: {
+		activeStep: 1,
+		messageForBuyer: "The seller is preparing your order.",
+		messageForSeller: "Start creating the order.",
+		buyerCTA: null,
+		sellerCTA: "Mark as Ready for Delivery",
+	},
+	IN_TRANSIT: {
+		activeStep: 2,
+		messageForBuyer: "Your order is ready and waiting for dispatch.",
+		messageForSeller: "Dispatch the order to the buyer.",
+		buyerCTA: null,
+		sellerCTA: "Mark as Out for Delivery",
+	},
+	DELIVERED: {
+		activeStep: 3,
+		messageForBuyer: "Confirm receipt of your order.",
+		messageForSeller: "Waiting for the buyer to confirm receipt.",
+		buyerCTA: "Confirm Delivery",
+		sellerCTA: null,
+	},
+	COMPLETED: {
+		activeStep: 4,
+		messageForBuyer: "Thank you! Your order is completed.",
+		messageForSeller:
+			"The order is completed, and the payment has been released.",
+		buyerCTA: null,
+		sellerCTA: null,
+	},
+	DISPUTED: {
+		activeStep: 4,
+		messageForBuyer:
+			"A dispute has been raised. Provide details to resolve it.",
+		messageForSeller:
+			"A dispute has been raised. Provide details to resolve it.",
+		buyerCTA: "Submit Dispute Details",
+		sellerCTA: "Submit Dispute Details",
+	},
+	CANCELLED: {
+		activeStep: 0,
+		messageForBuyer: "The order has been cancelled.",
+		messageForSeller: "The order has been cancelled.",
+		buyerCTA: null,
+		sellerCTA: null,
+	},
+};
 
 export const RolesEnum = Object.freeze({
 	BUYER: "Buyer",
