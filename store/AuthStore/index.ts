@@ -3,6 +3,7 @@ import { serverRoutes } from "@/routes";
 import apiClient from "@/client/axiosClient";
 import { User } from "@/types/authenticationTypes";
 import Cookies from "js-cookie";
+import mixpanel from "mixpanel-browser";
 
 export interface AuthStore {
 	isLoggedIn: boolean;
@@ -100,6 +101,13 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 			isLoggedIn: true,
 			accessToken,
 			user: user,
+		});
+
+		mixpanel.identify(user?.email);
+		mixpanel.people.set({
+			$name: user?.name,
+			$email: user?.email,
+			$phone: user?.phone,
 		});
 
 		apiClient.defaults.headers["x-auth-token"] = accessToken;
