@@ -1,5 +1,6 @@
 import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
+import { Form } from "formik";
 import styled from "styled-components";
 
 export const GradientBackground = styled.div`
@@ -48,7 +49,7 @@ export const InputLabel = styled.label`
 	display: block;
 `;
 
-export const Form = styled.form`
+export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
 	gap: 20px;

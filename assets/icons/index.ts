@@ -7,6 +7,8 @@ import ErrorStateIcon from "./error_state";
 import CircleTickIcon from "./circle_tick";
 import Apple from "./apple";
 import Google from "./google"
+import Hide from "./hide"
+import Show from "./show"
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -16,5 +18,7 @@ export {
 	ErrorStateIcon,
 	CircleTickIcon,
 	Apple,
-	Google
+	Google,
+	Hide,
+	Show
 };

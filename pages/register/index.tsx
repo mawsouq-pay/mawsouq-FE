@@ -1,14 +1,11 @@
-import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import React, { useState } from "react";
 import * as yup from "yup";
 import useCustomBreakpoint from "@/helpers/screenSizes";
-import { Apple, Google } from "@/assets/icons";
 import {
 	GradientBackground,
 	PageContainer,
 	Card,
-	Form,
+	StyledForm,
 	Row,
 	HalfWidth,
 	StyledButton,
@@ -21,13 +18,18 @@ import {
 import MSText from "@/components/MSText";
 import { Formik } from "formik";
 import FormItem from "@/components/FormItem";
-import { colors } from "@/constants/theme";
 import { useRegister } from "@/hooks/authHooks";
 import { useAuthStore } from "@/store";
 import { User } from "@/types/authenticationTypes";
-import { error } from "console";
 import useSnackbarError from "@/hooks/errorHooks";
 import { AxiosError } from "axios";
+import { useRouter } from "next/router";
+import { clientRoutes } from "@/routes";
+import Hide from "@/assets/icons/hide";
+import Show from "@/assets/icons/show";
+import { colors } from "@/constants/theme";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 interface RegisterFormInputs {
 	name: string;
@@ -39,25 +41,35 @@ interface RegisterFormInputs {
 
 const RegisterForm: React.FC = () => {
 	const { isMobile } = useCustomBreakpoint();
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	const { mutate: registerSubmit } = useRegister();
 	const { register: storeRegister } = useAuthStore();
 	const { handleAxiosError } = useSnackbarError();
+	const router = useRouter();
+
+	const [showPassword, setShowPassword] = useState(false);
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+	const togglePasswordVisibility = () => setShowPassword(!showPassword);
+	const toggleConfirmPasswordVisibility = () =>
+		setShowConfirmPassword(!showConfirmPassword);
 
 	const validationSchema = yup.object({
-		name: yup.string().required("Name is required"),
-		email: yup.string().email("Invalid email").required("Email is required"),
+		name: yup.string().required(text.requiredName),
+		email: yup.string().email(text.invalidEmail).required(text.requiredEmail),
 		phone: yup
 			.string()
-			.matches(/^[+0-9]{10,15}$/, "Phone number is invalid")
-			.required("Phone is required"),
+			.matches(/^[+0-9]{10,15}$/, text.invalidPhone)
+			.required(text.requiredPhone),
 		password: yup
 			.string()
-			.min(8, "Password must be at least 8 characters")
-			.required("Password is required"),
+			.min(8, text.passwordLength)
+			.required(text.requiredPassword),
 		confirmPassword: yup
 			.string()
-			.oneOf([yup.ref("password")], "Passwords must match")
-			.required("Confirm Password is required"),
+			.oneOf([yup.ref("password")], text.matchPasswords)
+			.required(text.requiredConfirmPassword),
 	});
 
 	const initialValues: RegisterFormInputs = {
@@ -105,6 +117,9 @@ const RegisterForm: React.FC = () => {
 					};
 					console.log("hiii", response);
 					storeRegister({ accessToken, refreshToken }, user);
+					router.push({
+						pathname: clientRoutes.landingPage,
+					});
 				},
 				onError: (error) => {
 					console.log("hello", error);
@@ -125,7 +140,7 @@ const RegisterForm: React.FC = () => {
 					}}
 				>
 					<MSText fontSize="36px" fontWeight="200">
-						Register
+						{text.register}
 					</MSText>
 					<MSText
 						fontSize="14px"
@@ -136,7 +151,7 @@ const RegisterForm: React.FC = () => {
 							paddingBottom: "12px",
 						}}
 					>
-						Please enter details to continue
+						{text.registerSubtitle}
 					</MSText>
 
 					<Formik
@@ -144,57 +159,86 @@ const RegisterForm: React.FC = () => {
 						onSubmit={onSubmit}
 						validationSchema={validationSchema}
 					>
-						<Form>
-							<FormItem
-								label="Username"
-								id="name"
-								name="name"
-								style={style}
-								labelStyle={labelStyle as React.CSSProperties}
-							/>
+						{({ isValid, dirty }) => (
+							<StyledForm>
+								<FormItem
+									label={text.username}
+									id="name"
+									name="name"
+									style={style}
+									labelStyle={labelStyle as React.CSSProperties}
+								/>
 
-							<FormItem
-								label="Email"
-								id="email"
-								name="email"
-								style={style}
-								labelStyle={labelStyle as React.CSSProperties}
-							/>
+								<FormItem
+									label={text.email}
+									id="email"
+									name="email"
+									style={style}
+									labelStyle={labelStyle as React.CSSProperties}
+								/>
 
-							<Row>
-								<HalfWidth>
-									<FormItem
-										label="Password"
-										id="password"
-										name="password"
-										style={style}
-										labelStyle={labelStyle as React.CSSProperties}
-									/>
-								</HalfWidth>
+								<Row>
+									<HalfWidth>
+										<FormItem
+											label={text.password}
+											id="password"
+											name="password"
+											style={style}
+											labelStyle={labelStyle as React.CSSProperties}
+											icon={
+												<span
+													onClick={togglePasswordVisibility}
+													style={{ cursor: "pointer" }}
+												>
+													{showPassword ? <Hide /> : <Show />}
+												</span>
+											}
+											type={showPassword ? "text" : "password"}
+										/>
+									</HalfWidth>
 
-								<HalfWidth>
-									<FormItem
-										label="Confirm Password"
-										id="confirmPassword"
-										name="confirmPassword"
-										style={style}
-										labelStyle={labelStyle as React.CSSProperties}
-									/>
-								</HalfWidth>
-							</Row>
-							<FormItem
-								label="Phone Number"
-								id="phone"
-								name="phone"
-								style={style}
-								labelStyle={labelStyle as React.CSSProperties}
-							/>  
-							<StyledButton type="submit">Register</StyledButton>
-						</Form>
-						
+									<HalfWidth>
+										<FormItem
+											label={text.confirmPassword}
+											id="confirmPassword"
+											name="confirmPassword"
+											style={style}
+											labelStyle={labelStyle as React.CSSProperties}
+											icon={
+												<span
+													onClick={toggleConfirmPasswordVisibility}
+													style={{ cursor: "pointer" }}
+												>
+													{showConfirmPassword ? <Hide /> : <Show />}
+												</span>
+											}
+											type={showConfirmPassword ? "text" : "password"}
+										/>
+									</HalfWidth>
+								</Row>
+								<FormItem
+									label= {text.phoneNumber}
+									id="phone"
+									name="phone"
+									style={style}
+									labelStyle={labelStyle as React.CSSProperties}
+								/>
+								<StyledButton
+									type="submit"
+									disabled={!(isValid && dirty)}
+									style={{
+										backgroundColor: !(isValid && dirty)
+											? colors.gray
+											: colors.buttonGreenBackground,
+										cursor: !(isValid && dirty) ? "not-allowed" : "pointer",
+										opacity: !(isValid && dirty) ? 0.6 : 1,
+									}}
+								>
+									{text.register}
+								</StyledButton>
+							</StyledForm>
+						)}
 					</Formik>
-
-					
 
 					{/* <Divider>OR</Divider>
 					<SocialButtons>
@@ -227,7 +271,7 @@ const RegisterForm: React.FC = () => {
 					</SocialButtons>
 */}
 					<LoginText>
-						Already have an account? <LoginLink href="/login">Login</LoginLink>
+						{text.alreadyHaveAnAccount} <LoginLink href="/login">{text.login}</LoginLink>
 					</LoginText>
 				</Card>
 			</GradientBackground>
