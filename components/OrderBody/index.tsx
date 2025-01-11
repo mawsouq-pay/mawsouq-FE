@@ -45,6 +45,7 @@ const OrderBody = (props: OrderBodyProps) => {
 			<MainWrapper>
 				<InfoSection>
 					<OrderAction
+						orderId={data?.order?._id ?? ""}
 						isFetcherSeller={data?.order?.isFetcherSeller ?? false}
 						orderStatus={data?.order.status ?? "PENDING"}
 					/>

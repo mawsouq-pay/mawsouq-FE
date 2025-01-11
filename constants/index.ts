@@ -70,6 +70,7 @@ export const orderProgressBarData: Record<
 		messageForSeller: string;
 		buyerCTA: string | null;
 		sellerCTA: string | null;
+		nextStatus: keyof typeof OrderStatusEnum | null;
 	}
 > = {
 	PENDING: {
@@ -78,27 +79,37 @@ export const orderProgressBarData: Record<
 		messageForSeller: "Waiting for the buyer to make the payment.",
 		buyerCTA: "Make Payment",
 		sellerCTA: null,
+		nextStatus: OrderStatusEnum.IN_PROGRESS,
 	},
 	IN_PROGRESS: {
 		activeStep: 1,
-		messageForBuyer: "The seller is preparing your order.",
-		messageForSeller: "Start creating the order.",
-		buyerCTA: null,
-		sellerCTA: "Mark as Ready for Delivery",
-	},
-	IN_TRANSIT: {
-		activeStep: 2,
-		messageForBuyer: "Your order is ready and waiting for dispatch.",
-		messageForSeller: "Dispatch the order to the buyer.",
+		messageForBuyer:
+			"Your order is being prepared by the seller. Please wait for updates.",
+		messageForSeller:
+			"The order is currently in progress. Once ready, mark it as 'Out for Delivery' to update the buyer.",
 		buyerCTA: null,
 		sellerCTA: "Mark as Out for Delivery",
+		nextStatus: OrderStatusEnum.IN_TRANSIT,
 	},
+
+	IN_TRANSIT: {
+		activeStep: 2,
+		messageForBuyer:
+			"Your order is currently in transit. Please confirm receipt once it has been delivered.",
+		messageForSeller:
+			"The order is in transit and on its way to the buyer. Awaiting confirmation from the buyer upon delivery.",
+		buyerCTA: "Mark as Delivered",
+		sellerCTA: null,
+		nextStatus: OrderStatusEnum.DELIVERED,
+	},
+
 	DELIVERED: {
 		activeStep: 3,
-		messageForBuyer: "Confirm receipt of your order.",
-		messageForSeller: "Waiting for the buyer to confirm receipt.",
-		buyerCTA: "Confirm Delivery",
+		messageForBuyer: "Order Is Delivered , awaiting your payment",
+		messageForSeller: "Order Is Delivered , awaiting buyer payment",
+		buyerCTA: "Confirm Release",
 		sellerCTA: null,
+		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	COMPLETED: {
 		activeStep: 4,
@@ -107,6 +118,7 @@ export const orderProgressBarData: Record<
 			"The order is completed, and the payment has been released.",
 		buyerCTA: null,
 		sellerCTA: null,
+		nextStatus: null,
 	},
 	DISPUTED: {
 		activeStep: 4,
@@ -116,6 +128,7 @@ export const orderProgressBarData: Record<
 			"A dispute has been raised. Provide details to resolve it.",
 		buyerCTA: "Submit Dispute Details",
 		sellerCTA: "Submit Dispute Details",
+		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	CANCELLED: {
 		activeStep: 0,
@@ -123,6 +136,7 @@ export const orderProgressBarData: Record<
 		messageForSeller: "The order has been cancelled.",
 		buyerCTA: null,
 		sellerCTA: null,
+		nextStatus: null,
 	},
 };
 

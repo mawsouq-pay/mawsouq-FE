@@ -24,7 +24,7 @@ export const MainWrapper = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	gap: 20px;
-	margin-top: 20px;
+	margin-top: 50px;
 `;
 
 export const InfoSection = styled.div`
@@ -44,5 +44,6 @@ export const ActionBox = styled.div`
 	border-radius: 8px;
 	text-align: center;
 
-	margin-top: 20px;
+	margin-top: 10px;
+	margin-bottom: 30px;
 `;

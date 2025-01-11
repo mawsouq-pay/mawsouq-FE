@@ -4,9 +4,13 @@ import { useAuthStore } from "@/store";
 import { useRouter } from "next/router";
 
 const Login = () => {
+	// const data = {
+	// 	email: "n2aze3er2214@gmail.com",
+	// 	password: "nazeer123!",
+	// };
 	const data = {
-		email: "n2aze3er2214@gmail.com",
-		password: "nazeer123!",
+		email: "nadanazeer188@gmail.com",
+		password: "nadanazeer18!",
 	};
 	const { mutate: loginUser, isPending, error } = useLogin();
 	const { login } = useAuthStore();

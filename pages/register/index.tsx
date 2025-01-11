@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 
 const Register = () => {
 	const data = {
-		name: "Jana233 Elbehesy4",
-		phone: "01436108414",
-		email: "n22aze3er2214@gmail.com",
-		password: "nazeer123!",
+		name: "Nada Nazeer 18",
+		phone: "01116008508",
+		email: "nadanazeer188@gmail.com",
+		password: "nadanazeer18!",
 	};
 	const { mutate: registerUser, isPending, error } = useRegister();
 	const { register } = useAuthStore();
