@@ -10,6 +10,9 @@ interface FormItemProps {
 	name: string;
 	placeholder?: string;
 	as?: "input" | "textarea";
+	style?: React.CSSProperties;
+	labelStyle?: React.CSSProperties;
+
 }
 
 const FormItem: React.FC<FormItemProps> = ({
@@ -19,10 +22,12 @@ const FormItem: React.FC<FormItemProps> = ({
 	name,
 	placeholder,
 	as = "input",
+	style,
+	labelStyle
 }) => {
 	return (
 		<div>
-			<MSText fontSize="16px" color={colors.gray}>
+			<MSText fontSize="16px" color={colors.gray} style={labelStyle}>
 				{label}
 			</MSText>
 			<Field
@@ -31,14 +36,9 @@ const FormItem: React.FC<FormItemProps> = ({
 				id={id}
 				name={name}
 				placeholder={placeholder}
-				style={{
-					width: "100%",
-					padding: "8px",
-					border: "1px solid #ccc",
-					borderRadius: "4px",
-					marginTop: "10px",
-					marginBottom: "5px",
-				}}
+				style={
+					style
+				}
 			/>
 			<ErrorMessage
 				name={name}

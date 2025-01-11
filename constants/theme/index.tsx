@@ -18,8 +18,8 @@ export const colors = {
 	backgroundHover: "#F0F8FF",
 	divBackground: "#fafafa",
 	divBorder: "#e5e7eb",
-	buttonGreenBackground: " #218838",
-	buttonGreenHover: "#28a745",
+	buttonGreenBackground: " #31C48D",
+	buttonGreenHover: "#2a9d75",
 	//OrderListItem:
 	LabelValue: "#75859E",
 	NameContainerBackground: "#F7F9FC",
