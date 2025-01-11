@@ -6,14 +6,11 @@ export const GradientBackground = styled.div`
 	background: linear-gradient(#1e1e1e, #2a75d4);
 	display: flex;
 	overflow: visible;
-	position: relative;
-	align-items: center;
 	justify-content: center;
 	border-radius: 15px;
 	box-sizing: border-box;
 	z-index: 1;
 	width: 100%;
-	height: clamp(20%, 80vw, 80%);
 `;
 
 export const PageContainer = styled.div`
@@ -21,25 +18,13 @@ export const PageContainer = styled.div`
 `;
 
 export const Card = styled.div`
-	position: relative;
-	z-index: 10;
+	z-index: 2;
 	border-radius: 20px;
 	background-color: #fff;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	height: fit-content;
 	text-align: center;
-	align-items: center;
-	
-`;
-
-export const MobileGradientBackground = styled.div`
-	background: linear-gradient(to right, #1e1e1e, #2a75d4);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 30vh;
-	padding: 10px;
-	border-radius: 15px;
-	box-sizing: border-box;
+	align-items	: center ;
 `;
 
 export const CardTitle = styled.h4`
@@ -150,11 +135,6 @@ export const SocialButton = styled.button`
 	width: 300px;
 	font-size: 16px;
   padding: 12px;
-
-	&:hover {
-		background-color: #75859e;
-		color: white;
-	}
 `;
 export const LoginText = styled.p`
 	margin-top: 20px;

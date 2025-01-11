@@ -22,6 +22,12 @@ import MSText from "@/components/MSText";
 import { Formik } from "formik";
 import FormItem from "@/components/FormItem";
 import { colors } from "@/constants/theme";
+import { useRegister } from "@/hooks/authHooks";
+import { useAuthStore } from "@/store";
+import { User } from "@/types/authenticationTypes";
+import { error } from "console";
+import useSnackbarError from "@/hooks/errorHooks";
+import { AxiosError } from "axios";
 
 interface RegisterFormInputs {
 	name: string;
@@ -33,6 +39,9 @@ interface RegisterFormInputs {
 
 const RegisterForm: React.FC = () => {
 	const { isMobile } = useCustomBreakpoint();
+	const { mutate: registerSubmit } = useRegister();
+	const { register: storeRegister } = useAuthStore();
+	const { handleAxiosError } = useSnackbarError();
 
 	const validationSchema = yup.object({
 		name: yup.string().required("Name is required"),
@@ -51,13 +60,6 @@ const RegisterForm: React.FC = () => {
 			.required("Confirm Password is required"),
 	});
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<RegisterFormInputs>({
-		resolver: yupResolver(validationSchema),
-	});
 	const initialValues: RegisterFormInputs = {
 		name: "",
 		email: "",
@@ -83,27 +85,61 @@ const RegisterForm: React.FC = () => {
 	};
 
 	const onSubmit = (values: RegisterFormInputs) => {
-		console.log("Form Data:", values);
+		console.log("onSubmit");
+		registerSubmit(
+			{
+				email: values.email,
+				name: values.name,
+				password: values.password,
+				phone: values.phone,
+			},
+			{
+				onSuccess: (response) => {
+					const accessToken = response.headers["x-auth-token"];
+					const refreshToken = response.headers["x-refresh-token"];
+
+					const user: User = {
+						name: response?.data?.name,
+						email: response?.data?.email,
+						phone: response?.data?.phone,
+					};
+					console.log("hiii", response);
+					storeRegister({ accessToken, refreshToken }, user);
+				},
+				onError: (error) => {
+					console.log("hello", error);
+					handleAxiosError(error as AxiosError);
+				},
+			}
+		);
 	};
 
 	return (
 		<PageContainer>
-			<GradientBackground style={{ height: isMobile ? "30%" : "90%" }}>
+			<GradientBackground style={{ height: isMobile ? "30%" : "75%" }}>
 				<Card
 					style={{
 						width: isMobile ? "85%" : "40%",
-						// marginTop: isMobile ? "600px" : "200px",
+						marginTop: isMobile ? "15%" : "5%",
 						padding: isMobile ? "20px" : "40px",
 					}}
 				>
 					<MSText fontSize="36px" fontWeight="200">
 						Register
 					</MSText>
-					<MSText fontSize="14px" color="#75859E" style={{ marginTop: "6px" }}>
+					<MSText
+						fontSize="14px"
+						color="#75859E"
+						style={{
+							marginTop: "6px",
+							paddingTop: "6px",
+							paddingBottom: "12px",
+						}}
+					>
 						Please enter details to continue
 					</MSText>
 
-					<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
 						<Form>
 							<FormItem
 								label="Username"
@@ -154,7 +190,7 @@ const RegisterForm: React.FC = () => {
 
 					<StyledButton type="submit">Register</StyledButton>
 
-					<Divider>OR</Divider>
+					{/* <Divider>OR</Divider>
 					<SocialButtons>
 						<SocialButton>
 							<Google />
@@ -183,7 +219,7 @@ const RegisterForm: React.FC = () => {
 							</MSText>
 						</SocialButton>
 					</SocialButtons>
-
+*/}
 					<LoginText>
 						Already have an account? <LoginLink href="/login">Login</LoginLink>
 					</LoginText>
