@@ -14,9 +14,10 @@ type Severity = "error" | "success" | "info" | "warning";
 
 export const extractErrorMessage = (error: AxiosError): string => {
 	if (error.response?.data) {
-		const backendError = error.response.data as { error?: BackendError };
-		if (backendError?.error) {
-			const message = backendError.error.message;
+		const backendError = error.response.data as BackendError;
+		console.log(backendError);
+		if (backendError) {
+			const message = backendError.message;
 			return typeof message === "string" ? message : message.en;
 		}
 		return "An unknown error occurred.";
@@ -30,7 +31,9 @@ const useSnackbarError = () => {
 	const [open, setOpen] = useState<boolean>(false);
 
 	const handleAxiosError = (error: AxiosError) => {
+		console.log(error);
 		const message = extractErrorMessage(error);
+		console.log(message, "here");
 		setErrorMessage(message);
 		setSeverity("error");
 		setOpen(true);
