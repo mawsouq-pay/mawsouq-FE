@@ -92,7 +92,7 @@ const RegisterForm: React.FC = () => {
 				<Card
 					style={{
 						width: isMobile ? "85%" : "40%",
-						marginTop: isMobile ? "600px" : "200px",
+						// marginTop: isMobile ? "600px" : "200px",
 						padding: isMobile ? "20px" : "40px",
 					}}
 				>

@@ -1,35 +1,28 @@
-import { colors } from "@/constants/theme";
-import MSText from "../MSText";
+import React from "react";
 import {
-	ItemsContainer,
+	ColumnDiv,
 	ItemWrapper,
+	ItemsContainer,
 	LabelValue,
 	MainWrapper,
-	NameContainer,
-	SellerContainer,
-	StatusContainer,
 	TextValue,
-} from "./OrderListItem.style";
+	Divider,
+	RowDiv,
+} from "./OrderInfo.styles";
+import MSText from "../MSText";
+import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { OrderListItemProps } from "./types";
+import { OrderInfoProps } from "./types";
 import { formatDate } from "@/helpers";
-import { orderStatusObject } from "@/constants";
-
-const OrderListItem = (props: OrderListItemProps) => {
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import { List } from "@mui/material";
+const OrderInfo = (props: OrderInfoProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const {
-		transactionTitle,
-		itemName,
-		price,
-		deliveryDate,
-		isFetcherSeller,
-		otherPartyName,
-		status,
-	} = props;
+	const { transactionTitle, itemName, price, deliveryDate, description } =
+		props;
 	const formattedDate = formatDate(deliveryDate);
-	const orderStatusInfo = orderStatusObject[status];
 
 	const OrderItems = [
 		{ title: text.transactionTitle, value: transactionTitle },
@@ -39,7 +32,19 @@ const OrderListItem = (props: OrderListItemProps) => {
 	];
 	return (
 		<MainWrapper>
+			<RowDiv>
+				<MSText fontSize={"20px"} color={colors.gray} fontWeight={"600"}>
+					Order Details
+				</MSText>
+				<ListAltIcon />
+			</RowDiv>
 			<ItemsContainer>
+				<ColumnDiv>
+					<MSText color={colors.LabelValue}>Description</MSText>
+					<MSText>{description}</MSText>
+					<Divider />
+				</ColumnDiv>
+
 				{OrderItems.map((item, index) => {
 					return (
 						<ItemWrapper>
@@ -53,18 +58,8 @@ const OrderListItem = (props: OrderListItemProps) => {
 					);
 				})}
 			</ItemsContainer>
-			<SellerContainer>
-				<NameContainer>
-					<MSText color={colors.LabelValue} fontSize="14px">
-						{isFetcherSeller ? text.buyerName : text.sellerName}
-					</MSText>
-					<MSText>{otherPartyName}</MSText>
-				</NameContainer>
-				<StatusContainer>
-					<MSText color="#FCA311">{orderStatusInfo.text}</MSText>
-				</StatusContainer>
-			</SellerContainer>
 		</MainWrapper>
 	);
 };
-export default OrderListItem;
+
+export default OrderInfo;

@@ -17,5 +17,5 @@ export const MessageDiv = styled.div`
 	display: flex;
 	text-align: center;
 	align-items: center;
-	border: 1px solid ${colors.gray22};
+	border: 1px solid ${colors.green};
 `;

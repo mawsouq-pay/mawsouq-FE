@@ -29,7 +29,7 @@ const ActionSection = () => {
 					Icon={ViewTransactionIcon}
 					title={text.viewMyTransactions}
 					onPress={() => {
-						console.log("View Transaftion");
+						push(clientRoutes.orders);
 					}}
 				/>
 			</RowFlex>

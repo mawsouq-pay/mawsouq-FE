@@ -5,6 +5,7 @@ import HomePageLayout from "@/layouts/HomePageLayout";
 import { HomePageWrapper } from "./HomePage.style";
 import OrdersOverviewSection from "@/components/OrdersOverviewSection";
 import { useUserStats } from "@/hooks/statusHooks";
+import React from "react";
 
 const HomePage = () => {
 	const { data: ordersData, isLoading, error } = useFetchOrders();
@@ -12,6 +13,7 @@ const HomePage = () => {
 	const { numberOfActiveTransactions, walletBalance } = useUserStats(
 		ordersData?.orders
 	);
+
 	return (
 		<HomePageWrapper>
 			<StatusSection numberOfactiveTransactions={numberOfActiveTransactions} />

@@ -1,4 +1,5 @@
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const GradientBackground = styled.div`
@@ -8,11 +9,11 @@ export const GradientBackground = styled.div`
 	position: relative;
 	align-items: center;
 	justify-content: center;
-	height: 70vh;
 	border-radius: 15px;
 	box-sizing: border-box;
 	z-index: 1;
 	width: 100%;
+	height: clamp(20%, 80vw, 80%);
 `;
 
 export const PageContainer = styled.div`
@@ -26,7 +27,8 @@ export const Card = styled.div`
 	background-color: #fff;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 	text-align: center;
-	margin-top: 400px;
+	align-items: center;
+	
 `;
 
 export const MobileGradientBackground = styled.div`
@@ -71,10 +73,17 @@ export const Row = styled.div`
 	display: flex;
 	justify-content: space-between;
 	gap: 20px;
+
+	${media.below925`
+		flex-direction: column ;
+	  `}
 `;
 
 export const HalfWidth = styled.div`
 	width: 48%;
+	${media.below925`
+		width: 100% ;
+	  `}
 `;
 
 export const StyledButton = styled.button`
