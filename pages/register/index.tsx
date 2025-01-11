@@ -139,19 +139,23 @@ const RegisterForm: React.FC = () => {
 						Please enter details to continue
 					</MSText>
 
-					<Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+					<Formik
+						initialValues={initialValues}
+						onSubmit={onSubmit}
+						validationSchema={validationSchema}
+					>
 						<Form>
 							<FormItem
 								label="Username"
-								id="Username"
-								name="username"
+								id="name"
+								name="name"
 								style={style}
 								labelStyle={labelStyle as React.CSSProperties}
 							/>
 
 							<FormItem
 								label="Email"
-								id="Email"
+								id="email"
 								name="email"
 								style={style}
 								labelStyle={labelStyle as React.CSSProperties}
@@ -161,7 +165,7 @@ const RegisterForm: React.FC = () => {
 								<HalfWidth>
 									<FormItem
 										label="Password"
-										id="Password"
+										id="password"
 										name="password"
 										style={style}
 										labelStyle={labelStyle as React.CSSProperties}
@@ -180,15 +184,17 @@ const RegisterForm: React.FC = () => {
 							</Row>
 							<FormItem
 								label="Phone Number"
-								id="phoneNumber"
-								name="phoneNumber"
+								id="phone"
+								name="phone"
 								style={style}
 								labelStyle={labelStyle as React.CSSProperties}
-							/>
+							/>  
+							<StyledButton type="submit">Register</StyledButton>
 						</Form>
+						
 					</Formik>
 
-					<StyledButton type="submit">Register</StyledButton>
+					
 
 					{/* <Divider>OR</Divider>
 					<SocialButtons>
