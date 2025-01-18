@@ -106,7 +106,7 @@ export const orderProgressBarData: Record<
 	DELIVERED: {
 		activeStep: 3,
 		messageForBuyer: "Order Is Delivered , awaiting your payment",
-		messageForSeller: "Order Is Delivered , awaiting buyer payment",
+		messageForSeller: "Order Is Delivered , awaiting buyer release",
 		buyerCTA: "Confirm Release",
 		sellerCTA: null,
 		nextStatus: OrderStatusEnum.COMPLETED,
