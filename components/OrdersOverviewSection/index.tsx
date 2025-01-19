@@ -1,12 +1,13 @@
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
-import { MainWrapper } from "./OrdersOverview.style";
+import { EmptyStateWrapper, MainWrapper } from "./OrdersOverview.style";
 import OrderCard from "../OrderCard";
 import { OrdersOverViewSectionProps } from "./types";
 import { Order } from "@/types/ordersTypes";
 import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
+import MSButton from "../MSButton";
 
 const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 	const { latestOrders } = props;
@@ -19,13 +20,27 @@ const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 			query: { id: orderId },
 		});
 	};
+	const handleStartTransaction = () => {
+		router.push(clientRoutes.startTransaction);
+	};
 	return (
 		<MainWrapper>
 			<MSText fontSize={"20px"} mobileFontSize={"16px"} fontWeight="600">
-				{text.transactionsOverview}
+				{text.transactionsOverview} ({latestOrders?.length ?? 0})
 			</MSText>
-			{latestOrders?.map((order: Order) => {
-				return (
+			{latestOrders?.length === 0 ? (
+				<EmptyStateWrapper>
+					<MSText fontSize={"18px"} color={"#757575"} fontWeight="500">
+						{text.noTransactionsFound}
+					</MSText>
+					<MSButton
+						title={text.startTransaction}
+						onClick={handleStartTransaction}
+						style={{ height: 40 }}
+					/>
+				</EmptyStateWrapper>
+			) : (
+				latestOrders?.map((order: Order) => (
 					<OrderCard
 						transactionTitle={order.transactionTitle}
 						itemName={order.itemName}
@@ -42,8 +57,8 @@ const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 							navigateToOrder(order._id);
 						}}
 					/>
-				);
-			})}
+				))
+			)}
 		</MainWrapper>
 	);
 };

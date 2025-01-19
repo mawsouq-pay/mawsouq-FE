@@ -25,7 +25,6 @@ const ErrorAndLoadingWrapper = ({
 }: ErrorAndLoadingWrapperProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-
 	if (isLoading) {
 		return <Wrapper>{loadingComponent}</Wrapper>;
 	}

@@ -9,6 +9,7 @@ const clientRoutes = {
 	orders: "/orders",
 	order: "/orders/[id]",
 	paymentPage: "/paymentPage",
+	previewOrder: "/previewOrder",
 };
 
 const publicRoutes = [

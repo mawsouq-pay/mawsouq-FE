@@ -13,6 +13,7 @@ const en = {
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",
 	todayIs: "Today is",
+	orders: "Orders",
 
 	// Actions
 	createANewTransaction: "Start Transaction",
@@ -30,6 +31,8 @@ const en = {
 	myTransactions: "My Transactions",
 	actionsRequired: "Actions Required",
 	actionRequired: "Action Required",
+	noTransactionsFound: "No transactions found.",
+	startTransaction: "Start a New Transaction",
 
 	// Order attributes
 	transactionTitle: "Transaction title",
@@ -96,6 +99,12 @@ const en = {
 	ordersList: "Orders List",
 	sellerName: "Seller Name",
 	buyerName: "Buyer Name",
+
+	//paymentSuccess
+	paymentHasBeenReceivedSuccessfully:
+		"Your order has been placed successfully.",
+	preparingOrderPr:
+		"We have received your payment. The seller has been notified and will start preparing your order shortly.",
 };
 
 export default en;

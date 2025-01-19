@@ -9,8 +9,8 @@ const Login = () => {
 	// 	password: "nazeer123!",
 	// };
 	const data = {
-		email: "nadanazeer188@gmail.com",
-		password: "nadanazeer18!",
+		email: "amrAbdelazim@gmail.com",
+		password: "amrabdelazim1!",
 	};
 	const { mutate: loginUser, isPending, error } = useLogin();
 	const { login } = useAuthStore();

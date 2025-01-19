@@ -11,6 +11,7 @@ import {
 import { useCreatePaymentLink, useUpdateOrderStatus } from "@/hooks/orderHooks";
 import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
+import MSButton from "../MSButton";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { isFetcherSeller, orderStatus, orderId } = props;
@@ -69,7 +70,7 @@ const OrderAction = (props: OrderActionProps) => {
 			}
 		}
 	};
-
+	const loadingAndDisable = createLinkPending || updateOrderPending;
 	return (
 		<MainWrapper>
 			<MSText fontSize={"16px"} mobileFontSize={"14px"} color={colors.gray}>
@@ -82,14 +83,12 @@ const OrderAction = (props: OrderActionProps) => {
 			</MessageDiv>
 
 			{buttonCta != null && (
-				<StyledButton
+				<MSButton
 					onClick={onCtaClick}
-					disabled={createLinkPending || updateOrderPending}
-				>
-					<MSText fontSize={"14px"} mobileFontSize="12px" color={colors.white}>
-						{buttonCta}
-					</MSText>
-				</StyledButton>
+					title={buttonCta}
+					loading={loadingAndDisable}
+					disabled={loadingAndDisable}
+				/>
 			)}
 		</MainWrapper>
 	);

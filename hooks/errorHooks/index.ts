@@ -13,15 +13,19 @@ interface BackendError {
 type Severity = "error" | "success" | "info" | "warning";
 
 export const extractErrorMessage = (error: AxiosError): string => {
-	if (error.response?.data) {
-		const backendError = error.response.data as { error?: BackendError };
-		if (backendError?.error) {
-			const message = backendError.error.message;
-			return typeof message === "string" ? message : message.en;
+	if (error) {
+		if (error?.response?.data) {
+			const backendError = error.response.data as BackendError;
+			console.log(backendError);
+			if (backendError) {
+				const message = backendError.message;
+				return typeof message === "string" ? message : message.en;
+			}
+			return "An unknown error occurred.";
 		}
-		return "An unknown error occurred.";
+		return error.message || "An unknown error occurred.";
 	}
-	return error.message || "An unknown error occurred.";
+	return "";
 };
 
 const useSnackbarError = () => {

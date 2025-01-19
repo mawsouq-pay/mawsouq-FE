@@ -14,6 +14,7 @@ const ar = {
 	goodMorning: "صباح الخير،",
 	goodEvening: "مساء الخير،",
 	todayIs: "اليوم هو",
+	orders: "Orders",
 
 	// Actions
 	createANewTransaction: "ابدأ معاملة جديدة",
@@ -31,6 +32,8 @@ const ar = {
 	myTransactions: "معاملاتي",
 	actionsRequired: "إجراءات مطلوبة",
 	actionRequired: "إجراء مطلوب",
+	noTransactionsFound: "No transactions found.",
+	startTransaction: "Start a New Transaction",
 
 	// Order Attributes
 	description: "الوصف",
@@ -96,6 +99,11 @@ const ar = {
 	ordersList: "Orders List",
 	sellerName: "Seller Name",
 	buyerName: "Buyer Name",
+
+	//paymentSuccess
+	paymentHasBeenReceivedSuccessfully: "تم تقديم طلبك بنجاح.",
+	preparingOrderPr:
+		"لقد استلمنا دفعتك. تم إخطار البائع وسيبدأ في تجهيز طلبك قريبًا.",
 };
 
 export default ar;

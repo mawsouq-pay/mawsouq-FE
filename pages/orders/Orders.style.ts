@@ -18,7 +18,7 @@ export const StyledButton = styled.button`
 	align-self: center;
 	justify-content: center;
 	align-items: center;
-	background-color: #31c48d;
+	background-color: ${colors.buttonGreenBackground};
 	color: white;
 	padding: 15px 25px;
 	border: none;
@@ -28,4 +28,16 @@ export const StyledButton = styled.button`
 	&:hover {
 		background: ${colors.buttonGreenHover};
 	}
+`;
+export const EmptyStateWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+	text-align: center;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	margin-top: 20px;
+	gap: 15px;
 `;
