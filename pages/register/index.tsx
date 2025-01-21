@@ -9,11 +9,8 @@ import {
 	Row,
 	HalfWidth,
 	StyledButton,
-	Divider,
 	LoginText,
 	LoginLink,
-	SocialButtons,
-	SocialButton,
 } from "./Register.style";
 import MSText from "@/components/MSText";
 import { Formik } from "formik";
@@ -97,7 +94,6 @@ const RegisterForm: React.FC = () => {
 	};
 
 	const onSubmit = (values: RegisterFormInputs) => {
-		console.log("onSubmit");
 		registerSubmit(
 			{
 				email: values.email,
@@ -115,14 +111,13 @@ const RegisterForm: React.FC = () => {
 						email: response?.data?.email,
 						phone: response?.data?.phone,
 					};
-					console.log("hiii", response);
+
 					storeRegister({ accessToken, refreshToken }, user);
 					router.push({
 						pathname: clientRoutes.landingPage,
 					});
 				},
 				onError: (error) => {
-					console.log("hello", error);
 					handleAxiosError(error as AxiosError);
 				},
 			}
