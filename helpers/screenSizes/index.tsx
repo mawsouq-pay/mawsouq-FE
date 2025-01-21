@@ -1,33 +1,45 @@
 import { useEffect, useMemo, useState } from "react";
 
 function useCustomBreakpoint(): {
-	xxl: boolean;
-	xl: boolean;
-	lg: boolean;
-	isMobile: boolean;
+  xxl: boolean;
+  xl: boolean;
+  lg: boolean;
+  md: boolean;
+  sm: boolean;
+  xs: boolean;
+  isMobile: boolean;
 } {
-	const [width, setWidth] = useState(window.innerWidth);
-	const handleWindowSizeChange = () => {
-		setWidth(window.innerWidth);
-	};
+  const [width, setWidth] = useState<number | null>(null);
 
-	useEffect(() => {
-		window.addEventListener("resize", handleWindowSizeChange);
-		return () => {
-			window.removeEventListener("resize", handleWindowSizeChange);
-		};
-	}, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleWindowSizeChange = () => {
+        setWidth(window.innerWidth);
+      };
+console.log(window.innerHeight)
+      setWidth(window.innerWidth);
+      window.addEventListener("resize", handleWindowSizeChange);
 
-	const ComputedValues = useMemo(
-		() => ({
-			xxl: width > 1599,
-			xl: width > 1199,
-			lg: width > 991,
-			isMobile: width <= 900,
-		}),
-		[width]
-	);
+      return () => {
+        window.removeEventListener("resize", handleWindowSizeChange);
+      };
+    }
+  }, []);
 
-	return ComputedValues;
+  const ComputedValues = useMemo(
+    () => ({
+      xxl: width !== null && width > 1599,
+      xl: width !== null && width > 1199,
+      lg: width !== null && width > 991,
+      md: width !== null && width > 767,
+      sm: width !== null && width > 575,
+      xs: width !== null && width < 576,
+      isMobile: width !== null && width <= 768,
+    }),
+    [width]
+  );
+
+  return ComputedValues;
 }
+
 export default useCustomBreakpoint;

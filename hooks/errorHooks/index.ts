@@ -34,7 +34,9 @@ const useSnackbarError = () => {
 	const [open, setOpen] = useState<boolean>(false);
 
 	const handleAxiosError = (error: AxiosError) => {
+		console.log(error);
 		const message = extractErrorMessage(error);
+		console.log(message, "here");
 		setErrorMessage(message);
 		setSeverity("error");
 		setOpen(true);

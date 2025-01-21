@@ -100,6 +100,20 @@ const ar = {
 	sellerName: "Seller Name",
 	buyerName: "Buyer Name",
 
+	//Register
+	register: "تسجيل",
+	registerSubtitle: "يرجى إدخال التفاصيل للمتابعة",
+	username: "اسم المستخدم",
+	password: "كلمة المرور",
+	confirmPassword: "تأكيد كلمة المرور",
+	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",
+	login: "تسجيل",
+	requiredConfirmPassword: "تأكيد كلمة المرور مطلوب",
+	matchPasswords:"كلمات السر غير متطابقة",
+	passwordLength:"كلمة المرور يجب أن تكون على الأقل 8 أحرف",
+	requiredPassword: "كلمة المرور مطلوبة",
+	requiredName: "اسم المستخدم مطلوب"
+
 	//paymentSuccess
 	paymentHasBeenReceivedSuccessfully: "تم تقديم طلبك بنجاح.",
 	preparingOrderPr:

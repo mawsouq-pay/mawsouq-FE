@@ -100,6 +100,21 @@ const en = {
 	sellerName: "Seller Name",
 	buyerName: "Buyer Name",
 
+	//Register
+	register: "Register",
+	registerSubtitle: "Please enter details to continue",
+	username: "Username",
+	password: "Password",
+	confirmPassword: "Confirm Password",
+	alreadyHaveAnAccount: "Already have an account",
+	login: "Login",
+	passwordRequired: "",
+	requiredConfirmPassword: "Confirm password is required",
+	matchPasswords: "Passwords do not match",
+	passwordLength: "Password must be at least 8 characters",
+	requiredPassword: "Password is required",
+	requiredName: "Username is required",
+
 	//paymentSuccess
 	paymentHasBeenReceivedSuccessfully:
 		"Your order has been placed successfully.",
