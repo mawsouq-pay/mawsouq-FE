@@ -13,6 +13,7 @@ const en = {
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",
 	todayIs: "Today is",
+	orders: "Orders",
 
 	// Actions
 	createANewTransaction: "Start Transaction",
@@ -30,6 +31,8 @@ const en = {
 	myTransactions: "My Transactions",
 	actionsRequired: "Actions Required",
 	actionRequired: "Action Required",
+	noTransactionsFound: "No transactions found.",
+	startTransaction: "Start a New Transaction",
 
 	// Order attributes
 	transactionTitle: "Transaction title",
@@ -111,6 +114,18 @@ const en = {
 	passwordLength: "Password must be at least 8 characters",
 	requiredPassword: "Password is required",
 	requiredName: "Username is required",
+
+	//paymentSuccess
+	paymentHasBeenReceivedSuccessfully:
+		"Your order has been placed successfully.",
+	preparingOrderPr:
+		"We have received your payment. The seller has been notified and will start preparing your order shortly.",
+
+	//Preview Order
+	previewOrder: "Preview Order Summary",
+	approve: "Approve",
+	descriptionMessage:
+		"The seller has created this order for you. Please review the details below. If everything looks correct, you can approve the order to proceed.",
 };
 
 export default en;

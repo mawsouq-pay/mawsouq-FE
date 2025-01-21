@@ -1,12 +1,17 @@
 import { useLogin } from "@/hooks/authHooks";
 import { clientRoutes } from "@/routes";
-import { useAuthStore } from "@/store";
 import { useRouter } from "next/router";
 
+import { useAuthStore } from "@/store";
+
 const Login = () => {
+	// const data = {
+	// 	email: "n2aze3er2214@gmail.com",
+	// 	password: "nazeer123!",
+	// };
 	const data = {
-		email: "n2aze3er2214@gmail.com",
-		password: "nazeer123!",
+		email: "amrAbdelazim@gmail.com",
+		password: "amrabdelazim1!",
 	};
 	const { mutate: loginUser, isPending, error } = useLogin();
 	const { login } = useAuthStore();

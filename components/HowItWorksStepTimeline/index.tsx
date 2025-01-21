@@ -3,7 +3,6 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { StepIconProps } from "@mui/material/StepIcon";
-import Check from "@mui/icons-material/Check";
 import {
 	MainWrapper,
 	StepContainer,
@@ -15,6 +14,7 @@ import {
 import Image from "next/image";
 import MSText from "../MSText";
 import { HowItWorksStepTimeLineProps } from "./types";
+import Check from "@mui/icons-material/Check";
 
 function VerticalStepIcon(props: StepIconProps) {
 	const { active, completed, className } = props;

@@ -9,11 +9,8 @@ import {
 	Row,
 	HalfWidth,
 	StyledButton,
-	Divider,
 	LoginText,
 	LoginLink,
-	SocialButtons,
-	SocialButton,
 } from "./Register.style";
 import MSText from "@/components/MSText";
 import { Formik } from "formik";
@@ -22,14 +19,15 @@ import { useRegister } from "@/hooks/authHooks";
 import { useAuthStore } from "@/store";
 import { User } from "@/types/authenticationTypes";
 import useSnackbarError from "@/hooks/errorHooks";
-import { AxiosError } from "axios";
-import { useRouter } from "next/router";
+
 import { clientRoutes } from "@/routes";
 import Hide from "@/assets/icons/hide";
 import Show from "@/assets/icons/show";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { AxiosError } from "axios";
+import { useRouter } from "next/router";
 
 interface RegisterFormInputs {
 	name: string;
@@ -45,7 +43,7 @@ const RegisterForm: React.FC = () => {
 	const text = textTr(locale);
 	const { mutate: registerSubmit } = useRegister();
 	const { register: storeRegister } = useAuthStore();
-	const { handleAxiosError } = useSnackbarError();
+	const { handleAxiosError, errorMessage } = useSnackbarError();
 	const router = useRouter();
 
 	const [showPassword, setShowPassword] = useState(false);
@@ -97,7 +95,6 @@ const RegisterForm: React.FC = () => {
 	};
 
 	const onSubmit = (values: RegisterFormInputs) => {
-		console.log("onSubmit");
 		registerSubmit(
 			{
 				email: values.email,
@@ -115,14 +112,13 @@ const RegisterForm: React.FC = () => {
 						email: response?.data?.email,
 						phone: response?.data?.phone,
 					};
-					console.log("hiii", response);
+
 					storeRegister({ accessToken, refreshToken }, user);
 					router.push({
 						pathname: clientRoutes.landingPage,
 					});
 				},
 				onError: (error) => {
-					console.log("hello", error);
 					handleAxiosError(error as AxiosError);
 				},
 			}
@@ -217,7 +213,7 @@ const RegisterForm: React.FC = () => {
 									</HalfWidth>
 								</Row>
 								<FormItem
-									label= {text.phoneNumber}
+									label={text.phoneNumber}
 									id="phone"
 									name="phone"
 									style={style}
@@ -271,7 +267,8 @@ const RegisterForm: React.FC = () => {
 					</SocialButtons>
 */}
 					<LoginText>
-						{text.alreadyHaveAnAccount} <LoginLink href="/login">{text.login}</LoginLink>
+						{text.alreadyHaveAnAccount}{" "}
+						<LoginLink href="/login">{text.login}</LoginLink>
 					</LoginText>
 				</Card>
 			</GradientBackground>

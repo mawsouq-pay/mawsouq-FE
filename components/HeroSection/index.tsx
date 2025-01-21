@@ -19,7 +19,6 @@ import { colors } from "@/constants/theme";
 import Navbar from "../NavBar";
 import ScribbledCircleText from "../ScribbledCircleText";
 import HeroList from "../HeroList";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 
 const HeroSection = () => {

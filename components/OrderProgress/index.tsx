@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { OrderProgressProps } from "./types";
 import MSStepProgressBar from "../MSStepsProgressBar";
+import { orderProgressBarData } from "@/constants";
 const steps = [
 	"Pending Payment",
-	"Awaiting Delivery",
-	"Out for Delivery",
+	"Creating Order",
+	"In Transit",
 	"Delivered",
+	"Completed",
 ];
 
 const OrderProgress = (props: OrderProgressProps) => {
-	const [activeStep, setActiveStep] = useState(0);
+	const { status } = props;
+	const { activeStep } = orderProgressBarData[status];
 
 	return (
 		<div

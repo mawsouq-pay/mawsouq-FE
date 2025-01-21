@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
-import OrderSuccessImage from "@/assets/images/order_success.png";
 import {
 	Wrapper,
 	ImageWrapper,
@@ -14,9 +12,11 @@ import { ShareLinkProps } from "./types";
 import ErrorAndLoadingWrapper from "../ErrorAndLoadingWrapper";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { useRouter } from "next/router";
-import { clientRoutes } from "@/routes";
+import Image from "next/image";
 
+import { clientRoutes } from "@/routes";
+import { useRouter } from "next/router";
+import { OrderSuccessImage } from "@/assets/images";
 const ShareOrderLink = (props: ShareLinkProps) => {
 	const { isPending, error, orderLink, navigateToFirstStep, orderId } = props;
 

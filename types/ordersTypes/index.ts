@@ -43,9 +43,29 @@ export interface FetchOrdersResponse {
 	orders?: Order[];
 }
 
-export interface FetchOrderDetailsInput {
-	id: string;
-}
 export interface FetchOrderDetailsResponse {
+	order: Order;
+}
+
+export interface CreatePaymentLinkInput {
+	orderId: string;
+}
+
+export interface CreatePaymentLinkResponse {
+	message: string;
+	iframeLink: string;
+}
+
+export interface UpdateOrderStatusInput {
+	orderId: string;
+	newStatus: keyof typeof OrderStatusEnum;
+}
+
+export interface UpdateOrderStatusResponse {
+	message: string;
+	order: Order;
+}
+
+export interface FetchOrderPreviewResponse {
 	order: Order;
 }

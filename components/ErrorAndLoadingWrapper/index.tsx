@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import MSText from "../MSText";
 import {
 	Wrapper,
@@ -25,7 +24,6 @@ const ErrorAndLoadingWrapper = ({
 }: ErrorAndLoadingWrapperProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-
 	if (isLoading) {
 		return <Wrapper>{loadingComponent}</Wrapper>;
 	}

@@ -14,6 +14,7 @@ const ar = {
 	goodMorning: "صباح الخير،",
 	goodEvening: "مساء الخير،",
 	todayIs: "اليوم هو",
+	orders: "Orders",
 
 	// Actions
 	createANewTransaction: "ابدأ معاملة جديدة",
@@ -31,6 +32,8 @@ const ar = {
 	myTransactions: "معاملاتي",
 	actionsRequired: "إجراءات مطلوبة",
 	actionRequired: "إجراء مطلوب",
+	noTransactionsFound: "No transactions found.",
+	startTransaction: "Start a New Transaction",
 
 	// Order Attributes
 	description: "الوصف",
@@ -106,10 +109,21 @@ const ar = {
 	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",
 	login: "تسجيل",
 	requiredConfirmPassword: "تأكيد كلمة المرور مطلوب",
-	matchPasswords:"كلمات السر غير متطابقة",
-	passwordLength:"كلمة المرور يجب أن تكون على الأقل 8 أحرف",
+	matchPasswords: "كلمات السر غير متطابقة",
+	passwordLength: "كلمة المرور يجب أن تكون على الأقل 8 أحرف",
 	requiredPassword: "كلمة المرور مطلوبة",
-	requiredName: "اسم المستخدم مطلوب"
+	requiredName: "اسم المستخدم مطلوب",
+
+	//paymentSuccess
+	paymentHasBeenReceivedSuccessfully: "تم تقديم طلبك بنجاح.",
+	preparingOrderPr:
+		"لقد استلمنا دفعتك. تم إخطار البائع وسيبدأ في تجهيز طلبك قريبًا.",
+
+	//Preview Order
+	previewOrder: " ملخص الطلب",
+	approve: "الموافقة",
+	descriptionMessage:
+		"قام البائع بإنشاء هذا الطلب لك. يرجى مراجعة التفاصيل أدناه. إذا كان كل شيء يبدو صحيحًا، يمكنك الموافقة على الطلب للمتابعة.",
 };
 
 export default ar;

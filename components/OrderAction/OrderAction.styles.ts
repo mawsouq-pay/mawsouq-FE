@@ -8,14 +8,31 @@ export const MainWrapper = styled.div`
 	flex: 1;
 	border-radius: 20px;
 	padding: 25px;
-	gap: 20px;
+	gap: 15px;
 `;
 
 export const MessageDiv = styled.div`
 	border-radius: 8px;
-	padding: 20px;
+	padding: 15px;
 	display: flex;
 	text-align: center;
 	align-items: center;
-	border: 1px solid ${colors.green};
+	border: 0.5px solid ${colors.buttonGreenHover};
+`;
+export const StyledButton = styled.button`
+	display: flex;
+	align-self: flex-start;
+	justify-content: center;
+	align-items: center;
+	background-color: #31c48d;
+	color: white;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+	border-radius: 8px;
+	margin-top: 10px;
+
+	&:hover {
+		background: ${colors.buttonGreenHover};
+	}
 `;

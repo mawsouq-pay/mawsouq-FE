@@ -6,13 +6,13 @@ import {
 	ItemWrapper,
 	LabelValue,
 	TextValue,
-	Divider,
 	TotalWrapper,
 } from "./PaymentSummarySection.styles";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { PaymentSummarySectionProps } from "./types";
 import { colors } from "@/constants/theme";
+import { Divider } from "@mui/material";
 
 const PaymentSummarySection = (props: PaymentSummarySectionProps) => {
 	const { locale } = useLocaleStore();
