@@ -1,17 +1,17 @@
-import { useRouter } from "next/router";
 import React from "react";
+import { useRouter } from "next/router";
 
 import { MessagesDiv, PageInner } from "./PaymentSuccess.styles";
 import { PaymentSuccessProps } from "./types";
 import { clientRoutes } from "@/routes";
 
 import { CheckImage } from "@/assets/images";
-import Image from "next/image";
+
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
 import MSButton from "../MSButton";
-
+import Image from "next/image";
 const PaymentSuccess = (props: PaymentSuccessProps) => {
 	const router = useRouter();
 	const { orderId } = props;

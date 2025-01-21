@@ -9,9 +9,9 @@ import {
 	orderStatusObject,
 } from "@/constants";
 import { useCreatePaymentLink, useUpdateOrderStatus } from "@/hooks/orderHooks";
-import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 import MSButton from "../MSButton";
+import { useRouter } from "next/router";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { isFetcherSeller, orderStatus, orderId } = props;

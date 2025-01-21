@@ -11,9 +11,9 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { useFetchOrders } from "@/hooks/orderHooks";
 import { Order } from "@/types/ordersTypes";
 import OrderCard from "@/components/OrderCard";
-import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 import MSButton from "@/components/MSButton";
+import { useRouter } from "next/router";
 
 const Orders = () => {
 	const { locale } = useLocaleStore();

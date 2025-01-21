@@ -1,8 +1,8 @@
 import PaymentFailure from "@/components/PaymentFailure";
 import PaymentSuccess from "@/components/PaymentSuccess";
 import HomePageLayout from "@/layouts/HomePageLayout";
-import { useRouter } from "next/router";
 import React from "react";
+import { useRouter } from "next/router";
 
 const PaymentRedirect = () => {
 	const router = useRouter();

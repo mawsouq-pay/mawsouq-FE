@@ -19,14 +19,15 @@ import { useRegister } from "@/hooks/authHooks";
 import { useAuthStore } from "@/store";
 import { User } from "@/types/authenticationTypes";
 import useSnackbarError from "@/hooks/errorHooks";
-import { AxiosError } from "axios";
-import { useRouter } from "next/router";
+
 import { clientRoutes } from "@/routes";
 import Hide from "@/assets/icons/hide";
 import Show from "@/assets/icons/show";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { AxiosError } from "axios";
+import { useRouter } from "next/router";
 
 interface RegisterFormInputs {
 	name: string;
@@ -42,7 +43,7 @@ const RegisterForm: React.FC = () => {
 	const text = textTr(locale);
 	const { mutate: registerSubmit } = useRegister();
 	const { register: storeRegister } = useAuthStore();
-	const { handleAxiosError } = useSnackbarError();
+	const { handleAxiosError, errorMessage } = useSnackbarError();
 	const router = useRouter();
 
 	const [showPassword, setShowPassword] = useState(false);

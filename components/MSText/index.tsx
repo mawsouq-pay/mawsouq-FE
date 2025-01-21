@@ -1,8 +1,8 @@
 import { Skeleton } from "@mui/material";
 import { Text } from "./MSText.style";
 import { MSTextProps } from "./types";
-import Styles from "./MSText.module.css";
 import useCustomBreakpoint from "@/helpers/screenSizes";
+import Styles from "./MSText.module.css";
 
 const MSText: React.FC<MSTextProps> = ({
 	children,

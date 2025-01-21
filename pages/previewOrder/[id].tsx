@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useFetchOrderPreview } from "@/hooks/orderHooks";
-import { useRouter } from "next/router";
 import PreviewOrderCard from "@/components/PreviewOrderCard";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import { formatDate } from "@/helpers";
 import MSText from "@/components/MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { useRouter } from "next/router";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();

@@ -1,7 +1,8 @@
 import { useLogin } from "@/hooks/authHooks";
 import { clientRoutes } from "@/routes";
-import { useAuthStore } from "@/store";
 import { useRouter } from "next/router";
+
+import { useAuthStore } from "@/store";
 
 const Login = () => {
 	// const data = {

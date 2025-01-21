@@ -5,9 +5,9 @@ import { EmptyStateWrapper, MainWrapper } from "./OrdersOverview.style";
 import OrderCard from "../OrderCard";
 import { OrdersOverViewSectionProps } from "./types";
 import { Order } from "@/types/ordersTypes";
-import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 import MSButton from "../MSButton";
+import { useRouter } from "next/router";
 
 const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 	const { latestOrders } = props;

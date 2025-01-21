@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
 import React from "react";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import OrderBody from "@/components/OrderBody";
+import { useRouter } from "next/router";
 
 const OrderDetails = () => {
 	const router = useRouter();

@@ -4,9 +4,8 @@ import { MainWrapper, RowFlex } from "./ActionSection.style";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
-import useCustomBreakpoint from "@/helpers/screenSizes";
-import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
+import { useRouter } from "next/router";
 
 const ActionSection = () => {
 	const { locale } = useLocaleStore();

@@ -3,12 +3,12 @@ import { styled } from "@mui/material/styles";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Check from "@mui/icons-material/Check";
 import StepConnector, {
 	stepConnectorClasses,
 } from "@mui/material/StepConnector";
 import { StepIconProps } from "@mui/material/StepIcon";
 import { colors } from "@/constants/theme";
+import Check from "@mui/icons-material/Check";
 
 // Custom Connector
 const QontoConnector = styled(StepConnector)(({ theme }) => ({

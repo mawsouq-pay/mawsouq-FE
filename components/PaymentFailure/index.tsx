@@ -1,11 +1,10 @@
-import { useRouter } from "next/router";
 import React from "react";
 import MSText from "@/components/MSText";
-import { colors } from "@/constants/theme";
 import { Button } from "@mui/material";
 import { FailureCard, FailureIcon } from "./PaymentFailure.styles";
 import { PaymentFailureProps } from "./types";
 import { clientRoutes } from "@/routes";
+import { useRouter } from "next/router";
 
 const PaymentFailure = (props: PaymentFailureProps) => {
 	const router = useRouter();
