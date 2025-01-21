@@ -2,6 +2,7 @@ import React from "react";
 import {
 	FormField,
 	FormWrapper,
+	PaymentSummaryDiv,
 	PreviewText,
 	PreviewTextArea,
 } from "./PreviewOrderCard.styles";
@@ -38,9 +39,13 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 					fontSize="35px"
 					mobileFontSize="24px"
 					fontWeight="600"
-					style={{ marginBottom: "16px", textAlign: "center" }}
+					style={{
+						marginBottom: "25px",
+						marginTop: "12px",
+						textAlign: "center",
+					}}
 				>
-					Preview Order Summary
+					{text.previewOrder}
 				</MSText>
 
 				<FormField>
@@ -91,9 +96,15 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 					</MSText>
 					<PreviewText>{otherPartyPhone}</PreviewText>
 				</FormField>
-				<PaymentSummarySection price={40} escrowFee={20} totalDue={60} />
 
-				<MSButton title="Confirm" style={{ width: "100%" }} />
+				<PaymentSummaryDiv>
+					<MSText fontSize={"16px"} mobileFontSize={"14px"} color={colors.gray}>
+						{text.paymentSummary}
+					</MSText>
+					<PaymentSummarySection price={40} escrowFee={20} totalDue={60} />
+				</PaymentSummaryDiv>
+
+				<MSButton title={text.approve} style={{ width: "100%" }} />
 			</FormWrapper>
 		</ErrorAndLoadingWrapper>
 	);

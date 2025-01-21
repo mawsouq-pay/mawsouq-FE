@@ -5,8 +5,8 @@ import {
 	CreateOrderResponse,
 	CreatePaymentLinkInput,
 	CreatePaymentLinkResponse,
-	FetchOrderDetailsInput,
 	FetchOrderDetailsResponse,
+	FetchOrderPreviewResponse,
 	FetchOrdersResponse,
 	UpdateOrderStatusInput,
 	UpdateOrderStatusResponse,
@@ -36,5 +36,11 @@ export const useCreatePaymentLink = () => {
 export const useUpdateOrderStatus = () => {
 	return usePost<UpdateOrderStatusResponse, UpdateOrderStatusInput>(
 		serverRoutes.updateOrderStatus
+	);
+};
+
+export const useFetchOrderPreview = (orderId: string) => {
+	return useFetch<FetchOrderPreviewResponse>(
+		`${serverRoutes.fetchOrderPreview}/${orderId}`
 	);
 };

@@ -43,9 +43,6 @@ export interface FetchOrdersResponse {
 	orders?: Order[];
 }
 
-export interface FetchOrderDetailsInput {
-	id: string;
-}
 export interface FetchOrderDetailsResponse {
 	order: Order;
 }
@@ -66,5 +63,9 @@ export interface UpdateOrderStatusInput {
 
 export interface UpdateOrderStatusResponse {
 	message: string;
+	order: Order;
+}
+
+export interface FetchOrderPreviewResponse {
 	order: Order;
 }

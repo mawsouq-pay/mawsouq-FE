@@ -105,6 +105,12 @@ const en = {
 		"Your order has been placed successfully.",
 	preparingOrderPr:
 		"We have received your payment. The seller has been notified and will start preparing your order shortly.",
+
+	//Preview Order
+	previewOrder: "Preview Order Summary",
+	approve: "Approve",
+	descriptionMessage:
+		"The seller has created this order for you. Please review the details below. If everything looks correct, you can approve the order to proceed.",
 };
 
 export default en;

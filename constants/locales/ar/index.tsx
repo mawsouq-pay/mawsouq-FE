@@ -104,6 +104,12 @@ const ar = {
 	paymentHasBeenReceivedSuccessfully: "تم تقديم طلبك بنجاح.",
 	preparingOrderPr:
 		"لقد استلمنا دفعتك. تم إخطار البائع وسيبدأ في تجهيز طلبك قريبًا.",
+
+	//Preview Order
+	previewOrder: " ملخص الطلب",
+	approve: "الموافقة",
+	descriptionMessage:
+		"قام البائع بإنشاء هذا الطلب لك. يرجى مراجعة التفاصيل أدناه. إذا كان كل شيء يبدو صحيحًا، يمكنك الموافقة على الطلب للمتابعة.",
 };
 
 export default ar;

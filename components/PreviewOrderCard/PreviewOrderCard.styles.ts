@@ -5,7 +5,7 @@ export const FormWrapper = styled.div`
 	min-width: 50%;
 	background-color: white;
 	padding: 24px;
-	border-radius: 16px;
+	border-radius: 20px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
@@ -35,4 +35,11 @@ export const PreviewTextArea = styled.div`
 	color: ${colors.black};
 	height: 80px;
 	overflow-y: auto;
+`;
+
+export const PaymentSummaryDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	margin-bottom: 30px;
 `;

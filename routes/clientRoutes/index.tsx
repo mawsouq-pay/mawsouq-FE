@@ -16,6 +16,7 @@ const publicRoutes = [
 	clientRoutes.login,
 	clientRoutes.register,
 	clientRoutes.landingPage,
+	clientRoutes.previewOrder,
 ];
 const protectedRoutes = Object.values(clientRoutes).filter(
 	(route) => !publicRoutes.includes(route)

@@ -7,6 +7,7 @@ const serverRoutes = {
 	fetchOrders: "/order/my-orders",
 	createOrder: "/order/create",
 	fetchOrderById: "/order", //"/order:id"
+	fetchOrderPreview: "/order/preview", //"/order/preview:id"
 
 	createPaymentLink: "/order/payment-link", //POST
 	updateOrderStatus: "/order/update",
