@@ -109,10 +109,10 @@ const ar = {
 	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",
 	login: "تسجيل",
 	requiredConfirmPassword: "تأكيد كلمة المرور مطلوب",
-	matchPasswords:"كلمات السر غير متطابقة",
-	passwordLength:"كلمة المرور يجب أن تكون على الأقل 8 أحرف",
+	matchPasswords: "كلمات السر غير متطابقة",
+	passwordLength: "كلمة المرور يجب أن تكون على الأقل 8 أحرف",
 	requiredPassword: "كلمة المرور مطلوبة",
-	requiredName: "اسم المستخدم مطلوب"
+	requiredName: "اسم المستخدم مطلوب",
 
 	//paymentSuccess
 	paymentHasBeenReceivedSuccessfully: "تم تقديم طلبك بنجاح.",
