@@ -1,14 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useLocaleStore } from "@/store/LocaleStore";
-import { textTr } from "@/constants/locales";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import RegisterCard from "@/components/RegisterCard";
 
 const RegisterForm: React.FC = () => {
 	const { isMobile } = useCustomBreakpoint();
-	const { locale } = useLocaleStore();
-	const text = textTr(locale);
 
 	return (
 		<PageContainer>

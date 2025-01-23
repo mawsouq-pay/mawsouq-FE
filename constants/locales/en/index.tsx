@@ -126,6 +126,9 @@ const en = {
 	approve: "Approve",
 	descriptionMessage:
 		"The seller has created this order for you. Please review the details below. If everything looks correct, you can approve the order to proceed.",
+
+	//error Messages
+	genericErrorMessage: "An unexpected error occurred. Please try again later.",
 };
 
 export default en;

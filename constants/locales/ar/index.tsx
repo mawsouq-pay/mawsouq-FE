@@ -124,6 +124,9 @@ const ar = {
 	approve: "الموافقة",
 	descriptionMessage:
 		"قام البائع بإنشاء هذا الطلب لك. يرجى مراجعة التفاصيل أدناه. إذا كان كل شيء يبدو صحيحًا، يمكنك الموافقة على الطلب للمتابعة.",
+
+	//error Messages
+	genericErrorMessage: "An unexpected error occurred. Please try again later.",
 };
 
 export default ar;

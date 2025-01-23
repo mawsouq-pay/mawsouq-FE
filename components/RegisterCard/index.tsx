@@ -37,7 +37,8 @@ const RegisterCard = () => {
 
 	const { mutate: registerSubmit } = useRegister();
 	const { register: storeRegister } = useAuthStore();
-	const { showAxiosErrorNotification } = useNotification();
+	const { showAxiosErrorNotification, showErrorNotification } =
+		useNotification();
 	const router = useRouter();
 
 	const [showPassword, setShowPassword] = useState(false);
@@ -59,17 +60,19 @@ const RegisterCard = () => {
 				onSuccess: (response) => {
 					const accessToken = response.headers["x-auth-token"];
 					const refreshToken = response.headers["x-refresh-token"];
-
-					const user: User = {
-						name: response?.data?.name,
-						email: response?.data?.email,
-						phone: response?.data?.phone,
-					};
-
-					storeRegister({ accessToken, refreshToken }, user);
-					router.push({
-						pathname: clientRoutes.homePage,
-					});
+					if (accessToken && refreshToken) {
+						const user: User = {
+							name: response?.data?.name,
+							email: response?.data?.email,
+							phone: response?.data?.phone,
+						};
+						storeRegister({ accessToken, refreshToken }, user);
+						router.replace({
+							pathname: clientRoutes.homePage,
+						});
+					} else {
+						showErrorNotification(text.genericErrorMessage);
+					}
 				},
 				onError: (error) => {
 					showAxiosErrorNotification(error as AxiosError);
@@ -189,36 +192,6 @@ const RegisterCard = () => {
 				)}
 			</Formik>
 
-			{/* <Divider>OR</Divider>
-        <SocialButtons>
-            <SocialButton>
-                <Google />
-                <MSText
-                    fontSize={"16px"}
-                    mobileFontSize={"14px"}
-                    style={{
-                        color: colors.LabelValue,
-                        textAlign: "left",
-                    }}
-                >
-                    Continue with Google
-                </MSText>
-            </SocialButton>
-            <SocialButton>
-                <Apple />
-                <MSText
-                    fontSize={"16px"}
-                    mobileFontSize={"14px"}
-                    style={{
-                        color: colors.LabelValue,
-                        textAlign: "left",
-                    }}
-                >
-                    Continue with Apple
-                </MSText>
-            </SocialButton>
-        </SocialButtons>
-*/}
 			<LoginText>
 				{text.alreadyHaveAnAccount}{" "}
 				<LoginLink href="/login">{text.login}</LoginLink>
