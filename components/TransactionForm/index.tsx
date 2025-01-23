@@ -20,12 +20,11 @@ const TransactionForm = (props: TransactionFormProps) => {
 	};
 
 	const style = {
-		width: "100%",
 		padding: "8px",
-		border: "1px solid #ccc",
 		borderRadius: "4px",
 		marginTop: "10px",
-		marginBottom: "5px"}
+		marginBottom: "5px",
+	};
 	return (
 		<FormContainer>
 			<Formik

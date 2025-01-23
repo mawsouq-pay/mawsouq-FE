@@ -103,7 +103,7 @@ const ar = {
 	//Register
 	register: "تسجيل",
 	registerSubtitle: "يرجى إدخال التفاصيل للمتابعة",
-	username: "اسم المستخدم",
+	fullName: "اسم المستخدم",
 	password: "كلمة المرور",
 	confirmPassword: "تأكيد كلمة المرور",
 	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { AxiosError } from "axios";
 
 interface BackendError {
@@ -9,8 +8,6 @@ interface BackendError {
 	};
 	details?: string;
 }
-
-type Severity = "error" | "success" | "info" | "warning";
 
 export const extractErrorMessage = (error: AxiosError): string => {
 	if (error) {
@@ -27,43 +24,3 @@ export const extractErrorMessage = (error: AxiosError): string => {
 	}
 	return "";
 };
-
-const useSnackbarError = () => {
-	const [errorMessage, setErrorMessage] = useState<string>("");
-	const [severity, setSeverity] = useState<Severity>("error");
-	const [open, setOpen] = useState<boolean>(false);
-
-	const handleAxiosError = (error: AxiosError) => {
-		console.log(error);
-		const message = extractErrorMessage(error);
-		console.log(message, "here");
-		setErrorMessage(message);
-		setSeverity("error");
-		setOpen(true);
-	};
-	const handleMessageError = (error: string) => {
-		setErrorMessage(error);
-		setSeverity("error");
-		setOpen(true);
-	};
-
-	const handleSuccess = (message: string) => {
-		setErrorMessage(message);
-		setSeverity("success");
-		setOpen(true);
-	};
-
-	const handleClose = () => setOpen(false);
-
-	return {
-		open,
-		errorMessage,
-		severity,
-		handleMessageError,
-		handleAxiosError,
-		handleSuccess,
-		handleClose,
-	};
-};
-
-export default useSnackbarError;

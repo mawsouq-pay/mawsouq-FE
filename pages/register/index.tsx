@@ -18,7 +18,6 @@ import FormItem from "@/components/FormItem";
 import { useRegister } from "@/hooks/authHooks";
 import { useAuthStore } from "@/store";
 import { User } from "@/types/authenticationTypes";
-import useSnackbarError from "@/hooks/errorHooks";
 
 import { clientRoutes } from "@/routes";
 import Hide from "@/assets/icons/hide";
@@ -28,6 +27,7 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { AxiosError } from "axios";
 import { useRouter } from "next/router";
+import { useNotification } from "@/store/SnackBarStore";
 
 interface RegisterFormInputs {
 	name: string;
@@ -43,7 +43,7 @@ const RegisterForm: React.FC = () => {
 	const text = textTr(locale);
 	const { mutate: registerSubmit } = useRegister();
 	const { register: storeRegister } = useAuthStore();
-	const { handleAxiosError, errorMessage } = useSnackbarError();
+	const { showAxiosErrorNotification } = useNotification();
 	const router = useRouter();
 
 	const [showPassword, setShowPassword] = useState(false);
@@ -81,17 +81,9 @@ const RegisterForm: React.FC = () => {
 	const style = {
 		borderRadius: "16px",
 		height: 48,
-		width: "100%",
-		border: "1px solid #ccc",
 		outline: "none",
 		paddingLeft: "16px",
 		marginTop: "4px",
-	};
-
-	const labelStyle = {
-		color: "#75859E",
-		textAlign: "left",
-		display: "block",
 	};
 
 	const onSubmit = (values: RegisterFormInputs) => {
@@ -115,11 +107,11 @@ const RegisterForm: React.FC = () => {
 
 					storeRegister({ accessToken, refreshToken }, user);
 					router.push({
-						pathname: clientRoutes.landingPage,
+						pathname: clientRoutes.homePage,
 					});
 				},
 				onError: (error) => {
-					handleAxiosError(error as AxiosError);
+					showAxiosErrorNotification(error as AxiosError);
 				},
 			}
 		);
@@ -158,11 +150,10 @@ const RegisterForm: React.FC = () => {
 						{({ isValid, dirty }) => (
 							<StyledForm>
 								<FormItem
-									label={text.username}
+									label={text.fullName}
 									id="name"
 									name="name"
 									style={style}
-									labelStyle={labelStyle as React.CSSProperties}
 								/>
 
 								<FormItem
@@ -170,7 +161,6 @@ const RegisterForm: React.FC = () => {
 									id="email"
 									name="email"
 									style={style}
-									labelStyle={labelStyle as React.CSSProperties}
 								/>
 
 								<Row>
@@ -180,7 +170,6 @@ const RegisterForm: React.FC = () => {
 											id="password"
 											name="password"
 											style={style}
-											labelStyle={labelStyle as React.CSSProperties}
 											icon={
 												<span
 													onClick={togglePasswordVisibility}
@@ -199,7 +188,6 @@ const RegisterForm: React.FC = () => {
 											id="confirmPassword"
 											name="confirmPassword"
 											style={style}
-											labelStyle={labelStyle as React.CSSProperties}
 											icon={
 												<span
 													onClick={toggleConfirmPasswordVisibility}
@@ -217,7 +205,6 @@ const RegisterForm: React.FC = () => {
 									id="phone"
 									name="phone"
 									style={style}
-									labelStyle={labelStyle as React.CSSProperties}
 								/>
 								<StyledButton
 									type="submit"

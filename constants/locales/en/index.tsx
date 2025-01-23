@@ -103,7 +103,7 @@ const en = {
 	//Register
 	register: "Register",
 	registerSubtitle: "Please enter details to continue",
-	username: "Username",
+	fullName: "Full Name",
 	password: "Password",
 	confirmPassword: "Confirm Password",
 	alreadyHaveAnAccount: "Already have an account",
@@ -113,7 +113,7 @@ const en = {
 	matchPasswords: "Passwords do not match",
 	passwordLength: "Password must be at least 8 characters",
 	requiredPassword: "Password is required",
-	requiredName: "Username is required",
+	requiredName: "Full Name is required",
 
 	//paymentSuccess
 	paymentHasBeenReceivedSuccessfully:

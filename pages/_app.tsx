@@ -7,6 +7,7 @@ import useAuthStore from "@/store/AuthStore";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { NotificationProvider } from "@/store/SnackBarStore";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
@@ -27,16 +28,18 @@ function MyApp({ Component, pageProps }: any) {
 			>
 				{" "}
 				<ThemeProvider theme={theme}>
-					<GlobalStyles />
-					{Component.CustomLayout ? (
-						<Component.CustomLayout>
-							<Component {...pageProps} />
-						</Component.CustomLayout>
-					) : (
-						<MainLayout>
-							<Component {...pageProps} />
-						</MainLayout>
-					)}
+					<NotificationProvider>
+						<GlobalStyles />
+						{Component.CustomLayout ? (
+							<Component.CustomLayout>
+								<Component {...pageProps} />
+							</Component.CustomLayout>
+						) : (
+							<MainLayout>
+								<Component {...pageProps} />
+							</MainLayout>
+						)}
+					</NotificationProvider>
 				</ThemeProvider>
 			</ProtectedRouteWrapper>
 		</QueryClientProvider>
