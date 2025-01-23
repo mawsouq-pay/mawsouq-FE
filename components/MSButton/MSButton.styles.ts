@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { colors } from "@/constants/theme";
 
 export const StyledButton = styled.button`
-	padding: 20px 18px;
+	padding: 0px 18px;
 	background-color: ${colors.buttonGreenBackground};
 
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+	text-align: center;
 
 	&:hover {
 		background-color: ${colors.buttonGreenHover};

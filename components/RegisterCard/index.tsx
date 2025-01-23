@@ -130,6 +130,7 @@ const RegisterCard = () => {
 							id="email"
 							name="email"
 							style={style}
+							type={"email"}
 						/>
 
 						<Row>

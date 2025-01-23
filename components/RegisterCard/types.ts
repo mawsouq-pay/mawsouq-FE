@@ -11,7 +11,7 @@ export interface RegisterFormInput {
 export const registerValidationSchema = (locale: string) => {
 	const text = textTr(locale);
 
-	yup.object({
+	return yup.object({
 		name: yup.string().required(text.requiredName),
 		email: yup.string().email(text.invalidEmail).required(text.requiredEmail),
 		phone: yup

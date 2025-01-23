@@ -11,7 +11,7 @@ const MSButton = (props: ButtonProps) => {
 			style={style}
 			disabled={loading || disabled}
 		>
-			<MSText fontSize={"16px"} mobileFontSize="1px" color={colors.white}>
+			<MSText fontSize={"16px"} mobileFontSize="14px" color={colors.white}>
 				{loading ? <CircularProgress /> : title}
 			</MSText>
 		</StyledButton>
