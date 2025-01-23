@@ -1,14 +1,10 @@
-import {
-	FlexRow,
-	FormContainer,
-	StyledButton,
-	StyledForm,
-} from "./TransactionForm.styles";
+import { FlexRow, FormContainer, StyledForm } from "./TransactionForm.styles";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { Formik } from "formik";
 import FormItem from "../FormItem";
 import { TransactionFormProps, createValidationSchema } from "./types";
+import MSButton from "../MSButton";
 const TransactionForm = (props: TransactionFormProps) => {
 	const { onSubmit, initialValues } = props;
 	const { locale } = useLocaleStore();
@@ -94,7 +90,16 @@ const TransactionForm = (props: TransactionFormProps) => {
 							</div>
 						</FlexRow>
 
-						<StyledButton type="submit">{text.next}</StyledButton>
+						<MSButton
+							title={text.next}
+							onClick={() => {}}
+							type="submit"
+							style={{
+								height: 40,
+								width: "fit-content",
+								alignSelf: "flex-end",
+							}}
+						/>
 					</StyledForm>
 				)}
 			</Formik>

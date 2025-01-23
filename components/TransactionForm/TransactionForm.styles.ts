@@ -14,21 +14,6 @@ export const FormContainer = styled.div`
 	gap: 14px;
 `;
 
-// export const StyledField = styled(Field)`
-// 	width: 100%;
-// 	padding: 8px;
-// 	border: 1px solid #ccc;
-// 	border-radius: 4px;
-// 	margin-top: 10px;
-// 	margin-bottom: 5px;
-// 	name:
-
-// 	&::placeholder {
-// 		color: ${colors.gray};
-// 		font-size: 12px;
-// 		font-weight: 300;
-// 	}
-// `;
 export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;

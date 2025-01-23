@@ -88,6 +88,10 @@ const OrderAction = (props: OrderActionProps) => {
 					title={buttonCta}
 					loading={loadingAndDisable}
 					disabled={loadingAndDisable}
+					style={{
+						height: 40,
+						width: "fit-content",
+					}}
 				/>
 			)}
 		</MainWrapper>

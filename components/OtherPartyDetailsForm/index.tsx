@@ -11,6 +11,7 @@ import { Formik } from "formik";
 import FormItem from "../FormItem";
 import { OtherPartyDetailsFormProps, createValidationSchema } from "./types";
 import PaymentSummarySection from "../PaymentSummarySection";
+import MSButton from "../MSButton";
 const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -19,6 +20,12 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 
 	const handleSubmit = (values: typeof initialValues) => {
 		onSubmit(values);
+	};
+	const style = {
+		padding: "8px",
+		borderRadius: "4px",
+		marginTop: "10px",
+		marginBottom: "5px",
 	};
 	return (
 		<FormContainer>
@@ -35,6 +42,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							name="otherPartyPhone"
 							placeholder={text.phoneNumberPlaceHolder}
 							type="tel"
+							style={style}
 						/>
 						<FormItem
 							label={text.email}
@@ -42,6 +50,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							name="otherPartyEmail"
 							placeholder={text.emailPlaceHolder}
 							type="email"
+							style={style}
 						/>
 
 						<PaymentSummarySection
@@ -51,7 +60,16 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 						/>
 						<FlexRow>
 							<BackButton onClick={onBack}>{text.back}</BackButton>
-							<StyledButton type="submit">{text.createOrder}</StyledButton>
+							<MSButton
+								title={text.createOrder}
+								onClick={() => {}}
+								type="submit"
+								style={{
+									height: 40,
+									width: "fit-content",
+									alignSelf: "flex-end",
+								}}
+							/>
 						</FlexRow>
 					</StyledForm>
 				)}

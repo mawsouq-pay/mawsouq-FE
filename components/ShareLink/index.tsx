@@ -17,6 +17,7 @@ import Image from "next/image";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
 import { OrderSuccessImage } from "@/assets/images";
+import MSButton from "../MSButton";
 const ShareOrderLink = (props: ShareLinkProps) => {
 	const { isPending, error, orderLink, navigateToFirstStep, orderId } = props;
 
@@ -37,7 +38,15 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 		}, 1500);
 	};
 	const retryButton = (
-		<NavButton onClick={navigateToFirstStep}>{text.pleaseTryAgain}</NavButton>
+		<MSButton
+			title={text.pleaseTryAgain}
+			onClick={navigateToFirstStep}
+			type="submit"
+			style={{
+				height: 35,
+				width: "fit-content",
+			}}
+		/>
 	);
 	const navigateToOrder = () => {
 		console.log(orderId);
@@ -83,11 +92,16 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 				<MSText fontSize="14px" color={colors.gray}>
 					{text.emailSentToOtherParty}
 				</MSText>
-				<NavButton onClick={navigateToOrder}>
-					<MSText color={colors.white} fontSize={"14px"} fontWeight="600">
-						{text.viewOrder}
-					</MSText>
-				</NavButton>
+
+				<MSButton
+					title={text.viewOrder}
+					onClick={navigateToOrder}
+					type="submit"
+					style={{
+						height: 35,
+						width: "fit-content",
+					}}
+				/>
 			</Wrapper>
 		</ErrorAndLoadingWrapper>
 	);

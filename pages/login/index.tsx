@@ -10,8 +10,8 @@ const Login = () => {
 	// 	password: "nazeer123!",
 	// };
 	const data = {
-		email: "amrAbdelazim@gmail.com",
-		password: "amrabdelazim1!",
+		email: "nadanazeer11@gmail.com",
+		password: "Handball_28",
 	};
 	const { mutate: loginUser, isPending, error } = useLogin();
 	const { login } = useAuthStore();

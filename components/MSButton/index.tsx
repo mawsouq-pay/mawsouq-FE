@@ -1,19 +1,36 @@
 import React from "react";
-import { StyledButton } from "./MSButton.styles";
+import { StyledButton, ButtonContentWrapper } from "./MSButton.styles";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
 import { CircularProgress } from "@mui/material";
+
 const MSButton = (props: ButtonProps) => {
-	const { onClick, style = {}, loading, disabled, title } = props;
+	const {
+		onClick,
+		style = {},
+		loading,
+		disabled,
+		title,
+		type = "submit",
+	} = props;
 	return (
 		<StyledButton
 			onClick={onClick}
 			style={style}
 			disabled={loading || disabled}
+			type={type}
 		>
-			<MSText fontSize={"16px"} mobileFontSize="14px" color={colors.white}>
-				{loading ? <CircularProgress /> : title}
-			</MSText>
+			<ButtonContentWrapper>
+				{loading && (
+					<CircularProgress
+						size={16}
+						style={{ color: colors.white, marginRight: "8px" }}
+					/>
+				)}
+				<MSText fontSize={"16px"} mobileFontSize="14px" color={colors.white}>
+					{title}
+				</MSText>
+			</ButtonContentWrapper>
 		</StyledButton>
 	);
 };
