@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import * as yup from "yup";
 import { Formik } from "formik";
 import { useRouter } from "next/router";
 import { AxiosError } from "axios";
@@ -20,12 +19,16 @@ import { useAuthStore } from "@/store";
 import { useNotification } from "@/store/SnackBarStore";
 import { User } from "@/types/authenticationTypes";
 import { clientRoutes } from "@/routes";
-import Hide from "@/assets/icons/hide";
-import Show from "@/assets/icons/show";
+import { Hide, Show } from "@/assets/icons/index";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import useCustomBreakpoint from "@/helpers/screenSizes";
+import {
+	RegisterFormInput,
+	registerInitialValues,
+	registerValidationSchema,
+} from "./types";
 
 const RegisterCard = () => {
 	const { locale } = useLocaleStore();
@@ -44,32 +47,7 @@ const RegisterCard = () => {
 	const toggleConfirmPasswordVisibility = () =>
 		setShowConfirmPassword(!showConfirmPassword);
 
-	const validationSchema = yup.object({
-		name: yup.string().required(text.requiredName),
-		email: yup.string().email(text.invalidEmail).required(text.requiredEmail),
-		phone: yup
-			.string()
-			.matches(/^[+0-9]{10,15}$/, text.invalidPhone)
-			.required(text.requiredPhone),
-		password: yup
-			.string()
-			.min(8, text.passwordLength)
-			.required(text.requiredPassword),
-		confirmPassword: yup
-			.string()
-			.oneOf([yup.ref("password")], text.matchPasswords)
-			.required(text.requiredConfirmPassword),
-	});
-
-	const initialValues = {
-		name: "",
-		email: "",
-		phone: "",
-		password: "",
-		confirmPassword: "",
-	};
-
-	const onSubmit = (values: typeof initialValues) => {
+	const onSubmit = (values: RegisterFormInput) => {
 		registerSubmit(
 			{
 				email: values.email,
@@ -131,9 +109,9 @@ const RegisterCard = () => {
 			</MSText>
 
 			<Formik
-				initialValues={initialValues}
+				initialValues={registerInitialValues}
 				onSubmit={onSubmit}
-				validationSchema={validationSchema}
+				validationSchema={registerValidationSchema}
 			>
 				{({ isValid, dirty }) => (
 					<StyledForm>

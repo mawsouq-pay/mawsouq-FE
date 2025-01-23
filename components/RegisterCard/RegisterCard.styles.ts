@@ -3,21 +3,6 @@ import { media } from "@/helpers/mediaQueryHelper";
 import { Form } from "formik";
 import styled from "styled-components";
 
-export const GradientBackground = styled.div`
-	background: linear-gradient(#1e1e1e, #2a75d4);
-	display: flex;
-	overflow: visible;
-	justify-content: center;
-	border-radius: 15px;
-	box-sizing: border-box;
-	z-index: 1;
-	width: 100%;
-`;
-
-export const PageContainer = styled.div`
-	height: 100vh;
-`;
-
 export const Card = styled.div`
 	z-index: 2;
 	border-radius: 20px;
