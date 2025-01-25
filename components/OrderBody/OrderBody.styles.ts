@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 
 export const ProgressWrapper = styled.div`
 	display: flex;
@@ -25,6 +26,9 @@ export const MainWrapper = styled.div`
 	justify-content: space-between;
 	gap: 20px;
 	margin-top: 50px;
+	${media.below925`
+ 	flex-direction: column;
+  `}
 `;
 
 export const InfoSection = styled.div`

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainWrapper = styled.div`
 	display: flex;
@@ -15,6 +16,10 @@ export const ItemsContainer = styled.div`
 	display: flex;
 	width: 100%;
 	flex-direction: column;
+
+	${media.below925`
+		 gap:15px;
+  	`}
 `;
 export const ItemWrapper = styled.div`
 	display: flex;

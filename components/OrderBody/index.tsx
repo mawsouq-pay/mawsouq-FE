@@ -16,6 +16,7 @@ import {
 	ActionBox,
 } from "./OrderBody.styles";
 import { OrderBodyProps } from "./types";
+import ErrorAndLoadingWrapper from "../ErrorAndLoadingWrapper";
 
 const OrderBody = (props: OrderBodyProps) => {
 	const { locale } = useLocaleStore();
@@ -26,48 +27,54 @@ const OrderBody = (props: OrderBodyProps) => {
 	console.log("-----------------ORDER DETAILS---------", data);
 	return (
 		<>
-			<MSText
-				fontSize={"40px"}
-				fontWeight={"600"}
-				color={colors.black}
-				style={{ paddingBottom: 10 }}
+			<ErrorAndLoadingWrapper
+				isLoading={isLoading}
+				error={error}
+				displayErrorReason={true}
 			>
-				{text.orderDetails}
-			</MSText>
-			<ActionBox>
-				<MSText fontSize={"14px"} color={colors.red}>
-					Action needed from buyer/seller
+				<MSText
+					fontSize={"40px"}
+					fontWeight={"600"}
+					color={colors.black}
+					style={{ paddingBottom: 10 }}
+				>
+					{text.orderDetails}
 				</MSText>
-			</ActionBox>
+				<ActionBox>
+					<MSText fontSize={"14px"} color={colors.red}>
+						Action needed from buyer/seller
+					</MSText>
+				</ActionBox>
 
-			<OrderProgress status={data?.order?.status || "PENDING"} />
+				<OrderProgress status={data?.order?.status || "PENDING"} />
 
-			<MainWrapper>
-				<InfoSection>
-					<OrderAction
-						orderId={data?.order?._id ?? ""}
-						isFetcherSeller={data?.order?.isFetcherSeller ?? false}
-						orderStatus={data?.order.status ?? "PENDING"}
-					/>
-					<OrderInfo
-						transactionTitle={data?.order?.transactionTitle || ""}
-						itemName={data?.order?.itemName || ""}
-						description={data?.order.description || ""}
-						price={data?.order?.price || 0}
-						status={data?.order?.status || "PENDING"}
-						deliveryDate={data?.order?.deliveryDate || ""}
-					/>
+				<MainWrapper>
+					<InfoSection>
+						<OrderAction
+							orderId={data?.order?._id ?? ""}
+							isFetcherSeller={data?.order?.isFetcherSeller ?? false}
+							orderStatus={data?.order.status ?? "PENDING"}
+						/>
+						<OrderInfo
+							transactionTitle={data?.order?.transactionTitle || ""}
+							itemName={data?.order?.itemName || ""}
+							description={data?.order.description || ""}
+							price={data?.order?.price || 0}
+							status={data?.order?.status || "PENDING"}
+							deliveryDate={data?.order?.deliveryDate || ""}
+						/>
 
-					<OrderPaymentSummary
-						price={data?.order.price || 0}
-						escrowFee={20}
-						totalDue={(data?.order?.price || 0) + 20}
-					/>
-				</InfoSection>
-				<HistorySection>
-					<OrderHistory statusHistory={data?.order.statusHistory} />
-				</HistorySection>
-			</MainWrapper>
+						<OrderPaymentSummary
+							price={data?.order.price || 0}
+							escrowFee={20}
+							totalDue={(data?.order?.price || 0) + 20}
+						/>
+					</InfoSection>
+					<HistorySection>
+						<OrderHistory statusHistory={data?.order.statusHistory} />
+					</HistorySection>
+				</MainWrapper>
+			</ErrorAndLoadingWrapper>
 		</>
 	);
 };

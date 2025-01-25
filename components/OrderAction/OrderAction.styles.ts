@@ -15,7 +15,6 @@ export const MessageDiv = styled.div`
 	border-radius: 8px;
 	padding: 15px;
 	display: flex;
-	text-align: center;
 	align-items: center;
 	border: 0.5px solid ${colors.buttonGreenHover};
 `;

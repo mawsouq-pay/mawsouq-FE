@@ -3,14 +3,15 @@ import PaymentSuccess from "@/components/PaymentSuccess";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import React from "react";
 import { useRouter } from "next/router";
+import MSLoader from "@/components/MSLoader";
 
 const PaymentRedirect = () => {
 	const router = useRouter();
 
-	const { success, id: orderId } = router.query;
+	const { success, orderId } = router.query;
 
 	if (!router.isReady) {
-		return <div>Loading...</div>;
+		return <MSLoader />;
 	}
 
 	const isSuccess = success === "true";

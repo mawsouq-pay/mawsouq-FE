@@ -12,6 +12,7 @@ import { useCreatePaymentLink, useUpdateOrderStatus } from "@/hooks/orderHooks";
 import { clientRoutes } from "@/routes";
 import MSButton from "../MSButton";
 import { useRouter } from "next/router";
+import queryClient from "@/client/reactQClient";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { isFetcherSeller, orderStatus, orderId } = props;
@@ -36,19 +37,15 @@ const OrderAction = (props: OrderActionProps) => {
 							pathname: clientRoutes.paymentPage,
 							query: { iframeLink: response?.data?.iframeLink },
 						});
+						queryClient.invalidateQueries({
+							queryKey: ["fetchOrderById", orderId],
+						});
 					},
 				}
 			);
 		} else if (isFetcherSeller) {
 			if (orderStatus === OrderStatusEnum.IN_PROGRESS) {
-				updateOrder(
-					{ orderId, newStatus: OrderStatusEnum.IN_TRANSIT },
-					{
-						onSuccess: () => {
-							router.reload();
-						},
-					}
-				);
+				updateOrder({ orderId, newStatus: OrderStatusEnum.IN_TRANSIT });
 			} else if (buttonCta === "Submit Dispute Details") {
 				console.log("Submit dispute details (Seller).");
 			}
@@ -57,14 +54,12 @@ const OrderAction = (props: OrderActionProps) => {
 				orderStatus === OrderStatusEnum.IN_TRANSIT &&
 				nextStatus === OrderStatusEnum.DELIVERED
 			) {
-				updateOrder(
-					{ orderId, newStatus: nextStatus },
-					{
-						onSuccess: () => {
-							router.reload();
-						},
-					}
-				);
+				updateOrder({ orderId, newStatus: nextStatus });
+			} else if (
+				orderStatus === OrderStatusEnum.DELIVERED &&
+				nextStatus === OrderStatusEnum.COMPLETED
+			) {
+				//release logic
 			} else if (buttonCta === "Submit Dispute Details") {
 				console.log("Submit dispute details (Buyer).");
 			}
