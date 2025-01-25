@@ -57,7 +57,11 @@ const ar = {
 	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",
 	minLength: "الحد الأدنى للطول هو 3 أحرف",
-	maxLength: "الحد الأقصى للطول هو 255 حرفًا",
+	maxLength: "الحد الأقصى للطول هو 100 حرفًا",
+	descriptionMaxLength: "الحد الأقصى للطول هو 1024 حرفًا",
+	descriptionMinLength:
+		"Please be more descriptive , with minimum 30 characters",
+
 	itemNameRequired: "اسم العنصر مطلوب",
 	requiredDescription: "الوصف مطلوب",
 	requiredAmount: "السعر مطلوب",
@@ -97,8 +101,6 @@ const ar = {
 	history: "History",
 	orderDetails: "Order Details",
 	ordersList: "Orders List",
-	sellerName: "Seller Name",
-	buyerName: "Buyer Name",
 
 	//Register
 	register: "تسجيل",
@@ -124,6 +126,14 @@ const ar = {
 	approve: "الموافقة",
 	descriptionMessage:
 		"قام البائع بإنشاء هذا الطلب لك. يرجى مراجعة التفاصيل أدناه. إذا كان كل شيء يبدو صحيحًا، يمكنك الموافقة على الطلب للمتابعة.",
+
+	//seller and buyer descriptions
+	sellerEmail: "البريد الإلكتروني للبائع",
+	buyerEmail: "البريد الإلكتروني للمشتري",
+	sellerPhone: "رقم هاتف البائع",
+	buyerPhone: "رقم هاتف المشتري",
+	sellerName: "اسم البائع",
+	buyerName: "اسم المشتري",
 
 	//error Messages
 	genericErrorMessage: "An unexpected error occurred. Please try again later.",

@@ -1,3 +1,4 @@
+import { textTr } from "@/constants/locales";
 import { StartTransactionData } from "@/pages/startTransaction/types";
 import * as Yup from "yup";
 
@@ -6,33 +7,35 @@ export interface TransactionFormProps {
 	initialValues: StartTransactionData;
 }
 
-export const createValidationSchema = (text: any) => {
+export const createValidationSchema = (locale: any) => {
+	const text = textTr(locale);
+
 	return Yup.object({
 		// Transaction Title
 		transactionTitle: Yup.string()
 			.trim()
 			.required(text.requiredTitle)
 			.min(3, text.minLength)
-			.max(255, text.maxLength),
+			.max(100, text.maxLength),
 
 		// Item Name
 		itemName: Yup.string()
 			.trim()
 			.required(text.itemNameRequired)
 			.min(3, text.minLength)
-			.max(255, text.maxLength),
+			.max(100, text.maxLength),
 
 		// Description
 		description: Yup.string()
 			.trim()
 			.required(text.requiredDescription)
-			.min(10, text.minLength)
-			.max(1024, text.maxLength),
+			.min(30, text.descriptionMinLength)
+			.max(1024, text.descriptionMaxLength),
 
 		//Price
 		price: Yup.number()
-			.required(text.requiredAmount)
-			.min(0, text.mustBePositive)
+			.required(text.quantityRequired)
+			.min(1, text.mustBePositive)
 			.typeError(text.mustBeNumber),
 
 		// Delivery Date
@@ -43,6 +46,7 @@ export const createValidationSchema = (text: any) => {
 		// Quantity
 		quantity: Yup.number()
 			.required(text.quantityRequired)
+			.min(1, text.mustBePositive)
 			.positive(text.mustBePositive)
 			.integer(text.mustBeInteger)
 			.typeError(text.mustBeNumber),

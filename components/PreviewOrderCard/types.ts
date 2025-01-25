@@ -4,9 +4,7 @@ interface PreviewOrderCardProps {
 	description: string;
 	deliveryDate: string;
 	quantity: number;
-	otherPartyEmail: string;
-	otherPartyPhone: string;
+	sellerEmail: string;
+	sellerName: string;
 	price: number;
-	isPending: boolean;
-	error: Error | null;
 }

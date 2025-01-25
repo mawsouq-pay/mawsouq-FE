@@ -28,4 +28,6 @@ export const ErrorMessageBox = styled.div`
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	margin-top: 16px;
 	margin-bottom: 16px;
+	display: flex;
+	flex-direction: column;
 `;

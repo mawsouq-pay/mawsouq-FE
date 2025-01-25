@@ -8,6 +8,8 @@ import MSText from "@/components/MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useRouter } from "next/router";
+import ErrorAndLoadingWrapper from "@/components/ErrorAndLoadingWrapper";
+import ContactSummarySection from "@/components/ContactSummarySection";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -18,25 +20,34 @@ const PreviewOrderSummary = () => {
 
 	return (
 		<PageContainer>
-			<InfoWrapper>
-				<InfoMessage>
-					<MSText fontSize="18px" fontWeight="500" color="#757575">
-						{text.descriptionMessage}
-					</MSText>
-				</InfoMessage>
-			</InfoWrapper>
-			<PreviewOrderCard
-				transactionTitle={data?.order?.transactionTitle ?? ""}
-				itemName={data?.order?.itemName ?? ""}
-				description={data?.order?.description ?? ""}
-				deliveryDate={formatDate(data?.order?.deliveryDate ?? "")}
-				quantity={data?.order?.quantity ?? 0}
-				otherPartyEmail={data?.order?.seller?.email ?? ""}
-				otherPartyPhone={data?.order?.seller?.name ?? ""}
-				price={data?.order?.price ?? 1}
-				isPending={isLoading}
+			<ErrorAndLoadingWrapper
+				isLoading={isLoading}
 				error={error}
-			/>
+				displayErrorReason={true}
+			>
+				<InfoWrapper>
+					<InfoMessage>
+						<MSText fontSize="18px" fontWeight="500" color="#757575">
+							{text.descriptionMessage}
+						</MSText>
+					</InfoMessage>
+					<ContactSummarySection
+						sellerNaming={true}
+						email={data?.order?.seller?.email ?? ""}
+						name={data?.order?.seller?.name ?? ""}
+					/>
+				</InfoWrapper>
+				<PreviewOrderCard
+					transactionTitle={data?.order?.transactionTitle ?? ""}
+					itemName={data?.order?.itemName ?? ""}
+					description={data?.order?.description ?? ""}
+					deliveryDate={formatDate(data?.order?.deliveryDate ?? "")}
+					quantity={data?.order?.quantity ?? 0}
+					sellerEmail={data?.order?.seller?.email ?? ""}
+					sellerName={data?.order?.seller?.name ?? ""}
+					price={data?.order?.price ?? 1}
+				/>
+			</ErrorAndLoadingWrapper>
 		</PageContainer>
 	);
 };
@@ -58,6 +69,7 @@ const InfoWrapper = styled.div`
 	padding: 16px;
 	border-radius: 8px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	gap: 30px;
 `;
 
 const InfoMessage = styled.div`

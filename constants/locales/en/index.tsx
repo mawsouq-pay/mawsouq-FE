@@ -56,7 +56,11 @@ const en = {
 	//FORM Error Messages
 	requiredTitle: "Transaction title is required",
 	minLength: "Minimum length is 3 characters",
-	maxLength: "Maximum length is 255 characters",
+	maxLength: "Maximum length is 100 characters",
+	descriptionMaxLength: "Maximum length is 1024 characters",
+	descriptionMinLength:
+		"Please be more descriptive , with minimum 30 characters",
+
 	itemNameRequired: "Item name is required",
 	requiredDescription: "Description is required",
 	requiredPrice: "Price is required",
@@ -97,8 +101,6 @@ const en = {
 	history: "History",
 	orderDetails: "Order Details",
 	ordersList: "Orders List",
-	sellerName: "Seller Name",
-	buyerName: "Buyer Name",
 
 	//Register
 	register: "Register",
@@ -126,6 +128,14 @@ const en = {
 	approve: "Approve",
 	descriptionMessage:
 		"The seller has created this order for you. Please review the details below. If everything looks correct, you can approve the order to proceed.",
+
+	//seller and buyer descriptions
+	sellerEmail: "Seller Email",
+	buyerEmail: "Buyer Email",
+	sellerPhone: "Seller Phone Number",
+	buyerPhone: "Buyer Phone Number",
+	sellerName: "Seller Name",
+	buyerName: "Buyer Name",
 
 	//error Messages
 	genericErrorMessage: "An unexpected error occurred. Please try again later.",

@@ -10,7 +10,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
-	const validationSchema = createValidationSchema(text);
+	const validationSchema = createValidationSchema(locale);
 	const handleSubmit = (values: typeof initialValues) => {
 		onSubmit(values);
 	};
