@@ -11,6 +11,8 @@ const serverRoutes = {
 
 	createPaymentLink: "/order/payment-link", //POST
 	updateOrderStatus: "/order/update",
+
+	sellerRelease: "/order/sellerRelease",
 };
 
 export default serverRoutes;

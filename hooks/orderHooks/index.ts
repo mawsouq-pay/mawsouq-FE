@@ -1,5 +1,6 @@
 import { useFetch, usePost } from "@/client/customHooks";
 import queryClient from "@/client/reactQClient";
+import { OrderStatusEnum } from "@/constants";
 import { serverRoutes } from "@/routes";
 import { useNotification } from "@/store/SnackBarStore";
 import {
@@ -10,6 +11,8 @@ import {
 	FetchOrderDetailsResponse,
 	FetchOrderPreviewResponse,
 	FetchOrdersResponse,
+	SellerReleaseInput,
+	SellerReleaseResponse,
 	UpdateOrderStatusInput,
 	UpdateOrderStatusResponse,
 } from "@/types/ordersTypes";
@@ -61,6 +64,7 @@ export const useUpdateOrderStatus = () => {
 				);
 			},
 			onError(error) {
+				console.log("-----ERROR IN UPDATING STATUS-------", error);
 				showAxiosErrorNotification(error as AxiosError);
 			},
 		}
@@ -70,5 +74,34 @@ export const useUpdateOrderStatus = () => {
 export const useFetchOrderPreview = (orderId: string) => {
 	return useFetch<FetchOrderPreviewResponse>(
 		`${serverRoutes.fetchOrderPreview}/${orderId}`
+	);
+};
+
+export const useSellerRelease = () => {
+	const { showAxiosErrorNotification } = useNotification();
+
+	return usePost<SellerReleaseResponse, SellerReleaseInput>(
+		serverRoutes.sellerRelease,
+		{
+			onSuccess(data, variables, context) {
+				const { orderId } = variables;
+				queryClient.setQueryData(
+					["fetchOrderById", orderId],
+					(oldData: any) => {
+						if (!oldData) return oldData;
+						return {
+							...oldData,
+							order: {
+								...oldData.order,
+								status: OrderStatusEnum.COMPLETED,
+							},
+						};
+					}
+				);
+			},
+			onError(error, variables, context) {
+				showAxiosErrorNotification(error as AxiosError);
+			},
+		}
 	);
 };

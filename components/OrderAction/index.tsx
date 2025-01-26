@@ -8,7 +8,11 @@ import {
 	orderProgressBarData,
 	orderStatusObject,
 } from "@/constants";
-import { useCreatePaymentLink, useUpdateOrderStatus } from "@/hooks/orderHooks";
+import {
+	useCreatePaymentLink,
+	useSellerRelease,
+	useUpdateOrderStatus,
+} from "@/hooks/orderHooks";
 import { clientRoutes } from "@/routes";
 import MSButton from "../MSButton";
 import { useRouter } from "next/router";
@@ -21,6 +25,9 @@ const OrderAction = (props: OrderActionProps) => {
 		useCreatePaymentLink();
 	const { mutate: updateOrder, isPending: updateOrderPending } =
 		useUpdateOrderStatus();
+
+	const { mutate: sellerRelease, isPending: sellerReleasePending } =
+		useSellerRelease();
 	const { messageForSeller, messageForBuyer, sellerCTA, buyerCTA, nextStatus } =
 		orderProgressBarData[orderStatus];
 	const orderStatusText = orderStatusObject[orderStatus].text;
@@ -59,13 +66,14 @@ const OrderAction = (props: OrderActionProps) => {
 				orderStatus === OrderStatusEnum.DELIVERED &&
 				nextStatus === OrderStatusEnum.COMPLETED
 			) {
-				//release logic
+				sellerRelease({ orderId });
 			} else if (buttonCta === "Submit Dispute Details") {
 				console.log("Submit dispute details (Buyer).");
 			}
 		}
 	};
-	const loadingAndDisable = createLinkPending || updateOrderPending;
+	const loadingAndDisable =
+		createLinkPending || updateOrderPending || sellerReleasePending;
 	return (
 		<MainWrapper>
 			<MSText fontSize={"16px"} mobileFontSize={"14px"} color={colors.gray}>

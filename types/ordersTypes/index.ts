@@ -69,3 +69,11 @@ export interface UpdateOrderStatusResponse {
 export interface FetchOrderPreviewResponse {
 	order: Order;
 }
+
+export interface SellerReleaseInput {
+	orderId: string;
+}
+
+export interface SellerReleaseResponse {
+	order: Order;
+}
