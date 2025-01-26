@@ -20,17 +20,12 @@ const PaymentPage = () => {
 };
 
 const PageWrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
 	height: 100vh;
-	background-color: #f9f9f9;
 `;
 
 const IframeContainer = styled.iframe`
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	border: none;
 	border-radius: 10px;
 `;
