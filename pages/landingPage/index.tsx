@@ -1,4 +1,5 @@
 import BenefitsSection from "@/components/BenefitsSection";
+import FAQ from "@/components/FAQ";
 import FooterSection from "@/components/FooterSection";
 import HeroSection from "@/components/HeroSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
@@ -11,6 +12,7 @@ const LandingPage = () => {
 			<HeroSection />
 			<HowItWorksSection />
 			<BenefitsSection />
+			<FAQ />
 			<FooterSection />
 		</div>
 	);
