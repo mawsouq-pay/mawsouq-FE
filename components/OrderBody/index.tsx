@@ -24,58 +24,50 @@ const OrderBody = (props: OrderBodyProps) => {
 	const { orderId } = props;
 
 	const { data, isLoading, error } = useFetchOrderById(orderId as string);
-	console.log("-----------------ORDER DETAILS---------", data);
+
 	return (
-		<>
-			<ErrorAndLoadingWrapper
-				isLoading={isLoading}
-				error={error}
-				displayErrorReason={true}
-			>
-				<MSText
-					fontSize={"40px"}
-					fontWeight={"600"}
-					color={colors.black}
-					style={{ paddingBottom: 10 }}
-				>
-					{text.orderDetails}
+		<ErrorAndLoadingWrapper
+			isLoading={isLoading}
+			error={error}
+			displayErrorReason={true}
+		>
+			<MSText fontSize="32px" fontWeight="700" color={colors.black}>
+				{text.orderDetails}
+			</MSText>
+			<ActionBox>
+				<MSText fontSize="14px" fontWeight="600" color={colors.red}>
+					action needed
 				</MSText>
-				<ActionBox>
-					<MSText fontSize={"14px"} color={colors.red}>
-						Action needed from buyer/seller
-					</MSText>
-				</ActionBox>
+			</ActionBox>
 
-				<OrderProgress status={data?.order?.status || "PENDING"} />
+			<OrderProgress status={data?.order?.status || "PENDING"} />
 
-				<MainWrapper>
-					<InfoSection>
-						<OrderAction
-							orderId={data?.order?._id ?? ""}
-							isFetcherSeller={data?.order?.isFetcherSeller ?? false}
-							orderStatus={data?.order.status ?? "PENDING"}
-						/>
-						<OrderInfo
-							transactionTitle={data?.order?.transactionTitle || ""}
-							itemName={data?.order?.itemName || ""}
-							description={data?.order.description || ""}
-							price={data?.order?.price || 0}
-							status={data?.order?.status || "PENDING"}
-							deliveryDate={data?.order?.deliveryDate || ""}
-						/>
-
-						<OrderPaymentSummary
-							price={data?.order.price || 0}
-							escrowFee={20}
-							totalDue={(data?.order?.price || 0) + 20}
-						/>
-					</InfoSection>
-					<HistorySection>
-						<OrderHistory statusHistory={data?.order.statusHistory} />
-					</HistorySection>
-				</MainWrapper>
-			</ErrorAndLoadingWrapper>
-		</>
+			<MainWrapper>
+				<InfoSection>
+					<OrderAction
+						orderId={data?.order?._id ?? ""}
+						isFetcherSeller={data?.order?.isFetcherSeller ?? false}
+						orderStatus={data?.order.status ?? "PENDING"}
+					/>
+					<OrderInfo
+						transactionTitle={data?.order?.transactionTitle || ""}
+						itemName={data?.order?.itemName || ""}
+						description={data?.order?.description || ""}
+						price={data?.order?.price || 0}
+						status={data?.order?.status || "PENDING"}
+						deliveryDate={data?.order?.deliveryDate || ""}
+					/>
+					<OrderPaymentSummary
+						price={data?.order.price || 0}
+						escrowFee={20}
+						totalDue={(data?.order?.price || 0) + 20}
+					/>
+				</InfoSection>
+				<HistorySection>
+					<OrderHistory statusHistory={data?.order.statusHistory} />
+				</HistorySection>
+			</MainWrapper>
+		</ErrorAndLoadingWrapper>
 	);
 };
 

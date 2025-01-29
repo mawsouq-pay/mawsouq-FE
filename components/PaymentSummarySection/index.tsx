@@ -14,27 +14,28 @@ import { PaymentSummarySectionProps } from "./types";
 import { colors } from "@/constants/theme";
 import { Divider } from "@mui/material";
 
-const PaymentSummarySection = (props: PaymentSummarySectionProps) => {
+const PaymentSummarySection = ({
+	price,
+	escrowFee,
+	totalDue,
+}: PaymentSummarySectionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { price, escrowFee, totalDue } = props;
 
 	const paymentItems = [
 		{
 			title: text.price,
 			value: `EGP ${price}`,
-			fontWeight: "600",
 			fontSize: "16px",
-			mobileFontSize: "14px",
-			color: colors.gray,
+			fontWeight: "500",
+			color: colors.black,
 		},
 		{
 			title: text.escrowFee,
 			value: `EGP ${escrowFee}`,
-			fontWeight: "400",
 			fontSize: "16px",
-			mobileFontSize: "14px",
-			colors: colors.red,
+			fontWeight: "500",
+			color: colors.red,
 		},
 	];
 
@@ -45,9 +46,8 @@ const PaymentSummarySection = (props: PaymentSummarySectionProps) => {
 					<ItemWrapper key={index}>
 						<LabelValue>
 							<MSText
-								color={colors.black}
+								color={colors.gray}
 								fontSize={item.fontSize}
-								mobileFontSize={item.mobileFontSize}
 								fontWeight={item.fontWeight}
 							>
 								{item.title}
@@ -55,25 +55,25 @@ const PaymentSummarySection = (props: PaymentSummarySectionProps) => {
 						</LabelValue>
 						<TextValue>
 							<MSText
-								color={item.colors}
 								fontSize={item.fontSize}
-								mobileFontSize={item.mobileFontSize}
 								fontWeight={item.fontWeight}
+								color={item.color}
 							>
 								{item.value}
 							</MSText>
 						</TextValue>
 					</ItemWrapper>
 				))}
-				<Divider />
+				<Divider style={{ margin: "10px 0" }} />
+
 				<TotalWrapper>
 					<LabelValue>
-						<MSText fontSize="18px" fontWeight="bold">
+						<MSText fontSize="18px" fontWeight="700" color={colors.black}>
 							{text.totalDue}
 						</MSText>
 					</LabelValue>
 					<TextValue>
-						<MSText fontSize="18px" fontWeight="bold" color={colors.black}>
+						<MSText fontSize="18px" fontWeight="700" color={colors.black}>
 							EGP {totalDue}
 						</MSText>
 					</TextValue>
