@@ -7,7 +7,7 @@ import {
 	MainWrapper,
 	NameContainer,
 	SellerContainer,
-	StatusContainer,
+	StatusBadge,
 	TextValue,
 } from "./OrderListItem.style";
 import { useLocaleStore } from "@/store/LocaleStore";
@@ -28,6 +28,7 @@ const OrderListItem = (props: OrderListItemProps) => {
 		otherPartyName,
 		status,
 	} = props;
+
 	const formattedDate = formatDate(deliveryDate);
 	const orderStatusInfo = orderStatusObject[status];
 
@@ -37,34 +38,46 @@ const OrderListItem = (props: OrderListItemProps) => {
 		{ title: text.price, value: `EGP ${price}` },
 		{ title: text.deliverDate, value: formattedDate },
 	];
+
 	return (
 		<MainWrapper>
 			<ItemsContainer>
-				{OrderItems.map((item, index) => {
-					return (
-						<ItemWrapper>
-							<LabelValue>
-								<MSText color={colors.LabelValue}>{item.title}</MSText>
-							</LabelValue>
-							<TextValue>
-								<MSText>{item.value}</MSText>
-							</TextValue>
-						</ItemWrapper>
-					);
-				})}
+				{OrderItems.map(
+					(item, index) =>
+						item.value && (
+							<ItemWrapper key={index}>
+								<LabelValue>
+									<MSText color={colors.LabelValue} fontWeight="500">
+										{item.title}
+									</MSText>
+								</LabelValue>
+								<TextValue>
+									<MSText fontWeight="600">{item.value}</MSText>
+								</TextValue>
+							</ItemWrapper>
+						)
+				)}
 			</ItemsContainer>
+
 			<SellerContainer>
 				<NameContainer>
-					<MSText color={colors.LabelValue} fontSize="14px">
+					<MSText color={colors.gray} fontSize="14px">
 						{isFetcherSeller ? text.buyerName : text.sellerName}
 					</MSText>
-					<MSText>{otherPartyName}</MSText>
+					<MSText fontWeight="600">{otherPartyName}</MSText>
 				</NameContainer>
-				<StatusContainer>
-					<MSText color="#FCA311">{orderStatusInfo.text}</MSText>
-				</StatusContainer>
+
+				<StatusBadge
+					status={status}
+					style={{ backgroundColor: orderStatusInfo.backgroundColor }}
+				>
+					<MSText fontSize="14px" fontWeight="600">
+						{orderStatusInfo.text}
+					</MSText>
+				</StatusBadge>
 			</SellerContainer>
 		</MainWrapper>
 	);
 };
+
 export default OrderListItem;
