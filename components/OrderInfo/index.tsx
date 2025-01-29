@@ -32,30 +32,43 @@ const OrderInfo = (props: OrderInfoProps) => {
 	return (
 		<MainWrapper>
 			<RowDiv>
-				<MSText fontSize={"16px"} color={colors.gray}>
-					Order Details
+				<MSText
+					fontSize="20px"
+					mobileFontSize="16px"
+					fontWeight="700"
+					color={colors.darkGray}
+				>
+					{" "}
+					{text.orderDetails}
 				</MSText>
 				<ListAltIcon />
 			</RowDiv>
+
 			<ItemsContainer>
 				<ColumnDiv>
-					<MSText color={colors.LabelValue}>Description</MSText>
-					<MSText>{description}</MSText>
-					<Divider />
+					<MSText color={colors.gray} fontSize="16px" fontWeight="600">
+						{text.description}
+					</MSText>
+					<MSText fontSize="16px" color={colors.black} fontWeight="400">
+						{description}
+					</MSText>
+					<Divider style={{ margin: "10px 0" }} />
 				</ColumnDiv>
 
-				{OrderItems.map((item, index) => {
-					return (
-						<ItemWrapper>
-							<LabelValue>
-								<MSText color={colors.LabelValue}>{item.title}</MSText>
-							</LabelValue>
-							<TextValue>
-								<MSText>{item.value}</MSText>
-							</TextValue>
-						</ItemWrapper>
-					);
-				})}
+				{OrderItems.map((item, index) => (
+					<ItemWrapper key={index}>
+						<LabelValue>
+							<MSText color={colors.gray} fontSize="14px" fontWeight="500">
+								{item.title}
+							</MSText>
+						</LabelValue>
+						<TextValue>
+							<MSText fontSize="14px" fontWeight="500" color={colors.black}>
+								{item.value}
+							</MSText>
+						</TextValue>
+					</ItemWrapper>
+				))}
 			</ItemsContainer>
 		</MainWrapper>
 	);

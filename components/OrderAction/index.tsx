@@ -76,16 +76,22 @@ const OrderAction = (props: OrderActionProps) => {
 		createLinkPending || updateOrderPending || sellerReleasePending;
 	return (
 		<MainWrapper>
-			<MSText fontSize={"16px"} mobileFontSize={"14px"} color={colors.gray}>
+			<MSText
+				fontSize="20px"
+				mobileFontSize="16px"
+				fontWeight="700"
+				color={colors.darkGray}
+			>
+				{" "}
 				{orderStatusText}
 			</MSText>
 			<MessageDiv>
-				<MSText fontSize={"16px"} color={colors.black} fontWeight={"600"}>
+				<MSText fontSize="16px" color={colors.black} fontWeight="500">
 					{message}
 				</MSText>
 			</MessageDiv>
 
-			{buttonCta != null && (
+			{buttonCta && (
 				<MSButton
 					onClick={onCtaClick}
 					title={buttonCta}
