@@ -27,7 +27,7 @@ function QontoStepIcon(props: StepIconProps) {
 
 const MSStepProgressBar = (props: StepProgressBarProps) => {
 	const { steps, activeStep, orientation = "horizontal" } = props;
-	console.log(orientation);
+
 	return (
 		<Stepper
 			alternativeLabel={orientation == "horizontal" ? true : false}

@@ -83,7 +83,7 @@ export const BackButton = styled.button`
 	margin-top: 10px;
 
 	&:hover {
-		background: ${colors.buttonGreenHover};
+		background: ${colors.buttonGreenBackground};
 	}
 `;
 

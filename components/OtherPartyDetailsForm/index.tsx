@@ -61,7 +61,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 						<FlexRow>
 							<BackButton onClick={onBack}>{text.back}</BackButton>
 							<MSButton
-								title={text.createOrder}
+								title={text.next}
 								onClick={() => {}}
 								type="submit"
 								style={{

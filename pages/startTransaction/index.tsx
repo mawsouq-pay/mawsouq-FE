@@ -16,8 +16,14 @@ import { StartTransactionData } from "./types";
 import { useCreateOrder } from "@/hooks/orderHooks";
 import { RolesEnum } from "@/constants";
 import queryClient from "@/client/reactQClient";
+import PreviewDetailsInput from "@/components/PreviewInputDetails";
 
-const steps = ["Transaction Details", "Buyer Details", "Share Link"];
+const steps = [
+	"Transaction Details",
+	"Buyer Details",
+	"Preview Details",
+	"Share Link",
+];
 
 const StartTransaction = () => {
 	const { locale } = useLocaleStore();
@@ -41,33 +47,32 @@ const StartTransaction = () => {
 		setFormData((prev) => ({ ...prev, ...updatedData }));
 		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
 	};
-	const handleCreateOrder = (updatedData: Partial<StartTransactionData>) => {
+
+	const handleConfirmOrder = () => {
+		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+
 		const orderData = {
 			...formData,
-			...updatedData,
 			quantity: parseFloat(formData.quantity),
 			price: parseFloat(formData.price),
 			deliveryDate: new Date(formData.deliveryDate),
-			otherPartyPhone: `+2${updatedData.otherPartyPhone}`,
+			otherPartyPhone: `+2${formData.otherPartyPhone}`,
 			role: RolesEnum.SELLER,
 		};
-		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
 
 		createOrder(orderData, {
 			onSuccess: (response) => {
-				console.log("-----CREATE ORDER SUCCESS-------", response);
 				setOrderLink(`https://mawsouq/order/id=${response?.data?.order?._id}`);
 				setOrderId(response?.data?.order?._id);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
 			},
 		});
-
-		setFormData((prev) => ({ ...prev, ...updatedData }));
 	};
 
 	const handleBack = () => {
 		setActiveStep((prev) => Math.max(prev - 1, 0));
 	};
+
 	const navigateToFirstStep = () => {
 		setActiveStep(0);
 	};
@@ -86,7 +91,7 @@ const StartTransaction = () => {
 			<ContentWrapper>
 				<MSStepProgressBar steps={steps} activeStep={activeStep} />
 
-				<div style={{ marginTop: "10px" }}>
+				<div style={{ marginTop: "20px" }}>
 					{activeStep === 0 && (
 						<TransactionForm
 							initialValues={formData}
@@ -96,9 +101,7 @@ const StartTransaction = () => {
 					{activeStep === 1 && (
 						<OtherPartyDetailsForm
 							initialValues={formData}
-							onSubmit={(data) => {
-								handleCreateOrder(data);
-							}}
+							onSubmit={(data) => handleNext(data)}
 							onBack={handleBack}
 							paymentDetails={{
 								price: parseFloat(formData.price),
@@ -108,6 +111,13 @@ const StartTransaction = () => {
 						/>
 					)}
 					{activeStep === 2 && (
+						<PreviewDetailsInput
+							formData={formData}
+							onConfirm={handleConfirmOrder}
+							onBack={handleBack}
+						/>
+					)}
+					{activeStep === 3 && (
 						<ShareLink
 							orderLink={orderLink}
 							isPending={isPending}
