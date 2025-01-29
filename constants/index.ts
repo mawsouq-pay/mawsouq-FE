@@ -140,6 +140,42 @@ export const orderProgressBarData: Record<
 	},
 };
 
+export const orderStatusConfirmationMessages: Record<
+	keyof typeof OrderStatusEnum,
+	{ title: string; message: string }
+> = {
+	PENDING: {
+		title: "Mark as In Progress?",
+		message: "Are you sure you want to proceed in the order by paying?",
+	},
+	IN_PROGRESS: {
+		title: "Mark as In Progress?",
+		message: "Are you sure you want to proceed in the order by paying?",
+	},
+	IN_TRANSIT: {
+		title: "Mark as In Transit?",
+		message: "Are you sure you want to mark this order as 'In Transit'?",
+	},
+	DELIVERED: {
+		title: "Mark as Delivered?",
+		message: "Confirm that the order has been successfully delivered.",
+	},
+	COMPLETED: {
+		title: "Complete Order?",
+		message: "Final confirmation needed to mark the order as Completed.",
+	},
+	CANCELLED: {
+		title: "Cancel Order?",
+		message:
+			"Are you sure you want to cancel this order? This action cannot be undone.",
+	},
+	DISPUTED: {
+		title: "Cancel Order?",
+		message:
+			"Are you sure you want to cancel this order? This action cannot be undone.",
+	},
+};
+
 export const RolesEnum = Object.freeze({
 	BUYER: "Buyer",
 	SELLER: "Seller",

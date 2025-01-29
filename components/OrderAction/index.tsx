@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainWrapper, MessageDiv, StyledButton } from "./OrderAction.styles";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
@@ -6,6 +6,7 @@ import { OrderActionProps } from "./types";
 import {
 	OrderStatusEnum,
 	orderProgressBarData,
+	orderStatusConfirmationMessages,
 	orderStatusObject,
 } from "@/constants";
 import {
@@ -17,9 +18,12 @@ import { clientRoutes } from "@/routes";
 import MSButton from "../MSButton";
 import { useRouter } from "next/router";
 import queryClient from "@/client/reactQClient";
+import MSModal from "../MSModal";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { isFetcherSeller, orderStatus, orderId } = props;
+	const statusMessage = orderStatusConfirmationMessages[orderStatus];
+	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 	const router = useRouter();
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
@@ -35,6 +39,7 @@ const OrderAction = (props: OrderActionProps) => {
 	const buttonCta = isFetcherSeller ? sellerCTA : buyerCTA;
 
 	const onCtaClick = () => {
+		setIsConfirmModalOpen(false);
 		if (orderStatus === OrderStatusEnum.PENDING && !isFetcherSeller) {
 			createLink(
 				{ orderId },
@@ -93,7 +98,7 @@ const OrderAction = (props: OrderActionProps) => {
 
 			{buttonCta && (
 				<MSButton
-					onClick={onCtaClick}
+					onClick={() => setIsConfirmModalOpen(true)}
 					title={buttonCta}
 					loading={loadingAndDisable}
 					disabled={loadingAndDisable}
@@ -103,6 +108,16 @@ const OrderAction = (props: OrderActionProps) => {
 					}}
 				/>
 			)}
+			<MSModal
+				open={isConfirmModalOpen}
+				onClose={() => setIsConfirmModalOpen(false)}
+				title={statusMessage.title}
+				onConfirm={onCtaClick}
+			>
+				<div style={{ padding: "10px 0px" }}>
+					<MSText color={colors.black}>{statusMessage.message}</MSText>
+				</div>
+			</MSModal>
 		</MainWrapper>
 	);
 };
