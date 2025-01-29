@@ -15,7 +15,7 @@ export const Logo = styled.div`
 	font-weight: bold;
 	color: #fff;
 	padding-inline-start: clamp(20px, 5vw, 84px);
-
+	cursor: pointer;
 	span {
 		color: #2f80ed;
 		font-style: italic;

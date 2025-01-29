@@ -13,13 +13,14 @@ import {
 import { useMediaQuery } from "@mui/material";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { useRouter } from "next/router";
+import { useAuthStore } from "@/store";
+import { clientRoutes } from "@/routes";
 
 const Navbar = (props: NavBarProps) => {
 	const { isLandingPage = false } = props;
 	const router = useRouter();
-
+	const { isLoggedIn } = useAuthStore();
 	const [open, setOpen] = useState(false);
-	const { locale, setLocale } = useLocaleStore();
 
 	const isMobile = useMediaQuery("(max-width: 925px)");
 
@@ -29,7 +30,13 @@ const Navbar = (props: NavBarProps) => {
 	return (
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
-				<Logo>
+				<Logo
+					onClick={() => {
+						if (isLoggedIn && !isLandingPage) {
+							router.push(clientRoutes.homePage);
+						}
+					}}
+				>
 					Maw<span>souq</span>
 				</Logo>
 
