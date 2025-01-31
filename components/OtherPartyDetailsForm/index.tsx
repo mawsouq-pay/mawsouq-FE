@@ -12,12 +12,17 @@ import FormItem from "../FormItem";
 import { OtherPartyDetailsFormProps, createValidationSchema } from "./types";
 import PaymentSummarySection from "../PaymentSummarySection";
 import MSButton from "../MSButton";
+import { useAuthStore } from "@/store";
 const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	const { user } = useAuthStore();
 	const { onSubmit, onBack, initialValues, paymentDetails } = props;
-	const validationSchema = createValidationSchema(text);
-
+	const validationSchema = createValidationSchema(
+		locale,
+		user?.email,
+		user?.phone
+	);
 	const handleSubmit = (values: typeof initialValues) => {
 		onSubmit(values);
 	};
@@ -37,7 +42,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 				{({ values }) => (
 					<StyledForm>
 						<FormItem
-							label={text.phoneNumber}
+							label={text.buyerPhone}
 							id={initialValues.otherPartyPhone}
 							name="otherPartyPhone"
 							placeholder={text.phoneNumberPlaceHolder}
@@ -45,7 +50,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							style={style}
 						/>
 						<FormItem
-							label={text.email}
+							label={text.buyerEmail}
 							id={initialValues.otherPartyEmail}
 							name="otherPartyEmail"
 							placeholder={text.emailPlaceHolder}

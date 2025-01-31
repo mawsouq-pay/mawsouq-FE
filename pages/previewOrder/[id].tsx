@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useFetchOrderPreview } from "@/hooks/orderHooks";
 import PreviewOrderCard from "@/components/PreviewOrderCard";
@@ -10,6 +10,7 @@ import { textTr } from "@/constants/locales";
 import { useRouter } from "next/router";
 import ErrorAndLoadingWrapper from "@/components/ErrorAndLoadingWrapper";
 import ContactSummarySection from "@/components/ContactSummarySection";
+import OrderPreviewConfirmationPopUp from "@/components/OrderPreviewConfirmationPopUp";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -17,7 +18,7 @@ const PreviewOrderSummary = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { data, isLoading, error } = useFetchOrderPreview(orderId as string);
-
+	const [showBuyerPopUp, setShowBuyerPopUp] = useState(false);
 	return (
 		<PageContainer>
 			<ErrorAndLoadingWrapper
@@ -46,6 +47,12 @@ const PreviewOrderSummary = () => {
 					sellerEmail={data?.order?.seller?.email ?? ""}
 					sellerName={data?.order?.seller?.name ?? ""}
 					price={data?.order?.price ?? 1}
+					onConfirmPress={() => setShowBuyerPopUp(true)}
+				/>
+				<OrderPreviewConfirmationPopUp
+					open={showBuyerPopUp}
+					setOpen={setShowBuyerPopUp}
+					orderId={(orderId as string) ?? ""}
 				/>
 			</ErrorAndLoadingWrapper>
 		</PageContainer>
@@ -57,7 +64,6 @@ const PageContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	background-color: #f9f9f9;
 	padding: 20px;
 `;
 

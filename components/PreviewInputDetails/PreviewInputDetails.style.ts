@@ -1,14 +1,19 @@
 import styled from "styled-components";
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainWrapper = styled.div`
+	max-width: 750px;
+	margin: 0 auto;
+	background-color: ${colors.white};
+	border-radius: 20px;
+	padding: 30px 0px 50px 0px;
+	${media.below925`
+	padding: 30px 25px 50px 25px;
+ 	 `}
 	display: flex;
 	flex-direction: column;
-	background-color: ${colors.white};
-	flex: 1;
-	border-radius: 20px;
-	padding: 25px;
-	gap: 20px;
+	gap: 14px;
 `;
 
 export const ItemsContainer = styled.div`
@@ -20,22 +25,27 @@ export const ItemsContainer = styled.div`
 
 export const ItemWrapper = styled.div`
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	gap: 20px;
-	//width: 100%;
+	width: 100%;
 	padding-bottom: 8px;
-	border-bottom: 1px solid ${colors.lightGray};
-	padding: 10px 0;
+	gap: 30px;
 `;
-
 export const LabelValue = styled.div`
 	display: flex;
-	//flex: 1;
+	width: 30%;
 `;
 
 export const TextValue = styled.div`
 	display: flex;
+	background-color: ${colors.lightGray};
+	padding: 8px 12px;
+	border-radius: 6px;
 	flex: 1;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	width: 80%;
 `;
 
 export const ButtonsContainer = styled.div`

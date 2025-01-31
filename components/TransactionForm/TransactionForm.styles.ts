@@ -8,7 +8,10 @@ export const FormContainer = styled.div`
 	margin: 0 auto;
 	background-color: ${colors.white};
 	border-radius: 20px;
-	padding: 30px 30px 50px 30px;
+	padding: 30px 0px 50px 0px;
+	${media.below925`
+	padding: 30px 25px 50px 25px;
+ 	 `}
 	display: flex;
 	flex-direction: column;
 	gap: 14px;

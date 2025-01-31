@@ -7,4 +7,5 @@ interface PreviewOrderCardProps {
 	sellerEmail: string;
 	sellerName: string;
 	price: number;
+	onConfirmPress: () => void;
 }

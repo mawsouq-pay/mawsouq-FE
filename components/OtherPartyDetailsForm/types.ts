@@ -1,3 +1,4 @@
+import { textTr } from "@/constants/locales";
 import { StartTransactionData } from "@/pages/startTransaction/types";
 import * as Yup from "yup";
 
@@ -12,16 +13,24 @@ export interface OtherPartyDetailsFormProps {
 	};
 }
 
-export const createValidationSchema = (text: any) => {
+export const createValidationSchema = (
+	locale: any,
+	userEmail?: string,
+	userPhone?: string
+) => {
+	const text = textTr(locale);
+
 	return Yup.object({
 		otherPartyPhone: Yup.string()
 			.required(text.requiredPhone)
 			.trim()
+			.notOneOf([userPhone?.substring(2)], text.phoneMustBeDifferent)
 			.matches(/^01[0-9]{9}$/, text.invalidPhone),
 		otherPartyEmail: Yup.string()
 			.trim()
 			.required(text.requiredEmail)
 			.email(text.invalidEmail)
+			.notOneOf([userEmail], text.emailMustBeDifferent)
 			.matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, text.invalidEmail),
 	});
 };

@@ -15,6 +15,7 @@ import {
 import MSButton from "../MSButton";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import PaymentSummarySection from "../PaymentSummarySection";
 
 const PreviewDetailsInput = ({
 	formData,
@@ -48,6 +49,11 @@ const PreviewDetailsInput = ({
 					</ItemWrapper>
 				))}
 			</ItemsContainer>
+			<PaymentSummarySection
+				price={parseInt(formData.price)}
+				escrowFee={50}
+				totalDue={parseInt(formData.price) + 50}
+			/>
 
 			<ButtonsContainer>
 				<BackButton onClick={onBack}>{text.back}</BackButton>

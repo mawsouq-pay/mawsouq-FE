@@ -76,6 +76,8 @@ const en = {
 	invalidPhone:
 		"A valid phone number should start with '01' followed by 9 digits.",
 	invalidStatus: "Invalid status value",
+	phoneMustBeDifferent: "Phone number must be different from your own",
+	emailMustBeDifferent: "Email must be different from your own",
 
 	//Error Messages
 	refreshAndTryAgain:
@@ -139,6 +141,14 @@ const en = {
 
 	//error Messages
 	genericErrorMessage: "An unexpected error occurred. Please try again later.",
+
+	//order Preview Confirmation
+	orderPrevConfirmationDescription:
+		"	Enjoy a safe transaction! Your payment is held until you confirm receipt of your order. Track your order, and once you're satisfied, the payment is released to the seller.",
+	confirmOrder: "Confrim Order",
+	registerToConfirm: "Register to Confirm",
+	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
+	proceedByPaying: "Proceed by paying",
 };
 
 export default en;

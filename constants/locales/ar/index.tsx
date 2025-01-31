@@ -77,6 +77,8 @@ const ar = {
 	invalidPhone:
 		"يرجى إدخال رقم هاتف صالح بالتنسيق الصحيح. يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
 	invalidStatus: "قيمة الحالة غير صالحة",
+	phoneMustBeDifferent: "Phone number must be different from your own",
+	emailMustBeDifferent: "Email must be different from your own",
 
 	//Error Messages
 	refreshAndTryAgain: "حدث خطأ غير متوقع، يرجى التحديث والمحاولة مرة أخرى.",
@@ -137,6 +139,14 @@ const ar = {
 
 	//error Messages
 	genericErrorMessage: "An unexpected error occurred. Please try again later.",
+
+	//order Preview Confirmation
+	orderPrevConfirmationDescription:
+		"	Enjoy a safe transaction! Your payment is held until you confirm receipt of your order. Track your order, and once you're satisfied, the payment is released to the seller.",
+	confirmOrder: "Confrim Order",
+	registerToConfirm: "Register to Confirm",
+	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
+	proceedByPaying: "Proceed by paying",
 };
 
 export default ar;

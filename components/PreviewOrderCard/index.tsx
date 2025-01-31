@@ -16,8 +16,14 @@ import { textTr } from "@/constants/locales";
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { transactionTitle, itemName, description, quantity, deliveryDate } =
-		props;
+	const {
+		transactionTitle,
+		itemName,
+		description,
+		quantity,
+		deliveryDate,
+		onConfirmPress,
+	} = props;
 	return (
 		<FormWrapper>
 			<MSText
@@ -75,7 +81,11 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<PaymentSummarySection price={40} escrowFee={20} totalDue={60} />
 			</PaymentSummaryDiv>
 
-			<MSButton title={text.approve} style={{ width: "100%" }} />
+			<MSButton
+				title={text.approve}
+				style={{ width: "100%" }}
+				onClick={onConfirmPress}
+			/>
 		</FormWrapper>
 	);
 };
