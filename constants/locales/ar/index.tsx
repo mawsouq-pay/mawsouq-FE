@@ -147,6 +147,11 @@ const ar = {
 	registerToConfirm: "Register to Confirm",
 	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
 	proceedByPaying: "Proceed by paying",
+
+	//contact form
+	contactUs: "Contact Us",
+	sendMessage: "Send Message",
+	messageSent: "Your message has been sent successfully!",
 };
 
 export default ar;

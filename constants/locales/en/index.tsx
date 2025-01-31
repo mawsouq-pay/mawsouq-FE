@@ -149,6 +149,12 @@ const en = {
 	registerToConfirm: "Register to Confirm",
 	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
 	proceedByPaying: "Proceed by paying",
+
+	//contact form
+	contactUs: "Contact Us",
+	sendMessage: "Send Message",
+	messageSent: "Your message has been sent successfully!",
+	messageNotSent: "Failed to send message. Please try again.",
 };
 
 export default en;
