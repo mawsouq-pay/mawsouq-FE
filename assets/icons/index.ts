@@ -6,9 +6,10 @@ import DueDateIcon from "./due_date";
 import ErrorStateIcon from "./error_state";
 import CircleTickIcon from "./circle_tick";
 import Apple from "./apple";
-import Google from "./google"
-import Hide from "./hide"
-import Show from "./show"
+import Google from "./google";
+import Hide from "./hide";
+import Show from "./show";
+import ErrorTriangleIcon from "./error_triangle";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -20,5 +21,6 @@ export {
 	Apple,
 	Google,
 	Hide,
-	Show
+	Show,
+	ErrorTriangleIcon,
 };

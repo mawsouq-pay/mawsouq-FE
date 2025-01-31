@@ -7,7 +7,7 @@ import {
 } from "./ErrorAndLoadingWrapper.styles";
 import { ErrorAndLoadingWrapperProps } from "./types";
 import MSLoader from "../MSLoader";
-import { ErrorStateIcon } from "@/assets/icons";
+import { ErrorTriangleIcon } from "@/assets/icons";
 import { colors } from "@/constants/theme";
 import { extractErrorMessage } from "@/hooks/errorHooks";
 import { useLocaleStore } from "@/store/LocaleStore";
@@ -32,7 +32,7 @@ const ErrorAndLoadingWrapper = ({
 	if (error) {
 		return (
 			<Wrapper>
-				{ErrorIcon ? <ErrorIcon /> : <ErrorStateIcon />}
+				{ErrorIcon ? <ErrorIcon /> : <ErrorTriangleIcon />}
 				<MessageWrapper>
 					<MSText fontSize="16px" fontWeight="bold" color={colors.error}>
 						{errorMessage ?? text.refreshAndTryAgain}
