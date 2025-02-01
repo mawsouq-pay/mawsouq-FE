@@ -67,7 +67,6 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							<BackButton onClick={onBack}>{text.back}</BackButton>
 							<MSButton
 								title={text.next}
-								onClick={() => {}}
 								type="submit"
 								style={{
 									height: 40,

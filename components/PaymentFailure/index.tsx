@@ -28,9 +28,7 @@ const PaymentFailure = (props: PaymentFailureProps) => {
 				order ID is <strong>{orderId}</strong>.
 			</MSText>
 			<div style={{ display: "flex", gap: "10px" }}>
-				<Button variant="contained" onClick={() => {}}>
-					Retry Payment
-				</Button>
+				<Button variant="contained">Retry Payment</Button>
 				<Button variant="outlined" onClick={handleReturnToOrderDetails}>
 					Return to Order Details
 				</Button>

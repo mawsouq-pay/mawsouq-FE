@@ -92,7 +92,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 
 						<MSButton
 							title={text.next}
-							onClick={() => {}}
 							type="submit"
 							style={{
 								height: 40,
