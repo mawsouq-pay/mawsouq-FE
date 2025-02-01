@@ -1,6 +1,6 @@
 import { textTr } from "@/constants/locales";
-import { StartTransactionData } from "@/pages/startTransaction/types";
 import * as Yup from "yup";
+import { StartTransactionData } from "../StartTransactionCard/types";
 
 export interface TransactionFormProps {
 	onSubmit: (formData: StartTransactionData) => void;
