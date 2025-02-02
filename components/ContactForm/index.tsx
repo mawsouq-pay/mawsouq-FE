@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { TextField, Alert } from "@mui/material";
 import axios from "axios";
-import Config from "@/Config";
 import MSButton from "../MSButton";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
 import { useNotification } from "@/store/SnackBarStore";
+const FORM_PUBLIC_KEY = process.env.FORM_PUBLIC_KEY;
 
 const ContactForm = () => {
 	const { locale } = useLocaleStore();
@@ -18,7 +18,7 @@ const ContactForm = () => {
 		email: "",
 		message: "",
 		subject: "New Contact Form Submission",
-		access_key: Config.FORM_PUBLIC_KEY,
+		access_key: FORM_PUBLIC_KEY,
 	});
 
 	const [loading, setLoading] = useState(false);
@@ -49,7 +49,7 @@ const ContactForm = () => {
 					email: "",
 					message: "",
 					subject: "New Contact Form Submission",
-					access_key: Config.FORM_PUBLIC_KEY,
+					access_key: FORM_PUBLIC_KEY,
 				});
 			} else {
 				setError(text.messageSent);
