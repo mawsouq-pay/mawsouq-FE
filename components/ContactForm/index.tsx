@@ -6,12 +6,11 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import MSText from "../MSText";
 import { useNotification } from "@/store/SnackBarStore";
-const FORM_PUBLIC_KEY = process.env.FORM_PUBLIC_KEY;
+const FORM_PUBLIC_KEY = process.env.NEXT_PUBLIC_FORM_PUBLIC_KEY;
 
 const ContactForm = () => {
 	const { locale } = useLocaleStore();
 	const { showErrorNotification } = useNotification();
-
 	const text = textTr(locale);
 	const [formData, setFormData] = useState({
 		name: "",

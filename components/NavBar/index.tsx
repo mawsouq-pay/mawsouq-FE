@@ -57,7 +57,7 @@ const Navbar = (props: NavBarProps) => {
 						<NavLink href="/benefits" isActive={isActive("/benefits")}>
 							Benefits
 						</NavLink>
-						<NavLink href="/contact" isActive={isActive("/contact")}>
+						<NavLink href="/contactPage" isActive={isActive("/contact")}>
 							Contact
 						</NavLink>
 						<NavLink href="/about-us" isActive={isActive("/about-us")}>

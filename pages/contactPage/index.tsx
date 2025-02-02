@@ -3,11 +3,7 @@ import HomePageLayout from "@/layouts/HomePageLayout";
 import React from "react";
 
 const ContactPage = () => {
-	return (
-		<div>
-			<ContactForm />
-		</div>
-	);
+	return <ContactForm />;
 };
 ContactPage.CustomLayout = HomePageLayout;
 export default ContactPage;
