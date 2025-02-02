@@ -155,6 +155,12 @@ const en = {
 	sendMessage: "Send Message",
 	messageSent: "Your message has been sent successfully!",
 	messageNotSent: "Failed to send message. Please try again.",
+
+	//fallbacks
+	pageNotFound: "Page Not Found",
+	pageNotFoundDescription:
+		"The page you're looking for doesn't exist or has been moved.",
+	goToHome: "Go To Home!",
 };
 
 export default en;

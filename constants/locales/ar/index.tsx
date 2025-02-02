@@ -152,6 +152,12 @@ const ar = {
 	contactUs: "Contact Us",
 	sendMessage: "Send Message",
 	messageSent: "Your message has been sent successfully!",
+
+	//fallbacks
+	pageNotFound: "Page Not Found",
+	pageNotFoundDescription:
+		"The page you're looking for doesn't exist or has been moved.",
+	goToHome: "Go To Home!",
 };
 
 export default ar;

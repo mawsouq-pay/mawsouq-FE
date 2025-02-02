@@ -47,7 +47,7 @@ const Login = () => {
 		});
 	};
 
-	return <button onClick={registerOnPress}>Login</button>;
+	return <button onClick={registerOnPress}>Logins</button>;
 };
 
 export default Login;

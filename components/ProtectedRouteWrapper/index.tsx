@@ -3,6 +3,7 @@ import { AuthStore } from "@/store";
 
 import { ReactNode, useEffect } from "react";
 import { useRouter } from "next/router";
+import { MSLoadingScreen } from "@/MSFallBacks";
 interface ProtectedRouteProps {
 	children: ReactNode;
 	protectedRoutes: string[];
@@ -17,7 +18,6 @@ const ProtectedRouteWrapper = ({
 	const router = useRouter();
 	const { isLoggedIn, isSetUpLoading } = store;
 
-	// Check if the route is protected
 	const isProtected = protectedRoutes.includes(router.pathname);
 
 	console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn);
@@ -32,7 +32,7 @@ const ProtectedRouteWrapper = ({
 	}, [isLoggedIn, isSetUpLoading, router.pathname]);
 
 	if (isProtected && isSetUpLoading) {
-		return <div>Loading...</div>;
+		return <MSLoadingScreen />;
 	}
 
 	if (isProtected && !isLoggedIn && !isSetUpLoading) {

@@ -2,12 +2,13 @@ import ProtectedRouteWrapper from "@/components/ProtectedRouteWrapper";
 import queryClient from "@/client/reactQClient";
 import { GlobalStyles } from "@/constants/globalStyle";
 import MainLayout from "@/layouts/MainLayout";
-import { protectedRoutes, clientRoutes } from "@/routes";
+import { protectedRoutes } from "@/routes";
 import useAuthStore from "@/store/AuthStore";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { NotificationProvider } from "@/store/SnackBarStore";
+import { MSLoadingScreen } from "@/MSFallBacks";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
@@ -18,7 +19,7 @@ function MyApp({ Component, pageProps }: any) {
 		setUpApp();
 	}, []);
 	if (isSetUpLoading) {
-		return <div>Loading...</div>;
+		return <MSLoadingScreen />;
 	}
 	return (
 		<QueryClientProvider client={queryClient}>
