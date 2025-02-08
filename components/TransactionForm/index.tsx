@@ -15,12 +15,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 		onSubmit(values);
 	};
 
-	const style = {
-		padding: "8px",
-		borderRadius: "4px",
-		marginTop: "10px",
-		marginBottom: "5px",
-	};
 	return (
 		<FormContainer>
 			<Formik
@@ -36,7 +30,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 							id={initialValues.transactionTitle}
 							name="transactionTitle"
 							placeholder={text.enterTitle}
-							style={style}
 						/>
 						{/* Item Name */}
 						<FormItem
@@ -44,7 +37,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 							id={initialValues.itemName}
 							name="itemName"
 							placeholder={text.enterItemName}
-							style={style}
 						/>
 
 						{/* Description */}
@@ -54,7 +46,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 							name="description"
 							placeholder={text.enterDescription}
 							as="textarea"
-							style={style}
 						/>
 
 						{/* Amount */}
@@ -64,7 +55,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 							id={initialValues.price}
 							name="price"
 							placeholder="$"
-							style={style}
 						/>
 
 						{/* Delivery Date & Quantity */}
@@ -75,7 +65,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 									type="date"
 									id={initialValues.deliveryDate}
 									name="deliveryDate"
-									style={style}
 								/>
 							</div>
 							<div style={{ flex: 1 }}>
@@ -85,7 +74,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 									id={initialValues.quantity}
 									name="quantity"
 									placeholder={text.enterQuantity}
-									style={style}
 								/>
 							</div>
 						</FlexRow>
@@ -97,6 +85,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 								height: 40,
 								width: "fit-content",
 								alignSelf: "flex-end",
+								marginTop: 10,
 							}}
 						/>
 					</StyledForm>

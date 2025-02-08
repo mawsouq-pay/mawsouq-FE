@@ -22,8 +22,13 @@ export const StyledButton = styled.button`
 		box-shadow: 0 0 4px ${colors.buttonGreenHover};
 	}
 
-	&:disabled {
+	/* &:disabled {
 		background-color: ${colors.gray};
+		cursor: not-allowed;
+		opacity: 0.7;
+	} */
+	&:disabled {
+		background-color: #9fdac2;
 		cursor: not-allowed;
 		opacity: 0.7;
 	}

@@ -8,36 +8,20 @@ export const FormContainer = styled.div`
 	margin: 0 auto;
 	background-color: ${colors.white};
 	border-radius: 20px;
-	padding: 30px 0px 50px 0px;
+	padding: 20px 0px 50px 0px;
 	${media.below925`
 	padding: 30px 25px 50px 25px;
  	 `}
+
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
+	//gap: 14px;
 `;
 
 export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
-`;
-
-export const InputField = styled(Field)`
-	width: 100%;
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-top: 5px;
-`;
-
-export const TextAreaField = styled(Field)`
-	width: 100%;
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-top: 5px;
-	height: 80px;
+	//gap: 20px;
 `;
 
 export const StyledButton = styled.button`

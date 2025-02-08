@@ -110,7 +110,10 @@ const en = {
 	fullName: "Full Name",
 	password: "Password",
 	confirmPassword: "Confirm Password",
-	alreadyHaveAnAccount: "Already have an account",
+	confirmPasswordPlaceHolder: "Confirm Your Password",
+
+	alreadyHaveAnAccount: "Already have an account?",
+	dontHaveAnAccount: "Don't have an account?",
 	login: "Login",
 	passwordRequired: "",
 	requiredConfirmPassword: "Confirm password is required",

@@ -8,19 +8,18 @@ export const FormContainer = styled.div`
 	margin: 0 auto;
 	background-color: ${colors.white};
 	border-radius: 20px;
-	padding: 30px 0px 50px 0px;
+	padding: 20px 0px 50px 0px;
 	${media.below925`
 	padding: 30px 25px 50px 25px;
  	 `}
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
 `;
 
 export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	//gap: 20px;
 `;
 
 export const InputField = styled(Field)`

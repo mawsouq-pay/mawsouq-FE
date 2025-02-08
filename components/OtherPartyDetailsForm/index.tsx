@@ -26,12 +26,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 	const handleSubmit = (values: typeof initialValues) => {
 		onSubmit(values);
 	};
-	const style = {
-		padding: "8px",
-		borderRadius: "4px",
-		marginTop: "10px",
-		marginBottom: "5px",
-	};
+
 	return (
 		<FormContainer>
 			<Formik
@@ -47,7 +42,6 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							name="otherPartyPhone"
 							placeholder={text.phoneNumberPlaceHolder}
 							type="tel"
-							style={style}
 						/>
 						<FormItem
 							label={text.buyerEmail}
@@ -55,14 +49,16 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							name="otherPartyEmail"
 							placeholder={text.emailPlaceHolder}
 							type="email"
-							style={style}
 						/>
+						<div style={{ marginTop: 20 }}>
+							{" "}
+							<PaymentSummarySection
+								price={paymentDetails?.price ?? 1}
+								escrowFee={paymentDetails?.escrowFee ?? 1}
+								totalDue={paymentDetails?.totalDue ?? 1}
+							/>
+						</div>
 
-						<PaymentSummarySection
-							price={paymentDetails?.price ?? 1}
-							escrowFee={paymentDetails?.escrowFee ?? 1}
-							totalDue={paymentDetails?.totalDue ?? 1}
-						/>
 						<FlexRow>
 							<BackButton onClick={onBack}>{text.back}</BackButton>
 							<MSButton

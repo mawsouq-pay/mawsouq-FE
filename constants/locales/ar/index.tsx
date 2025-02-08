@@ -110,7 +110,10 @@ const ar = {
 	fullName: "اسم المستخدم",
 	password: "كلمة المرور",
 	confirmPassword: "تأكيد كلمة المرور",
+	confirmPasswordPlaceHolder: "Confirm Your Password",
 	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",
+	dontHaveAnAccount: "Don't have an account?",
+
 	login: "تسجيل",
 	requiredConfirmPassword: "تأكيد كلمة المرور مطلوب",
 	matchPasswords: "كلمات السر غير متطابقة",

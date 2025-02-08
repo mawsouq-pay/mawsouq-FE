@@ -23,11 +23,11 @@ const MSPageNotFound = () => {
 				textAlign: "center",
 			}}
 		>
-			<MSText fontSize="60px" mobileFontSize="25px">
+			<MSText fontSize="80px" mobileFontSize="25px">
 				404
 			</MSText>
 			<MSText
-				fontSize="24px"
+				fontSize="30px"
 				mobileFontSize="16px"
 				fontWeight="bold"
 				style={{ paddingBottom: 10 }}
@@ -35,7 +35,7 @@ const MSPageNotFound = () => {
 				{text.pageNotFound}
 			</MSText>
 			<MSText
-				fontSize="20px"
+				fontSize="24px"
 				mobileFontSize="12px"
 				fontWeight="600"
 				style={{ paddingBottom: 30 }}

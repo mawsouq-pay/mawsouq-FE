@@ -1,7 +1,12 @@
 import React from "react";
 import { ErrorMessage, Field } from "formik";
-import MSText from "../MSText";
-import { colors } from "@/constants/theme";
+import {
+	FormItemWrapper,
+	Label,
+	StyledInput,
+	IconContainer,
+	ErrorText,
+} from "./FormItem.styles";
 
 interface FormItemProps {
 	label: string;
@@ -28,59 +33,22 @@ const FormItem: React.FC<FormItemProps> = ({
 	icon,
 	iconPosition = "right",
 }) => {
-	const labelStyling: React.CSSProperties = {
-		color: "#75859E",
-		textAlign: "left",
-		display: "block",
-	};
 	return (
-		<div style={{ position: "relative" }}>
-			<MSText
-				fontSize="16px"
-				color={colors.gray}
-				style={{ ...labelStyling, ...labelStyle }}
-			>
-				{label}
-			</MSText>
-			<div
-				style={{ display: "flex", alignItems: "center", position: "relative" }}
-			>
+		<FormItemWrapper>
+			<Label style={labelStyle}>{label}</Label>
+			<div style={{ position: "relative" }}>
 				<Field
-					as={as}
+					as={StyledInput}
 					type={type}
 					id={id}
 					name={name}
 					placeholder={placeholder}
-					style={{
-						border: "1px solid #ccc",
-						width: "100%",
-
-						...style,
-					}}
+					style={{ ...style }}
 				/>
-				{icon && (
-					<span
-						style={{
-							position: "absolute",
-							[iconPosition]: "8px",
-							cursor: "pointer",
-							display: "flex",
-							alignItems: "center",
-						}}
-					>
-						{icon}
-					</span>
-				)}
+				{icon && <IconContainer position={iconPosition}>{icon}</IconContainer>}
 			</div>
-			<ErrorMessage
-				name={name}
-				render={(msg) => (
-					<MSText color="red" fontSize="12px">
-						{msg}
-					</MSText>
-				)}
-			/>
-		</div>
+			<ErrorMessage name={name} component={ErrorText} />
+		</FormItemWrapper>
 	);
 };
 
