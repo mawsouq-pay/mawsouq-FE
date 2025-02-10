@@ -31,17 +31,20 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
 	const [open, setOpen] = useState(false);
 	const [message, setMessage] = useState("");
+	const [details, setDetails] = useState<string | undefined>("");
 	const [severity, setSeverity] = useState<
 		"error" | "success" | "info" | "warning"
 	>("info");
 
 	const showNotification = (
 		message: string,
-		severity: "error" | "success" | "info" | "warning" = "info"
+		severity: "error" | "success" | "info" | "warning" = "info",
+		details?: string
 	) => {
 		setMessage(message);
 		setSeverity(severity);
 		setOpen(true);
+		setDetails(details);
 	};
 
 	const showSuccessNotification = (message: string) => {
@@ -58,7 +61,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	const showAxiosErrorNotification = (error: AxiosError) => {
 		const errorMessage = extractErrorMessage(error);
-		showNotification(errorMessage.message, "error");
+		showNotification(errorMessage.message, "error", errorMessage.details);
 	};
 
 	const handleClose = () => {
@@ -81,6 +84,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 				message={message}
 				severity={severity}
 				onClose={handleClose}
+				details={details}
 			/>
 		</NotificationContext.Provider>
 	);

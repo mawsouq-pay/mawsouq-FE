@@ -37,7 +37,7 @@ const RegisterForm = () => {
 	const toggleConfirmPasswordVisibility = () =>
 		setShowConfirmPassword(!showConfirmPassword);
 
-	const onSubmit = (values: RegisterFormInput) => {
+	const onSubmit = (values: RegisterFormInput, { setSubmitting }: any) => {
 		registerSubmit(
 			{
 				email: values.email,
@@ -62,8 +62,10 @@ const RegisterForm = () => {
 					} else {
 						showErrorNotification(text.genericErrorMessage);
 					}
+					setSubmitting(false);
 				},
 				onError: (error) => {
+					setSubmitting(false);
 					showAxiosErrorNotification(error as AxiosError);
 				},
 			}

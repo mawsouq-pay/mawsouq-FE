@@ -34,7 +34,7 @@ const LoginForm = () => {
 
 	const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-	const onSubmit = (values: LoginFormInput) => {
+	const onSubmit = (values: LoginFormInput, { setSubmitting }: any) => {
 		loginSubmit(
 			{
 				email: values.email,
@@ -51,19 +51,21 @@ const LoginForm = () => {
 							phone: response?.data?.phone,
 						};
 						storeLogin({ accessToken, refreshToken }, user);
-						router.replace({
-							pathname: clientRoutes.homePage,
-						});
+						router.replace({ pathname: clientRoutes.homePage });
 					} else {
 						showErrorNotification(text.genericErrorMessage);
 					}
+					setSubmitting(false);
 				},
 				onError: (error) => {
+					setSubmitting(false);
+
 					showAxiosErrorNotification(error as AxiosError);
 				},
 			}
 		);
 	};
+
 	return (
 		<Formik
 			initialValues={loginInitialValues}
