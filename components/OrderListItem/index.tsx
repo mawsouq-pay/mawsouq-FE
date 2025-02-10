@@ -1,5 +1,5 @@
 import { colors } from "@/constants/theme";
-import MSText from "../MSText";
+import MSText from "../Shared/MSText";
 import {
 	ItemsContainer,
 	ItemWrapper,

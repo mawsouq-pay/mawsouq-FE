@@ -1,9 +1,9 @@
-import PaymentFailure from "@/components/PaymentFailure";
-import PaymentSuccess from "@/components/PaymentSuccess";
+import PaymentFailure from "@/components/Shared/PaymentFailure";
+import PaymentSuccess from "@/components/Shared/PaymentSuccess";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import React from "react";
 import { useRouter } from "next/router";
-import MSLoader from "@/components/MSLoader";
+import MSLoader from "@/components/Shared/MSLoader";
 
 const PaymentRedirect = () => {
 	const router = useRouter();

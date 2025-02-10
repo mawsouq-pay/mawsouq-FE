@@ -1,4 +1,4 @@
-import StartTransactionCard from "@/components/StartTransactionCard";
+import StartTransactionCard from "@/components/Features/CreateTransaction/StartTransactionCard";
 import HomePageLayout from "@/layouts/HomePageLayout";
 
 const StartTransaction = () => {

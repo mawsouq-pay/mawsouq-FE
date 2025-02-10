@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useFetchOrderPreview } from "@/hooks/orderHooks";
-import PreviewOrderCard from "@/components/PreviewOrderCard";
+import PreviewOrderCard from "@/components/Features/PreviewOrder/PreviewOrderCard";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import { formatDate } from "@/helpers";
-import MSText from "@/components/MSText";
+import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useRouter } from "next/router";
-import ErrorAndLoadingWrapper from "@/components/ErrorAndLoadingWrapper";
-import ContactSummarySection from "@/components/ContactSummarySection";
-import OrderPreviewConfirmationPopUp from "@/components/OrderPreviewConfirmationPopUp";
+import OrderPreviewConfirmationPopUp from "@/components/Features/PreviewOrder/OrderPreviewConfirmationPopUp";
+import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
+import ContactSummarySection from "@/components/Features/PreviewOrder/ContactSummarySection";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -21,7 +21,7 @@ const PreviewOrderSummary = () => {
 	const [showBuyerPopUp, setShowBuyerPopUp] = useState(false);
 	return (
 		<PageContainer>
-			<ErrorAndLoadingWrapper
+			<MSErrorAndLoadingWrapper
 				isLoading={isLoading}
 				error={error}
 				displayErrorReason={true}
@@ -54,7 +54,7 @@ const PreviewOrderSummary = () => {
 					setOpen={setShowBuyerPopUp}
 					orderId={(orderId as string) ?? ""}
 				/>
-			</ErrorAndLoadingWrapper>
+			</MSErrorAndLoadingWrapper>
 		</PageContainer>
 	);
 };

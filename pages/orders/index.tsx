@@ -1,4 +1,4 @@
-import OrdersList from "@/components/OrdersList";
+import OrdersList from "@/components/Features/OrdersList/OrdersList";
 import HomePageLayout from "@/layouts/HomePageLayout";
 
 const Orders = () => {

@@ -1,4 +1,4 @@
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/Shared/MSNavBar";
 import { colors } from "@/constants/theme";
 import React from "react";
 import styled from "styled-components";

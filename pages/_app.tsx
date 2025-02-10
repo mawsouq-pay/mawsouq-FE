@@ -1,4 +1,4 @@
-import ProtectedRouteWrapper from "@/components/ProtectedRouteWrapper";
+import ProtectedRouteWrapper from "@/components/Shared/ProtectedRouteWrapper";
 import queryClient from "@/client/reactQClient";
 import { GlobalStyles } from "@/constants/globalStyle";
 import MainLayout from "@/layouts/MainLayout";
@@ -8,7 +8,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { NotificationProvider } from "@/store/SnackBarStore";
-import { MSLoadingScreen } from "@/MSFallBacks";
+import { MSLoadingScreen } from "@/components/Shared/MSFallBacks";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;

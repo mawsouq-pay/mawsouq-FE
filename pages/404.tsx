@@ -1,4 +1,4 @@
-import { MSPageNotFound } from "@/MSFallBacks";
+import { MSPageNotFound } from "@/components/Shared/MSFallBacks";
 import React from "react";
 
 const PageNotFound = () => {

@@ -1,8 +1,8 @@
-import BenefitsSection from "@/components/BenefitsSection";
-import FAQ from "@/components/FAQ";
-import FooterSection from "@/components/FooterSection";
-import HeroSection from "@/components/HeroSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
+import BenefitsSection from "@/components/Features/LandingPageComponents/BenefitsSection";
+import FAQ from "@/components/Features/LandingPageComponents/FAQ";
+import FooterSection from "@/components/Features/LandingPageComponents/FooterSection";
+import HeroSection from "@/components/Features/LandingPageComponents/HeroSection";
+import HowItWorksSection from "@/components/Features/LandingPageComponents/HowItWorksSection";
 import LandingPageLayout from "@/layouts/LandingPageLayout";
 import React from "react";
 

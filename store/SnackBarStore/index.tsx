@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
-import MSSnackBar from "@/components/MSSnackBar";
 import { AxiosError } from "axios";
 import { extractErrorMessage } from "@/hooks/errorHooks";
+import MSSnackBar from "@/components/Shared/MSSnackBar";
 
 type NotificationContextType = {
 	showNotification: (
