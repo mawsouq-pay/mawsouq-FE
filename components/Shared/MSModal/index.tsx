@@ -16,7 +16,7 @@ const MSModal = (props: MSModalProps) => {
 		showActions = true,
 	} = props;
 	return (
-		<Dialog open={open} onClose={onClose} maxWidth="md">
+		<Dialog open={open} onClose={onClose} maxWidth="xs">
 			{title && <DialogTitle style={{ paddingTop: 20 }}>{title}</DialogTitle>}
 			<DialogContent>{children}</DialogContent>
 			{showActions && (

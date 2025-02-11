@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import RegisterForm from "@/components/Features/Authentication/RegisterForm";
+import { useRouter } from "next/router";
 
 const RegisterPage = () => {
+	const router = useRouter();
+	const orderId = router.query.orderId;
 	return (
 		<PageContainer>
-			<RegisterForm />
+			<RegisterForm orderId={(orderId as string) ?? undefined} />
 		</PageContainer>
 	);
 };

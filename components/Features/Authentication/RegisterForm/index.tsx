@@ -1,35 +1,19 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import FormItem from "../../../FormItem";
-import {
-	RegisterFormInput,
-	registerInitialValues,
-	registerValidationSchema,
-} from "./types";
+import { registerInitialValues, registerValidationSchema } from "./types";
 import { textTr } from "@/constants/locales";
-import { useRegister } from "@/hooks/authHooks";
-import { clientRoutes } from "@/routes";
-import { useAuthStore } from "@/store";
 import { useLocaleStore } from "@/store/LocaleStore";
-import { useNotification } from "@/store/SnackBarStore";
-import { User } from "@/types/authenticationTypes";
-import { AxiosError } from "axios";
-import { useRouter } from "next/router";
 import { FormWrapper, Logo, OrDivider, TextLink } from "./RegisterForm.styles";
 import { Hide, Show } from "@/assets/icons";
 import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
+import useRegisterHandler from "@/hooks/useRegisterHandler";
 
-const RegisterForm = () => {
+const RegisterForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-
-	const { mutate: registerSubmit, isPending } = useRegister();
-	const { register: storeRegister } = useAuthStore();
-	const { showAxiosErrorNotification, showErrorNotification } =
-		useNotification();
-	const router = useRouter();
-
+	const { handleRegister, isPending } = useRegisterHandler(orderId);
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -37,45 +21,13 @@ const RegisterForm = () => {
 	const toggleConfirmPasswordVisibility = () =>
 		setShowConfirmPassword(!showConfirmPassword);
 
-	const onSubmit = (values: RegisterFormInput, { setSubmitting }: any) => {
-		registerSubmit(
-			{
-				email: values.email,
-				name: values.name,
-				password: values.password,
-				phone: values.phone,
-			},
-			{
-				onSuccess: (response) => {
-					const accessToken = response.headers["x-auth-token"];
-					const refreshToken = response.headers["x-refresh-token"];
-					if (accessToken && refreshToken) {
-						const user: User = {
-							name: response?.data?.name,
-							email: response?.data?.email,
-							phone: response?.data?.phone,
-						};
-						storeRegister({ accessToken, refreshToken }, user);
-						router.replace({
-							pathname: clientRoutes.homePage,
-						});
-					} else {
-						showErrorNotification(text.genericErrorMessage);
-					}
-					setSubmitting(false);
-				},
-				onError: (error) => {
-					setSubmitting(false);
-					showAxiosErrorNotification(error as AxiosError);
-				},
-			}
-		);
-	};
 	return (
 		<Formik
 			initialValues={registerInitialValues}
 			validationSchema={registerValidationSchema}
-			onSubmit={onSubmit}
+			onSubmit={(values, { setSubmitting }) =>
+				handleRegister(values, setSubmitting)
+			}
 		>
 			{({ isSubmitting, isValid, dirty }) => (
 				<FormWrapper>
@@ -162,7 +114,11 @@ const RegisterForm = () => {
 						>
 							<p>
 								{text.alreadyHaveAnAccount}{" "}
-								<TextLink href="/login">{text.login}!</TextLink>
+								<TextLink
+									href={orderId ? `/login?orderId=${orderId}` : "/login"}
+								>
+									{text.login}!
+								</TextLink>
 							</p>
 						</div>
 					</Form>

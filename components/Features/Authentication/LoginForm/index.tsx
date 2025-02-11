@@ -1,76 +1,31 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import FormItem from "../../../FormItem";
-import {
-	LoginFormInput,
-	loginInitialValues,
-	loginValidationSchema,
-} from "./types";
+import { loginInitialValues, loginValidationSchema } from "./types";
 import { textTr } from "@/constants/locales";
-import { useLogin } from "@/hooks/authHooks";
-import { clientRoutes } from "@/routes";
-import { useAuthStore } from "@/store";
 import { useLocaleStore } from "@/store/LocaleStore";
-import { useNotification } from "@/store/SnackBarStore";
-import { User } from "@/types/authenticationTypes";
-import { AxiosError } from "axios";
-import { useRouter } from "next/router";
 import { FormWrapper, Logo, OrDivider, TextLink } from "./LoginForm.styles";
 import { Hide, Show } from "@/assets/icons";
 import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
+import { useLoginHandler } from "@/hooks/useLoginHandler";
 
-const LoginForm = () => {
+const LoginForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-
-	const { mutate: loginSubmit, isPending } = useLogin();
-	const { login: storeLogin } = useAuthStore();
-	const { showAxiosErrorNotification, showErrorNotification } =
-		useNotification();
-	const router = useRouter();
+	const { handleLogin, isPending } = useLoginHandler(orderId);
 
 	const [showPassword, setShowPassword] = useState(false);
 
 	const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-	const onSubmit = (values: LoginFormInput, { setSubmitting }: any) => {
-		loginSubmit(
-			{
-				email: values.email,
-				password: values.password,
-			},
-			{
-				onSuccess: (response) => {
-					const accessToken = response.headers["x-auth-token"];
-					const refreshToken = response.headers["x-refresh-token"];
-					if (accessToken && refreshToken) {
-						const user: User = {
-							name: response?.data?.name,
-							email: response?.data?.email,
-							phone: response?.data?.phone,
-						};
-						storeLogin({ accessToken, refreshToken }, user);
-						router.replace({ pathname: clientRoutes.homePage });
-					} else {
-						showErrorNotification(text.genericErrorMessage);
-					}
-					setSubmitting(false);
-				},
-				onError: (error) => {
-					setSubmitting(false);
-
-					showAxiosErrorNotification(error as AxiosError);
-				},
-			}
-		);
-	};
-
 	return (
 		<Formik
 			initialValues={loginInitialValues}
 			validationSchema={loginValidationSchema}
-			onSubmit={onSubmit}
+			onSubmit={(values, { setSubmitting }) =>
+				handleLogin(values, setSubmitting)
+			}
 		>
 			{({ isSubmitting, isValid, dirty }) => (
 				<FormWrapper>
@@ -129,7 +84,11 @@ const LoginForm = () => {
 						>
 							<p>
 								{text.alreadyHaveAnAccount}{" "}
-								<TextLink href="/register">{text.register}!</TextLink>
+								<TextLink
+									href={orderId ? `/register?orderId=${orderId}` : "/register"}
+								>
+									{text.register}!
+								</TextLink>
 							</p>
 						</div>
 					</Form>

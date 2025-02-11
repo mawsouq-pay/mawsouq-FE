@@ -1,6 +1,5 @@
 import React from "react";
 import MSModal from "../../../Shared/MSModal";
-import { Button } from "@mui/material";
 import { useAuthStore } from "@/store";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
@@ -10,6 +9,7 @@ import { OrderPreviewConfirmationPopUpProps } from "./types";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { MainContainer } from "./OrderPreviewConfirmationPopUp.styles";
+import MSButton from "@/components/Shared/MSButton";
 
 const OrderPreviewConfirmationPopUp = ({
 	open,
@@ -23,7 +23,10 @@ const OrderPreviewConfirmationPopUp = ({
 
 	const handleRegisterRedirect = () => {
 		setOpen(false);
-		router.push(clientRoutes.register);
+		router.push({
+			pathname: clientRoutes.register,
+			query: { orderId: orderId },
+		});
 	};
 	const onConfirm = () => {
 		router.push({
@@ -51,22 +54,13 @@ const OrderPreviewConfirmationPopUp = ({
 					{text.orderPrevConfirmationDescription}
 				</MSText>
 			</MainContainer>
-			<Button
-				variant="contained"
-				color="success"
-				fullWidth
-				onClick={isLoggedIn ? onConfirm : handleRegisterRedirect}
+			<MSButton
 				style={{
-					marginTop: "20px",
-					fontSize: "16px",
-					fontWeight: "bold",
-					borderRadius: "30px",
-					padding: "12px 0",
-					backgroundColor: colors.green,
+					width: "100%",
 				}}
-			>
-				{isLoggedIn ? text.proceedByPaying : text.registerToConfirm}
-			</Button>
+				title={isLoggedIn ? text.proceedByPaying : text.registerToConfirm}
+				onClick={isLoggedIn ? onConfirm : handleRegisterRedirect}
+			/>
 		</MSModal>
 	);
 };
