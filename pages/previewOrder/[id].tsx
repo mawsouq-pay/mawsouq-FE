@@ -40,10 +40,8 @@ const PreviewOrderSummary = () => {
 				</InfoWrapper>
 				<PreviewOrderCard
 					transactionTitle={data?.order?.transactionTitle ?? ""}
-					itemName={data?.order?.itemName ?? ""}
 					description={data?.order?.description ?? ""}
 					deliveryDate={formatDate(data?.order?.deliveryDate ?? "")}
-					quantity={data?.order?.quantity ?? 0}
 					sellerEmail={data?.order?.seller?.email ?? ""}
 					sellerName={data?.order?.seller?.name ?? ""}
 					price={data?.order?.price ?? 1}

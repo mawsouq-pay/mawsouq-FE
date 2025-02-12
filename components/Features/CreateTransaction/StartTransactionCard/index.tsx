@@ -32,11 +32,9 @@ const StartTransactionCard = () => {
 	const [activeStep, setActiveStep] = useState(0);
 	const [formData, setFormData] = useState<StartTransactionData>({
 		transactionTitle: "",
-		itemName: "",
 		description: "",
 		price: "",
 		deliveryDate: "",
-		quantity: "",
 		otherPartyEmail: "",
 		otherPartyPhone: "",
 	});
@@ -51,7 +49,6 @@ const StartTransactionCard = () => {
 
 		const orderData = {
 			...formData,
-			quantity: parseFloat(formData.quantity),
 			price: parseFloat(formData.price),
 			deliveryDate: new Date(formData.deliveryDate),
 			otherPartyPhone: `+2${formData.otherPartyPhone}`,

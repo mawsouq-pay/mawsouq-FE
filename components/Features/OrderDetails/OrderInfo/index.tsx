@@ -19,13 +19,11 @@ import MSText from "@/components/Shared/MSText";
 const OrderInfo = (props: OrderInfoProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { transactionTitle, itemName, price, deliveryDate, description } =
-		props;
+	const { transactionTitle, price, deliveryDate, description } = props;
 	const formattedDate = formatDate(deliveryDate);
 
 	const OrderItems = [
 		{ title: text.transactionTitle, value: transactionTitle },
-		{ title: text.itemName, value: itemName },
 		{ title: text.price, value: `EGP ${price}` },
 		{ title: text.deliverDate, value: formattedDate },
 	];

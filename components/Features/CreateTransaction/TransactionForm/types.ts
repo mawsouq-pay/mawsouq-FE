@@ -18,13 +18,6 @@ export const createValidationSchema = (locale: any) => {
 			.min(3, text.minLength)
 			.max(100, text.maxLength),
 
-		// Item Name
-		itemName: Yup.string()
-			.trim()
-			.required(text.itemNameRequired)
-			.min(3, text.minLength)
-			.max(100, text.maxLength),
-
 		// Description
 		description: Yup.string()
 			.trim()
@@ -34,7 +27,7 @@ export const createValidationSchema = (locale: any) => {
 
 		//Price
 		price: Yup.number()
-			.required(text.quantityRequired)
+			.required(text.requiredPrice)
 			.min(1, text.mustBePositive)
 			.typeError(text.mustBeNumber),
 
@@ -42,13 +35,5 @@ export const createValidationSchema = (locale: any) => {
 		deliveryDate: Yup.date()
 			.required(text.deliveryDateRequired)
 			.min(new Date(), text.futureDateOnly),
-
-		// Quantity
-		quantity: Yup.number()
-			.required(text.quantityRequired)
-			.min(1, text.mustBePositive)
-			.positive(text.mustBePositive)
-			.integer(text.mustBeInteger)
-			.typeError(text.mustBeNumber),
 	});
 };

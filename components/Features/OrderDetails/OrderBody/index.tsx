@@ -69,7 +69,6 @@ const OrderBody = (props: OrderBodyProps) => {
 						<Content isOpen={isOpen}>
 							<OrderInfo
 								transactionTitle={data?.order?.transactionTitle || ""}
-								itemName={data?.order?.itemName || ""}
 								description={data?.order?.description || ""}
 								price={data?.order?.price || 0}
 								status={data?.order?.status || "PENDING"}

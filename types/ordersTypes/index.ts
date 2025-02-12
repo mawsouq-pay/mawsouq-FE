@@ -6,10 +6,8 @@ export interface Order {
 	buyer?: User | null;
 	seller?: User | null;
 	transactionTitle: string;
-	itemName: string;
 	price: number;
 	description: string;
-	quantity: number;
 	deliveryDate: string;
 	otherPartyEmail?: string | null;
 	otherPartyPhone?: string | null;
@@ -23,10 +21,8 @@ export interface Order {
 
 export interface CreateOrderInput {
 	transactionTitle: string;
-	itemName: string;
 	price: number;
 	description: string;
-	quantity: number;
 	deliveryDate: Date;
 	otherPartyEmail: string;
 	otherPartyPhone: string;

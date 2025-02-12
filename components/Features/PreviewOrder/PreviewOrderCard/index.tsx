@@ -16,15 +16,8 @@ import PaymentSummarySection from "../../../Shared/MSPaymentSummarySection";
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const {
-		transactionTitle,
-		itemName,
-		description,
-		quantity,
-		deliveryDate,
-		onConfirmPress,
-		price,
-	} = props;
+	const { transactionTitle, description, deliveryDate, onConfirmPress, price } =
+		props;
 	return (
 		<FormWrapper>
 			<MSText
@@ -49,23 +42,9 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 
 			<FormField>
 				<MSText fontSize="14px" fontWeight="500" color={colors.gray}>
-					{text.itemName}
-				</MSText>
-				<PreviewText>{itemName}</PreviewText>
-			</FormField>
-
-			<FormField>
-				<MSText fontSize="14px" fontWeight="500" color={colors.gray}>
 					{text.description}
 				</MSText>
 				<PreviewTextArea>{description}</PreviewTextArea>
-			</FormField>
-
-			<FormField>
-				<MSText fontSize="14px" fontWeight="500" color={colors.gray}>
-					{text.quantity}
-				</MSText>
-				<PreviewText>{quantity}</PreviewText>
 			</FormField>
 
 			<FormField>

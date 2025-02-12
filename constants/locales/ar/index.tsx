@@ -38,21 +38,17 @@ const ar = {
 	// Order Attributes
 	description: "الوصف",
 	deliverDate: "تاريخ التسليم",
-	quantity: "الكمية",
 	phoneNumber: "رقم الهاتف",
 	email: "البريد الإلكتروني",
 	transactionTitle: "عنوان المعاملة",
-	itemName: "اسم العنصر",
 	price: "السعر",
 	status: "الحالة",
 
 	// Placeholders
 	phoneNumberPlaceHolder: "أدخل رقم الهاتف",
 	emailPlaceHolder: "أدخل البريد الإلكتروني",
-	enterQuantity: "أدخل الكمية",
 	enterDescription: "أدخل الوصف",
 	enterTitle: "أدخل عنوان المعاملة",
-	enterItemName: "أدخل اسم العنصر",
 
 	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",
@@ -62,14 +58,12 @@ const ar = {
 	descriptionMinLength:
 		"Please be more descriptive , with minimum 30 characters",
 
-	itemNameRequired: "اسم العنصر مطلوب",
 	requiredDescription: "الوصف مطلوب",
 	requiredAmount: "السعر مطلوب",
 	mustBePositive: "القيمة يجب أن تكون أكبر من الصفر",
 	mustBeNumber: "القيمة يجب أن تكون رقمًا صالحًا",
 	deliveryDateRequired: "تاريخ التسليم مطلوب",
 	futureDateOnly: "يجب أن يكون تاريخ التسليم في المستقبل",
-	quantityRequired: "الكمية مطلوبة",
 	mustBeInteger: "الكمية يجب أن تكون عددًا صحيحًا",
 	requiredEmail: "البريد الإلكتروني مطلوب",
 	invalidEmail: "عنوان البريد الإلكتروني غير صالح",
@@ -79,6 +73,7 @@ const ar = {
 	invalidStatus: "قيمة الحالة غير صالحة",
 	phoneMustBeDifferent: "Phone number must be different from your own",
 	emailMustBeDifferent: "Email must be different from your own",
+	requiredPrice: "Price is required",
 
 	//Error Messages
 	refreshAndTryAgain: "حدث خطأ غير متوقع، يرجى التحديث والمحاولة مرة أخرى.",

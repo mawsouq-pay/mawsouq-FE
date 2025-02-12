@@ -20,7 +20,6 @@ const MSOrderCard = (props: OrderCardProps) => {
 	const { isMobile } = useCustomBreakpoint();
 	const {
 		transactionTitle,
-		itemName,
 		price,
 		status,
 		deliveryDate,
@@ -68,7 +67,6 @@ const MSOrderCard = (props: OrderCardProps) => {
 				<OrderListItem
 					transactionTitle={transactionTitle}
 					price={price}
-					itemName={itemName}
 					status={status}
 					deliveryDate={deliveryDate}
 					isFetcherSeller={isFetcherSeller}
@@ -102,12 +100,6 @@ const MSOrderCard = (props: OrderCardProps) => {
 							color: colors.gray,
 							size: "14px",
 							weight: "normal",
-						})}
-						{renderValue({
-							value: itemName,
-							color: colors.black,
-							size: "16px",
-							weight: "600",
 						})}
 					</MobileCardContent>
 

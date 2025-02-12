@@ -25,10 +25,8 @@ const PreviewDetailsInput = ({
 	const text = textTr(locale);
 	const details = [
 		{ label: `${text.transactionTitle}:`, value: formData.transactionTitle },
-		{ label: `${text.itemName}:`, value: formData.itemName },
 		{ label: `${text.description}:`, value: formData.description },
 		{ label: `${text.price}:`, value: `EGP ${formData.price}` },
-		{ label: `${text.quantity}:`, value: formData.quantity },
 		{ label: `${text.deliverDate}:`, value: formData.deliveryDate },
 		{ label: `${text.buyerEmail}:`, value: formData.otherPartyEmail },
 		{ label: `${text.buyerPhone}:`, value: formData.otherPartyPhone },

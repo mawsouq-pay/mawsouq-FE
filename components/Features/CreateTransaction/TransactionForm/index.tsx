@@ -31,13 +31,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 							name="transactionTitle"
 							placeholder={text.enterTitle}
 						/>
-						{/* Item Name */}
-						<FormItem
-							label={text.itemName}
-							id={initialValues.itemName}
-							name="itemName"
-							placeholder={text.enterItemName}
-						/>
 
 						{/* Description */}
 						<FormItem
@@ -57,7 +50,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 							placeholder="$"
 						/>
 
-						{/* Delivery Date & Quantity */}
+						{/* Delivery Date */}
 						<FlexRow>
 							<div style={{ flex: 1 }}>
 								<FormItem
@@ -65,15 +58,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 									type="date"
 									id={initialValues.deliveryDate}
 									name="deliveryDate"
-								/>
-							</div>
-							<div style={{ flex: 1 }}>
-								<FormItem
-									label={text.quantity}
-									type="number"
-									id={initialValues.quantity}
-									name="quantity"
-									placeholder={text.enterQuantity}
 								/>
 							</div>
 						</FlexRow>

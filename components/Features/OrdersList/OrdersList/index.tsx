@@ -65,7 +65,6 @@ const OrdersList = () => {
 						return (
 							<MSOrderCard
 								transactionTitle={order.transactionTitle}
-								itemName={order.itemName}
 								price={order.price}
 								status={order.status}
 								deliveryDate={order.deliveryDate}

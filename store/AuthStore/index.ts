@@ -119,9 +119,19 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 		apiClient.defaults.headers["x-auth-token"] = accessToken;
 	},
 
-	logout: () => {
+	logout: async () => {
 		console.log("----------------LOGGING OUT (STORE) ------------------");
-
+		const refreshToken = Cookies.get("refreshToken");
+		const res = await apiClient.post(
+			serverRoutes.regenerateTokens,
+			{},
+			{
+				headers: {
+					"x-refresh-token": refreshToken,
+				},
+			}
+		);
+		console.log(res, "here");
 		Cookies.remove("refreshToken");
 
 		set({

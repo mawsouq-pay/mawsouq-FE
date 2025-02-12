@@ -20,12 +20,13 @@ import HeroList from "@/components/Features/LandingPageComponents/HeroList";
 import MSText from "@/components/Shared/MSText";
 import Navbar from "@/components/Shared/MSNavBar";
 import ScribbledCircleText from "@/components/Features/LandingPageComponents/ScribbledCircleText";
+import { useRouter } from "next/router";
 
 const HeroSection = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { isMobile } = useCustomBreakpoint();
-
+	const router = useRouter();
 	const steps = [
 		{ label: "Buyers and seller agree on terms", isActive: false },
 		{ label: "Buyers pays Mawsouq", isActive: true },
@@ -79,7 +80,11 @@ const HeroSection = () => {
 						</InputFieldDiv>
 					</HeroInputsWrapper>
 					<SubmitWrapper>
-						<StyledButton>
+						<StyledButton
+							onClick={() => {
+								router.replace("/register");
+							}}
+						>
 							<MSText
 								fontSize={"18px"}
 								mobileFontSize="15px"
