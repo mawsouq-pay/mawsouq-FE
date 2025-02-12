@@ -5,6 +5,7 @@ import { useLogin } from "@/hooks/authHooks";
 import { clientRoutes } from "@/routes";
 import { User } from "@/types/authenticationTypes";
 import { AxiosError } from "axios";
+import { LoginFormInput } from "@/components/Features/Authentication/LoginForm/types";
 
 export const useLoginHandler = (orderId?: string) => {
 	const router = useRouter();
@@ -14,7 +15,7 @@ export const useLoginHandler = (orderId?: string) => {
 		useNotification();
 
 	const handleLogin = (
-		values: { email: string; password: string },
+		values: LoginFormInput,
 		setSubmitting: (isSubmitting: boolean) => void
 	) => {
 		loginSubmit(

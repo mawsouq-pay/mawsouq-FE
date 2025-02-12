@@ -1,84 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { MainWrapper, MessageDiv } from "./OrderAction.styles";
 import MSText from "../../../Shared/MSText";
 import { colors } from "@/constants/theme";
 import { OrderActionProps } from "./types";
-import {
-	OrderStatusEnum,
-	orderProgressBarData,
-	orderStatusConfirmationMessages,
-	orderStatusObject,
-} from "@/constants";
-import {
-	useCreatePaymentLink,
-	useSellerRelease,
-	useUpdateOrderStatus,
-} from "@/hooks/orderHooks";
-import { clientRoutes } from "@/routes";
-import { useRouter } from "next/router";
-import queryClient from "@/client/reactQClient";
+
 import MSModal from "../../../Shared/MSModal";
 import MSButton from "../../../Shared/MSButton";
+import { useOrderActions } from "@/hooks/useOrderActions";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { isFetcherSeller, orderStatus, orderId } = props;
-	const statusMessage = orderStatusConfirmationMessages[orderStatus];
-	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-	const router = useRouter();
-	const { mutate: createLink, isPending: createLinkPending } =
-		useCreatePaymentLink();
-	const { mutate: updateOrder, isPending: updateOrderPending } =
-		useUpdateOrderStatus();
-
-	const { mutate: sellerRelease, isPending: sellerReleasePending } =
-		useSellerRelease();
-	const { messageForSeller, messageForBuyer, sellerCTA, buyerCTA, nextStatus } =
-		orderProgressBarData[orderStatus];
-	const orderStatusText = orderStatusObject[orderStatus].text;
-	const message = isFetcherSeller ? messageForSeller : messageForBuyer;
-	const buttonCta = isFetcherSeller ? sellerCTA : buyerCTA;
-
-	const onCtaClick = () => {
-		setIsConfirmModalOpen(false);
-		if (orderStatus === OrderStatusEnum.PENDING && !isFetcherSeller) {
-			createLink(
-				{ orderId },
-				{
-					onSuccess: (response) => {
-						router.push({
-							pathname: clientRoutes.paymentPage,
-							query: { iframeLink: response?.data?.iframeLink },
-						});
-						queryClient.invalidateQueries({
-							queryKey: ["fetchOrderById", orderId],
-						});
-					},
-				}
-			);
-		} else if (isFetcherSeller) {
-			if (orderStatus === OrderStatusEnum.IN_PROGRESS) {
-				updateOrder({ orderId, newStatus: OrderStatusEnum.IN_TRANSIT });
-			} else if (buttonCta === "Submit Dispute Details") {
-				console.log("Submit dispute details (Seller).");
-			}
-		} else {
-			if (
-				orderStatus === OrderStatusEnum.IN_TRANSIT &&
-				nextStatus === OrderStatusEnum.DELIVERED
-			) {
-				updateOrder({ orderId, newStatus: nextStatus });
-			} else if (
-				orderStatus === OrderStatusEnum.DELIVERED &&
-				nextStatus === OrderStatusEnum.COMPLETED
-			) {
-				sellerRelease({ orderId });
-			} else if (buttonCta === "Submit Dispute Details") {
-				console.log("Submit dispute details (Buyer).");
-			}
-		}
-	};
-	const loadingAndDisable =
-		createLinkPending || updateOrderPending || sellerReleasePending;
+	const {
+		statusMessage,
+		orderStatusText,
+		message,
+		buttonCta,
+		isConfirmModalOpen,
+		setIsConfirmModalOpen,
+		handleCtaClick,
+		loadingAndDisable,
+	} = useOrderActions(orderId, isFetcherSeller, orderStatus);
 	return (
 		<MainWrapper>
 			<MSText
@@ -112,7 +53,7 @@ const OrderAction = (props: OrderActionProps) => {
 				open={isConfirmModalOpen}
 				onClose={() => setIsConfirmModalOpen(false)}
 				title={statusMessage.title}
-				onConfirm={onCtaClick}
+				onConfirm={handleCtaClick}
 			>
 				<div style={{ padding: "10px 0px" }}>
 					<MSText color={colors.black}>{statusMessage.message}</MSText>

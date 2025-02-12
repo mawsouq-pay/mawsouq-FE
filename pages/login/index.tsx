@@ -8,7 +8,7 @@ const LoginPage = () => {
 	const orderId = router.query.orderId;
 	return (
 		<PageContainer>
-			<LoginForm />
+			<LoginForm orderId={(orderId as string) ?? undefined} />
 		</PageContainer>
 	);
 };

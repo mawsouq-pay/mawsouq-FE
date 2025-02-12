@@ -149,16 +149,16 @@ export const orderStatusConfirmationMessages: Record<
 		message: "Are you sure you want to proceed in the order by paying?",
 	},
 	IN_PROGRESS: {
-		title: "Mark as In Progress?",
-		message: "Are you sure you want to proceed in the order by paying?",
+		title: "Mark as In Transit?",
+		message: "Are you sure you want to mark order as out for delivery?",
 	},
 	IN_TRANSIT: {
-		title: "Mark as In Transit?",
-		message: "Are you sure you want to mark this order as 'In Transit'?",
-	},
-	DELIVERED: {
 		title: "Mark as Delivered?",
 		message: "Confirm that the order has been successfully delivered.",
+	},
+	DELIVERED: {
+		title: "Complete Order?",
+		message: "Final confirmation needed to mark the order as Completed.",
 	},
 	COMPLETED: {
 		title: "Complete Order?",
