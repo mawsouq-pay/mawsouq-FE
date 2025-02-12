@@ -3,6 +3,7 @@ const serverRoutes = {
 	register: "/user/register",
 	regenerateTokens: "/user/refreshTokens",
 	getUser: "/user/user",
+	logout: "/user/logout",
 
 	fetchOrders: "/order/my-orders",
 	createOrder: "/order/create",

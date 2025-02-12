@@ -23,6 +23,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 		quantity,
 		deliveryDate,
 		onConfirmPress,
+		price,
 	} = props;
 	return (
 		<FormWrapper>
@@ -78,7 +79,11 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<MSText fontSize={"16px"} mobileFontSize={"14px"} color={colors.gray}>
 					{text.paymentSummary}
 				</MSText>
-				<PaymentSummarySection price={40} escrowFee={20} totalDue={60} />
+				<PaymentSummarySection
+					price={price}
+					escrowFee={50}
+					totalDue={price + 50}
+				/>
 			</PaymentSummaryDiv>
 
 			<MSButton

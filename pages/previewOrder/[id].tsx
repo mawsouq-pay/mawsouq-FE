@@ -82,6 +82,4 @@ const InfoMessage = styled.div`
 	text-align: center;
 `;
 
-PreviewOrderSummary.CustomLayout = HomePageLayout;
-
 export default PreviewOrderSummary;

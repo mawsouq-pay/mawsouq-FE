@@ -16,12 +16,12 @@ const useRegisterHandler = (orderId?: string) => {
 
 	const handleRegister = (
 		values: RegisterFormInput,
-		{ setSubmitting }: any
+		setSubmitting: (isSubmitting: boolean) => void
 	) => {
 		registerSubmit(
 			{
-				email: values.email,
 				name: values.name,
+				email: values.email,
 				password: values.password,
 				phone: values.phone,
 			},
@@ -29,6 +29,7 @@ const useRegisterHandler = (orderId?: string) => {
 				onSuccess: (response) => {
 					const accessToken = response.headers["x-auth-token"];
 					const refreshToken = response.headers["x-refresh-token"];
+
 					if (accessToken && refreshToken) {
 						const user: User = {
 							name: response?.data?.name,
@@ -38,12 +39,13 @@ const useRegisterHandler = (orderId?: string) => {
 						storeRegister({ accessToken, refreshToken }, user);
 						navigateUser();
 					} else {
-						showErrorNotification("An error occurred. Please try again.");
+						showErrorNotification("Something went wrong. Please try again.");
 					}
 					setSubmitting(false);
 				},
 				onError: (error) => {
 					setSubmitting(false);
+					console.log(error as AxiosError, "hahahahah");
 					showAxiosErrorNotification(error as AxiosError);
 				},
 			}

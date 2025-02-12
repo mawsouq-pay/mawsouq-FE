@@ -20,7 +20,11 @@ const ProtectedRouteWrapper = ({
 
 	const isProtected = protectedRoutes.includes(router.pathname);
 
-	console.log("------INSIDE PROTECTED ROUTE WRAPPER-------", isLoggedIn);
+	console.log(
+		"------INSIDE PROTECTED ROUTE WRAPPER-------",
+		isLoggedIn,
+		!isSetUpLoading
+	);
 
 	useEffect(() => {
 		if (isProtected && !isLoggedIn && !isSetUpLoading) {
@@ -29,14 +33,14 @@ const ProtectedRouteWrapper = ({
 			);
 			router.push(clientRoutes.login);
 		}
-	}, [isLoggedIn, isSetUpLoading, router.pathname]);
+	}, [isLoggedIn, isSetUpLoading]);
 
-	if (isProtected && isSetUpLoading) {
+	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
 
-	if (isProtected && !isLoggedIn && !isSetUpLoading) {
-		return null;
+	if (isProtected && !isLoggedIn) {
+		return <MSLoadingScreen />;
 	}
 
 	return <>{children}</>;
