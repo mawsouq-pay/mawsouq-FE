@@ -9,7 +9,7 @@ const StepsList = (props: StepsListProps) => {
 	return (
 		<Container>
 			<MSText
-				fontSize="30px"
+				fontSize="24px"
 				mobileFontSize="16px"
 				fontWeight="bold"
 				color={colors.white}
@@ -23,7 +23,7 @@ const StepsList = (props: StepsListProps) => {
 							fill={step.isActive ? colors.buttonGreenHover : "white"}
 						/>
 						<MSText
-							fontSize="18px"
+							fontSize="16px"
 							mobileFontSize="14px"
 							color={step.isActive ? colors.buttonGreenHover : colors.white}
 						>

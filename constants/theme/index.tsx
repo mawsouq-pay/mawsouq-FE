@@ -25,4 +25,10 @@ export const colors = {
 	NameContainerBackground: "#F7F9FC",
 	red: "#F5222D",
 	error: "#4A4A4A",
+
+	//HeroSection
+	labelColor: "#A4BDDC",
+
+	//How it Works:
+	divider: "#e9e9e9",
 };

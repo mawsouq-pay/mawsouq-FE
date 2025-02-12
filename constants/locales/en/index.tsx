@@ -4,7 +4,8 @@ const en = {
 	confidence: "Confidence",
 	mawsouqMission:
 		"Mawsouq is your trusted middle-man partner, ensuring safe, hassle-free online transactions for buyers and sellers.",
-	imSelling: "I'm Selling",
+	im: "I'm",
+	Selling: "Selling",
 	for: "For",
 	moneyStaysSecure: "Your money stays secure until the deal is complete.",
 	getStartedNow: "Get Started Now!",

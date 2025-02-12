@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
 	HeroWrapper,
 	InputFieldDiv,
@@ -6,7 +6,6 @@ import {
 	HeroInputsWrapper,
 	TitleWrapper,
 	PaddingContainer,
-	Divider,
 	StyledButton,
 	SubmitWrapper,
 	RowDiv,
@@ -19,13 +18,13 @@ import { colors } from "@/constants/theme";
 import Navbar from "../NavBar";
 import ScribbledCircleText from "../ScribbledCircleText";
 import HeroList from "../HeroList";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import useCustomBreakpoint from "@/helpers/screenSizes";
+import Divider, { dividerClasses } from "@mui/material/Divider";
 
 const HeroSection = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { isMobile } = useCustomBreakpoint();
+	const { isMobile, xxl } = useCustomBreakpoint();
 
 	const steps = [
 		{ label: "Buyers and seller agree on terms", isActive: false },
@@ -35,6 +34,28 @@ const HeroSection = () => {
 		{ label: "Mawsouq.com pays the seller", isActive: false },
 	];
 
+	const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
+	const [fade, setFade] = useState(true);
+	const sentences = [
+		"Handmade crafts",
+		"Jewelry and personalized accessories",
+		"Pre-owned electronics",
+		"Event planning and catering services",
+		"Organic foods and health supplements",
+	];
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			setFade(false);
+			setTimeout(() => {
+				setCurrentSentenceIndex(
+					(prevIndex) => (prevIndex + 1) % sentences.length
+				);
+				setFade(true);
+			}, 500);
+		}, 3000);
+		return () => clearInterval(intervalId);
+	}, [sentences.length]);
+
 	return (
 		<HeroWrapper>
 			<Navbar isLandingPage={true} />
@@ -42,23 +63,25 @@ const HeroSection = () => {
 				<PaddingContainer>
 					<TitleWrapper>
 						<MSText
-							fontSize={"4.5rem"}
+							fontSize={xxl ? "3rem" : "2rem"}
 							mobileFontSize={"2.5rem"}
 							fontWeight="bold"
 							color={colors.white}
 							style={{
-								display: "flex",
-								flexDirection: "column",
 								alignItems: isMobile ? "center" : "flex-start",
+								justifyContent: "center",
 							}}
 						>
-							{text.secureEveryTransaction}
-							<ScribbledCircleText text="Confidence" />
+							<span style={{ display: "inline" }}>
+								{text.secureEveryTransaction}
+							</span>
+							{"  "}
+							<ScribbledCircleText text={text.confidence} />
 						</MSText>
 					</TitleWrapper>
 					<DescriptionWrapper>
 						<MSText
-							fontSize={"1.5rem"}
+							fontSize={"1.125rem"}
 							mobileFontSize={"1rem"}
 							color={colors.white}
 						>
@@ -67,16 +90,28 @@ const HeroSection = () => {
 					</DescriptionWrapper>
 					<HeroInputsWrapper>
 						<InputFieldDiv>
-							<MSText fontSize="16px" color={colors.white}>
-								{text.imSelling}
+							<MSText>
+								<span style={{ color: colors.labelColor }}>{text.im}</span>{" "}
+								<span style={{ color: colors.white }}>{text.Selling}</span>
 							</MSText>
-							<Divider />
+							<Divider
+								orientation="vertical"
+								flexItem
+								sx={{ backgroundColor: colors.labelColor }}
+							/>
+							<MSText
+								color={colors.white}
+								style={{
+									transition: "opacity 0.5s ease",
+									opacity: fade ? 1 : 0,
+								}}
+							>
+								{sentences[currentSentenceIndex]}
+							</MSText>
 						</InputFieldDiv>
 						<InputFieldDiv>
-							<MSText fontSize="16px" color={colors.white}>
-								{text.for}
-							</MSText>
-							<Divider />
+							<MSText color={colors.labelColor}>{text.for} £</MSText>
+							<MSText color={colors.white}>300</MSText>
 						</InputFieldDiv>
 					</HeroInputsWrapper>
 					<SubmitWrapper>
@@ -86,7 +121,7 @@ const HeroSection = () => {
 								mobileFontSize="15px"
 								color={colors.white}
 							>
-								Start A Transaction
+								Start a Transaction
 							</MSText>
 						</StyledButton>
 						<MSText

@@ -4,16 +4,19 @@ import {
 	Wrapper,
 	TitleWrapper,
 	StepsAndImagesWrapper,
-	Divider,
 } from "./HowItWorksSection.styles";
 import MSText from "../MSText";
 import { colors } from "@/constants/theme";
 import { steps } from "./types";
+import { Divider } from "@mui/material";
 const HowItWorksSection = () => {
 	const [activeStep, setActiveStep] = useState(0);
 	const stopAnimRef = useRef(false);
 	const stopAnimation = () => {
 		stopAnimRef.current = true;
+	};
+	const resumeAnimation = () => {
+		stopAnimRef.current = false;
 	};
 	useEffect(() => {
 		const timer = setInterval(() => {
@@ -26,10 +29,10 @@ const HowItWorksSection = () => {
 	}, [steps.length]);
 
 	return (
-		<Wrapper>
+		<Wrapper id="howItWorks">
 			<TitleWrapper>
 				<MSText
-					fontSize="4rem"
+					fontSize="2rem"
 					fontWeight="bold"
 					color={colors.black}
 					style={{ textAlign: "center" }}
@@ -37,7 +40,7 @@ const HowItWorksSection = () => {
 					How It Works
 				</MSText>
 				<MSText
-					fontSize="1.5rem"
+					fontSize="1.125rem"
 					color={colors.gray}
 					style={{ textAlign: "center", marginTop: "10px" }}
 				>
@@ -46,9 +49,9 @@ const HowItWorksSection = () => {
 				</MSText>
 				<Divider
 					style={{
-						width: "10%",
+						width: "20%",
 						margin: "20px auto",
-						backgroundColor: colors.green,
+						backgroundColor: colors.divider,
 					}}
 				/>
 			</TitleWrapper>
@@ -58,6 +61,7 @@ const HowItWorksSection = () => {
 					activeStep={activeStep}
 					setActiveStep={setActiveStep}
 					stopAnimation={stopAnimation}
+					resumeAnimation={resumeAnimation}
 				/>{" "}
 			</StepsAndImagesWrapper>
 		</Wrapper>

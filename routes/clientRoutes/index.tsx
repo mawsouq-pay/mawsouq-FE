@@ -8,6 +8,8 @@ const clientRoutes = {
 	orderConfirmation: "/orderConfirmation",
 	orders: "/orders",
 	order: "/orders/[id]",
+
+	howItWorks: "/howItWorks",
 };
 
 const publicRoutes = [

@@ -11,10 +11,12 @@ import {
 	VerticalStepIconRoot,
 	VerticalConnector,
 	BlobContainer,
+	StepperWrapper,
 } from "./StepTimeLine.styles";
 import Image from "next/image";
 import MSText from "../MSText";
 import { HowItWorksStepTimeLineProps } from "./types";
+import useCustomBreakpoint from "@/helpers/screenSizes";
 
 function VerticalStepIcon(props: StepIconProps) {
 	const { active, completed, className } = props;
@@ -26,10 +28,13 @@ function VerticalStepIcon(props: StepIconProps) {
 }
 
 const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
-	const { steps, activeStep, setActiveStep, stopAnimation } = props;
+	const { steps, activeStep, setActiveStep, stopAnimation, resumeAnimation } =
+		props;
+	const { isMobile, xxl } = useCustomBreakpoint();
+
 	return (
-		<MainWrapper>
-			<div style={{ width: "40%" }}>
+		<MainWrapper style={{ flexDirection: isMobile ? "column" : "row" }}>
+			<StepperWrapper>
 				<Stepper
 					orientation="vertical"
 					activeStep={activeStep}
@@ -44,17 +49,20 @@ const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
 										onClick={() => {
 											stopAnimation();
 											setActiveStep(index);
+											setTimeout(() => {
+												resumeAnimation();
+											}, 5000);
 										}}
 									>
 										<MSText
-											fontSize="30px"
+											fontSize="18px"
 											mobileFontSize="16px"
-											fontWeight={index === activeStep ? "bold" : "normal"}
+											fontWeight={index === activeStep ? "600" : "normal"}
 										>
 											{step.title}
 										</MSText>
 										<MSText
-											fontSize="22px"
+											fontSize="16px"
 											mobileFontSize="14px"
 											color="textSecondary"
 										>
@@ -66,7 +74,7 @@ const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
 						</Step>
 					))}
 				</Stepper>
-			</div>
+			</StepperWrapper>
 			<ImageWrapper>
 				<BlobContainer active={true}>
 					<Image

@@ -6,8 +6,6 @@ export const HeroWrapper = styled.section`
 	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
 	color: white;
 	border-radius: 10px;
-
-	height: 65vh;
 	@media (max-width: 1000px) {
 		height: fit-content;
 	}
@@ -15,7 +13,7 @@ export const HeroWrapper = styled.section`
 export const RowDiv = styled.div`
 	display: flex;
 	flex-direction: row;
-	padding: 55px 90px 70px 90px;
+	padding: 32px 64px 32px 64px;
 
 	@media (max-width: 1000px) {
 		flex-direction: column;
@@ -25,14 +23,14 @@ export const PaddingContainer = styled.div`
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
-	width: 65%;
+	flex: 2;
 	@media (max-width: 1000px) {
 		width: 100%;
 	}
 `;
 export const ListWrapper = styled.div`
 	display: flex;
-	flex: 1;
+	flex: 1.5;
 	justify-content: flex-end;
 	@media (max-width: 1000px) {
 		display: none;
@@ -46,7 +44,8 @@ export const TitleWrapper = styled.div`
 export const DescriptionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 35px;
+	padding-top: 24px;
+	padding-bottom: 8px;
 `;
 
 export const HeroInputsWrapper = styled.div`
@@ -54,7 +53,7 @@ export const HeroInputsWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	width: 80%;
 `;
 export const Divider = styled.hr`
@@ -65,7 +64,8 @@ export const Divider = styled.hr`
 export const InputFieldDiv = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
+	gap: 8px;
 	padding: 10px 20px;
 	border-radius: 10px;
 	background: linear-gradient(
@@ -90,7 +90,8 @@ export const StyledButton = styled.button`
 	margin-top: 10px;
 
 	&:hover {
-		background: ${colors.buttonGreenHover};
+		opacity: 0.8;
+		transition-duration: 0.4s;
 	}
 `;
 export const SubmitWrapper = styled.div`

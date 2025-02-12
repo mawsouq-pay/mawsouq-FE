@@ -5,7 +5,8 @@ const ar = {
 	mawsouqMission:
 		"Mawsouq هو شريكك الموثوق به، يضمن معاملات آمنة وسهلة عبر الإنترنت للمشترين والبائعين.",
 
-	imSelling: "أنا أبيع",
+	im: "أنا",
+	Selling: "أبيع",
 	for: "مقابل",
 	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
 	getStartedNow: "ابدأ الآن!",
