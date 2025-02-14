@@ -40,6 +40,10 @@ export const RoleOptions = styled.div`
 	align-items: center;
 	gap: 16px;
 	margin-top: 20px;
+	${media.below925`
+	flex-direction: column;
+
+ 	 `}
 `;
 
 export const RoleCard = styled.div<{ isSelected: boolean }>`

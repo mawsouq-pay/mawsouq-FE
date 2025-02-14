@@ -6,6 +6,4 @@ export interface StartTransactionData {
 	description: string;
 	price: string;
 	deliveryDate: string;
-	otherPartyEmail: string;
-	otherPartyPhone: string;
 }

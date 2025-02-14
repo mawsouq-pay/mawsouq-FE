@@ -1,17 +1,24 @@
-import { FlexRow, FormContainer, StyledForm } from "./TransactionForm.styles";
+import {
+	BackButton,
+	FlexRow,
+	FormContainer,
+	StyledForm,
+} from "./TransactionForm.styles";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { Formik } from "formik";
 import { TransactionFormProps, createValidationSchema } from "./types";
 import FormItem from "@/components/FormItem";
 import MSButton from "@/components/Shared/MSButton";
+import MSPaymentSummarySection from "@/components/Shared/MSPaymentSummarySection";
 const TransactionForm = (props: TransactionFormProps) => {
-	const { onSubmit, initialValues } = props;
+	const { onSubmit, initialValues, onBack } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
 	const validationSchema = createValidationSchema(locale);
 	const handleSubmit = (values: typeof initialValues) => {
+		console.log(values, "hehehe");
 		onSubmit(values);
 	};
 
@@ -24,14 +31,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 			>
 				{({ values }) => (
 					<StyledForm>
-						{/* Title */}
-						<FormItem
-							label={text.transactionTitle}
-							id={initialValues.transactionTitle}
-							name="transactionTitle"
-							placeholder={text.enterTitle}
-						/>
-
 						{/* Description */}
 						<FormItem
 							label={text.description}
@@ -62,16 +61,28 @@ const TransactionForm = (props: TransactionFormProps) => {
 							</div>
 						</FlexRow>
 
-						<MSButton
-							title={text.next}
-							type="submit"
-							style={{
-								height: 40,
-								width: "fit-content",
-								alignSelf: "flex-end",
-								marginTop: 10,
-							}}
-						/>
+						<div style={{ marginTop: 20 }}>
+							{" "}
+							<MSPaymentSummarySection
+								price={parseFloat(values.price) || 0}
+								escrowFee={parseFloat(values.price) || 0 > 0 ? 50 : 0}
+								totalDue={(parseFloat(values.price) || 0) + 50}
+							/>{" "}
+						</div>
+						<FlexRow>
+							<BackButton onClick={onBack}>{text.back}</BackButton>
+
+							<MSButton
+								title={text.next}
+								type="submit"
+								style={{
+									height: 40,
+									width: "fit-content",
+									alignSelf: "flex-end",
+									marginTop: 10,
+								}}
+							/>
+						</FlexRow>
 					</StyledForm>
 				)}
 			</Formik>

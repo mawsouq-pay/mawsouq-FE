@@ -25,7 +25,6 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 	const handleSubmit = (values: typeof initialValues) => {
 		onSubmit(values);
 	};
-
 	return (
 		<FormContainer>
 			<Formik
@@ -35,7 +34,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 			>
 				{({ values }) => (
 					<StyledForm>
-						<FormItem
+						{/* <FormItem
 							label={text.buyerPhone}
 							id={initialValues.otherPartyPhone}
 							name="otherPartyPhone"
@@ -48,7 +47,7 @@ const OtherPartyDetailsForm = (props: OtherPartyDetailsFormProps) => {
 							name="otherPartyEmail"
 							placeholder={text.emailPlaceHolder}
 							type="email"
-						/>
+						/> */}
 						<div style={{ marginTop: 20 }}>
 							{" "}
 							<MSPaymentSummarySection

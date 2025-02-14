@@ -9,7 +9,6 @@ export const MainWrapper = styled.div`
 	flex-direction: column;
 	gap: 16px;
 	justify-content: space-between;
-	background-color: ${colors.white};
 	flex: 1;
 `;
 export const ItemsContainer = styled.div`

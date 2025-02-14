@@ -12,7 +12,7 @@ import {
 } from "./RoleSelection.styles";
 import { CartIcon, ShopIcon } from "@/assets/icons";
 import MSText from "@/components/Shared/MSText";
-import { RoleSelectionProps } from "./types";
+import { RoleSelectionProps, createValidationSchema } from "./types";
 import FormItem from "@/components/FormItem";
 import MSButton from "@/components/Shared/MSButton";
 import { useLocaleStore } from "@/store/LocaleStore";
@@ -20,14 +20,11 @@ import { textTr } from "@/constants/locales";
 import { RolesEnum } from "@/constants";
 import { colors } from "@/constants/theme";
 
-const validationSchema = Yup.object().shape({
-	transactionTitle: Yup.string().required("Transaction title is required"),
-	role: Yup.string().required("Please select a role"),
-});
-
 const RoleSelection = ({ onSubmit, initialValues }: RoleSelectionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	const validationSchema = createValidationSchema(locale);
+
 	const handleSubmit = (values: typeof initialValues) => {
 		onSubmit(values);
 	};
@@ -41,12 +38,12 @@ const RoleSelection = ({ onSubmit, initialValues }: RoleSelectionProps) => {
 			>
 				{({ values, setFieldValue }) => (
 					<MainWrapper>
+						{/* Title */}
 						<FormItem
-							label="Transaction Title"
-							type="text"
-							id="transactionTitle"
+							label={text.transactionTitle}
+							id={initialValues.transactionTitle}
 							name="transactionTitle"
-							placeholder="Enter a title for the transaction"
+							placeholder={text.enterTitle}
 						/>
 
 						<MSText

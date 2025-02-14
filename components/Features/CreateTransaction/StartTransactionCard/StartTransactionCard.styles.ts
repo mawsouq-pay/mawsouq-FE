@@ -9,7 +9,7 @@ export const MainWrapper = styled.div`
 	background-color: ${colors.white};
 	border-radius: 8px;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.09);
-	height: 750px;
+	//height: 810px;
 `;
 
 export const TitleWrapper = styled.div`

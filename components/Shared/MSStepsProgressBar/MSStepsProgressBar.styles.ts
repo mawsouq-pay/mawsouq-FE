@@ -6,11 +6,11 @@ import { colors } from "@/constants/theme";
 
 export const VerticalConnector = styled(StepConnector)(({ theme }) => ({
 	[`& .${stepConnectorClasses.line}`]: {
-		borderColor: "#eaeaf0",
+		borderColor: `${colors.green}`,
 		borderLeftWidth: 3,
 		borderRadius: 1,
-		marginLeft: "15px",
-		height: "60px",
+		//marginLeft: "15px",
+		height: "20px",
 	},
 	[`&.${stepConnectorClasses.active} .${stepConnectorClasses.line}`]: {
 		borderColor: `${colors.green}`,
@@ -42,7 +42,6 @@ export const HorizontalConnector = styled(StepConnector)(({ theme }) => ({
 	},
 }));
 
-// Custom Step Icon Styles
 export const QontoStepIconRoot = styled("div")<{
 	ownerState: { active?: boolean; completed?: boolean };
 }>(({ ownerState }) => ({
