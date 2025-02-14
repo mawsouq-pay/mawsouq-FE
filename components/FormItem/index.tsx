@@ -4,6 +4,7 @@ import {
 	FormItemWrapper,
 	Label,
 	StyledInput,
+	StyledTextArea,
 	IconContainer,
 	ErrorText,
 } from "./FormItem.styles";
@@ -33,17 +34,19 @@ const FormItem: React.FC<FormItemProps> = ({
 	icon,
 	iconPosition = "right",
 }) => {
+	const Component = as === "textarea" ? StyledTextArea : StyledInput;
+
 	return (
 		<FormItemWrapper>
 			<Label style={labelStyle}>{label}</Label>
 			<div style={{ position: "relative" }}>
 				<Field
-					as={StyledInput}
+					as={Component}
 					type={type}
 					id={id}
 					name={name}
 					placeholder={placeholder}
-					style={{ ...style }}
+					style={style}
 				/>
 				{icon && <IconContainer position={iconPosition}>{icon}</IconContainer>}
 			</div>

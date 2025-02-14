@@ -16,9 +16,11 @@ import queryClient from "@/client/reactQClient";
 import { RolesEnum } from "@/constants";
 import { useCreateOrder } from "@/hooks/orderHooks";
 import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
+import RoleSelection from "../RoleSelection";
 const steps = [
+	"Role",
 	"Transaction Details",
-	"Buyer Details",
+	// "Buyer Details",
 	"Preview Details",
 	"Share Link",
 ];
@@ -31,6 +33,7 @@ const StartTransactionCard = () => {
 	const [orderId, setOrderId] = useState<string | null>();
 	const [activeStep, setActiveStep] = useState(0);
 	const [formData, setFormData] = useState<StartTransactionData>({
+		role: RolesEnum.SELLER,
 		transactionTitle: "",
 		description: "",
 		price: "",
@@ -83,17 +86,24 @@ const StartTransactionCard = () => {
 					{text.createOrder}
 				</MSText>
 			</TitleWrapper>
+
 			<ContentWrapper>
 				<MSStepProgressBar steps={steps} activeStep={activeStep} />
 
 				<div style={{ marginTop: "20px" }}>
 					{activeStep === 0 && (
-						<TransactionForm
+						<RoleSelection
 							initialValues={formData}
 							onSubmit={(data) => handleNext(data)}
 						/>
 					)}
 					{activeStep === 1 && (
+						<TransactionForm
+							initialValues={formData}
+							onSubmit={(data) => handleNext(data)}
+						/>
+					)}
+					{activeStep === 11 && (
 						<OtherPartyDetailsForm
 							initialValues={formData}
 							onSubmit={(data) => handleNext(data)}

@@ -39,9 +39,9 @@ const HomePage = () => {
 			displayErrorReason={true}
 		>
 			<HomePageWrapper>
-				<StatusSection
+				{/* <StatusSection
 					numberOfactiveTransactions={numberOfActiveTransactions}
-				/>
+				/> */}
 				<ActionSection />
 				<OrdersOverviewSection latestOrders={ordersData?.orders?.slice(0, 3)} />
 			</HomePageWrapper>

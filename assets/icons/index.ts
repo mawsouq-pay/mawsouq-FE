@@ -10,6 +10,8 @@ import Google from "./google";
 import Hide from "./hide";
 import Show from "./show";
 import ErrorTriangleIcon from "./error_triangle";
+import CartIcon from "./cart_icon";
+import ShopIcon from "./shop_icon";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -23,4 +25,6 @@ export {
 	Hide,
 	Show,
 	ErrorTriangleIcon,
+	CartIcon,
+	ShopIcon,
 };

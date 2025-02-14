@@ -40,12 +40,12 @@ const MSStepProgressBar = (props: StepProgressBarProps) => {
 				)
 			}
 			orientation={orientation}
-			style={{ display: "flex", flex: 1 }}
+			style={{ display: "flex" }}
 		>
 			{steps.map((label, index) => (
 				<Step key={label}>
 					<StepLabel StepIconComponent={QontoStepIcon}>
-						<MSText fontSize={"16px"} mobileFontSize="20px">
+						<MSText fontSize={"14px"} mobileFontSize="20px">
 							{label}
 						</MSText>
 					</StepLabel>{" "}

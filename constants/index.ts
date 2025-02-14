@@ -10,6 +10,7 @@ export const OrderStatusEnum = Object.freeze({
 	DISPUTED: "DISPUTED", //buyer wants to start khena2a
 	CANCELLED: "CANCELLED", //order is abandoned and no updates done to it
 });
+
 export const orderStatusObject: Record<
 	keyof typeof OrderStatusEnum,
 	{
@@ -177,6 +178,6 @@ export const orderStatusConfirmationMessages: Record<
 };
 
 export const RolesEnum = Object.freeze({
-	BUYER: "Buyer",
-	SELLER: "Seller",
+	BUYER: "BUYER",
+	SELLER: "SELLER",
 });
