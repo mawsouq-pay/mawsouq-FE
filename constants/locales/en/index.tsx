@@ -162,6 +162,12 @@ const en = {
 
 	//Success Snackbar Notifications
 	successfullyLinkedToOrder: "You have been successfully linked to the order",
+
+	//joining a transaction
+	joinTransaction: "Join Transaction",
+	joinTransactionPrompt:
+		"Please paste the link you received from the person to join the transaction.",
+	joinLinkInvalidType: "This link is not a mawsouq join link!",
 };
 
 export default en;

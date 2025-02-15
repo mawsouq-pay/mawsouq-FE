@@ -22,7 +22,7 @@ const MSSnackBar = ({
 			open={open}
 			autoHideDuration={autoHideDuration}
 			onClose={onClose}
-			anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+			anchorOrigin={{ vertical: "top", horizontal: "center" }}
 		>
 			<Alert
 				onClose={onClose}

@@ -17,8 +17,8 @@ export const FormField = styled.div`
 
 export const PreviewText = styled.div`
 	padding: 12px;
-	border: 1px solid #ddd;
-	border-radius: 8px;
+	border: 1px solid ${colors.green};
+	border-radius: 2px;
 	font-size: 14px;
 	margin-top: 8px;
 	background-color: ${colors.white};
@@ -27,8 +27,8 @@ export const PreviewText = styled.div`
 
 export const PreviewTextArea = styled.div`
 	padding: 12px;
-	border: 1px solid #ddd;
-	border-radius: 8px;
+	border: 1px solid ${colors.green};
+	border-radius: 2px;
 	font-size: 14px;
 	margin-top: 8px;
 	background-color: ${colors.white};

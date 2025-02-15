@@ -10,6 +10,7 @@ import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapp
 import MSButton from "@/components/Shared/MSButton";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import JoinTransactionSection from "@/components/Features/Home/JoinTransactionSection";
 
 const HomePage = () => {
 	const { locale } = useLocaleStore();
@@ -42,6 +43,7 @@ const HomePage = () => {
 				<StatusSection
 					numberOfactiveTransactions={numberOfActiveTransactions}
 				/>
+				<JoinTransactionSection />
 				<ActionSection />
 				<OrdersOverviewSection latestOrders={ordersData?.orders?.slice(0, 3)} />
 			</HomePageWrapper>
@@ -51,7 +53,7 @@ const HomePage = () => {
 const HomePageWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 40px;
 `;
 
 HomePage.CustomLayout = HomePageLayout;

@@ -23,7 +23,6 @@ export const useUserStats = (orders?: Order[]) => {
 	const numberOfTransactionsNeedingAction =
 		orders?.filter((order) => actionRequiredStates.includes(order.status))
 			.length || 0;
-	console.log(numberOfActiveTransactions, "HHSHSHHS");
 	return {
 		numberOfActiveTransactions,
 		numberOfTransactionsNeedingAction,

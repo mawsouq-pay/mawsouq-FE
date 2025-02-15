@@ -29,7 +29,7 @@ const OrderPreviewConfirmationPopUp = ({
 
 	const handleRegisterRedirect = () => {
 		setOpen(false);
-		router.push({
+		router.replace({
 			pathname: clientRoutes.register,
 			query: { orderId: orderId },
 		});
@@ -39,7 +39,7 @@ const OrderPreviewConfirmationPopUp = ({
 			{ orderId },
 			{
 				onSuccess: () => {
-					router.push({
+					router.replace({
 						pathname: clientRoutes.order,
 						query: { id: orderId },
 					});
