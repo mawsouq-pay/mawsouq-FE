@@ -7,12 +7,20 @@ import { clientRoutes } from "@/routes";
 import { User } from "@/types/authenticationTypes";
 import { RegisterFormInput } from "@/components/Features/Authentication/RegisterForm/types";
 import { useLinkOrder } from "./orderHooks";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 const useRegisterHandler = (orderId?: string) => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
 	const { mutate: registerSubmit, isPending: registerPending } = useRegister();
 	const { register: storeRegister } = useAuthStore();
-	const { showAxiosErrorNotification, showErrorNotification } =
-		useNotification();
+	const {
+		showAxiosErrorNotification,
+		showErrorNotification,
+		showSuccessNotification,
+	} = useNotification();
 	const router = useRouter();
 	const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
 		useLinkOrder();
@@ -64,6 +72,7 @@ const useRegisterHandler = (orderId?: string) => {
 							pathname: clientRoutes.order,
 							query: { id: orderId },
 						});
+						showSuccessNotification(text.successfullyLinkedToOrder);
 					},
 					onError: (error) => {
 						showAxiosErrorNotification(error as AxiosError);

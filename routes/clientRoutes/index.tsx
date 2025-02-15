@@ -11,6 +11,8 @@ const clientRoutes = {
 	order: "/orders/[id]",
 	paymentPage: "/paymentPage",
 	previewOrder: "/previewOrder",
+
+	howItWorks: "/howItWorks",
 };
 
 const publicRoutes = [

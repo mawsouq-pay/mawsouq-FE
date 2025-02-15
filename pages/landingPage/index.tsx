@@ -8,7 +8,7 @@ import React from "react";
 
 const LandingPage = () => {
 	return (
-		<div style={{ display: "flex", flexDirection: "column", gap: "90px" }}>
+		<div style={{ display: "flex", flexDirection: "column", gap: 50 }}>
 			<HeroSection />
 			<HowItWorksSection />
 			<BenefitsSection />

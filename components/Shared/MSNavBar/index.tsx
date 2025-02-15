@@ -2,40 +2,44 @@ import React, { useState } from "react";
 import {
 	NavWrapper,
 	Logo,
-	NavLinks,
+	NavLinkss,
 	NavLink,
 	HamburgerMenu,
 	Sidebar,
 	SidebarLink,
 	LogoutButton,
 	CloseIcon,
+	NavbarContainer,
+	NavMenu,
+	NavItem,
+	NavBtn,
+	NavBtnLink1,
+	NavBtnLink,
 } from "./NavBar.styles";
 import { useMediaQuery } from "@mui/material";
+import { useLocaleStore } from "@/store/LocaleStore";
 import { useRouter } from "next/router";
-import { useAuthStore } from "@/store";
 import { clientRoutes } from "@/routes";
+import { useAuthStore } from "@/store";
 
-const MSNavbar = (props: NavBarProps) => {
+const Navbar = (props: NavBarProps) => {
 	const { isLandingPage = false } = props;
+	const { isLoggedIn, logout } = useAuthStore();
 	const router = useRouter();
-	const { isLoggedIn } = useAuthStore();
+
 	const [open, setOpen] = useState(false);
+	const { locale, setLocale } = useLocaleStore();
 
 	const isMobile = useMediaQuery("(max-width: 925px)");
 
 	const toggleMenu = () => setOpen(!open);
 
 	const isActive = (path: string) => router.pathname === path;
+
 	return (
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
-				<Logo
-					onClick={() => {
-						if (isLoggedIn && !isLandingPage) {
-							router.push(clientRoutes.homePage);
-						}
-					}}
-				>
+				<Logo>
 					Maw<span>souq</span>
 				</Logo>
 
@@ -46,23 +50,72 @@ const MSNavbar = (props: NavBarProps) => {
 						<span />
 					</HamburgerMenu>
 				) : (
-					<NavLinks>
-						<NavLink href="/homePage" isActive={isActive("/homePage")}>
-							Home
-						</NavLink>
-						<NavLink href="/how-it-works" isActive={isActive("/how-it-works")}>
-							How it works
-						</NavLink>
-						<NavLink href="/benefits" isActive={isActive("/benefits")}>
-							Benefits
-						</NavLink>
-						<NavLink href="/contactPage" isActive={isActive("/contact")}>
-							Contact
-						</NavLink>
-						<NavLink href="/about-us" isActive={isActive("/about-us")}>
-							About us
-						</NavLink>
-					</NavLinks>
+					<>
+						<NavMenu>
+							<NavItem>
+								<NavLinkss
+									to="howItWorks"
+									activeClass="active"
+									smooth={true}
+									duration={500}
+									spy={true}
+									offset={0}
+								>
+									How it Works
+								</NavLinkss>
+							</NavItem>
+							<NavItem>
+								<NavLinkss
+									to="map"
+									activeClass="active"
+									smooth={true}
+									duration={500}
+									spy={true}
+									offset={-121}
+								>
+									Benefits
+								</NavLinkss>
+							</NavItem>
+							<NavItem>
+								<NavLinkss
+									to="about"
+									activeClass="active"
+									smooth={true}
+									duration={500}
+									spy={true}
+									offset={-141}
+								>
+									Contact
+								</NavLinkss>
+							</NavItem>
+						</NavMenu>
+						<NavBtn>
+							{!isLoggedIn && (
+								<>
+									{" "}
+									<NavBtnLink1
+										onClick={() => {
+											router.push(clientRoutes.login);
+										}}
+									>
+										Login
+									</NavBtnLink1>
+									<NavBtnLink1
+										onClick={() => {
+											router.push(clientRoutes.register);
+										}}
+									>
+										Register
+									</NavBtnLink1>
+								</>
+							)}
+							{isLoggedIn && (
+								<>
+									<NavBtnLink1 onClick={logout}>Logout</NavBtnLink1>
+								</>
+							)}
+						</NavBtn>
+					</>
 				)}
 			</NavWrapper>
 
@@ -80,4 +133,4 @@ const MSNavbar = (props: NavBarProps) => {
 	);
 };
 
-export default MSNavbar;
+export default Navbar;

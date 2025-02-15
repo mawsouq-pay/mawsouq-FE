@@ -7,8 +7,9 @@ import useAuthStore from "@/store/AuthStore";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import MSLoadingScreen from "@/components/Shared/MSFallBacks/MSLoadingScreen";
 import { NotificationProvider } from "@/store/SnackBarStore";
-import { MSLoadingScreen } from "@/components/Shared/MSFallBacks";
+import { BrowserRouter } from "react-router-dom";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
@@ -23,26 +24,28 @@ function MyApp({ Component, pageProps }: any) {
 	}
 	return (
 		<QueryClientProvider client={queryClient}>
-			<ProtectedRouteWrapper
-				protectedRoutes={protectedRoutes}
-				store={authStore}
-			>
-				{" "}
-				<ThemeProvider theme={theme}>
-					<NotificationProvider>
-						<GlobalStyles />
-						{Component.CustomLayout ? (
-							<Component.CustomLayout>
-								<Component {...pageProps} />
-							</Component.CustomLayout>
-						) : (
-							<MainLayout>
-								<Component {...pageProps} />
-							</MainLayout>
-						)}
-					</NotificationProvider>
-				</ThemeProvider>
-			</ProtectedRouteWrapper>
+			<BrowserRouter>
+				<ProtectedRouteWrapper
+					protectedRoutes={protectedRoutes}
+					store={authStore}
+				>
+					{" "}
+					<ThemeProvider theme={theme}>
+						<NotificationProvider>
+							<GlobalStyles />
+							{Component.CustomLayout ? (
+								<Component.CustomLayout>
+									<Component {...pageProps} />
+								</Component.CustomLayout>
+							) : (
+								<MainLayout>
+									<Component {...pageProps} />
+								</MainLayout>
+							)}
+						</NotificationProvider>
+					</ThemeProvider>
+				</ProtectedRouteWrapper>
+			</BrowserRouter>
 		</QueryClientProvider>
 	);
 }

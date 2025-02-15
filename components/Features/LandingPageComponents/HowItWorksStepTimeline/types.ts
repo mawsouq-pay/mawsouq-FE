@@ -7,4 +7,5 @@ export interface HowItWorksStepTimeLineProps {
 	activeStep: number;
 	setActiveStep: (step: number) => void;
 	stopAnimation: () => void;
+	resumeAnimation: () => void;
 }

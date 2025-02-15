@@ -24,7 +24,8 @@ const OrderPreviewConfirmationPopUp = ({
 	const { isLoggedIn } = useAuthStore();
 	const router = useRouter();
 	const { mutate: LinkOrderMutate, isPending } = useLinkOrder();
-	const { showAxiosErrorNotification } = useNotification();
+	const { showAxiosErrorNotification, showSuccessNotification } =
+		useNotification();
 
 	const handleRegisterRedirect = () => {
 		setOpen(false);
@@ -37,14 +38,18 @@ const OrderPreviewConfirmationPopUp = ({
 		LinkOrderMutate(
 			{ orderId },
 			{
-				onSuccess: (response) => {
+				onSuccess: () => {
 					router.push({
 						pathname: clientRoutes.order,
 						query: { id: orderId },
 					});
+					showSuccessNotification(text.successfullyLinkedToOrder);
 				},
 				onError: (error) => {
 					showAxiosErrorNotification(error as AxiosError);
+					router.push({
+						pathname: clientRoutes.homePage,
+					});
 				},
 			}
 		);
@@ -73,7 +78,7 @@ const OrderPreviewConfirmationPopUp = ({
 				style={{
 					width: "100%",
 				}}
-				title={isLoggedIn ? text.proceedByPaying : text.registerToConfirm}
+				title={isLoggedIn ? text.approveAndLinkOrder : text.registerToConfirm}
 				onClick={isLoggedIn ? onConfirm : handleRegisterRedirect}
 				loading={isPending}
 			/>

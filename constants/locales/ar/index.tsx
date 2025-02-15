@@ -5,7 +5,8 @@ const ar = {
 	mawsouqMission:
 		"Mawsouq هو شريكك الموثوق به، يضمن معاملات آمنة وسهلة عبر الإنترنت للمشترين والبائعين.",
 
-	imSelling: "أنا أبيع",
+	im: "أنا",
+	Selling: "أبيع",
 	for: "مقابل",
 	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
 	getStartedNow: "ابدأ الآن!",
@@ -145,6 +146,7 @@ const ar = {
 	registerToConfirm: "Register to Confirm",
 	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
 	proceedByPaying: "Proceed by paying",
+	approveAndLinkOrder: "Proceed by approving order",
 
 	//contact form
 	contactUs: "Contact Us",
@@ -156,6 +158,9 @@ const ar = {
 	pageNotFoundDescription:
 		"The page you're looking for doesn't exist or has been moved.",
 	goToHome: "Go To Home!",
+
+	//Success Snackbar Notifications
+	successfullyLinkedToOrder: "You have been successfully linked to the order",
 };
 
 export default ar;

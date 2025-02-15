@@ -17,7 +17,7 @@ const FAQ = () => {
 			}}
 		>
 			<MSText
-				fontSize="4rem"
+				fontSize="2rem"
 				fontWeight="bold"
 				color={colors.black}
 				style={{ textAlign: "center" }}

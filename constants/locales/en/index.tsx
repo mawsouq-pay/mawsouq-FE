@@ -4,7 +4,8 @@ const en = {
 	confidence: "Confidence",
 	mawsouqMission:
 		"Mawsouq is your trusted middle-man partner, ensuring safe, hassle-free online transactions for buyers and sellers.",
-	imSelling: "I'm Selling",
+	im: "I'm",
+	Selling: "Selling",
 	for: "For",
 	moneyStaysSecure: "Your money stays secure until the deal is complete.",
 	getStartedNow: "Get Started Now!",
@@ -145,6 +146,7 @@ const en = {
 	registerToConfirm: "Register to Confirm",
 	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
 	proceedByPaying: "Proceed by paying",
+	approveAndLinkOrder: "Proceed by approving order",
 
 	//contact form
 	contactUs: "Contact Us",
@@ -157,6 +159,9 @@ const en = {
 	pageNotFoundDescription:
 		"The page you're looking for doesn't exist or has been moved.",
 	goToHome: "Go To Home!",
+
+	//Success Snackbar Notifications
+	successfullyLinkedToOrder: "You have been successfully linked to the order",
 };
 
 export default en;

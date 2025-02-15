@@ -1,32 +1,43 @@
+import useCustomBreakpoint from "@/helpers/screenSizes";
 import React, { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 const ScribbledCircleText = ({ text }: { text: string }) => {
 	const textRef = useRef<HTMLDivElement>(null);
 	const [svgWidth, setSvgWidth] = useState(380);
-	const isMobile = useMediaQuery({ maxWidth: 1000 });
+	const { isMobile, xxl } = useCustomBreakpoint();
 
 	useEffect(() => {
+		const updateWidth = () => {
+			if (textRef.current) {
+				const textWidth = textRef.current.offsetWidth;
+				setSvgWidth(textWidth + (isMobile ? 20 : 40));
+			}
+		};
+		updateWidth();
+		const observer = new ResizeObserver(() => updateWidth());
 		if (textRef.current) {
-			const textWidth = textRef.current.offsetWidth;
-			setSvgWidth(textWidth + (isMobile ? 20 : 40));
+			observer.observe(textRef.current);
 		}
-	}, [text, isMobile]);
-
+		return () => {
+			if (textRef.current) {
+				observer.unobserve(textRef.current);
+			}
+		};
+	}, [isMobile]);
 	return (
 		<div
 			style={{
 				display: "inline-flex",
 				alignItems: "center",
 				position: "relative",
-				bottom: isMobile ? "10px" : "20px",
 				alignSelf: isMobile ? "center" : "flex-start",
 			}}
 		>
 			<div
 				ref={textRef}
 				style={{
-					fontSize: isMobile ? "2.5rem" : "4.5rem",
+					fontSize: isMobile ? "2.5rem" : xxl ? "3rem" : "2rem",
 					fontWeight: "bold",
 					color: "white",
 					position: "relative",

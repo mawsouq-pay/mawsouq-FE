@@ -9,6 +9,7 @@ export const HeroWrapper = styled.section`
 	@media (max-width: 1000px) {
 		height: fit-content;
 	}
+	padding-bottom: 20px;
 `;
 export const RowDiv = styled.div`
 	display: flex;

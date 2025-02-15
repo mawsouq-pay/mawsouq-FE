@@ -131,7 +131,6 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 				},
 			}
 		);
-		console.log(res, "here");
 		Cookies.remove("refreshToken");
 
 		set({

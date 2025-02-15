@@ -7,13 +7,21 @@ import { User } from "@/types/authenticationTypes";
 import { AxiosError } from "axios";
 import { LoginFormInput } from "@/components/Features/Authentication/LoginForm/types";
 import { useLinkOrder } from "./orderHooks";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 export const useLoginHandler = (orderId?: string) => {
 	const router = useRouter();
 	const { mutate: loginSubmit, isPending: loginPending } = useLogin();
 	const { login: storeLogin } = useAuthStore();
-	const { showAxiosErrorNotification, showErrorNotification } =
-		useNotification();
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
+	const {
+		showAxiosErrorNotification,
+		showErrorNotification,
+		showSuccessNotification,
+	} = useNotification();
 	const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
 		useLinkOrder();
 	const handleLogin = (
@@ -61,6 +69,7 @@ export const useLoginHandler = (orderId?: string) => {
 							pathname: clientRoutes.order,
 							query: { id: orderId },
 						});
+						showSuccessNotification(text.successfullyLinkedToOrder);
 					},
 					onError: (error) => {
 						showAxiosErrorNotification(error as AxiosError);
