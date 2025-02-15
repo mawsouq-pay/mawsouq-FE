@@ -19,7 +19,9 @@ const ProtectedRouteWrapper = ({
 	const { isLoggedIn, isSetUpLoading } = store;
 
 	const isProtected = protectedRoutes.includes(router.pathname);
-
+	const isAuthPage =
+		router.pathname === clientRoutes.login ||
+		router.pathname === clientRoutes.register;
 	console.log(
 		"------INSIDE PROTECTED ROUTE WRAPPER-------",
 		isLoggedIn,
@@ -33,12 +35,18 @@ const ProtectedRouteWrapper = ({
 			);
 			router.push(clientRoutes.login);
 		}
+		if (isLoggedIn && isAuthPage) {
+			console.log("------USER LOGGED IN: NAVIGATING TO HOME-------");
+			router.push(clientRoutes.homePage);
+		}
 	}, [isLoggedIn, isSetUpLoading]);
 
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
-
+	if (isLoggedIn && isAuthPage) {
+		return <MSLoadingScreen />;
+	}
 	if (isProtected && !isLoggedIn) {
 		return <MSLoadingScreen />;
 	}

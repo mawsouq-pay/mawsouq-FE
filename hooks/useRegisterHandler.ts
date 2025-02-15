@@ -68,7 +68,7 @@ const useRegisterHandler = (orderId?: string) => {
 				{ orderId },
 				{
 					onSuccess: () => {
-						router.push({
+						router.replace({
 							pathname: clientRoutes.order,
 							query: { id: orderId },
 						});
