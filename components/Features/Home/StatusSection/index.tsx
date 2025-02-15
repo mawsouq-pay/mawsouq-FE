@@ -33,7 +33,7 @@ const StatusSection = (props: StatusSectionProps) => {
 					{text.todayIs} {formattedDate}
 				</MSText>
 			</GreetingDiv>
-			<DirectionFlex>
+			{/* <DirectionFlex>
 				<StatusCard
 					Icon={ActiveTransactionsIcon}
 					title={text.activeTransactions}
@@ -64,7 +64,7 @@ const StatusSection = (props: StatusSectionProps) => {
 						</MSText>
 					}
 				/>
-			</DirectionFlex>
+			</DirectionFlex> */}
 		</MainWrapper>
 	);
 };

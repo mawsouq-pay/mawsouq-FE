@@ -11,6 +11,8 @@ import {
 	FetchOrderDetailsResponse,
 	FetchOrderPreviewResponse,
 	FetchOrdersResponse,
+	LinkOrderInput,
+	LinkOrderResponse,
 	SellerReleaseInput,
 	SellerReleaseResponse,
 	UpdateOrderStatusInput,
@@ -22,6 +24,9 @@ export const useCreateOrder = () => {
 	return usePost<CreateOrderResponse, CreateOrderInput>(
 		serverRoutes.createOrder
 	);
+};
+export const useLinkOrder = () => {
+	return usePost<LinkOrderResponse, LinkOrderInput>(serverRoutes.linkOrder);
 };
 export const useFetchOrders = () => {
 	return useFetch<FetchOrdersResponse>(serverRoutes.fetchOrders, {

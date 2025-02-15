@@ -31,6 +31,12 @@ export interface CreateOrderResponse {
 	message: string;
 	order: Order;
 }
+export interface LinkOrderInput {
+	orderId: string;
+}
+export interface LinkOrderResponse {
+	order: Order;
+}
 
 export interface FetchOrdersResponse {
 	message: string;

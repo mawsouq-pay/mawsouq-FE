@@ -10,6 +10,9 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { MainContainer } from "./OrderPreviewConfirmationPopUp.styles";
 import MSButton from "@/components/Shared/MSButton";
+import { useLinkOrder } from "@/hooks/orderHooks";
+import { useNotification } from "@/store/SnackBarStore";
+import { AxiosError } from "axios";
 
 const OrderPreviewConfirmationPopUp = ({
 	open,
@@ -20,6 +23,8 @@ const OrderPreviewConfirmationPopUp = ({
 	const text = textTr(locale);
 	const { isLoggedIn } = useAuthStore();
 	const router = useRouter();
+	const { mutate: LinkOrderMutate, isPending } = useLinkOrder();
+	const { showAxiosErrorNotification } = useNotification();
 
 	const handleRegisterRedirect = () => {
 		setOpen(false);
@@ -29,10 +34,20 @@ const OrderPreviewConfirmationPopUp = ({
 		});
 	};
 	const onConfirm = () => {
-		router.push({
-			pathname: clientRoutes.order,
-			query: { id: orderId },
-		});
+		LinkOrderMutate(
+			{ orderId },
+			{
+				onSuccess: (response) => {
+					router.push({
+						pathname: clientRoutes.order,
+						query: { id: orderId },
+					});
+				},
+				onError: (error) => {
+					showAxiosErrorNotification(error as AxiosError);
+				},
+			}
+		);
 	};
 	return (
 		<MSModal open={open} onClose={() => setOpen(false)} showActions={false}>
@@ -60,6 +75,7 @@ const OrderPreviewConfirmationPopUp = ({
 				}}
 				title={isLoggedIn ? text.proceedByPaying : text.registerToConfirm}
 				onClick={isLoggedIn ? onConfirm : handleRegisterRedirect}
+				loading={isPending}
 			/>
 		</MSModal>
 	);

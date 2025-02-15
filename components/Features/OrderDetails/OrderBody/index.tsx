@@ -67,17 +67,17 @@ const OrderBody = (props: OrderBodyProps) => {
 							<ArrowIcon isOpen={isOpen}>▼</ArrowIcon>
 						</Header>
 						<Content isOpen={isOpen}>
+							<OrderPaymentSummary
+								price={data?.order.price || 0}
+								escrowFee={20}
+								totalDue={(data?.order?.price || 0) + 20}
+							/>
 							<OrderInfo
 								transactionTitle={data?.order?.transactionTitle || ""}
 								description={data?.order?.description || ""}
 								price={data?.order?.price || 0}
 								status={data?.order?.status || "PENDING"}
 								deliveryDate={data?.order?.deliveryDate || ""}
-							/>
-							<OrderPaymentSummary
-								price={data?.order.price || 0}
-								escrowFee={20}
-								totalDue={(data?.order?.price || 0) + 20}
 							/>
 						</Content>
 					</CollapsibleContainer>

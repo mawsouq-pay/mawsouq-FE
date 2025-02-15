@@ -6,14 +6,16 @@ import { clientRoutes } from "@/routes";
 import { User } from "@/types/authenticationTypes";
 import { AxiosError } from "axios";
 import { LoginFormInput } from "@/components/Features/Authentication/LoginForm/types";
+import { useLinkOrder } from "./orderHooks";
 
 export const useLoginHandler = (orderId?: string) => {
 	const router = useRouter();
-	const { mutate: loginSubmit, isPending } = useLogin();
+	const { mutate: loginSubmit, isPending: loginPending } = useLogin();
 	const { login: storeLogin } = useAuthStore();
 	const { showAxiosErrorNotification, showErrorNotification } =
 		useNotification();
-
+	const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
+		useLinkOrder();
 	const handleLogin = (
 		values: LoginFormInput,
 		setSubmitting: (isSubmitting: boolean) => void
@@ -51,14 +53,29 @@ export const useLoginHandler = (orderId?: string) => {
 
 	const navigateUser = () => {
 		if (orderId) {
-			router.replace({
-				pathname: clientRoutes.order,
-				query: { id: orderId },
-			});
+			LinkOrderMutate(
+				{ orderId },
+				{
+					onSuccess: () => {
+						router.push({
+							pathname: clientRoutes.order,
+							query: { id: orderId },
+						});
+					},
+					onError: (error) => {
+						showAxiosErrorNotification(error as AxiosError);
+						router.replace({
+							pathname: clientRoutes.homePage,
+						});
+					},
+				}
+			);
 		} else {
-			router.replace(clientRoutes.homePage);
+			router.replace({
+				pathname: clientRoutes.homePage,
+			});
 		}
 	};
 
-	return { handleLogin, isPending };
+	return { handleLogin, isPending: loginPending || linkOrderPending };
 };

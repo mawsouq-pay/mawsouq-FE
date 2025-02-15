@@ -82,8 +82,8 @@ export const Content = styled.div<{ isOpen: boolean }>`
 		opacity 0.4s ease-in-out;
 	opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
 	padding: ${({ isOpen }) => (isOpen ? "15px" : "0px")};
-
-	${media.below925`
+	flex-direction: column;
+	/* ${media.below925`
 		flex-direction: column;
-	`}
+	`} */
 `;
