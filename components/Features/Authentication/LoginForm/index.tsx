@@ -9,7 +9,6 @@ import { Hide, Show } from "@/assets/icons";
 import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
 import { useLoginHandler } from "@/hooks/useLoginHandler";
-import { useLinkOrder } from "@/hooks/orderHooks";
 
 const LoginForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();

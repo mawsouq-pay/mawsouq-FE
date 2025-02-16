@@ -2,7 +2,7 @@ import { colors } from "@/constants/theme";
 import styled from "styled-components";
 
 export const FormWrapper = styled.div`
-	min-width: 50%;
+	width: 35%;
 	background-color: white;
 	padding: 24px;
 	border-radius: 20px;
@@ -12,12 +12,12 @@ export const FormWrapper = styled.div`
 export const FormField = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 16px;
+	margin-bottom: 30px;
 `;
 
 export const PreviewText = styled.div`
 	padding: 12px;
-	border: 1px solid ${colors.green};
+	border-bottom: 1px solid ${colors.green};
 	border-radius: 2px;
 	font-size: 14px;
 	margin-top: 8px;
@@ -27,13 +27,13 @@ export const PreviewText = styled.div`
 
 export const PreviewTextArea = styled.div`
 	padding: 12px;
-	border: 1px solid ${colors.green};
+	border-bottom: 1px solid ${colors.green};
 	border-radius: 2px;
 	font-size: 14px;
 	margin-top: 8px;
 	background-color: ${colors.white};
 	color: ${colors.black};
-	height: 80px;
+	//height: 80px;
 	overflow-y: auto;
 `;
 

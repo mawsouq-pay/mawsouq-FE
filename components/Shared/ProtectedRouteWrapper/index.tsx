@@ -20,8 +20,9 @@ const ProtectedRouteWrapper = ({
 
 	const isProtected = protectedRoutes.includes(router.pathname);
 	const isAuthPage =
-		router.pathname === clientRoutes.login ||
-		router.pathname === clientRoutes.register;
+		(router.pathname === clientRoutes.login ||
+			router.pathname === clientRoutes.register) &&
+		Object.keys(router.query).length === 0;
 	console.log(
 		"------INSIDE PROTECTED ROUTE WRAPPER-------",
 		isLoggedIn,

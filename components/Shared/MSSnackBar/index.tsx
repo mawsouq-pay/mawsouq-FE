@@ -13,7 +13,7 @@ const MSSnackBar = ({
 	open,
 	message,
 	severity = "info",
-	autoHideDuration = 5000,
+	autoHideDuration = 10000,
 	onClose,
 	details,
 }: MSSnackBarProps) => {
