@@ -47,7 +47,7 @@ export const useLoginHandler = (orderId?: string) => {
 						storeLogin({ accessToken, refreshToken }, user);
 						navigateUser();
 					} else {
-						showErrorNotification("Something went wrong. Please try again.");
+						showErrorNotification(text.genericErrorMessage);
 					}
 					setSubmitting(false);
 				},
@@ -60,34 +60,25 @@ export const useLoginHandler = (orderId?: string) => {
 	};
 
 	const navigateUser = () => {
-		console.log("navigate");
 		if (orderId) {
-			console.log("navigat2");
-
-			try {
-				LinkOrderMutate(
-					{ orderId },
-					{
-						onSuccess: () => {
-							console.log("✅ Success: Order Linked!");
-							router.replace({
-								pathname: clientRoutes.order,
-								query: { id: orderId },
-							});
-							showSuccessNotification(text.successfullyLinkedToOrder);
-						},
-						onError: (error) => {
-							console.log("❌ Error occurred:", error);
-							showAxiosErrorNotification(error as AxiosError);
-							router.push({
-								pathname: clientRoutes.homePage,
-							});
-						},
-					}
-				);
-			} catch (error) {
-				console.log("🚨 Caught Error before mutation execution:", error);
-			}
+			LinkOrderMutate(
+				{ orderId },
+				{
+					onSuccess: () => {
+						router.replace({
+							pathname: clientRoutes.order,
+							query: { id: orderId },
+						});
+						showSuccessNotification(text.successfullyLinkedToOrder);
+					},
+					onError: (error) => {
+						showAxiosErrorNotification(error as AxiosError);
+						router.push({
+							pathname: clientRoutes.homePage,
+						});
+					},
+				}
+			);
 		} else {
 			console.log("navigat3");
 
