@@ -72,7 +72,7 @@ export const ImageWrapper = styled.div`
 	}
 `;
 export const BlobContainer = styled.div<{ active?: boolean }>`
-	width: 65%;
+	width: 450px;
 	height: 100%;
 	background-position: center center;
 	background-repeat: no-repeat;

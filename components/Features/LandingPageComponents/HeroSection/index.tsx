@@ -43,6 +43,7 @@ const HeroSection = () => {
 		"Event planning and catering services",
 		"Organic foods and health supplements",
 	];
+	const prices = ["1000 EGP", "800 EGP", "4000 EGP", "10000 EGP", "2000 EGP"];
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			setFade(false);
@@ -52,7 +53,7 @@ const HeroSection = () => {
 				);
 				setFade(true);
 			}, 500);
-		}, 3000);
+		}, 3500);
 		return () => clearInterval(intervalId);
 	}, [sentences.length]);
 
@@ -89,31 +90,33 @@ const HeroSection = () => {
 						</MSText>
 					</DescriptionWrapper>
 					<HeroInputsWrapper>
-						<InputFieldDiv>
-							<MSText>
-								<span style={{ color: colors.labelColor }}>im</span>{" "}
-								<span style={{ color: colors.white }}>selling</span>
-							</MSText>
-							<Divider
-								orientation="vertical"
-								flexItem
-								sx={{ backgroundColor: colors.labelColor }}
-							/>
-							<MSText
-								color={colors.white}
+						<MSText
+							fontSize={"1.8rem"}
+							mobileFontSize={"1.1rem"}
+							color={colors.labelColor}
+						>
+							Whether you're selling or buying{" "}
+							<span
 								style={{
 									transition: "opacity 0.5s ease",
 									opacity: fade ? 1 : 0,
 								}}
 							>
 								{sentences[currentSentenceIndex]}
-							</MSText>
-						</InputFieldDiv>
-						<InputFieldDiv>
-							<MSText color={colors.labelColor}>{text.for} £</MSText>
-							<MSText color={colors.white}>300</MSText>
-						</InputFieldDiv>
+							</span>
+							for{" "}
+							<span
+								style={{
+									transition: "opacity 0.5s ease",
+									opacity: fade ? 1 : 0,
+								}}
+							>
+								{prices[currentSentenceIndex]}
+							</span>
+							, Mawsouq has you covered.
+						</MSText>
 					</HeroInputsWrapper>
+
 					<SubmitWrapper>
 						<StyledButton>
 							<MSText

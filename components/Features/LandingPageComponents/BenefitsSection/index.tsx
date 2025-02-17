@@ -13,7 +13,7 @@ import { benefits } from "./types";
 
 const BenefitsSection = () => {
 	return (
-		<BenefitsWrapper>
+		<BenefitsWrapper id="benefits">
 			<BenefitsTitle>Why Choose Us?</BenefitsTitle>
 			<BenefitsContainer>
 				{benefits.map((benefit, index) => (
