@@ -1,6 +1,5 @@
 import React from "react";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
+import { Formik } from "formik";
 import {
 	MainWrapper,
 	RoleOptions,
@@ -19,6 +18,7 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { RolesEnum } from "@/constants";
 import { colors } from "@/constants/theme";
+import { StartTransactionFormNames } from "../StartTransactionCard/types";
 
 const RoleSelection = ({ onSubmit, initialValues }: RoleSelectionProps) => {
 	const { locale } = useLocaleStore();
@@ -42,7 +42,7 @@ const RoleSelection = ({ onSubmit, initialValues }: RoleSelectionProps) => {
 						<FormItem
 							label={text.transactionTitle}
 							id={initialValues.transactionTitle}
-							name="transactionTitle"
+							name={StartTransactionFormNames.transactionTitle}
 							placeholder={text.enterTitle}
 						/>
 
@@ -52,33 +52,17 @@ const RoleSelection = ({ onSubmit, initialValues }: RoleSelectionProps) => {
 							color={colors.gray}
 							style={{ marginTop: "50px" }}
 						>
-							Choose Your Role
+							{text.chooseRole}
 						</MSText>
 						<RoleOptions>
 							<RoleCard
-								isSelected={values.role === RolesEnum.BUYER}
-								onClick={() => setFieldValue("role", RolesEnum.BUYER)}
-							>
-								<RadioButton
-									type="radio"
-									checked={values.role === RolesEnum.BUYER}
-									readOnly
-								/>
-								<IconWrapper>
-									<CartIcon />
-								</IconWrapper>
-								<MSText
-									fontSize="20px"
-									fontWeight="bold"
-									color={colors.buttonGreenBackground}
-								>
-									Buyer
-								</MSText>
-							</RoleCard>
-
-							<RoleCard
 								isSelected={values.role === RolesEnum.SELLER}
-								onClick={() => setFieldValue("role", RolesEnum.SELLER)}
+								onClick={() => {
+									setFieldValue(
+										`${StartTransactionFormNames.role}`,
+										RolesEnum.SELLER
+									);
+								}}
 							>
 								<RadioButton
 									type="radio"
@@ -93,7 +77,32 @@ const RoleSelection = ({ onSubmit, initialValues }: RoleSelectionProps) => {
 									fontWeight="bold"
 									color={colors.buttonGreenBackground}
 								>
-									Seller
+									{text.seller}
+								</MSText>
+							</RoleCard>
+							<RoleCard
+								isSelected={values.role === RolesEnum.BUYER}
+								onClick={() => {
+									setFieldValue(
+										`${StartTransactionFormNames.role}`,
+										RolesEnum.BUYER
+									);
+								}}
+							>
+								<RadioButton
+									type="radio"
+									checked={values.role === RolesEnum.BUYER}
+									readOnly
+								/>
+								<IconWrapper>
+									<CartIcon />
+								</IconWrapper>
+								<MSText
+									fontSize="20px"
+									fontWeight="bold"
+									color={colors.buttonGreenBackground}
+								>
+									{text.buyer}
 								</MSText>
 							</RoleCard>
 						</RoleOptions>

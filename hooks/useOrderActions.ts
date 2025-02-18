@@ -17,7 +17,7 @@ import queryClient from "@/client/reactQClient";
 export const useOrderActions = (
 	orderId: string,
 	isFetcherSeller: boolean,
-	orderStatus: keyof typeof OrderStatusEnum
+	orderStatus: OrderStatusEnum
 ) => {
 	const router = useRouter();
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);

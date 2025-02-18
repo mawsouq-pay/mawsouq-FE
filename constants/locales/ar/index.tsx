@@ -16,6 +16,8 @@ const ar = {
 	goodEvening: "مساء الخير،",
 	todayIs: "اليوم هو",
 	orders: "Orders",
+	buyer: "Buyer",
+	seller: "Seller",
 
 	// Actions
 	createANewTransaction: "ابدأ معاملة جديدة",
@@ -25,6 +27,10 @@ const ar = {
 	next: "التالي",
 	submit: "إرسال",
 	back: "رجوع",
+	cancel: "Cancel",
+	confirm: "Confirm",
+	save: "Save",
+	edit: "Edit",
 
 	// Navigation and Overview
 	walletBalance: "رصيد المحفظة",
@@ -35,6 +41,8 @@ const ar = {
 	actionRequired: "إجراء مطلوب",
 	noTransactionsFound: "No transactions found.",
 	startTransaction: "Start a New Transaction",
+	goToProfile: "Go to Profile",
+	profileManagement: "Profile Management",
 
 	// Order Attributes
 	description: "الوصف",
@@ -50,6 +58,9 @@ const ar = {
 	emailPlaceHolder: "أدخل البريد الإلكتروني",
 	enterDescription: "أدخل الوصف",
 	enterTitle: "أدخل عنوان المعاملة",
+	enterCardNumber: "Enter Card Number",
+	passwordPlaceHolder: "Enter your password",
+	namePlaceHolder: "Enter your name",
 
 	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",
@@ -75,6 +86,8 @@ const ar = {
 	phoneMustBeDifferent: "Phone number must be different from your own",
 	emailMustBeDifferent: "Email must be different from your own",
 	requiredPrice: "Price is required",
+	requiredField: "This field is required",
+	invalidBank: "Bank is invalid , please choose one of the provided options",
 
 	//Error Messages
 	refreshAndTryAgain: "حدث خطأ غير متوقع، يرجى التحديث والمحاولة مرة أخرى.",
@@ -167,6 +180,31 @@ const ar = {
 	joinTransactionPrompt:
 		"Please paste the link you received from the person to join a transaction.",
 	joinLinkInvalidType: "This link is not a mawsouq join link!",
+
+	//chooseRole
+	chooseRole: "Choose Your Role",
+
+	//Dropdown
+	chooseAnOptions: "Choose An option",
+
+	//payoutSelection
+	payoutDetails: "Payout Details",
+	chooseYourPayoutMethod: "Choose your payout method",
+	chooseYourBankName: "Choose your bank name",
+	cardNumber: "Card Number",
+	payoutRequired: "Payout Method Required",
+	payoutRequiredExplanation:
+		"As a seller, you need to set up a payout method in your profile before you can proceed.",
+	noPayoutMethods: "No payout methods added yet.",
+	yourPayoutMethods: "Your Payout Methods",
+	bank: "Bank",
+	enterYourPayoutDetails:
+		"Enter your payout details to receive payments when an order is completed.",
+	payoutAddedNotification: "payout successfully added",
+	addPayoutMethod: "Add Payout Method",
+
+	//profile General info
+	generalInformation: "General Information",
 };
 
 export default ar;

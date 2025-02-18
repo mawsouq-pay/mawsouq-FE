@@ -1,30 +1,23 @@
 import React from "react";
 import MSText from "../../../Shared/MSText";
-import ShareLink from "../ShareLink";
-import TransactionForm from "../TransactionForm";
 import {
 	MainWrapper,
 	TitleWrapper,
 	ContentWrapper,
 } from "./StartTransactionCard.styles";
 import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
-import RoleSelection from "../RoleSelection";
 import { useStartTransaction } from "@/hooks/useStartTransaction";
+import PayoutOptionRequiredModal from "../PayoutOptionRequiredModal";
+import { text } from "stream/consumers";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 const StartTransactionCard = () => {
-	const {
-		steps,
-		formData,
-		orderLink,
-		orderId,
-		activeStep,
-		isPending,
-		error,
-		handleNext,
-		handleConfirmOrder,
-		handleBack,
-		navigateToFirstStep,
-	} = useStartTransaction();
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
+	const { steps, activeStep, renderStep, payoutModalOpen, setPayoutModalOpen } =
+		useStartTransaction();
 
 	return (
 		<MainWrapper>
@@ -34,34 +27,18 @@ const StartTransactionCard = () => {
 					fontWeight="bold"
 					style={{ alignSelf: "center" }}
 				>
-					Create Order
+					{text.createOrder}
 				</MSText>
 			</TitleWrapper>
 			<MSStepProgressBar steps={steps} activeStep={activeStep} />
-
 			<ContentWrapper>
-				<div style={{ marginTop: "20px" }}>
-					{activeStep === 0 && (
-						<RoleSelection initialValues={formData} onSubmit={handleNext} />
-					)}
-					{activeStep === 1 && (
-						<TransactionForm
-							initialValues={formData}
-							onSubmit={handleConfirmOrder}
-							onBack={handleBack}
-						/>
-					)}
-					{activeStep === 2 && (
-						<ShareLink
-							orderLink={orderLink}
-							isPending={isPending}
-							error={error}
-							navigateToFirstStep={navigateToFirstStep}
-							orderId={orderId}
-						/>
-					)}
-				</div>
+				<div style={{ marginTop: "20px" }}>{renderStep()}</div>
 			</ContentWrapper>
+			<PayoutOptionRequiredModal
+				open={payoutModalOpen}
+				setOpen={setPayoutModalOpen}
+			/>
+			;
 		</MainWrapper>
 	);
 };

@@ -3,7 +3,6 @@ import StatusSection from "@/components/Features/Home/StatusSection";
 import OrdersOverviewSection from "@/components/Features/Home/OrdersOverviewSection";
 import { useFetchOrders } from "@/hooks/orderHooks";
 import HomePageLayout from "@/layouts/HomePageLayout";
-import { useUserStats } from "@/hooks/statusHooks";
 import React from "react";
 import styled from "styled-components";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
@@ -16,9 +15,7 @@ const HomePage = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { data: ordersData, isLoading, error } = useFetchOrders();
-	const { numberOfActiveTransactions, walletBalance } = useUserStats(
-		ordersData?.orders
-	);
+
 	const retryButton = (
 		<MSButton
 			title={text.pleaseTryAgain}
@@ -40,9 +37,7 @@ const HomePage = () => {
 			displayErrorReason={true}
 		>
 			<HomePageWrapper>
-				<StatusSection
-					numberOfactiveTransactions={numberOfActiveTransactions}
-				/>
+				<StatusSection />
 				<JoinTransactionSection />
 				<ActionSection />
 				<OrdersOverviewSection latestOrders={ordersData?.orders?.slice(0, 3)} />

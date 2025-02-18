@@ -50,14 +50,14 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 							label="Name"
 							id="name"
 							name="name"
-							placeholder="Enter your name"
+							placeholder={text.namePlaceHolder}
 						/>
 						<FormItem
 							label="Email"
 							type="email"
 							id="email"
 							name="email"
-							placeholder="Enter your email"
+							placeholder={text.emailPlaceHolder}
 						/>
 						<FormItem
 							label={text.phoneNumber}
@@ -70,7 +70,7 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 							label={text.password}
 							id="password"
 							name="password"
-							placeholder="Enter your password"
+							placeholder={text.passwordPlaceHolder}
 							icon={
 								<span
 									onClick={togglePasswordVisibility}

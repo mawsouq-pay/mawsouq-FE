@@ -43,6 +43,7 @@ export const useLoginHandler = (orderId?: string) => {
 							name: response?.data?.name,
 							email: response?.data?.email,
 							phone: response?.data?.phone,
+							payoutOptions: response?.data?.payoutOptions,
 						};
 						storeLogin({ accessToken, refreshToken }, user);
 						navigateUser();

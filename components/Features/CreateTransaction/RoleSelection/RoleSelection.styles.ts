@@ -91,4 +91,5 @@ export const FlexRow = styled.div`
 	flex: 1;
 
 	justify-content: flex-end;
+	margin-top: 60px;
 `;

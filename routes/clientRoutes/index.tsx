@@ -13,6 +13,7 @@ const clientRoutes = {
 	previewOrder: "/previewOrder",
 
 	howItWorks: "/howItWorks",
+	profilePage: "/profilePage",
 };
 
 const publicRoutes = [

@@ -154,6 +154,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 					email: res.data.email,
 					name: res.data.name,
 					phone: res.data.phone,
+					payoutOptions: res.data.payoutOptions,
 				};
 			}
 		} catch (e) {

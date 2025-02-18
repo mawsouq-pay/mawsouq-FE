@@ -1,18 +1,22 @@
-//Send enum as OrderStatusEnum.PENDING,backend sees it as "Pending"
-//We receive it from backend as same "Pending" so its type is (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum]
+import { Order } from "@/types/ordersTypes";
 
-export const OrderStatusEnum = Object.freeze({
-	PENDING: "PENDING", //the order was created but not paid for
-	IN_PROGRESS: "IN_PROGRESS", //order is paidd for , seller is "creating ig"
-	IN_TRANSIT: "IN_TRANSIT", //seller marked it as on the way
-	DELIVERED: "DELIVERED", //buyer marked it as delivered
-	COMPLETED: "COMPLETED", //buyer approved it so funds released
-	DISPUTED: "DISPUTED", //buyer wants to start khena2a
-	CANCELLED: "CANCELLED", //order is abandoned and no updates done to it
-});
+export enum OrderStatusEnum {
+	PENDING = "PENDING", // The order was created but not paid for
+	IN_PROGRESS = "IN_PROGRESS", // Order is paid for, seller is "creating it"
+	IN_TRANSIT = "IN_TRANSIT", // Seller marked it as on the way
+	DELIVERED = "DELIVERED", // Buyer marked it as delivered
+	COMPLETED = "COMPLETED", // Buyer approved it, so funds released
+	DISPUTED = "DISPUTED", // Buyer wants to start a dispute
+	CANCELLED = "CANCELLED", // Order is abandoned and no updates done to it
+}
+
+export enum RolesEnum {
+	BUYER = "BUYER",
+	SELLER = "SELLER",
+}
 
 export const orderStatusObject: Record<
-	keyof typeof OrderStatusEnum,
+	OrderStatusEnum,
 	{
 		text: string;
 		backgroundColor: string;
@@ -64,14 +68,14 @@ export const orderStatusObject: Record<
 	},
 };
 export const orderProgressBarData: Record<
-	keyof typeof OrderStatusEnum,
+	OrderStatusEnum,
 	{
 		activeStep: number;
 		messageForBuyer: string;
 		messageForSeller: string;
 		buyerCTA: string | null;
 		sellerCTA: string | null;
-		nextStatus: keyof typeof OrderStatusEnum | null;
+		nextStatus: OrderStatusEnum | null;
 	}
 > = {
 	PENDING: {
@@ -142,7 +146,7 @@ export const orderProgressBarData: Record<
 };
 
 export const orderStatusConfirmationMessages: Record<
-	keyof typeof OrderStatusEnum,
+	OrderStatusEnum,
 	{ title: string; message: string }
 > = {
 	PENDING: {
@@ -177,7 +181,54 @@ export const orderStatusConfirmationMessages: Record<
 	},
 };
 
-export const RolesEnum = Object.freeze({
-	BUYER: "BUYER",
-	SELLER: "SELLER",
-});
+export const BANK_CODES = [
+	{ name: "Ahli United Bank", code: "AUB" },
+	{ name: "MIDBANK", code: "MIDB" },
+	{ name: "Banque Du Caire", code: "BDC" },
+	{ name: "HSBC Bank Egypt S.A.E", code: "HSBC" },
+	{ name: "Credit Agricole Egypt S.A.E", code: "CAE" },
+	{ name: "Egyptian Gulf Bank", code: "EGB" },
+	{ name: "The United Bank", code: "UB" },
+	{ name: "Qatar National Bank Alahli", code: "QNB" },
+	{ name: "Arab Bank PLC", code: "ARAB" },
+	{ name: "Emirates National Bank of Dubai", code: "ENBD" },
+	{ name: "Al Ahli Bank of Kuwait – Egypt", code: "ABK" },
+	{ name: "National Bank of Kuwait – Egypt", code: "NBK" },
+	{ name: "Arab Banking Corporation - Egypt S.A.E", code: "ABC" },
+	{ name: "First Abu Dhabi Bank", code: "FAB" },
+	{ name: "Abu Dhabi Islamic Bank – Egypt", code: "ADIB" },
+	{ name: "Commercial International Bank - Egypt S.A.E", code: "CIB" },
+	{ name: "Housing And Development Bank", code: "HDB" },
+	{ name: "Banque Misr", code: "MISR" },
+	{ name: "Arab African International Bank", code: "AAIB" },
+	{ name: "Egyptian Arab Land Bank", code: "EALB" },
+	{ name: "Export Development Bank of Egypt", code: "EDBE" },
+	{ name: "Faisal Islamic Bank of Egypt", code: "FAIB" },
+	{ name: "Blom Bank", code: "BLOM" },
+	{ name: "Abu Dhabi Commercial Bank – Egypt", code: "ADCB" },
+	{ name: "Alex Bank Egypt", code: "BOA" },
+	{ name: "Societe Arabe Internationale De Banque", code: "SAIB" },
+	{ name: "National Bank of Egypt", code: "NBE" },
+	{ name: "Al Baraka Bank Egypt B.S.C.", code: "ABRK" },
+	{ name: "Egypt Post", code: "POST" },
+	{ name: "Nasser Social Bank", code: "NSB" },
+	{ name: "Industrial Development Bank", code: "IDB" },
+	{ name: "Suez Canal Bank", code: "SCB" },
+	{ name: "Mashreq Bank", code: "MASH" },
+	{ name: "Arab Investment Bank", code: "AIB" },
+	{ name: "General Authority For Supply Commodities", code: "GASC" },
+	{ name: "Arab International Bank", code: "ARIB" },
+	{ name: "Agricultural Bank of Egypt", code: "PDAC" },
+	{ name: "National Bank of Greece", code: "NBG" },
+	{ name: "Central Bank Of Egypt", code: "CBE" },
+	{ name: "ATTIJARIWAFA BANK Egypt", code: "BBE" },
+];
+export type BankCode = (typeof BANK_CODES)[number]["code"];
+export const bankCodeValues = BANK_CODES.map((bank) => bank.code);
+export enum PayoutMethodEnum {
+	VODAFONE = "vodafone",
+	ETISALAT = "etisalat",
+	ORANGE = "orange",
+	BANK_WALLET = "bank_wallet",
+	BANK_CARD = "bank_card",
+}

@@ -12,7 +12,7 @@ import {
 interface FormItemProps {
 	label: string;
 	type?: string;
-	id: string;
+	id?: string;
 	name: string;
 	placeholder?: string;
 	as?: "input" | "textarea";
@@ -25,7 +25,7 @@ interface FormItemProps {
 const FormItem: React.FC<FormItemProps> = ({
 	label,
 	type = "text",
-	id,
+	id = label,
 	name,
 	placeholder,
 	as = "input",
