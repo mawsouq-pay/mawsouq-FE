@@ -4,6 +4,7 @@ import { orderProgressBarData } from "@/constants";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
 const steps = [
+	"Pending Join",
 	"Pending Payment",
 	"Creating Order",
 	"In Transit",

@@ -11,8 +11,9 @@ import {
 	orderStatusObject,
 	orderStatusConfirmationMessages,
 } from "@/constants";
-import { clientRoutes } from "@/routes";
 import queryClient from "@/client/reactQClient";
+import { useNotification } from "@/store/SnackBarStore";
+import { AxiosError } from "axios";
 
 export const useOrderActions = (
 	orderId: string,
@@ -21,7 +22,11 @@ export const useOrderActions = (
 ) => {
 	const router = useRouter();
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-
+	const {
+		showErrorNotification,
+		showSuccessNotification,
+		showAxiosErrorNotification,
+	} = useNotification();
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
 	const { mutate: updateOrder, isPending: updateOrderPending } =
@@ -40,18 +45,22 @@ export const useOrderActions = (
 	const handleCtaClick = () => {
 		setIsConfirmModalOpen(false);
 
-		if (orderStatus === OrderStatusEnum.PENDING && !isFetcherSeller) {
+		if (orderStatus === OrderStatusEnum.PENDING_PAYMENT && !isFetcherSeller) {
 			createLink(
 				{ orderId },
 				{
 					onSuccess: (response) => {
-						router.push({
-							pathname: clientRoutes.paymentPage,
-							query: { iframeLink: response?.data?.iframeLink },
-						});
+						window.location.href = response?.data?.iframeLink;
+						// router.push({
+						// 	pathname: response?.data?.iframeLink,
+						// 	query: { iframeLink: response?.data?.iframeLink },
+						// });
 						queryClient.invalidateQueries({
 							queryKey: ["fetchOrderById", orderId],
 						});
+					},
+					onError(error, variables, context) {
+						showErrorNotification("Error occured");
 					},
 				}
 			);

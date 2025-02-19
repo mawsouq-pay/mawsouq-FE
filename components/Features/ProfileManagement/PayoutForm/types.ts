@@ -42,7 +42,11 @@ export const createValidationSchema = (locale: any) => {
 		}),
 		cardNumber: Yup.string().when("method", {
 			is: PayoutMethodEnum.BANK_CARD,
-			then: (schema) => schema.required(text.requiredField),
+			then: () =>
+				Yup.string()
+					.trim()
+					.matches(/^\d{16}$|^\d{4}-\d{4}-\d{4}-\d{4}$/)
+					.required(text.requiredField),
 		}),
 		fullName: Yup.string().required(text.requiredField),
 	});

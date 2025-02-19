@@ -23,6 +23,7 @@ import {
 	OrderPaymentSummary,
 	OrderProgress,
 } from "..";
+import { OrderStatusEnum } from "@/constants";
 
 const OrderBody = (props: OrderBodyProps) => {
 	const { locale } = useLocaleStore();
@@ -50,14 +51,16 @@ const OrderBody = (props: OrderBodyProps) => {
 				</MSText>
 			</ActionBox>
 
-			<OrderProgress status={data?.order?.status || "PENDING"} />
+			<OrderProgress
+				status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
+			/>
 
 			<MainWrapper>
 				<InfoSection>
 					<OrderAction
 						orderId={data?.order?._id ?? ""}
 						isFetcherSeller={data?.order?.isFetcherSeller ?? false}
-						orderStatus={data?.order.status ?? "PENDING"}
+						orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_JOIN}
 					/>
 					<CollapsibleContainer>
 						<Header onClick={toggleOpen}>
@@ -76,7 +79,7 @@ const OrderBody = (props: OrderBodyProps) => {
 								transactionTitle={data?.order?.transactionTitle || ""}
 								description={data?.order?.description || ""}
 								price={data?.order?.price || 0}
-								status={data?.order?.status || "PENDING"}
+								status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
 								deliveryDate={data?.order?.deliveryDate || ""}
 							/>
 						</Content>

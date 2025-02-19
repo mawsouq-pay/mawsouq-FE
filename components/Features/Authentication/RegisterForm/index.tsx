@@ -47,13 +47,13 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 
 					<Form style={{ gap: 20 }}>
 						<FormItem
-							label="Name"
+							label={text.fullName}
 							id="name"
 							name="name"
 							placeholder={text.namePlaceHolder}
 						/>
 						<FormItem
-							label="Email"
+							label={text.email}
 							type="email"
 							id="email"
 							name="email"

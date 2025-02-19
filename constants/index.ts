@@ -1,13 +1,14 @@
 import { Order } from "@/types/ordersTypes";
 
 export enum OrderStatusEnum {
-	PENDING = "PENDING", // The order was created but not paid for
-	IN_PROGRESS = "IN_PROGRESS", // Order is paid for, seller is "creating it"
-	IN_TRANSIT = "IN_TRANSIT", // Seller marked it as on the way
-	DELIVERED = "DELIVERED", // Buyer marked it as delivered
-	COMPLETED = "COMPLETED", // Buyer approved it, so funds released
-	DISPUTED = "DISPUTED", // Buyer wants to start a dispute
-	CANCELLED = "CANCELLED", // Order is abandoned and no updates done to it
+	PENDING_JOIN = "PENDING_JOIN", // Order created but waiting for the other party to join
+	PENDING_PAYMENT = "PENDING_PAYMENT", // Buyer has joined, waiting for payment
+	IN_PROGRESS = "IN_PROGRESS", // Payment completed, order in progress
+	IN_TRANSIT = "IN_TRANSIT", // Seller shipped/delivered the order
+	DELIVERED = "DELIVERED", // Buyer confirmed receipt
+	COMPLETED = "COMPLETED", // Both parties confirmed order is finished
+	DISPUTED = "DISPUTED", // Order is under dispute
+	CANCELLED = "CANCELLED", // Order was cancelled
 }
 
 export enum RolesEnum {
@@ -24,17 +25,24 @@ export const orderStatusObject: Record<
 		historyMessage: string;
 	}
 > = {
-	PENDING: {
-		text: "pending",
+	PENDING_JOIN: {
+		text: "pending_join",
 		backgroundColor: "#FFF9C4",
 		textColor: "#000000",
-		historyMessage: "Order was created and is pending payment from the buyer.",
+		historyMessage: "Order was created.",
+	},
+	PENDING_PAYMENT: {
+		text: "pending_payment",
+		backgroundColor: "#FFF9C4",
+		textColor: "#000000",
+		historyMessage:
+			"Order was confirmed and is pending payment from the buyer.",
 	},
 	IN_PROGRESS: {
 		text: "in_progress",
 		backgroundColor: "#BBDEFB",
 		textColor: "#000000",
-		historyMessage: "Order is in progress; the seller is working on the item.",
+		historyMessage: "Order has been paid; the seller is working on the item.",
 	},
 	IN_TRANSIT: {
 		text: "in_transit",
@@ -78,8 +86,16 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum | null;
 	}
 > = {
-	PENDING: {
+	PENDING_JOIN: {
 		activeStep: 0,
+		messageForBuyer: "Waiting for the seller to join and accept the order.",
+		messageForSeller: "Waiting for the buyer to join and accept the order.",
+		buyerCTA: null,
+		sellerCTA: null,
+		nextStatus: OrderStatusEnum.PENDING_PAYMENT,
+	},
+	PENDING_PAYMENT: {
+		activeStep: 1,
 		messageForBuyer: "Waiting for your payment to proceed with the order.",
 		messageForSeller: "Waiting for the buyer to make the payment.",
 		buyerCTA: "Make Payment",
@@ -87,7 +103,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.IN_PROGRESS,
 	},
 	IN_PROGRESS: {
-		activeStep: 1,
+		activeStep: 2,
 		messageForBuyer:
 			"Your order is being prepared by the seller. Please wait for updates.",
 		messageForSeller:
@@ -98,7 +114,7 @@ export const orderProgressBarData: Record<
 	},
 
 	IN_TRANSIT: {
-		activeStep: 2,
+		activeStep: 3,
 		messageForBuyer:
 			"Your order is currently in transit. Please confirm receipt once it has been delivered.",
 		messageForSeller:
@@ -109,7 +125,7 @@ export const orderProgressBarData: Record<
 	},
 
 	DELIVERED: {
-		activeStep: 3,
+		activeStep: 4,
 		messageForBuyer: "Order Is Delivered , awaiting your payment",
 		messageForSeller: "Order Is Delivered , awaiting buyer release",
 		buyerCTA: "Confirm Release",
@@ -117,7 +133,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	COMPLETED: {
-		activeStep: 4,
+		activeStep: 5,
 		messageForBuyer: "Thank you! Your order is completed.",
 		messageForSeller:
 			"The order is completed, and the payment has been released.",
@@ -149,7 +165,11 @@ export const orderStatusConfirmationMessages: Record<
 	OrderStatusEnum,
 	{ title: string; message: string }
 > = {
-	PENDING: {
+	PENDING_JOIN: {
+		title: "",
+		message: "",
+	},
+	PENDING_PAYMENT: {
 		title: "Mark as In Progress?",
 		message: "Are you sure you want to proceed in the order by paying?",
 	},

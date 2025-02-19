@@ -37,8 +37,19 @@ const PayoutForm = (props: PayoutFormProps) => {
 	});
 
 	const handleSubmit = async (values: PayoutDetailsT) => {
-		console.log(values);
-		onSubmit(values);
+		const paymentDetails = {
+			method: values.method,
+			phoneNumber: values.phoneNumber,
+			fullName: values.fullName,
+			...(values.method === PayoutMethodEnum.BANK_CARD
+				? { cardNumber: values.cardNumber }
+				: {}),
+			...(values.method === PayoutMethodEnum.BANK_CARD
+				? { bankCode: values.bankCode }
+				: {}),
+		};
+		console.log(paymentDetails);
+		onSubmit(paymentDetails);
 	};
 
 	return (
@@ -52,9 +63,11 @@ const PayoutForm = (props: PayoutFormProps) => {
 					<StyledForm>
 						<MSDropdown
 							options={PayoutDropdownSelections}
-							onChange={(val) =>
-								setFieldValue(`${PayoutFormNames.payoutMethod}`, val)
-							}
+							onChange={(val) => {
+								setFieldValue(`${PayoutFormNames.payoutCardNumber}`, "");
+								setFieldValue(`${PayoutFormNames.payoutBankCode}`, "");
+								setFieldValue(`${PayoutFormNames.payoutMethod}`, val);
+							}}
 							name={PayoutFormNames.payoutMethod}
 						/>
 
