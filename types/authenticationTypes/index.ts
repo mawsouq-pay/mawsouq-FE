@@ -1,7 +1,17 @@
+import { PayoutMethodEnum, BankCode } from "@/constants";
+
 export interface User {
 	name: string;
 	phone: string;
 	email: string;
+	payoutOptions?: PayoutDetailsT[];
+}
+export interface PayoutDetailsT {
+	method: PayoutMethodEnum;
+	phoneNumber: string;
+	fullName: string;
+	cardNumber?: string;
+	bankCode?: BankCode;
 }
 export interface LoginInput {
 	email: string;
@@ -13,6 +23,7 @@ export interface LoginResponse {
 	phone: string;
 	name: string;
 	email: string;
+	payoutOptions?: PayoutDetailsT[];
 }
 export interface RegisterInput {
 	name: string;
@@ -26,4 +37,20 @@ export interface RegisterResponse {
 	phone: string;
 	name: string;
 	email: string;
+}
+
+export interface CreatePaymentMethodInput {
+	method: PayoutMethodEnum;
+	phoneNumber: string;
+	fullName: string;
+	cardNumber?: string;
+	bankCode?: BankCode;
+}
+export interface CreatePaymentMethodResponse {
+	message: String;
+	payment: PayoutDetailsT;
+}
+export interface GetUserPayoutOptionsResponse {
+	message: string;
+	payoutOptions?: PayoutDetailsT[];
 }

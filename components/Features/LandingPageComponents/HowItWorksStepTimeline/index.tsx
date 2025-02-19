@@ -55,7 +55,7 @@ const HowItWorksStepTimeline = (props: HowItWorksStepTimeLineProps) => {
 										}}
 									>
 										<MSText
-											fontSize="18px"
+											fontSize="20px"
 											mobileFontSize="16px"
 											fontWeight={index === activeStep ? "600" : "normal"}
 										>

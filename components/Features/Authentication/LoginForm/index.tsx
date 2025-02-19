@@ -45,17 +45,17 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 
 					<Form style={{ gap: 20 }}>
 						<FormItem
-							label="Email"
+							label={text.email}
 							type="email"
 							id="email"
 							name="email"
-							placeholder="Enter your email"
+							placeholder={text.emailPlaceHolder}
 						/>
 						<FormItem
 							label={text.password}
 							id="password"
 							name="password"
-							placeholder="Enter your password"
+							placeholder={text.passwordPlaceHolder}
 							icon={
 								<span
 									onClick={togglePasswordVisibility}

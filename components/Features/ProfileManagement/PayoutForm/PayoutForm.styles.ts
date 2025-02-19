@@ -1,10 +1,10 @@
 import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
-import { Field, Form } from "formik";
+import { Form } from "formik";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
-	max-width: 750px;
+	width: 750px;
 	margin: 0 auto;
 	background-color: ${colors.white};
 	border-radius: 20px;
@@ -15,15 +15,12 @@ export const FormContainer = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	//gap: 14px;
 `;
-
 export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
-	//gap: 20px;
+	gap: 20px;
 `;
-
 export const BackButton = styled.button`
 	display: flex;
 	justify-content: center;
@@ -48,4 +45,5 @@ export const FlexRow = styled.div`
 	width: 100%;
 	justify-content: space-between;
 	gap: 30px;
+	margin-top: 50px;
 `;

@@ -3,18 +3,16 @@ import {
 	NavWrapper,
 	Logo,
 	NavLinkss,
-	NavLink,
 	HamburgerMenu,
-	Sidebar,
-	SidebarLink,
-	LogoutButton,
-	CloseIcon,
 	NavbarContainer,
 	NavMenu,
 	NavItem,
 	NavBtn,
-	NavBtnLink1,
-	NavBtnLink,
+	LoginButton,
+	RegisterButton,
+	CloseIcon,
+	Sidebar,
+	SidebarLink,
 } from "./NavBar.styles";
 import { useMediaQuery } from "@mui/material";
 import { useLocaleStore } from "@/store/LocaleStore";
@@ -34,101 +32,149 @@ const Navbar = (props: NavBarProps) => {
 
 	const toggleMenu = () => setOpen(!open);
 
-	const isActive = (path: string) => router.pathname === path;
-
 	return (
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
-				<Logo>
-					Maw<span>souq</span>
-				</Logo>
+				<NavbarContainer>
+					<Logo>
+						Maw<span>souq</span>
+					</Logo>
 
-				{isMobile ? (
-					<HamburgerMenu onClick={toggleMenu}>
-						<span />
-						<span />
-						<span />
-					</HamburgerMenu>
-				) : (
-					<>
-						<NavMenu>
-							<NavItem>
-								<NavLinkss
-									to="howItWorks"
-									activeClass="active"
-									smooth={true}
-									duration={500}
-									spy={true}
-									offset={0}
-								>
-									How it Works
-								</NavLinkss>
-							</NavItem>
-							<NavItem>
-								<NavLinkss
-									to="map"
-									activeClass="active"
-									smooth={true}
-									duration={500}
-									spy={true}
-									offset={-121}
-								>
-									Benefits
-								</NavLinkss>
-							</NavItem>
-							<NavItem>
-								<NavLinkss
-									to="about"
-									activeClass="active"
-									smooth={true}
-									duration={500}
-									spy={true}
-									offset={-141}
-								>
-									Contact
-								</NavLinkss>
-							</NavItem>
-						</NavMenu>
-						<NavBtn>
-							{!isLoggedIn && (
-								<>
-									{" "}
-									<NavBtnLink1
-										onClick={() => {
-											router.push(clientRoutes.login);
-										}}
+					{isMobile ? (
+						<HamburgerMenu onClick={toggleMenu}>
+							<span />
+							<span />
+							<span />
+						</HamburgerMenu>
+					) : (
+						<>
+							<NavMenu>
+								<NavItem>
+									<NavLinkss
+										to="howItWorks"
+										activeClass="active"
+										smooth={true}
+										duration={500}
+										spy={true}
+										offset={0}
 									>
-										Login
-									</NavBtnLink1>
-									<NavBtnLink1
-										onClick={() => {
-											router.push(clientRoutes.register);
-										}}
+										How it Works
+									</NavLinkss>
+								</NavItem>
+								<NavItem>
+									<NavLinkss
+										to="benefits"
+										activeClass="active"
+										smooth={true}
+										duration={500}
+										spy={true}
+										offset={-121}
 									>
-										Register
-									</NavBtnLink1>
-								</>
-							)}
-							{isLoggedIn && (
-								<>
-									<NavBtnLink1 onClick={logout}>Logout</NavBtnLink1>
-								</>
-							)}
-						</NavBtn>
-					</>
+										Benefits
+									</NavLinkss>
+								</NavItem>
+								<NavItem>
+									<NavLinkss
+										to="about"
+										activeClass="active"
+										smooth={true}
+										duration={500}
+										spy={true}
+										offset={-141}
+									>
+										Contact
+									</NavLinkss>
+								</NavItem>
+							</NavMenu>
+							<NavBtn>
+								{!isLoggedIn && (
+									<>
+										{" "}
+										<LoginButton
+											onClick={() => {
+												router.push(clientRoutes.login);
+											}}
+										>
+											Login
+										</LoginButton>
+										<RegisterButton
+											onClick={() => {
+												router.push(clientRoutes.register);
+											}}
+										>
+											Register
+										</RegisterButton>
+									</>
+								)}
+								{isLoggedIn && (
+									<>
+										<LoginButton onClick={logout}>Logout</LoginButton>
+									</>
+								)}
+							</NavBtn>
+						</>
+					)}
+				</NavbarContainer>
+				{isMobile && open && (
+					<Sidebar>
+						<CloseIcon onClick={toggleMenu}>X</CloseIcon>
+						<SidebarLink
+							to="howItWorks"
+							activeClass="active"
+							smooth={true}
+							duration={500}
+							spy={true}
+							offset={0}
+						>
+							How it works
+						</SidebarLink>
+						<SidebarLink
+							to="benefits"
+							activeClass="active"
+							smooth={true}
+							duration={500}
+							spy={true}
+							offset={-121}
+						>
+							Benefits
+						</SidebarLink>
+						<SidebarLink
+							to="about"
+							activeClass="active"
+							smooth={true}
+							duration={500}
+							spy={true}
+							offset={-141}
+						>
+							Contact
+						</SidebarLink>
+						{!isLoggedIn && (
+							<>
+								{" "}
+								<LoginButton
+									onClick={() => {
+										router.push(clientRoutes.login);
+									}}
+								>
+									Login
+								</LoginButton>
+								<RegisterButton
+									onClick={() => {
+										router.push(clientRoutes.register);
+									}}
+								>
+									Register
+								</RegisterButton>
+							</>
+						)}
+						{isLoggedIn && (
+							<>
+								<LoginButton onClick={logout}>Logout</LoginButton>
+							</>
+						)}{" "}
+					</Sidebar>
 				)}
 			</NavWrapper>
-
-			{isMobile && open && (
-				<Sidebar>
-					<CloseIcon onClick={toggleMenu}>X</CloseIcon>
-					<SidebarLink href="#">Home</SidebarLink>
-					<SidebarLink href="#">How it works</SidebarLink>
-					<SidebarLink href="#">Benefits</SidebarLink>
-					<SidebarLink href="#">Contact</SidebarLink>
-					<LogoutButton>Logout</LogoutButton>
-				</Sidebar>
-			)}
 		</>
 	);
 };

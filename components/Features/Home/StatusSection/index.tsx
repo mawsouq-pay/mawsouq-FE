@@ -1,26 +1,16 @@
 import { ActiveTransactionsIcon, WalletIcon } from "@/assets/icons";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import {
-	MainWrapper,
-	DirectionFlex,
-	Circle,
-	GreetingDiv,
-} from "./StatusSection.style";
+import { MainWrapper, GreetingDiv } from "./StatusSection.style";
 import MSText from "../../../Shared/MSText";
 import { colors } from "@/constants/theme";
 import { useAuthStore } from "@/store";
-import useCustomBreakpoint from "@/helpers/screenSizes";
-import { StatusSectionProps } from "./types";
 import { getGreetingAndDate } from "@/helpers";
-import StatusCard from "../StatusCard";
 
-const StatusSection = (props: StatusSectionProps) => {
+const StatusSection = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { user } = useAuthStore();
-	const { numberOfactiveTransactions } = props;
-	const { isMobile } = useCustomBreakpoint();
 	const { greeting, formattedDate } = getGreetingAndDate(locale);
 
 	return (

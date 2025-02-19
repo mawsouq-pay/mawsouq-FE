@@ -45,6 +45,7 @@ const ScribbledCircleText = ({ text }: { text: string }) => {
 					textAlign: isMobile ? "center" : "left",
 				}}
 			>
+				{" "}
 				{text}
 			</div>
 			<svg

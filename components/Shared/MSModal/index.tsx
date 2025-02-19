@@ -1,8 +1,13 @@
 import React from "react";
-import { Dialog, DialogTitle, DialogContent } from "@mui/material";
+import { DialogTitle } from "@mui/material";
 import { MSModalProps } from "./types";
 import MSButton from "../MSButton";
-import { CancelButton, FlexRow } from "./MSModal.styles";
+import {
+	CancelButton,
+	FlexRow,
+	StyledDialog,
+	StyledDialogContent,
+} from "./MSModal.styles";
 
 const MSModal = (props: MSModalProps) => {
 	const {
@@ -16,9 +21,11 @@ const MSModal = (props: MSModalProps) => {
 		showActions = true,
 	} = props;
 	return (
-		<Dialog open={open} onClose={onClose} maxWidth="xs">
+		<StyledDialog open={open}>
 			{title && <DialogTitle style={{ paddingTop: 20 }}>{title}</DialogTitle>}
-			<DialogContent>{children}</DialogContent>
+			<StyledDialogContent style={{ overflow: "visible" }}>
+				{children}
+			</StyledDialogContent>
 			{showActions && (
 				<FlexRow>
 					<CancelButton onClick={onClose}>{cancelText}</CancelButton>
@@ -33,7 +40,7 @@ const MSModal = (props: MSModalProps) => {
 					/>
 				</FlexRow>
 			)}
-		</Dialog>
+		</StyledDialog>
 	);
 };
 

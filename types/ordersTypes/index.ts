@@ -12,9 +12,9 @@ export interface Order {
 	otherPartyEmail?: string | null;
 	otherPartyPhone?: string | null;
 	isFetcherSeller: boolean;
-	status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
+	status: OrderStatusEnum;
 	statusHistory: {
-		status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
+		status: OrderStatusEnum;
 		timestamp: string; // "2025-01-01T00:00:00.000Z"
 	}[];
 }
@@ -24,7 +24,7 @@ export interface CreateOrderInput {
 	price: number;
 	description: string;
 	deliveryDate: Date;
-	role: (typeof RolesEnum)[keyof typeof RolesEnum];
+	role: RolesEnum;
 }
 
 export interface CreateOrderResponse {
@@ -58,7 +58,7 @@ export interface CreatePaymentLinkResponse {
 
 export interface UpdateOrderStatusInput {
 	orderId: string;
-	newStatus: keyof typeof OrderStatusEnum;
+	newStatus: OrderStatusEnum;
 }
 
 export interface UpdateOrderStatusResponse {

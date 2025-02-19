@@ -1,18 +1,23 @@
-//Send enum as OrderStatusEnum.PENDING,backend sees it as "Pending"
-//We receive it from backend as same "Pending" so its type is (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum]
+import { Order } from "@/types/ordersTypes";
 
-export const OrderStatusEnum = Object.freeze({
-	PENDING: "PENDING", //the order was created but not paid for
-	IN_PROGRESS: "IN_PROGRESS", //order is paidd for , seller is "creating ig"
-	IN_TRANSIT: "IN_TRANSIT", //seller marked it as on the way
-	DELIVERED: "DELIVERED", //buyer marked it as delivered
-	COMPLETED: "COMPLETED", //buyer approved it so funds released
-	DISPUTED: "DISPUTED", //buyer wants to start khena2a
-	CANCELLED: "CANCELLED", //order is abandoned and no updates done to it
-});
+export enum OrderStatusEnum {
+	PENDING_JOIN = "PENDING_JOIN", // Order created but waiting for the other party to join
+	PENDING_PAYMENT = "PENDING_PAYMENT", // Buyer has joined, waiting for payment
+	IN_PROGRESS = "IN_PROGRESS", // Payment completed, order in progress
+	IN_TRANSIT = "IN_TRANSIT", // Seller shipped/delivered the order
+	DELIVERED = "DELIVERED", // Buyer confirmed receipt
+	COMPLETED = "COMPLETED", // Both parties confirmed order is finished
+	DISPUTED = "DISPUTED", // Order is under dispute
+	CANCELLED = "CANCELLED", // Order was cancelled
+}
+
+export enum RolesEnum {
+	BUYER = "BUYER",
+	SELLER = "SELLER",
+}
 
 export const orderStatusObject: Record<
-	keyof typeof OrderStatusEnum,
+	OrderStatusEnum,
 	{
 		text: string;
 		backgroundColor: string;
@@ -20,17 +25,24 @@ export const orderStatusObject: Record<
 		historyMessage: string;
 	}
 > = {
-	PENDING: {
-		text: "pending",
+	PENDING_JOIN: {
+		text: "pending_join",
 		backgroundColor: "#FFF9C4",
 		textColor: "#000000",
-		historyMessage: "Order was created and is pending payment from the buyer.",
+		historyMessage: "Order was created.",
+	},
+	PENDING_PAYMENT: {
+		text: "pending_payment",
+		backgroundColor: "#FFF9C4",
+		textColor: "#000000",
+		historyMessage:
+			"Order was confirmed and is pending payment from the buyer.",
 	},
 	IN_PROGRESS: {
 		text: "in_progress",
 		backgroundColor: "#BBDEFB",
 		textColor: "#000000",
-		historyMessage: "Order is in progress; the seller is working on the item.",
+		historyMessage: "Order has been paid; the seller is working on the item.",
 	},
 	IN_TRANSIT: {
 		text: "in_transit",
@@ -64,18 +76,26 @@ export const orderStatusObject: Record<
 	},
 };
 export const orderProgressBarData: Record<
-	keyof typeof OrderStatusEnum,
+	OrderStatusEnum,
 	{
 		activeStep: number;
 		messageForBuyer: string;
 		messageForSeller: string;
 		buyerCTA: string | null;
 		sellerCTA: string | null;
-		nextStatus: keyof typeof OrderStatusEnum | null;
+		nextStatus: OrderStatusEnum | null;
 	}
 > = {
-	PENDING: {
+	PENDING_JOIN: {
 		activeStep: 0,
+		messageForBuyer: "Waiting for the seller to join and accept the order.",
+		messageForSeller: "Waiting for the buyer to join and accept the order.",
+		buyerCTA: null,
+		sellerCTA: null,
+		nextStatus: OrderStatusEnum.PENDING_PAYMENT,
+	},
+	PENDING_PAYMENT: {
+		activeStep: 1,
 		messageForBuyer: "Waiting for your payment to proceed with the order.",
 		messageForSeller: "Waiting for the buyer to make the payment.",
 		buyerCTA: "Make Payment",
@@ -83,7 +103,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.IN_PROGRESS,
 	},
 	IN_PROGRESS: {
-		activeStep: 1,
+		activeStep: 2,
 		messageForBuyer:
 			"Your order is being prepared by the seller. Please wait for updates.",
 		messageForSeller:
@@ -94,7 +114,7 @@ export const orderProgressBarData: Record<
 	},
 
 	IN_TRANSIT: {
-		activeStep: 2,
+		activeStep: 3,
 		messageForBuyer:
 			"Your order is currently in transit. Please confirm receipt once it has been delivered.",
 		messageForSeller:
@@ -105,7 +125,7 @@ export const orderProgressBarData: Record<
 	},
 
 	DELIVERED: {
-		activeStep: 3,
+		activeStep: 4,
 		messageForBuyer: "Order Is Delivered , awaiting your payment",
 		messageForSeller: "Order Is Delivered , awaiting buyer release",
 		buyerCTA: "Confirm Release",
@@ -113,7 +133,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	COMPLETED: {
-		activeStep: 4,
+		activeStep: 5,
 		messageForBuyer: "Thank you! Your order is completed.",
 		messageForSeller:
 			"The order is completed, and the payment has been released.",
@@ -142,10 +162,14 @@ export const orderProgressBarData: Record<
 };
 
 export const orderStatusConfirmationMessages: Record<
-	keyof typeof OrderStatusEnum,
+	OrderStatusEnum,
 	{ title: string; message: string }
 > = {
-	PENDING: {
+	PENDING_JOIN: {
+		title: "",
+		message: "",
+	},
+	PENDING_PAYMENT: {
 		title: "Mark as In Progress?",
 		message: "Are you sure you want to proceed in the order by paying?",
 	},
@@ -177,7 +201,54 @@ export const orderStatusConfirmationMessages: Record<
 	},
 };
 
-export const RolesEnum = Object.freeze({
-	BUYER: "BUYER",
-	SELLER: "SELLER",
-});
+export const BANK_CODES = [
+	{ name: "Ahli United Bank", code: "AUB" },
+	{ name: "MIDBANK", code: "MIDB" },
+	{ name: "Banque Du Caire", code: "BDC" },
+	{ name: "HSBC Bank Egypt S.A.E", code: "HSBC" },
+	{ name: "Credit Agricole Egypt S.A.E", code: "CAE" },
+	{ name: "Egyptian Gulf Bank", code: "EGB" },
+	{ name: "The United Bank", code: "UB" },
+	{ name: "Qatar National Bank Alahli", code: "QNB" },
+	{ name: "Arab Bank PLC", code: "ARAB" },
+	{ name: "Emirates National Bank of Dubai", code: "ENBD" },
+	{ name: "Al Ahli Bank of Kuwait – Egypt", code: "ABK" },
+	{ name: "National Bank of Kuwait – Egypt", code: "NBK" },
+	{ name: "Arab Banking Corporation - Egypt S.A.E", code: "ABC" },
+	{ name: "First Abu Dhabi Bank", code: "FAB" },
+	{ name: "Abu Dhabi Islamic Bank – Egypt", code: "ADIB" },
+	{ name: "Commercial International Bank - Egypt S.A.E", code: "CIB" },
+	{ name: "Housing And Development Bank", code: "HDB" },
+	{ name: "Banque Misr", code: "MISR" },
+	{ name: "Arab African International Bank", code: "AAIB" },
+	{ name: "Egyptian Arab Land Bank", code: "EALB" },
+	{ name: "Export Development Bank of Egypt", code: "EDBE" },
+	{ name: "Faisal Islamic Bank of Egypt", code: "FAIB" },
+	{ name: "Blom Bank", code: "BLOM" },
+	{ name: "Abu Dhabi Commercial Bank – Egypt", code: "ADCB" },
+	{ name: "Alex Bank Egypt", code: "BOA" },
+	{ name: "Societe Arabe Internationale De Banque", code: "SAIB" },
+	{ name: "National Bank of Egypt", code: "NBE" },
+	{ name: "Al Baraka Bank Egypt B.S.C.", code: "ABRK" },
+	{ name: "Egypt Post", code: "POST" },
+	{ name: "Nasser Social Bank", code: "NSB" },
+	{ name: "Industrial Development Bank", code: "IDB" },
+	{ name: "Suez Canal Bank", code: "SCB" },
+	{ name: "Mashreq Bank", code: "MASH" },
+	{ name: "Arab Investment Bank", code: "AIB" },
+	{ name: "General Authority For Supply Commodities", code: "GASC" },
+	{ name: "Arab International Bank", code: "ARIB" },
+	{ name: "Agricultural Bank of Egypt", code: "PDAC" },
+	{ name: "National Bank of Greece", code: "NBG" },
+	{ name: "Central Bank Of Egypt", code: "CBE" },
+	{ name: "ATTIJARIWAFA BANK Egypt", code: "BBE" },
+];
+export type BankCode = (typeof BANK_CODES)[number]["code"];
+export const bankCodeValues = BANK_CODES.map((bank) => bank.code);
+export enum PayoutMethodEnum {
+	VODAFONE = "vodafone",
+	ETISALAT = "etisalat",
+	ORANGE = "orange",
+	BANK_WALLET = "bank_wallet",
+	BANK_CARD = "bank_card",
+}

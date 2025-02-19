@@ -49,13 +49,41 @@ export const DescriptionWrapper = styled.div`
 	padding-bottom: 8px;
 `;
 
+// export const HeroInputsWrapper = styled.div`
+// 	margin-top: 10px;
+// 	display: flex;
+// 	flex-direction: column;
+// 	gap: 10px;
+// 	margin-bottom: 10px;
+// 	width: 80%;
+// `;
+
+// export const HeroInputsWrapper = styled.div`
+// 	margin-top: 50px;
+// 	display: flex;
+// 	flex-direction: row;
+// 	margin-bottom: 10px;
+// 	width: 80%;
+// 	font-size: 5rem;
+// 	color: ${colors.labelColor};
+// 	span {
+// 		color: ${colors.green};
+// 		font-weight: bolder;
+// 	}
+// `;
 export const HeroInputsWrapper = styled.div`
 	margin-top: 10px;
 	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	flex-direction: row;
 	margin-bottom: 10px;
 	width: 80%;
+	font-size: 1.3rem;
+	color: ${colors.labelColor}; /* Muted base color */
+	gap: 10px;
+	span {
+		color: ${colors.white}; /* Highlighted parts */
+		font-weight: bold;
+	}
 `;
 export const Divider = styled.hr`
 	border: none;

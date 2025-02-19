@@ -11,6 +11,7 @@ import { TransactionFormProps, createValidationSchema } from "./types";
 import FormItem from "@/components/FormItem";
 import MSButton from "@/components/Shared/MSButton";
 import MSPaymentSummarySection from "@/components/Shared/MSPaymentSummarySection";
+import { StartTransactionFormNames } from "../StartTransactionCard/types";
 const TransactionForm = (props: TransactionFormProps) => {
 	const { onSubmit, initialValues, onBack } = props;
 	const { locale } = useLocaleStore();
@@ -18,7 +19,6 @@ const TransactionForm = (props: TransactionFormProps) => {
 
 	const validationSchema = createValidationSchema(locale);
 	const handleSubmit = (values: typeof initialValues) => {
-		console.log(values, "hehehe");
 		onSubmit(values);
 	};
 
@@ -35,7 +35,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 						<FormItem
 							label={text.description}
 							id={initialValues.description}
-							name="description"
+							name={StartTransactionFormNames.description}
 							placeholder={text.enterDescription}
 							as="textarea"
 						/>
@@ -45,8 +45,8 @@ const TransactionForm = (props: TransactionFormProps) => {
 							label={text.price}
 							type="number"
 							id={initialValues.price}
-							name="price"
-							placeholder="$"
+							name={StartTransactionFormNames.price}
+							placeholder="EGP"
 						/>
 
 						{/* Delivery Date */}
@@ -56,7 +56,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 									label={text.deliverDate}
 									type="date"
 									id={initialValues.deliveryDate}
-									name="deliveryDate"
+									name={StartTransactionFormNames.deliveryDate}
 								/>
 							</div>
 						</FlexRow>

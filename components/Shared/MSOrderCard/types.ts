@@ -3,7 +3,7 @@ import { OrderStatusEnum } from "@/constants";
 export interface OrderCardProps {
 	transactionTitle: string;
 	price: number;
-	status: (typeof OrderStatusEnum)[keyof typeof OrderStatusEnum];
+	status: OrderStatusEnum;
 	deliveryDate: string;
 	onPress: () => void;
 	isFetcherSeller: boolean;

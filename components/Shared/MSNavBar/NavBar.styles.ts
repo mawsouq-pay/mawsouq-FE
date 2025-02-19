@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
-import { Button } from "@mui/material";
+import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	display: flex;
@@ -13,6 +14,9 @@ export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	justify-content: center;
 	align-items: center;
 	font-size: 1rem;
+	${media.below925`
+	margin-top:30px;
+ 	 `}
 `;
 
 export const Logo = styled.div`
@@ -30,40 +34,13 @@ export const Logo = styled.div`
 	}
 `;
 
-export const NavLinks = styled.div`
-	display: flex;
-	gap: 50px;
-	flex: 1;
-	justify-content: flex-end;
-	margin-right: 30%;
-`;
-export const NavLink = styled.a<{ isActive: boolean }>`
-	text-decoration: none;
-	color: #fff;
-	font-size: 18px;
-	position: relative;
-
-	&::after {
-		content: "";
-		display: ${({ isActive }) => (isActive ? "block" : "none")};
-		position: absolute;
-		bottom: -4px;
-		left: 0;
-		width: 100%;
-		height: 2px;
-		background-color: #2f80ed;
-	}
-
-	&:hover {
-		text-decoration: underline;
-	}
-`;
-
 export const HamburgerMenu = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
 	cursor: pointer;
+	//padding-inline-end: 4px;
+	margin-top: 4px;
 
 	span {
 		width: 24px;
@@ -77,30 +54,40 @@ export const Sidebar = styled.div`
 	top: 0;
 	right: 0;
 	width: 250px;
-	height: 100vh;
-	background-color: #111;
+	height: fit-content;
+	background: radial-gradient(circle, #5098f2 0%, #1e1e1e 100%);
 	padding: 24px;
-	color: #fff;
+	color: ${colors.black};
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 	z-index: 100;
+	margin-top: 40px;
+	margin-right: 22px;
 `;
 
-export const SidebarLink = styled.a`
-	text-decoration: none;
+export const SidebarLink = styled(LinkS)`
 	color: #fff;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	padding: 0;
+	height: 100%;
+	cursor: pointer;
+	font-family: "ProximaNova";
 	font-size: 18px;
-
+	&.active {
+		border-bottom: 4px solid #52ab98;
+	}
 	&:hover {
-		text-decoration: underline;
+		color: #31c48d;
 	}
 `;
 
 export const LogoutButton = styled.button`
 	margin-top: auto;
-	background-color: #2e5633;
-	color: #fff;
+	background-color: ${colors.white};
+	color: ${colors.black};
 	font-weight: bold;
 	padding: 8px;
 	border: none;
@@ -126,31 +113,17 @@ export const NavbarContainer = styled.div`
 	z-index: 1;
 	width: 100%;
 `;
-export const NavLogo = styled(LinkR)`
-	color: #000;
-	justify-self: flex-start;
-	cursor: pointer;
-	font-size: 1.5rem;
-	display: flex;
-	align-items: center;
-	margin-left: -5px;
-	font-weight: bold;
-	text-decoration: none;
-`;
-export const MobileIcon = styled.div`
-	display: none;
-
-	@media screen and (max-width: 760px) {
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		transform: translate(-100%, 60%);
-		font-size: 1.8rem;
-		cursor: pointer;
-		color: #000;
-	}
-`;
+// export const NavLogo = styled(LinkR)`
+// 	color: #000;
+// 	justify-self: flex-start;
+// 	cursor: pointer;
+// 	font-size: 1.5rem;
+// 	display: flex;
+// 	align-items: center;
+// 	margin-left: -5px;
+// 	font-weight: bold;
+// 	text-decoration: none;
+// `;
 
 export const NavMenu = styled.ul`
 	display: flex;
@@ -176,7 +149,7 @@ export const NavLinkss = styled(LinkS)`
 	height: 100%;
 	cursor: pointer;
 	font-family: "ProximaNova";
-
+	font-size: 18px;
 	&.active {
 		border-bottom: 4px solid #52ab98;
 	}
@@ -192,37 +165,41 @@ export const NavBtn = styled.nav`
 		display: none;
 	}
 `;
-export const NavBtnLink = styled(LinkR)`
-	border-radius: 5px;
-	background: #31c48d;
+
+export const LoginButton = styled.button`
+	border-radius: 16px;
+	background: transparent;
 	white-space: nowrap;
 	padding: 10px 22px;
-	color: white;
+	color: ${colors.white};
 	outline: none;
 	font-size: 1rem;
-	border: none;
+	border: 2px solid ${colors.green};
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 	text-decoration: none;
+	margin-right: 10px;
 	font-family: "ProximaNova";
+	width: 100px;
 
 	&:hover {
-		opacity: 0.6;
 		transition-duration: 0.4s;
-		background: #31c48d;
-		color: white;
+		background: ${colors.buttonGreenBackground};
+		color: ${colors.black};
+		border: 3px solid #31c48d;
 	}
 `;
+export const RegisterButton = styled.button`
+	border-radius: 16px;
+	width: 100px;
 
-export const NavBtnLink1 = styled(Button)`
-	border-radius: 5px;
-	background: #fff;
+	background: transparent;
 	white-space: nowrap;
-	padding: 1px 22px;
-	color: #31c48d;
+	padding: 10px 22px;
+	color: ${colors.white};
 	outline: none;
 	font-size: 1rem;
-	border: 2px solid #31c48d;
+	border: 2px solid ${colors.white};
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 	text-decoration: none;
@@ -231,8 +208,8 @@ export const NavBtnLink1 = styled(Button)`
 
 	&:hover {
 		transition-duration: 0.4s;
-		background: #fff;
-		color: #31c48d;
-		border: 2px solid #31c48d;
+		background: ${colors.buttonGreenBackground};
+		color: ${colors.black};
+		border: 3px solid #31c48d;
 	}
 `;

@@ -1,6 +1,18 @@
 import { colors } from "@/constants/theme";
+import { Dialog, DialogContent } from "@mui/material";
 import styled from "styled-components";
+export const StyledDialog = styled(Dialog)`
+	.MuiDialog-paper {
+		max-width: 800px;
+		width: 100%;
+		overflow: visible;
+	}
+`;
 
+export const StyledDialogContent = styled(DialogContent)`
+	overflow: visible;
+	max-width: 100%;
+`;
 export const CancelButton = styled.button`
 	display: flex;
 	justify-content: center;
