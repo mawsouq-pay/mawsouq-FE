@@ -22,7 +22,7 @@ const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
 const ShareOrderLink = (props: ShareLinkProps) => {
 	const { isPending, error, navigateToFirstStep, orderId, isPendingSeller } =
 		props;
-	const previewLink = `${PREVIEW_ORDER_LINK}/${orderId}` ?? "";
+	const previewLink = `${PREVIEW_ORDER_LINK}/${orderId}`;
 
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);

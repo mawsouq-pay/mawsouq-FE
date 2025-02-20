@@ -13,7 +13,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0 });
-	const previewLink = `${PREVIEW_ORDER_LINK}/${orderId}` ?? "";
+	const previewLink = `${PREVIEW_ORDER_LINK}/${orderId}`;
 
 	const handleCopy = (e: React.MouseEvent) => {
 		const textToCopy = previewLink ?? "";
