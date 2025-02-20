@@ -1,6 +1,6 @@
 const clientRoutes = {
 	homePage: "/homePage",
-	landingPage: "/landingPage",
+	landingPage: "/",
 	login: "/login",
 	register: "/register",
 	contactPage: "/contactPage",
