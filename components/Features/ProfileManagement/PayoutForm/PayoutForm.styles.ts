@@ -4,7 +4,7 @@ import { Form } from "formik";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
-	width: 750px;
+	max-width: 750px;
 	margin: 0 auto;
 	background-color: ${colors.white};
 	border-radius: 20px;

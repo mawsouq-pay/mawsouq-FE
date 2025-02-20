@@ -1,5 +1,5 @@
 interface ButtonProps {
-	onClick?: () => void;
+	onClick?: (inp?: any) => void;
 	style?: React.CSSProperties;
 	loading?: boolean;
 	disabled?: boolean;

@@ -104,11 +104,15 @@ const en = {
 	emailSentToOtherParty:
 		"An email with the order details has also been sent to the buyer.",
 	shareOrderLink: "Share Order Link",
+	copyOrderLink: "Copy Order Link",
 	copied: "Copied!",
-
+	orderSuccessfullyCreated: "Order Successfully Created",
+	toJoinTheOrder: "to join the order",
+	withThe: "with the",
 	//OrderDetails
 	history: "History",
 	orderDetails: "Order Details",
+	orderStatus: "Order Status",
 	ordersList: "Orders List",
 
 	//Register
@@ -181,6 +185,8 @@ const en = {
 	joinTransactionPrompt:
 		"Please paste the link you received from the person to join the transaction.",
 	joinLinkInvalidType: "This link is not a mawsouq join link!",
+	shareLinkWithOtherParty:
+		"Please Share this link with the other party for them to join the order",
 
 	//chooseRole
 	chooseRole: "Choose Your Role",
@@ -206,6 +212,10 @@ const en = {
 
 	//profile General info
 	generalInformation: "General Information",
+
+	//Dispute form
+	selectAdisputeType: "Please select a complaint type",
+	disputeDetailsAreRequired: "Complaint details are required",
 };
 
 export default en;

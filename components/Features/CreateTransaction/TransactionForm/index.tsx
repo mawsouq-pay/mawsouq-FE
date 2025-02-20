@@ -50,16 +50,12 @@ const TransactionForm = (props: TransactionFormProps) => {
 						/>
 
 						{/* Delivery Date */}
-						<FlexRow>
-							<div style={{ flex: 1 }}>
-								<FormItem
-									label={text.deliverDate}
-									type="date"
-									id={initialValues.deliveryDate}
-									name={StartTransactionFormNames.deliveryDate}
-								/>
-							</div>
-						</FlexRow>
+						<FormItem
+							label={text.deliverDate}
+							type="date"
+							id={initialValues.deliveryDate}
+							name={StartTransactionFormNames.deliveryDate}
+						/>
 
 						<div style={{ marginTop: 20 }}>
 							{" "}

@@ -1,15 +1,20 @@
 import React from "react";
-import { MainWrapper, MessageDiv } from "./OrderAction.styles";
+import { FlexRow, MainWrapper, MessageDiv } from "./OrderAction.styles";
 import MSText from "../../../Shared/MSText";
 import { colors } from "@/constants/theme";
 import { OrderActionProps } from "./types";
-
 import MSModal from "../../../Shared/MSModal";
 import MSButton from "../../../Shared/MSButton";
 import { useOrderActions } from "@/hooks/useOrderActions";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
+import { OrderStatusEnum } from "@/constants";
 
 const OrderAction = (props: OrderActionProps) => {
-	const { isFetcherSeller, orderStatus, orderId } = props;
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
+	const { isFetcherSeller, orderStatus, orderId, setIsDisputeFormOpen } = props;
 	const {
 		statusMessage,
 		orderStatusText,
@@ -19,9 +24,28 @@ const OrderAction = (props: OrderActionProps) => {
 		setIsConfirmModalOpen,
 		handleCtaClick,
 		loadingAndDisable,
-	} = useOrderActions(orderId, isFetcherSeller, orderStatus);
+		handleConfirmRelease,
+		handleDispute,
+	} = useOrderActions(
+		orderId,
+		isFetcherSeller,
+		orderStatus,
+		setIsDisputeFormOpen
+	);
 	return (
 		<MainWrapper>
+			<MSText
+				fontSize="22px"
+				fontWeight="700"
+				color={colors.black}
+				style={{
+					marginBottom: 10,
+					borderBottom: `5px solid ${colors.green}`,
+					width: "150px",
+				}}
+			>
+				{text.orderStatus}
+			</MSText>
 			<MSText
 				fontSize="20px"
 				mobileFontSize="16px"
@@ -37,10 +61,24 @@ const OrderAction = (props: OrderActionProps) => {
 				</MSText>
 			</MessageDiv>
 
-			{buttonCta && (
+			{orderStatus === OrderStatusEnum.DELIVERED ? (
+				<FlexRow>
+					<MSButton
+						title="Confirm Release"
+						onClick={handleConfirmRelease}
+						disabled={loadingAndDisable}
+					/>
+					<MSButton
+						title="Submit Dispute"
+						onClick={handleDispute}
+						disabled={loadingAndDisable}
+						style={{ backgroundColor: colors.red }}
+					/>
+				</FlexRow>
+			) : buttonCta ? (
 				<MSButton
-					onClick={() => setIsConfirmModalOpen(true)}
 					title={buttonCta}
+					onClick={() => setIsConfirmModalOpen(true)}
 					loading={loadingAndDisable}
 					disabled={loadingAndDisable}
 					style={{
@@ -48,7 +86,8 @@ const OrderAction = (props: OrderActionProps) => {
 						width: "fit-content",
 					}}
 				/>
-			)}
+			) : null}
+
 			<MSModal
 				open={isConfirmModalOpen}
 				onClose={() => setIsConfirmModalOpen(false)}

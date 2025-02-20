@@ -9,10 +9,7 @@ import {
 	InfoSection,
 	HistorySection,
 	ActionBox,
-	Header,
-	ArrowIcon,
-	CollapsibleContainer,
-	Content,
+	TopSection,
 } from "./OrderBody.styles";
 import { OrderBodyProps } from "./types";
 import MSErrorAndLoadingWrapper from "../../../Shared/MSErrorAndLoadingWrapper";
@@ -24,17 +21,18 @@ import {
 	OrderProgress,
 } from "..";
 import { OrderStatusEnum } from "@/constants";
+import ShareLinkSection from "../ShareLinkSection";
+import DisputeFormModal from "../DisputeFormModal";
 
 const OrderBody = (props: OrderBodyProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { orderId } = props;
-	const [isOpen, setIsOpen] = useState(false);
-
-	const toggleOpen = () => {
-		setIsOpen((prev: any) => !prev);
-	};
+	const [isDisputeFormOpen, setIsDisputeFormOpen] = useState(false);
 	const { data, isLoading, error } = useFetchOrderById(orderId as string);
+	const isOrderPendingJoin =
+		data?.order?.status === OrderStatusEnum.PENDING_JOIN;
+	const isPendingSeller = !data?.order?.seller;
 
 	return (
 		<MSErrorAndLoadingWrapper
@@ -50,45 +48,69 @@ const OrderBody = (props: OrderBodyProps) => {
 					action needed
 				</MSText>
 			</ActionBox>
-
-			<OrderProgress
-				status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
-			/>
-
+			<TopSection>
+				<OrderProgress
+					status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
+				/>
+				{isOrderPendingJoin && (
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "center",
+							marginTop: 40,
+						}}
+					>
+						<ShareLinkSection
+							isPendingSeller={isPendingSeller}
+							orderId={orderId}
+						/>
+					</div>
+				)}
+				<OrderAction
+					orderId={data?.order?._id ?? ""}
+					isFetcherSeller={data?.order?.isFetcherSeller ?? false}
+					orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_JOIN}
+					setIsDisputeFormOpen={() => setIsDisputeFormOpen(true)}
+				/>
+			</TopSection>
 			<MainWrapper>
 				<InfoSection>
-					<OrderAction
-						orderId={data?.order?._id ?? ""}
-						isFetcherSeller={data?.order?.isFetcherSeller ?? false}
-						orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_JOIN}
+					<MSText
+						fontSize="22px"
+						fontWeight="700"
+						color={colors.black}
+						style={{
+							marginBottom: 10,
+							borderBottom: `5px solid ${colors.green}`,
+							width: "150px",
+						}}
+					>
+						{text.orderDetails}
+					</MSText>{" "}
+					<OrderPaymentSummary
+						price={data?.order.price || 0}
+						escrowFee={20}
+						totalDue={(data?.order?.price || 0) + 20}
 					/>
-					<CollapsibleContainer>
-						<Header onClick={toggleOpen}>
-							<MSText fontSize="20px" fontWeight="bold" color={colors.black}>
-								Order Details
-							</MSText>
-							<ArrowIcon isOpen={isOpen}>▼</ArrowIcon>
-						</Header>
-						<Content isOpen={isOpen}>
-							<OrderPaymentSummary
-								price={data?.order.price || 0}
-								escrowFee={20}
-								totalDue={(data?.order?.price || 0) + 20}
-							/>
-							<OrderInfo
-								transactionTitle={data?.order?.transactionTitle || ""}
-								description={data?.order?.description || ""}
-								price={data?.order?.price || 0}
-								status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
-								deliveryDate={data?.order?.deliveryDate || ""}
-							/>
-						</Content>
-					</CollapsibleContainer>
+					<OrderInfo
+						transactionTitle={data?.order?.transactionTitle || ""}
+						description={data?.order?.description || ""}
+						price={data?.order?.price || 0}
+						status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
+						deliveryDate={data?.order?.deliveryDate || ""}
+					/>
 				</InfoSection>
 				<HistorySection>
 					<OrderHistory statusHistory={data?.order.statusHistory} />
 				</HistorySection>
 			</MainWrapper>
+			<DisputeFormModal
+				open={isDisputeFormOpen}
+				setOpen={setIsDisputeFormOpen}
+				onSubmit={() => {
+					setIsDisputeFormOpen(false);
+				}}
+			/>
 		</MSErrorAndLoadingWrapper>
 	);
 };

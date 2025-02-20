@@ -48,7 +48,6 @@ const PayoutForm = (props: PayoutFormProps) => {
 				? { bankCode: values.bankCode }
 				: {}),
 		};
-		console.log(paymentDetails);
 		onSubmit(paymentDetails);
 	};
 

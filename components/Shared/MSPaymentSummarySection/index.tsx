@@ -46,7 +46,7 @@ const MSPaymentSummarySection = ({
 					<ItemWrapper key={index}>
 						<LabelValue>
 							<MSText
-								color={colors.gray}
+								color={colors.black}
 								fontSize={item.fontSize}
 								fontWeight={item.fontWeight}
 							>

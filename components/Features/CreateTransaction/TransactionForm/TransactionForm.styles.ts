@@ -22,7 +22,7 @@ export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	//gap: 20px;
+	gap: 5px;
 `;
 
 export const InputField = styled(Field)`

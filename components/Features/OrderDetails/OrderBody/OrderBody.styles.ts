@@ -51,39 +51,8 @@ export const ActionBox = styled.div`
 	margin-top: 10px;
 	margin-bottom: 30px;
 `;
-export const CollapsibleContainer = styled.div`
-	width: 100%;
-	margin-top: 20px;
-`;
-
-export const Header = styled.div`
+export const TopSection = styled.div`
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px;
-	border-bottom: 5px solid ${colors.green};
-	cursor: pointer;
-`;
-
-export const ArrowIcon = styled.span<{ isOpen: boolean }>`
-	transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
-	transition: transform 0.3s ease-in-out;
-	font-size: 16px;
-	color: ${colors.darkGray};
-`;
-
-export const Content = styled.div<{ isOpen: boolean }>`
-	display: flex;
-	gap: 30px;
-	max-height: ${({ isOpen }) => (isOpen ? "1500px" : "0px")};
-	overflow: hidden;
-	transition:
-		max-height 0.4s ease-in-out,
-		opacity 0.4s ease-in-out;
-	opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-	padding: ${({ isOpen }) => (isOpen ? "15px" : "0px")};
 	flex-direction: column;
-	/* ${media.below925`
-		flex-direction: column;
-	`} */
+	gap: 40px;
 `;

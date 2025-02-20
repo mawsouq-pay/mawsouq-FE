@@ -25,7 +25,6 @@ export const useStartTransaction = () => {
 		price: "",
 		deliveryDate: "",
 	});
-	const [orderLink, setOrderLink] = useState<string | null>(null);
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const [activeStep, setActiveStep] = useState(0);
 
@@ -56,11 +55,11 @@ export const useStartTransaction = () => {
 				)}
 				{activeStep === 2 && (
 					<ShareLink
-						orderLink={orderLink}
 						isPending={isPending}
 						error={error}
 						navigateToFirstStep={navigateToFirstStep}
 						orderId={orderId}
+						isPendingSeller={formData.role === RolesEnum.BUYER}
 					/>
 				)}
 			</>
@@ -84,7 +83,6 @@ export const useStartTransaction = () => {
 		createOrder(orderData, {
 			onSuccess: (response) => {
 				const newOrderId = response?.data?.order?._id;
-				setOrderLink(`https://mawsouq/order/id=${newOrderId}`);
 				setOrderId(newOrderId);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
 			},
@@ -102,7 +100,6 @@ export const useStartTransaction = () => {
 	return {
 		steps,
 		formData,
-		orderLink,
 		orderId,
 		activeStep,
 		error,

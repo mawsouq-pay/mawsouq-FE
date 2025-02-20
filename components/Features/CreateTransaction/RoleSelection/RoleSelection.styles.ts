@@ -63,6 +63,10 @@ export const RoleCard = styled.div<{ isSelected: boolean }>`
 	&:hover {
 		background: #f0f0f0;
 	}
+
+	${media.below925`
+		width: 200px;
+	`}
 `;
 
 export const RadioButton = styled.input`

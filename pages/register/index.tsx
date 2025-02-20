@@ -18,9 +18,9 @@ const PageContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	overflow: hidden;
+	/* overflow: hidden;
 	height: 90vh;
-	height: 90dvh;
+	height: 90dvh; */
 `;
 
 export default RegisterPage;

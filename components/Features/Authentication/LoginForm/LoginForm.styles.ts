@@ -14,7 +14,7 @@ export const FormWrapper = styled.div`
 	gap: 5px;
 	${media.below925`
    	width: 100%;
-    padding: 15px;
+    padding: 30px;
     `}
 `;
 

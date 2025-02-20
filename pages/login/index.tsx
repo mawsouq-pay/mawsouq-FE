@@ -17,10 +17,9 @@ const PageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 	overflow: hidden;
-	height: 90vh;
-	height: 90dvh;
+	height: 80vh;
+	height: 80dvh;
 `;
 
 export default LoginPage;

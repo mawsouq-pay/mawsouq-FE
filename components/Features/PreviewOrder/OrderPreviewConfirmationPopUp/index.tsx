@@ -8,11 +8,15 @@ import { colors } from "@/constants/theme";
 import { OrderPreviewConfirmationPopUpProps } from "./types";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { MainContainer } from "./OrderPreviewConfirmationPopUp.styles";
+import {
+	MainContainer,
+	IconWrapper,
+} from "./OrderPreviewConfirmationPopUp.styles";
 import MSButton from "@/components/Shared/MSButton";
 import { useLinkOrder } from "@/hooks/orderHooks";
 import { useNotification } from "@/store/SnackBarStore";
 import { AxiosError } from "axios";
+import { ShieldCheck } from "lucide-react";
 
 const OrderPreviewConfirmationPopUp = ({
 	open,
@@ -34,6 +38,7 @@ const OrderPreviewConfirmationPopUp = ({
 			query: { orderId: orderId },
 		});
 	};
+
 	const onConfirm = () => {
 		LinkOrderMutate(
 			{ orderId },
@@ -54,31 +59,38 @@ const OrderPreviewConfirmationPopUp = ({
 			}
 		);
 	};
+
 	return (
 		<MSModal open={open} onClose={() => setOpen(false)} showActions={false}>
+			<IconWrapper>
+				<ShieldCheck size={50} color={colors.blue} />
+			</IconWrapper>
 			<MSText
-				fontSize="20px"
+				fontSize="22px"
 				color={colors.black}
+				fontWeight="bold"
 				style={{ textAlign: "center" }}
 			>
 				{text.securePaymentsWithMawsouq}
 			</MSText>
 			<MainContainer>
 				<MSText
-					fontSize="18px"
-					mobileFontSize="16px"
-					color={colors.black}
+					fontSize="16px"
+					mobileFontSize="14px"
+					color={colors.darkGray}
 					style={{ textAlign: "center", marginTop: "10px", padding: "0 10px" }}
-					fontWeight="600"
 				>
-					{text.orderPrevConfirmationDescription}
+					With Mawsouq, your payment stays secure until you receive and approve
+					your order. Once confirmed, the seller gets paid. No risk, no scams –
+					just safe transactions.
 				</MSText>
 			</MainContainer>
 			<MSButton
 				style={{
 					width: "100%",
+					marginTop: "20px",
 				}}
-				title={isLoggedIn ? text.approveAndLinkOrder : text.registerToConfirm}
+				title={isLoggedIn ? "Confirm and Secure Order" : "Sign Up to Proceed"}
 				onClick={isLoggedIn ? onConfirm : handleRegisterRedirect}
 				loading={isPending}
 			/>

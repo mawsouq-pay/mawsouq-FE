@@ -5,7 +5,7 @@ import styled from "styled-components";
 const StyledWrapper = styled.div`
 	background-color: ${colors.backgroundColor};
 	padding: 20px;
-	min-height: 100vh;
+	height: 100dvh;
 `;
 
 interface MainLayoutProps {

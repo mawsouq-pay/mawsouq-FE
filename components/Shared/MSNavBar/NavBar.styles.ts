@@ -16,6 +16,10 @@ export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	font-size: 1rem;
 	${media.below925`
 	margin-top:30px;
+	height: 52px;
+	padding-right: 20px;
+	padding-left: 20px;
+
  	 `}
 `;
 

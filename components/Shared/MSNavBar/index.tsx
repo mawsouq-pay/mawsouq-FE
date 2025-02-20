@@ -36,7 +36,13 @@ const Navbar = (props: NavBarProps) => {
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
 				<NavbarContainer>
-					<Logo>
+					<Logo
+						onClick={() => {
+							if (isLoggedIn && !isLandingPage) {
+								router.push(clientRoutes.homePage);
+							}
+						}}
+					>
 						Maw<span>souq</span>
 					</Logo>
 

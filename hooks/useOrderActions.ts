@@ -13,12 +13,12 @@ import {
 } from "@/constants";
 import queryClient from "@/client/reactQClient";
 import { useNotification } from "@/store/SnackBarStore";
-import { AxiosError } from "axios";
 
 export const useOrderActions = (
 	orderId: string,
 	isFetcherSeller: boolean,
-	orderStatus: OrderStatusEnum
+	orderStatus: OrderStatusEnum,
+	setIsDisputeFormOpen: (value: boolean) => void
 ) => {
 	const router = useRouter();
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
@@ -27,6 +27,7 @@ export const useOrderActions = (
 		showSuccessNotification,
 		showAxiosErrorNotification,
 	} = useNotification();
+
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
 	const { mutate: updateOrder, isPending: updateOrderPending } =
@@ -42,47 +43,53 @@ export const useOrderActions = (
 	const message = isFetcherSeller ? messageForSeller : messageForBuyer;
 	const buttonCta = isFetcherSeller ? sellerCTA : buyerCTA;
 
+	const handleConfirmRelease = () => {
+		setIsConfirmModalOpen(false);
+		//sellerRelease({ orderId });
+	};
+
+	const handleDispute = () => {
+		setIsConfirmModalOpen(false);
+		setIsDisputeFormOpen(true);
+	};
+
 	const handleCtaClick = () => {
 		setIsConfirmModalOpen(false);
 
+		// Buyer: Make Payment
 		if (orderStatus === OrderStatusEnum.PENDING_PAYMENT && !isFetcherSeller) {
 			createLink(
 				{ orderId },
 				{
 					onSuccess: (response) => {
 						window.location.href = response?.data?.iframeLink;
-						// router.push({
-						// 	pathname: response?.data?.iframeLink,
-						// 	query: { iframeLink: response?.data?.iframeLink },
-						// });
 						queryClient.invalidateQueries({
 							queryKey: ["fetchOrderById", orderId],
 						});
 					},
-					onError(error, variables, context) {
-						showErrorNotification("Error occured");
+					onError: () => {
+						showErrorNotification("Error occurred while processing payment.");
 					},
 				}
 			);
-		} else if (isFetcherSeller) {
+		}
+
+		// Seller Actions
+		else if (isFetcherSeller) {
 			if (orderStatus === OrderStatusEnum.IN_PROGRESS) {
 				updateOrder({ orderId, newStatus: OrderStatusEnum.IN_TRANSIT });
 			} else if (buttonCta === "Submit Dispute Details") {
-				console.log("Submit dispute details (Seller).");
+				setIsDisputeFormOpen(true);
 			}
-		} else {
+		}
+
+		// Buyer Actions
+		else {
 			if (
 				orderStatus === OrderStatusEnum.IN_TRANSIT &&
 				nextStatus === OrderStatusEnum.DELIVERED
 			) {
 				updateOrder({ orderId, newStatus: nextStatus });
-			} else if (
-				orderStatus === OrderStatusEnum.DELIVERED &&
-				nextStatus === OrderStatusEnum.COMPLETED
-			) {
-				sellerRelease({ orderId });
-			} else if (buttonCta === "Submit Dispute Details") {
-				console.log("Submit dispute details (Buyer).");
 			}
 		}
 	};
@@ -98,6 +105,8 @@ export const useOrderActions = (
 		isConfirmModalOpen,
 		setIsConfirmModalOpen,
 		handleCtaClick,
+		handleConfirmRelease,
+		handleDispute,
 		loadingAndDisable,
 	};
 };

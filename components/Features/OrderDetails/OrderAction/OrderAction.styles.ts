@@ -7,7 +7,6 @@ export const MainWrapper = styled.div`
 	//background-color: ${colors.white};
 	flex: 1;
 	border-radius: 20px;
-	padding: 25px;
 	gap: 15px;
 `;
 
@@ -17,4 +16,11 @@ export const MessageDiv = styled.div`
 	display: flex;
 	align-items: center;
 	border: 0.5px solid ${colors.buttonGreenHover};
+`;
+
+export const FlexRow = styled.div`
+	display: flex;
+	flex: 1;
+	justify-content: flex-start;
+	gap: 30px;
 `;

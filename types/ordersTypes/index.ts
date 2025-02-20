@@ -17,6 +17,7 @@ export interface Order {
 		status: OrderStatusEnum;
 		timestamp: string; // "2025-01-01T00:00:00.000Z"
 	}[];
+	initiatedBy: RolesEnum;
 }
 
 export interface CreateOrderInput {

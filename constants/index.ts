@@ -95,7 +95,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.PENDING_PAYMENT,
 	},
 	PENDING_PAYMENT: {
-		activeStep: 1,
+		activeStep: 0,
 		messageForBuyer: "Waiting for your payment to proceed with the order.",
 		messageForSeller: "Waiting for the buyer to make the payment.",
 		buyerCTA: "Make Payment",
@@ -103,7 +103,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.IN_PROGRESS,
 	},
 	IN_PROGRESS: {
-		activeStep: 2,
+		activeStep: 1,
 		messageForBuyer:
 			"Your order is being prepared by the seller. Please wait for updates.",
 		messageForSeller:
@@ -114,7 +114,7 @@ export const orderProgressBarData: Record<
 	},
 
 	IN_TRANSIT: {
-		activeStep: 3,
+		activeStep: 2,
 		messageForBuyer:
 			"Your order is currently in transit. Please confirm receipt once it has been delivered.",
 		messageForSeller:
@@ -125,7 +125,7 @@ export const orderProgressBarData: Record<
 	},
 
 	DELIVERED: {
-		activeStep: 4,
+		activeStep: 3,
 		messageForBuyer: "Order Is Delivered , awaiting your payment",
 		messageForSeller: "Order Is Delivered , awaiting buyer release",
 		buyerCTA: "Confirm Release",
@@ -133,7 +133,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	COMPLETED: {
-		activeStep: 5,
+		activeStep: 4,
 		messageForBuyer: "Thank you! Your order is completed.",
 		messageForSeller:
 			"The order is completed, and the payment has been released.",
@@ -152,7 +152,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	CANCELLED: {
-		activeStep: 0,
+		activeStep: 4,
 		messageForBuyer: "The order has been cancelled.",
 		messageForSeller: "The order has been cancelled.",
 		buyerCTA: null,
@@ -251,4 +251,9 @@ export enum PayoutMethodEnum {
 	ORANGE = "orange",
 	BANK_WALLET = "bank_wallet",
 	BANK_CARD = "bank_card",
+}
+export enum DisputeTypeEnum {
+	NOT_RECEIVED = "Didn't receive order",
+	NOT_AS_EXPECTED = "Order not as expected",
+	OTHERS = "Others",
 }

@@ -2,40 +2,23 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 16px;
-	padding: 40px;
-	background-color: ${colors.white};
-	border-radius: 12px;
-	max-width: 700px;
-	margin: 0 auto;
-`;
-
-export const ImageWrapper = styled.div`
-	background-color: ${colors.lightGray};
-	border-radius: 50%;
-	padding: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
-
 export const LinkSection = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 100%;
-	border: 1px solid ${colors.blue};
+	width: fit-content;
 	border-radius: 8px;
 	padding: 20px 15px;
 	margin-top: 20px;
 	gap: 15px;
 	color: ${colors.lightBlack};
 	flex-direction: column;
+
+	${media.below925`
+	margin-bottom:40px;
+	border: 1px solid #2A75D4;
+
+ 	 `}
 `;
 
 export const ShareIcon = styled.span`

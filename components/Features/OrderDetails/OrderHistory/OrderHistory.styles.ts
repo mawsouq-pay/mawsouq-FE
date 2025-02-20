@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { colors } from "@/constants/theme";
 
 export const HistoryContainer = styled.div`
-	background: ${colors.white};
+	background-color: ${colors.lightGray};
 	border-radius: 8px;
 	padding: 20px;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	border: 2px solid ${colors.lightBlue};
+	//box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
+	margin-top: 55px;
 `;
 export const RowDiv = styled.div`
 	display: flex;
@@ -28,7 +30,7 @@ export const Entry = styled.div`
 `;
 export const Divider = styled.hr`
 	border: none;
-	border-top: 2px solid #f7f9fc;
+	border-top: 2px solid ${colors.green};
 	margin: 10px 0;
 `;
 

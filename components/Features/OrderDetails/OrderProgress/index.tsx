@@ -4,7 +4,6 @@ import { orderProgressBarData } from "@/constants";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
 const steps = [
-	"Pending Join",
 	"Pending Payment",
 	"Creating Order",
 	"In Transit",
@@ -16,7 +15,7 @@ const OrderProgress = (props: OrderProgressProps) => {
 	const { status } = props;
 	const { activeStep } = orderProgressBarData[status];
 	const { isMobile } = useCustomBreakpoint();
-	const orientation = isMobile ? "vertical" : "horizontal";
+	const orientation = false ? "vertical" : "horizontal";
 	return (
 		<div
 			style={{
