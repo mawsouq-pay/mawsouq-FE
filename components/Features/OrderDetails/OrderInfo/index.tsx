@@ -61,8 +61,13 @@ const OrderInfo = (props: OrderInfoProps) => {
 							</MSText>
 						</LabelValue>
 						<TextValue>
-							<MSText fontSize="14px" fontWeight="500" color={colors.black}>
-								{item.value}
+							<MSText
+								fontSize="14px"
+								fontWeight="500"
+								color={colors.black}
+								style={{ textWrap: "wrap" }}
+							>
+								{item.value}{" "}
 							</MSText>
 						</TextValue>
 					</ItemWrapper>

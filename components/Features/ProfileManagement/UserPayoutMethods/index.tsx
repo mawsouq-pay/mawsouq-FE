@@ -92,7 +92,9 @@ const UserPayoutMethods = () => {
 				showActions={false}
 				title={text.payoutDetails}
 			>
-				<>
+				<div
+					style={{ maxHeight: "80vh", overflowY: "auto", padding: "0 10px" }}
+				>
 					<MSText
 						fontSize="18px"
 						color={colors.gray}
@@ -107,7 +109,7 @@ const UserPayoutMethods = () => {
 						}
 						isPending={isPending}
 					/>
-				</>
+				</div>{" "}
 			</MSModal>
 		</MSErrorAndLoadingWrapper>
 	);
