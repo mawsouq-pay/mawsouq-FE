@@ -58,7 +58,11 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 				onClick={(e) => handleCopy(e)}
 			/>
 
-			{tooltip.visible && <Tooltip>{text.copied}</Tooltip>}
+			{tooltip.visible && (
+				<Tooltip>
+					{text.copied} {""}
+				</Tooltip>
+			)}
 		</LinkSection>
 	);
 };
