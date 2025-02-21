@@ -5,15 +5,24 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
-	position: sticky;
 	top: 0;
-	margin-bottom: 24px;
+	${({ isLandingPage }) =>
+		isLandingPage
+			? `
+    position: sticky;
+    margin-bottom: 24px;
+  `
+			: `
+    position: static;
+    margin-bottom: 0;
+  `}
 	padding-top: 8px;
 	padding-bottom: 8px;
 	z-index: 100;
 	opacity: 0.8;
 	display: flex;
-	background: ${({ isLandingPage }) => (isLandingPage ? "white" : "#111")};
+	background: ${({ isLandingPage }) => (isLandingPage ? "white" : "#ECF0F1")};
+	/* background: "white"; */
 	padding-right: 64px;
 	padding-left: 64px;
 	justify-content: center;
@@ -41,7 +50,7 @@ export const Logo = styled.div`
 	color: ${colors.black};
 
 	span {
-		color: #2f80ed;
+		color: ${colors.green};
 		font-style: italic;
 	}
 `;
@@ -214,5 +223,5 @@ export const RegisterButton = styled.button`
 	&:hover {
 		color: ${colors.white};
 		background: #31c48d;
-
+	}
 `;

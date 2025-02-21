@@ -36,13 +36,13 @@ const HeroSection = () => {
 		"YOU",
 	];
 
-	const displayText = useTypewriter(textList, 100); // Adjust the speed as needed
+	const displayText = useTypewriter(textList, 100);
 
 	const steps = [
 		{ label: "Buyers and seller agree on terms", isActive: false },
 		{ label: "Buyers pays Mawsouq", isActive: true },
-		{ label: "Seller transfers the domain name", isActive: false },
-		{ label: "Buyer approves the domain name", isActive: false },
+		{ label: "Seller transfers the item to the buyer", isActive: false },
+		{ label: "Buyer approves the item", isActive: false },
 		{ label: "Mawsouq.com pays the seller", isActive: false },
 	];
 

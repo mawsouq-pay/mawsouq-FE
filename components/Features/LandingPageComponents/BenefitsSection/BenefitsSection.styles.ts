@@ -5,7 +5,7 @@ import MSText from "../../../Shared/MSText";
 export const BenefitsWrapper = styled.section`
 	background: #2a75d4;
 	border-radius: 10px;
-	padding: 150px clamp(20px, 5vw, 84px);
+	padding: 110px clamp(20px, 5vw, 84px);
 	padding-top: 62px;
 	color: white;
 	text-align: center;
@@ -28,7 +28,7 @@ export const BenefitCard = styled.div`
 	background: #ffffff14;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-radius: 15px;
-	padding: 30px;
+	padding: 25px;
 	width: 280px;
 	text-align: center;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

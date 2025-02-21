@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 import React, { ReactNode } from "react";
 
 interface AnimatedDivProps {
@@ -16,7 +16,7 @@ const fadeInVariants: Variants = {
 		transition: {
 			type: "spring",
 			bounce: 0.4,
-			duration: 1,
+			duration: 0.5,
 		},
 	},
 };
