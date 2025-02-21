@@ -17,16 +17,18 @@ import { colors } from "@/constants/theme";
 import ScribbledCircleText from "../ScribbledCircleText";
 import HeroList from "../HeroList";
 import useCustomBreakpoint from "@/helpers/screenSizes";
-import Divider, { dividerClasses } from "@mui/material/Divider";
 import MSText from "@/components/Shared/MSText";
-import MSNavbar from "@/components/Shared/MSNavBar";
 import useTypewriter from "@/hooks/useTypeWriter";
-import Link from "next/link";
 import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
+import { useRouter } from "next/router";
+import { clientRoutes } from "@/routes";
+import { useAuthStore } from "@/store";
 
 const HeroSection = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	const router = useRouter();
+	const { isLoggedIn } = useAuthStore();
 	const { isMobile, xxl } = useCustomBreakpoint();
 	const textList = [
 		"Marketplaces",
@@ -90,20 +92,23 @@ const HeroSection = () => {
 						</DescriptionWrapper>
 
 						<SubmitWrapper>
-							<Link
-								style={{ textDecoration: "none" }}
-								href={"/startTransaction"}
+							<StyledButton
+								onClick={() => {
+									if (isLoggedIn) {
+										router.push(clientRoutes.startTransaction);
+									} else {
+										router.push(clientRoutes.login);
+									}
+								}}
 							>
-								<StyledButton>
-									<MSText
-										fontSize={"18px"}
-										mobileFontSize="15px"
-										color={colors.white}
-									>
-										Start a Transaction
-									</MSText>
-								</StyledButton>
-							</Link>
+								<MSText
+									fontSize={"18px"}
+									mobileFontSize="15px"
+									color={colors.white}
+								>
+									Start a Transaction
+								</MSText>
+							</StyledButton>
 						</SubmitWrapper>
 					</PaddingContainer>
 					<ListWrapper>

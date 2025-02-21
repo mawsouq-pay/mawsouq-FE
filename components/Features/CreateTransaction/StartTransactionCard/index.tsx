@@ -38,7 +38,6 @@ const StartTransactionCard = () => {
 				open={payoutModalOpen}
 				setOpen={setPayoutModalOpen}
 			/>
-			;
 		</MainWrapper>
 	);
 };

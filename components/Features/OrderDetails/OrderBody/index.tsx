@@ -90,7 +90,7 @@ const OrderBody = (props: OrderBodyProps) => {
 					<OrderPaymentSummary
 						price={data?.order.price || 0}
 						escrowFee={20}
-						totalDue={(data?.order?.price || 0) + 20}
+						totalDue={(data?.order?.price || 0) + 50}
 					/>
 					<OrderInfo
 						transactionTitle={data?.order?.transactionTitle || ""}
