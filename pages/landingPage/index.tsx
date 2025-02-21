@@ -9,7 +9,7 @@ import MSNavbar from "@/components/Shared/MSNavBar";
 
 const LandingPage = () => {
 	return (
-		<>
+		<div>
 			<MSNavbar isLandingPage={true} />
 			<div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
 				<HeroSection />
@@ -18,7 +18,7 @@ const LandingPage = () => {
 				<FAQ />
 				<FooterSection />
 			</div>
-		</>
+		</div>
 	);
 };
 LandingPage.CustomLayout = LandingPageLayout;
