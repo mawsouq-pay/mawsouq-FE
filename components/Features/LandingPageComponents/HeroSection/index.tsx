@@ -20,11 +20,23 @@ import useCustomBreakpoint from "@/helpers/screenSizes";
 import Divider, { dividerClasses } from "@mui/material/Divider";
 import MSText from "@/components/Shared/MSText";
 import MSNavbar from "@/components/Shared/MSNavBar";
+import useTypewriter from "@/hooks/useTypeWriter";
+import Link from "next/link";
+import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
 
 const HeroSection = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { isMobile, xxl } = useCustomBreakpoint();
+	const textList = [
+		"Marketplaces",
+		"eCommerce",
+		"Individuals",
+		"Startups",
+		"YOU",
+	];
+
+	const displayText = useTypewriter(textList, 100); // Adjust the speed as needed
 
 	const steps = [
 		{ label: "Buyers and seller agree on terms", isActive: false },
@@ -34,122 +46,75 @@ const HeroSection = () => {
 		{ label: "Mawsouq.com pays the seller", isActive: false },
 	];
 
-	const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
-	const [fade, setFade] = useState(true);
-	const sentences = [
-		"Handmade crafts",
-		"Jewelry and personalized accessories",
-		"Pre-owned electronics",
-		"Event planning and catering services",
-		"Organic foods and health supplements",
-	];
-	const prices = ["1000 EGP", "800 EGP", "4000 EGP", "10000 EGP", "2000 EGP"];
-	useEffect(() => {
-		const intervalId = setInterval(() => {
-			setFade(false);
-			setTimeout(() => {
-				setCurrentSentenceIndex(
-					(prevIndex) => (prevIndex + 1) % sentences.length
-				);
-				setFade(true);
-			}, 500);
-		}, 3500);
-		return () => clearInterval(intervalId);
-	}, [sentences.length]);
-
 	return (
-		<HeroWrapper>
-			<MSNavbar isLandingPage={true} />
-			<RowDiv style={{ flexDirection: isMobile ? "column" : "row" }}>
-				<PaddingContainer>
-					<TitleWrapper>
-						<MSText
-							fontSize={xxl ? "3rem" : "2rem"}
-							mobileFontSize={"2.5rem"}
-							fontWeight="bold"
-							color={colors.white}
-							style={{
-								alignItems: isMobile ? "center" : "flex-start",
-								justifyContent: "center",
-							}}
-						>
-							<span style={{ display: "inline" }}>
-								{text.secureEveryTransaction}
-							</span>
-							{"  "}
-							<ScribbledCircleText text={text.confidence} />
-						</MSText>
-					</TitleWrapper>
-					<DescriptionWrapper>
-						<MSText
-							fontSize={"1.125rem"}
-							mobileFontSize={"1rem"}
-							color={colors.white}
-						>
-							{text.mawsouqMission}
-						</MSText>
-					</DescriptionWrapper>
-					<HeroInputsWrapper>
-						<MSText
-							fontSize={"1.8rem"}
-							mobileFontSize={"1.1rem"}
-							color={colors.labelColor}
-						>
-							Whether you're selling or buying{" "}
-							<span
-								style={{
-									transition: "opacity 0.5s ease",
-									opacity: fade ? 1 : 0,
-								}}
-							>
-								{sentences[currentSentenceIndex]}
-							</span>
-							for{" "}
-							<span
-								style={{
-									transition: "opacity 0.5s ease",
-									opacity: fade ? 1 : 0,
-								}}
-							>
-								{prices[currentSentenceIndex]}
-							</span>
-							, Mawsouq has you covered.
-						</MSText>
-					</HeroInputsWrapper>
-
-					<SubmitWrapper>
-						<StyledButton>
+		<MSAnimatedDiv>
+			<HeroWrapper>
+				<RowDiv style={{ flexDirection: isMobile ? "column" : "row" }}>
+					<PaddingContainer>
+						<TitleWrapper>
 							<MSText
-								fontSize={"18px"}
-								mobileFontSize="15px"
+								fontSize={xxl ? "4rem" : "3rem"}
+								mobileFontSize={"2.5rem"}
+								fontWeight="900"
+								color={colors.white}
+								style={{
+									alignItems: isMobile ? "center" : "flex-start",
+									justifyContent: "center",
+								}}
+							>
+								<span style={{ display: "inline" }}>
+									{text.secureEveryTransaction}
+								</span>
+								{"   "}
+								<ScribbledCircleText text={text.confidence} />
+							</MSText>
+						</TitleWrapper>
+
+						<MSText
+							style={{ paddingTop: 24, color: "#98e2c6" }}
+							fontSize={"2rem"}
+							fontWeight="600"
+							mobileFontSize={"1.5rem"}
+							color={colors.white}
+						>
+							Built for <span>{displayText}</span>
+						</MSText>
+						<DescriptionWrapper>
+							<MSText
+								fontSize={"1.125rem"}
+								mobileFontSize={"1rem"}
 								color={colors.white}
 							>
-								Start a Transaction
+								{text.mawsouqMission}
 							</MSText>
-						</StyledButton>
-						<MSText
-							fontSize="16px"
-							mobileFontSize="14px"
-							color={colors.white}
-							style={{
-								width: "auto",
-								wordWrap: "break-word",
-								paddingTop: "10px",
-								textAlign: "start",
-							}}
-						>
-							{text.moneyStaysSecure}
-						</MSText>
-					</SubmitWrapper>
-				</PaddingContainer>
-				<ListWrapper>
-					<HeroList
-						title="Effortless and Secure Transactions Made Easy"
-						steps={steps}
-					/>
-				</ListWrapper>
-			</RowDiv>
-		</HeroWrapper>
+						</DescriptionWrapper>
+
+						<SubmitWrapper>
+							<Link
+								style={{ textDecoration: "none" }}
+								href={"/startTransaction"}
+							>
+								<StyledButton>
+									<MSText
+										fontSize={"18px"}
+										mobileFontSize="15px"
+										color={colors.white}
+									>
+										Start a Transaction
+									</MSText>
+								</StyledButton>
+							</Link>
+						</SubmitWrapper>
+					</PaddingContainer>
+					<ListWrapper>
+						<HeroList
+							title="Effortless and Secure Transactions Made Easy"
+							steps={steps}
+						/>
+					</ListWrapper>
+				</RowDiv>
+			</HeroWrapper>
+		</MSAnimatedDiv>
 	);
 };
 

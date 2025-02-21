@@ -3,9 +3,10 @@ import styled from "styled-components";
 import MSText from "../../../Shared/MSText";
 
 export const BenefitsWrapper = styled.section`
-	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
+	background: #2a75d4;
 	border-radius: 10px;
 	padding: 150px clamp(20px, 5vw, 84px);
+	padding-top: 62px;
 	color: white;
 	text-align: center;
 `;

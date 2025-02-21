@@ -5,16 +5,20 @@ import HeroSection from "@/components/Features/LandingPageComponents/HeroSection
 import HowItWorksSection from "@/components/Features/LandingPageComponents/HowItWorksSection";
 import LandingPageLayout from "@/layouts/LandingPageLayout";
 import React from "react";
+import MSNavbar from "@/components/Shared/MSNavBar";
 
 const LandingPage = () => {
 	return (
-		<div style={{ display: "flex", flexDirection: "column", gap: 50 }}>
-			<HeroSection />
-			<HowItWorksSection />
-			<BenefitsSection />
-			<FAQ />
-			<FooterSection />
-		</div>
+		<>
+			<MSNavbar isLandingPage={true} />
+			<div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+				<HeroSection />
+				<HowItWorksSection />
+				<BenefitsSection />
+				<FAQ />
+				<FooterSection />
+			</div>
+		</>
 	);
 };
 LandingPage.CustomLayout = LandingPageLayout;

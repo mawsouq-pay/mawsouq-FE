@@ -37,9 +37,8 @@ const ScribbledCircleText = ({ text }: { text: string }) => {
 			<div
 				ref={textRef}
 				style={{
-					fontSize: isMobile ? "2.5rem" : xxl ? "3rem" : "2rem",
-					fontWeight: "bold",
-					color: "white",
+					fontSize: isMobile ? "2.5rem" : xxl ? "4rem" : "3rem",
+					fontWeight: "900",
 					position: "relative",
 					zIndex: 2,
 					textAlign: isMobile ? "center" : "left",
