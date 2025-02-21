@@ -39,13 +39,6 @@ const FooterText = styled.p`
 const FooterSection = () => {
 	return (
 		<FooterWrapper>
-			<FooterLinks>
-				<a href="#about">About Us</a>
-				<a href="#how-it-works">How It Works</a>
-				<a href="#contact">Contact</a>
-				<a href="#terms">Terms of Service</a>
-				<a href="#privacy">Privacy Policy</a>
-			</FooterLinks>
 			<FooterText>
 				&copy; {new Date().getFullYear()} Mawsouq. All rights reserved.
 			</FooterText>

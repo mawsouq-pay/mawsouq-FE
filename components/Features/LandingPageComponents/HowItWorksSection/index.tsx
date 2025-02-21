@@ -9,6 +9,8 @@ import { steps } from "./types";
 import HowItWorksStepTimeline from "../HowItWorksStepTimeline";
 import MSText from "@/components/Shared/MSText";
 import { Divider } from "@mui/material";
+import ScribbledCircleText from "../ScribbledCircleText";
+import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
 const HowItWorksSection = () => {
 	const [activeStep, setActiveStep] = useState(0);
 	const stopAnimRef = useRef(false);
@@ -29,42 +31,44 @@ const HowItWorksSection = () => {
 	}, [steps.length]);
 
 	return (
-		<Wrapper id="howItWorks">
-			<TitleWrapper>
-				<MSText
-					fontSize="2rem"
-					fontWeight="bold"
-					color={colors.black}
-					style={{ textAlign: "center" }}
-				>
-					How It Works
-				</MSText>
-				<MSText
-					fontSize="1.125rem"
-					color={colors.gray}
-					style={{ textAlign: "center", marginTop: "10px" }}
-				>
-					From agreement to payment, Mawsouq ensures secure and seamless
-					transactions.
-				</MSText>
-				<Divider
-					style={{
-						width: "20%",
-						margin: "20px auto",
-						backgroundColor: colors.divider,
-					}}
-				/>
-			</TitleWrapper>
-			<StepsAndImagesWrapper>
-				<HowItWorksStepTimeline
-					steps={steps}
-					activeStep={activeStep}
-					setActiveStep={setActiveStep}
-					stopAnimation={stopAnimation}
-					resumeAnimation={resumeAnimation}
-				/>{" "}
-			</StepsAndImagesWrapper>
-		</Wrapper>
+		<MSAnimatedDiv>
+			<Wrapper id="howItWorks">
+				<TitleWrapper>
+					<MSText
+						fontSize="2rem"
+						fontWeight="bold"
+						color={colors.black}
+						style={{ textAlign: "center" }}
+					>
+						<ScribbledCircleText text={"How It Works"} />
+					</MSText>
+					<MSText
+						fontSize="1.125rem"
+						color={colors.gray}
+						style={{ textAlign: "center", marginTop: "10px" }}
+					>
+						From agreement to payment, Mawsouq ensures secure and seamless
+						transactions.
+					</MSText>
+					<Divider
+						style={{
+							width: "20%",
+							margin: "20px auto",
+							backgroundColor: colors.divider,
+						}}
+					/>
+				</TitleWrapper>
+				<StepsAndImagesWrapper>
+					<HowItWorksStepTimeline
+						steps={steps}
+						activeStep={activeStep}
+						setActiveStep={setActiveStep}
+						stopAnimation={stopAnimation}
+						resumeAnimation={resumeAnimation}
+					/>{" "}
+				</StepsAndImagesWrapper>
+			</Wrapper>
+		</MSAnimatedDiv>
 	);
 };
 

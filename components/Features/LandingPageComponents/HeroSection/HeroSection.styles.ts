@@ -3,20 +3,25 @@ import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const HeroWrapper = styled.section`
-	background: radial-gradient(circle, #2a75d4 0%, #1e1e1e 100%);
+	background: #2a75d4;
+	// background: linear-gradient(90deg, #2072fb 0%, #31926e 100%);
+	// background: linear-gradient(90deg, #1e1e1e 20%, #2072fb 100%);
 	color: white;
 	border-radius: 10px;
 	@media (max-width: 1000px) {
 		height: fit-content;
 	}
-	padding-bottom: 20px;
+	padding-bottom: 32px;
+	padding-top: 32px;
 `;
 export const RowDiv = styled.div`
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	padding: 32px 64px 32px 64px;
 
 	@media (max-width: 1000px) {
+		padding: 16px 32px 16px 32px;
 		flex-direction: column;
 	}
 `;
@@ -41,6 +46,8 @@ export const TitleWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
+
+export const CardWrapper = styled.div``;
 
 export const DescriptionWrapper = styled.div`
 	display: flex;
@@ -107,12 +114,12 @@ export const InputFieldDiv = styled.div`
 `;
 export const StyledButton = styled.button`
 	display: flex;
-	align-self: flex-start;
+	align-self: flex-center;
 	justify-content: center;
 	align-items: center;
 	background-color: #31c48d;
 	color: white;
-	padding: 20px;
+	padding: 15px;
 	border: none;
 	cursor: pointer;
 	border-radius: 8px;
