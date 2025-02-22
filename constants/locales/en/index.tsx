@@ -30,6 +30,7 @@ const en = {
 	confirm: "Confirm",
 	save: "Save",
 	edit: "Edit",
+	logout: "Log out",
 
 	// Navigation and Overview
 	walletBalance: "Wallet Balance",

@@ -19,6 +19,7 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 import { useAuthStore } from "@/store";
+import UserNavbar from "./UserNavbar";
 
 const Navbar = (props: NavBarProps) => {
 	const { isLandingPage = false } = props;
@@ -34,65 +35,128 @@ const Navbar = (props: NavBarProps) => {
 
 	return (
 		<>
-			<NavWrapper isLandingPage={isLandingPage}>
-				<NavbarContainer>
-					<Logo
-						onClick={() => {
-							if (isLoggedIn && !isLandingPage) {
-								router.push(clientRoutes.homePage);
-							}
-						}}
-					>
-						Maw<span>souq</span>
-					</Logo>
+			{isLandingPage ? (
+				<NavWrapper isLandingPage={isLandingPage}>
+					<NavbarContainer>
+						<Logo
+							onClick={() => {
+								if (isLoggedIn && !isLandingPage) {
+									router.push(clientRoutes.homePage);
+								}
+							}}
+						>
+							Maw<span>souq</span>
+						</Logo>
 
-					{isMobile ? (
-						<HamburgerMenu onClick={toggleMenu}>
-							<span />
-							<span />
-							<span />
-						</HamburgerMenu>
-					) : (
-						<>
-							<NavMenu>
-								<NavItem>
-									<NavLinkss
-										to="howItWorks"
-										activeClass="active"
-										smooth={true}
-										duration={500}
-										spy={true}
-										offset={0}
-									>
-										How it Works
-									</NavLinkss>
-								</NavItem>
-								<NavItem>
-									<NavLinkss
-										to="benefits"
-										activeClass="active"
-										smooth={true}
-										duration={500}
-										spy={true}
-										offset={-121}
-									>
-										Benefits
-									</NavLinkss>
-								</NavItem>
-								<NavItem>
-									<NavLinkss
-										to="about"
-										activeClass="active"
-										smooth={true}
-										duration={500}
-										spy={true}
-										offset={-141}
-									>
-										Contact
-									</NavLinkss>
-								</NavItem>
-							</NavMenu>
-							<NavBtn>
+						{isMobile ? (
+							<HamburgerMenu onClick={toggleMenu}>
+								<span />
+								<span />
+								<span />
+							</HamburgerMenu>
+						) : (
+							<>
+								<NavMenu>
+									<NavItem>
+										<NavLinkss
+											to="howItWorks"
+											activeClass="active"
+											smooth={true}
+											duration={500}
+											spy={true}
+											offset={0}
+										>
+											How it Works
+										</NavLinkss>
+									</NavItem>
+									<NavItem>
+										<NavLinkss
+											to="benefits"
+											activeClass="active"
+											smooth={true}
+											duration={500}
+											spy={true}
+											offset={-121}
+										>
+											Benefits
+										</NavLinkss>
+									</NavItem>
+									<NavItem>
+										<NavLinkss
+											to="about"
+											activeClass="active"
+											smooth={true}
+											duration={500}
+											spy={true}
+											offset={-141}
+										>
+											Contact
+										</NavLinkss>
+									</NavItem>
+								</NavMenu>
+								<NavBtn>
+									{!isLoggedIn && (
+										<>
+											{" "}
+											<LoginButton
+												onClick={() => {
+													router.push(clientRoutes.login);
+												}}
+											>
+												Login
+											</LoginButton>
+											<RegisterButton
+												onClick={() => {
+													router.push(clientRoutes.register);
+												}}
+											>
+												Register
+											</RegisterButton>
+										</>
+									)}
+									{isLoggedIn && (
+										<>
+											<LoginButton onClick={logout}>Logout</LoginButton>
+										</>
+									)}
+								</NavBtn>
+							</>
+						)}
+					</NavbarContainer>
+					{isMobile && open && (
+						<Drawer anchor="right" open={open} onClose={() => toggleMenu()}>
+							<Sidebar>
+								<CloseIcon onClick={toggleMenu}>X</CloseIcon>
+								<SidebarLink
+									to="howItWorks"
+									activeClass="active"
+									smooth={true}
+									duration={500}
+									spy={true}
+									offset={0}
+								>
+									How it works
+								</SidebarLink>
+								<SidebarLink
+									to="benefits"
+									activeClass="active"
+									smooth={true}
+									duration={500}
+									spy={true}
+									offset={-121}
+								>
+									Benefits
+								</SidebarLink>
+								<SidebarLink
+									to="about"
+									activeClass="active"
+									smooth={true}
+									duration={500}
+									spy={true}
+									offset={-141}
+								>
+									Contact
+								</SidebarLink>
 								{!isLoggedIn && (
 									<>
 										{" "}
@@ -116,73 +180,14 @@ const Navbar = (props: NavBarProps) => {
 									<>
 										<LoginButton onClick={logout}>Logout</LoginButton>
 									</>
-								)}
-							</NavBtn>
-						</>
+								)}{" "}
+							</Sidebar>
+						</Drawer>
 					)}
-				</NavbarContainer>
-				{isMobile && open && (
-					<Drawer anchor="right" open={open} onClose={() => toggleMenu()}>
-						<Sidebar>
-							<CloseIcon onClick={toggleMenu}>X</CloseIcon>
-							<SidebarLink
-								to="howItWorks"
-								activeClass="active"
-								smooth={true}
-								duration={500}
-								spy={true}
-								offset={0}
-							>
-								How it works
-							</SidebarLink>
-							<SidebarLink
-								to="benefits"
-								activeClass="active"
-								smooth={true}
-								duration={500}
-								spy={true}
-								offset={-121}
-							>
-								Benefits
-							</SidebarLink>
-							<SidebarLink
-								to="about"
-								activeClass="active"
-								smooth={true}
-								duration={500}
-								spy={true}
-								offset={-141}
-							>
-								Contact
-							</SidebarLink>
-							{!isLoggedIn && (
-								<>
-									{" "}
-									<LoginButton
-										onClick={() => {
-											router.push(clientRoutes.login);
-										}}
-									>
-										Login
-									</LoginButton>
-									<RegisterButton
-										onClick={() => {
-											router.push(clientRoutes.register);
-										}}
-									>
-										Register
-									</RegisterButton>
-								</>
-							)}
-							{isLoggedIn && (
-								<>
-									<LoginButton onClick={logout}>Logout</LoginButton>
-								</>
-							)}{" "}
-						</Sidebar>
-					</Drawer>
-				)}
-			</NavWrapper>
+				</NavWrapper>
+			) : (
+				<UserNavbar />
+			)}
 		</>
 	);
 };

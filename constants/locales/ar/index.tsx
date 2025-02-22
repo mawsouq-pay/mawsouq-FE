@@ -31,6 +31,7 @@ const ar = {
 	confirm: "Confirm",
 	save: "Save",
 	edit: "Edit",
+	logout: "Log out",
 
 	// Navigation and Overview
 	walletBalance: "رصيد المحفظة",
