@@ -8,12 +8,13 @@ import {
 } from "./UserPayoutMethods.style";
 import MSButton from "@/components/Shared/MSButton";
 import MSModal from "@/components/Shared/MSModal";
-import PayoutForm from "../PayoutForm";
+import PayoutForm from "../../../Shared/MSPayoutForm";
 import { useManagePayout } from "@/hooks/useManagePayout";
 import { PayoutDetailsT } from "@/types/authenticationTypes";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import MSPayoutModal from "@/components/Shared/MSPayoutForm/MSPayoutModal";
 
 const UserPayoutMethods = () => {
 	const { locale } = useLocaleStore();
@@ -86,31 +87,15 @@ const UserPayoutMethods = () => {
 				)}
 			</div>
 
-			<MSModal
-				open={payoutModalOpen}
-				onClose={() => setPayoutModalOpen(false)}
-				showActions={false}
-				title={text.payoutDetails}
-			>
-				<div
-					style={{ maxHeight: "80vh", overflowY: "auto", padding: "0 10px" }}
-				>
-					<MSText
-						fontSize="18px"
-						color={colors.gray}
-						style={{ marginBottom: 15 }}
-					>
-						{text.enterYourPayoutDetails}
-					</MSText>
-					<PayoutForm
-						onCancel={() => setPayoutModalOpen(false)}
-						onSubmit={(details: PayoutDetailsT) =>
-							createUserPayoutMethod(details)
-						}
-						isPending={isPending}
-					/>
-				</div>{" "}
-			</MSModal>
+			<MSPayoutModal
+				payoutModalOpen={payoutModalOpen}
+				setPayoutModalOpen={setPayoutModalOpen}
+				onCancel={() => {
+					setPayoutModalOpen(false);
+				}}
+				onSubmit={createUserPayoutMethod}
+				isPending={isPending}
+			/>
 		</MSErrorAndLoadingWrapper>
 	);
 };

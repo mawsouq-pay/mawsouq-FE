@@ -8,15 +8,21 @@ import TransactionForm from "@/components/Features/CreateTransaction/Transaction
 import ShareLink from "@/components/Features/CreateTransaction/ShareLink";
 import { CreateOrderInput } from "@/types/ordersTypes";
 import { useGetUserPayoutOptions } from "./authHooks";
+import { useManagePayout } from "./useManagePayout";
+import { PayoutDetailsT } from "@/types/authenticationTypes";
 
 export const useStartTransaction = () => {
 	const { mutate: createOrder, isPending, error } = useCreateOrder();
 	const {
 		data: userPayoutOptionsData,
 		isPending: getUserPayoutOptionsLoading,
-		error: getUserPayoutOptionsError,
 	} = useGetUserPayoutOptions();
-
+	const {
+		createUserPayoutMethod,
+		isPending: createUserPayoutPending,
+		payoutModalOpen: payoutModalFormOpen,
+		setPayoutModalOpen: setPayoutModalFormOpen,
+	} = useManagePayout();
 	const [payoutModalOpen, setPayoutModalOpen] = useState(false);
 	const [formData, setFormData] = useState<StartTransactionData>({
 		role: RolesEnum.BUYER,
@@ -97,6 +103,14 @@ export const useStartTransaction = () => {
 		setActiveStep(0);
 	};
 
+	const onPayoutRequiredModalSubmit = () => {
+		setPayoutModalOpen(false);
+		setPayoutModalFormOpen(true);
+	};
+
+	const onPayoutFormSubmit = (details: PayoutDetailsT) => {
+		createUserPayoutMethod(details);
+	};
 	return {
 		steps,
 		formData,
@@ -109,5 +123,10 @@ export const useStartTransaction = () => {
 		renderStep,
 		payoutModalOpen,
 		setPayoutModalOpen,
+		onPayoutRequiredModalSubmit,
+		payoutModalFormOpen,
+		setPayoutModalFormOpen,
+		onPayoutFormSubmit,
+		createUserPayoutPending,
 	};
 };

@@ -18,12 +18,12 @@ import {
 	FlexRow,
 	FormContainer,
 	StyledForm,
-} from "./PayoutForm.styles";
+} from "./MSPayoutForm.styles";
 import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import { PayoutDetailsT } from "@/types/authenticationTypes";
 
-const PayoutForm = (props: PayoutFormProps) => {
+const MSPayoutForm = (props: PayoutFormProps) => {
 	const { onCancel, onSubmit, isPending } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -126,4 +126,4 @@ const PayoutForm = (props: PayoutFormProps) => {
 	);
 };
 
-export default PayoutForm;
+export default MSPayoutForm;

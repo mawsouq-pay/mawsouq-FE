@@ -15,7 +15,6 @@ import {
 	NavBtn,
 } from "./UserNavbar.styles";
 import MSButton from "../../MSButton";
-import { textTr } from "@/constants/locales";
 import HamburgerDropdown from "../HamburgerDropdown";
 import { userButtonsList } from "./types";
 
@@ -31,7 +30,7 @@ const UserNavbar = () => {
 				<NavbarContainer>
 					<Logo
 						onClick={() => {
-							router.push(clientRoutes.startTransaction);
+							router.push(clientRoutes.homePage);
 						}}
 					>
 						Maw<span>souq</span>
