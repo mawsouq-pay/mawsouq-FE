@@ -89,7 +89,7 @@ const OrderBody = (props: OrderBodyProps) => {
 					</MSText>{" "}
 					<OrderPaymentSummary
 						price={data?.order.price || 0}
-						escrowFee={20}
+						escrowFee={50}
 						totalDue={(data?.order?.price || 0) + 50}
 					/>
 					<OrderInfo
