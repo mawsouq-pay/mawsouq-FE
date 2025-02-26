@@ -25,7 +25,7 @@ export const useStartTransaction = () => {
 	} = useManagePayout();
 	const [payoutModalOpen, setPayoutModalOpen] = useState(false);
 	const [formData, setFormData] = useState<StartTransactionData>({
-		role: RolesEnum.BUYER,
+		role: RolesEnum.SELLER,
 		transactionTitle: "",
 		description: "",
 		price: "",
@@ -34,7 +34,7 @@ export const useStartTransaction = () => {
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const [activeStep, setActiveStep] = useState(0);
 
-	const steps = ["Role", "Transaction Details", "Share Link"];
+	const steps = ["Transaction Details", "Share Link"];
 
 	useEffect(() => {
 		if (
@@ -45,21 +45,21 @@ export const useStartTransaction = () => {
 			setPayoutModalOpen(true);
 		}
 	}, [formData.role, userPayoutOptionsData, getUserPayoutOptionsLoading]);
-
+	console.log(error, "EERROR");
 	const renderStep = () => {
 		return (
 			<>
-				{activeStep === 0 && (
+				{/* {activeStep === 0 && (
 					<RoleSelection initialValues={formData} onSubmit={handleNext} />
-				)}
-				{activeStep === 1 && (
+				)} */}
+				{activeStep === 0 && (
 					<TransactionForm
 						initialValues={formData}
 						onSubmit={handleConfirmOrder}
 						onBack={handleBack}
 					/>
 				)}
-				{activeStep === 2 && (
+				{activeStep === 1 && (
 					<ShareLink
 						isPending={isPending}
 						error={error}
@@ -79,13 +79,14 @@ export const useStartTransaction = () => {
 
 	const handleConfirmOrder = (updatedData: StartTransactionData) => {
 		handleNext(updatedData);
-
+		console.log(updatedData, "updatedData");
 		const orderData: CreateOrderInput = {
-			...formData,
+			...updatedData,
 			price: parseFloat(updatedData.price),
 			deliveryDate: new Date(updatedData.deliveryDate),
 			description: updatedData.description,
 		};
+		console.log(orderData, "Order");
 		createOrder(orderData, {
 			onSuccess: (response) => {
 				const newOrderId = response?.data?.order?._id;

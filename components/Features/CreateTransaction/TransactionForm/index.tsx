@@ -31,6 +31,13 @@ const TransactionForm = (props: TransactionFormProps) => {
 			>
 				{({ values }) => (
 					<StyledForm>
+						<FormItem
+							label={text.transactionTitle}
+							id={initialValues.transactionTitle}
+							name={StartTransactionFormNames.transactionTitle}
+							placeholder={text.enterTitle}
+						/>
+
 						{/* Description */}
 						<FormItem
 							label={text.description}
@@ -65,20 +72,16 @@ const TransactionForm = (props: TransactionFormProps) => {
 								totalDue={(parseFloat(values.price) || 0) + 50}
 							/>{" "}
 						</div>
-						<FlexRow>
-							<BackButton onClick={onBack}>{text.back}</BackButton>
-
-							<MSButton
-								title={text.next}
-								type="submit"
-								style={{
-									height: 40,
-									width: "fit-content",
-									alignSelf: "flex-end",
-									marginTop: 10,
-								}}
-							/>
-						</FlexRow>
+						<MSButton
+							title={text.next}
+							type="submit"
+							style={{
+								height: 40,
+								width: "fit-content",
+								alignSelf: "flex-end",
+								marginTop: 10,
+							}}
+						/>
 					</StyledForm>
 				)}
 			</Formik>
