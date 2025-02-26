@@ -26,6 +26,7 @@ const OrderAction = (props: OrderActionProps) => {
 		loadingAndDisable,
 		handleConfirmRelease,
 		handleDispute,
+		handleCaptureOrder,
 	} = useOrderActions(
 		orderId,
 		isFetcherSeller,

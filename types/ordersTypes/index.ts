@@ -78,3 +78,9 @@ export interface SellerReleaseInput {
 export interface SellerReleaseResponse {
 	order: Order;
 }
+export interface CaptureOrderInput {
+	orderId: string;
+}
+export interface CaptureOrderResponse {
+	order: Order;
+}

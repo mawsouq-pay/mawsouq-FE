@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import {
+	useCaptureOrder,
 	useCreatePaymentLink,
 	useSellerRelease,
 	useUpdateOrderStatus,
@@ -13,6 +14,7 @@ import {
 } from "@/constants";
 import queryClient from "@/client/reactQClient";
 import { useNotification } from "@/store/SnackBarStore";
+import { AxiosError } from "axios";
 
 export const useOrderActions = (
 	orderId: string,
@@ -34,7 +36,8 @@ export const useOrderActions = (
 		useUpdateOrderStatus();
 	const { mutate: sellerRelease, isPending: sellerReleasePending } =
 		useSellerRelease();
-
+	const { mutate: captureOrder, isPending: captureOrderPending } =
+		useCaptureOrder();
 	const statusMessage = orderStatusConfirmationMessages[orderStatus];
 	const { messageForSeller, messageForBuyer, sellerCTA, buyerCTA, nextStatus } =
 		orderProgressBarData[orderStatus];
@@ -94,6 +97,33 @@ export const useOrderActions = (
 		}
 	};
 
+	const handleCaptureOrder = () => {
+		captureOrder(
+			{ orderId },
+			{
+				onSuccess: (response, variables) => {
+					const { orderId } = variables;
+					queryClient.setQueryData(
+						["fetchOrderById", orderId],
+						(oldData: any) => {
+							if (!oldData) return oldData;
+							return {
+								...oldData,
+								order: {
+									...oldData.order,
+									status: OrderStatusEnum.COMPLETED,
+								},
+							};
+						}
+					);
+				},
+				onError(error) {
+					console.log("-----ERROR IN UPDATING STATUS-------", error);
+					showAxiosErrorNotification(error as AxiosError);
+				},
+			}
+		);
+	};
 	const loadingAndDisable =
 		createLinkPending || updateOrderPending || sellerReleasePending;
 
@@ -108,5 +138,6 @@ export const useOrderActions = (
 		handleConfirmRelease,
 		handleDispute,
 		loadingAndDisable,
+		handleCaptureOrder,
 	};
 };

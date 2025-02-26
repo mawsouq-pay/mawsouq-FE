@@ -4,6 +4,8 @@ import { OrderStatusEnum } from "@/constants";
 import { serverRoutes } from "@/routes";
 import { useNotification } from "@/store/SnackBarStore";
 import {
+	CaptureOrderInput,
+	CaptureOrderResponse,
 	CreateOrderInput,
 	CreateOrderResponse,
 	CreatePaymentLinkInput,
@@ -108,5 +110,11 @@ export const useSellerRelease = () => {
 				showAxiosErrorNotification(error as AxiosError);
 			},
 		}
+	);
+};
+
+export const useCaptureOrder = () => {
+	return usePost<CaptureOrderResponse, CaptureOrderInput>(
+		serverRoutes.captureOrder
 	);
 };

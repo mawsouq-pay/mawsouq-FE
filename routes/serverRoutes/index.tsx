@@ -17,6 +17,7 @@ const serverRoutes = {
 	updateOrderStatus: "/order/update",
 
 	sellerRelease: "/order/sellerRelease",
+	captureOrder: "/order/captureOrder",
 };
 
 export default serverRoutes;
