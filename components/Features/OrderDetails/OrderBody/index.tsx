@@ -31,7 +31,7 @@ const OrderBody = (props: OrderBodyProps) => {
 	const [isDisputeFormOpen, setIsDisputeFormOpen] = useState(false);
 	const { data, isLoading, error } = useFetchOrderById(orderId as string);
 	const isOrderPendingJoin =
-		data?.order?.status === OrderStatusEnum.PENDING_JOIN;
+		data?.order?.status === OrderStatusEnum.PENDING_PAYMENT;
 	const isPendingSeller = !data?.order?.seller;
 
 	return (
@@ -50,7 +50,7 @@ const OrderBody = (props: OrderBodyProps) => {
 			</ActionBox>
 			<TopSection>
 				<OrderProgress
-					status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
+					status={data?.order?.status || OrderStatusEnum.PENDING_PAYMENT}
 				/>
 				{isOrderPendingJoin && (
 					<div
@@ -69,7 +69,7 @@ const OrderBody = (props: OrderBodyProps) => {
 				<OrderAction
 					orderId={data?.order?._id ?? ""}
 					isFetcherSeller={data?.order?.isFetcherSeller ?? false}
-					orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_JOIN}
+					orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_PAYMENT}
 					setIsDisputeFormOpen={() => setIsDisputeFormOpen(true)}
 				/>
 			</TopSection>
@@ -96,7 +96,7 @@ const OrderBody = (props: OrderBodyProps) => {
 						transactionTitle={data?.order?.transactionTitle || ""}
 						description={data?.order?.description || ""}
 						price={data?.order?.price || 0}
-						status={data?.order?.status || OrderStatusEnum.PENDING_JOIN}
+						status={data?.order?.status || OrderStatusEnum.PENDING_PAYMENT}
 						deliveryDate={data?.order?.deliveryDate || ""}
 					/>
 				</InfoSection>

@@ -1,7 +1,6 @@
 import { Order } from "@/types/ordersTypes";
 
 export enum OrderStatusEnum {
-	PENDING_JOIN = "PENDING_JOIN", // Order created but waiting for the other party to join
 	PENDING_PAYMENT = "PENDING_PAYMENT", // Buyer has joined, waiting for payment
 	IN_PROGRESS = "IN_PROGRESS", // Payment completed, order in progress
 	IN_TRANSIT = "IN_TRANSIT", // Seller shipped/delivered the order
@@ -25,12 +24,6 @@ export const orderStatusObject: Record<
 		historyMessage: string;
 	}
 > = {
-	PENDING_JOIN: {
-		text: "pending_join",
-		backgroundColor: "#FFF9C4",
-		textColor: "#000000",
-		historyMessage: "Order was created.",
-	},
 	PENDING_PAYMENT: {
 		text: "pending_payment",
 		backgroundColor: "#FFF9C4",
@@ -86,14 +79,6 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum | null;
 	}
 > = {
-	PENDING_JOIN: {
-		activeStep: 0,
-		messageForBuyer: "Waiting for the seller to join and accept the order.",
-		messageForSeller: "Waiting for the buyer to join and accept the order.",
-		buyerCTA: null,
-		sellerCTA: null,
-		nextStatus: OrderStatusEnum.PENDING_PAYMENT,
-	},
 	PENDING_PAYMENT: {
 		activeStep: 0,
 		messageForBuyer: "Waiting for your payment to proceed with the order.",
@@ -165,10 +150,6 @@ export const orderStatusConfirmationMessages: Record<
 	OrderStatusEnum,
 	{ title: string; message: string }
 > = {
-	PENDING_JOIN: {
-		title: "",
-		message: "",
-	},
 	PENDING_PAYMENT: {
 		title: "Mark as In Progress?",
 		message: "Are you sure you want to proceed in the order by paying?",
