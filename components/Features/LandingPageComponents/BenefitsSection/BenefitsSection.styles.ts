@@ -2,7 +2,7 @@ import { colors } from "@mui/material";
 import styled from "styled-components";
 import MSText from "../../../Shared/MSText";
 
-export const BenefitsWrapper = styled.section`
+export const BenefitsWrapper = styled.div`
 	background: #2a75d4;
 	border-radius: 10px;
 	padding: 110px clamp(20px, 5vw, 84px);

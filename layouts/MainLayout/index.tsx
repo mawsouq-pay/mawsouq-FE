@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-	background-color: ${colors.white};
+	background-color: ${colors.divBackground};
 	//padding: 20px;
 	height: 100dvh;
 `;

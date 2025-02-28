@@ -12,6 +12,7 @@ const MSButton = (props: ButtonProps) => {
 		disabled,
 		title,
 		type = "submit",
+		fontColor,
 	} = props;
 	return (
 		<StyledButton
@@ -27,7 +28,11 @@ const MSButton = (props: ButtonProps) => {
 						style={{ color: colors.white, marginRight: "8px" }}
 					/>
 				)}
-				<MSText fontSize={"16px"} mobileFontSize="14px" color={colors.white}>
+				<MSText
+					fontSize={"16px"}
+					mobileFontSize="14px"
+					color={fontColor ? fontColor : colors.white}
+				>
 					{title}
 				</MSText>
 			</ButtonContentWrapper>

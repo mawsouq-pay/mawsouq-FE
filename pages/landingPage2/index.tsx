@@ -4,8 +4,11 @@ import useTypewriter from "@/hooks/useTypeWriter";
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import LaptopFrame from "@/assets/images/FrameLaptop.png";
 import { FrameLaptopImage } from "@/assets/images";
+import HowItWorks from "@/components/Features/LandingPageComponents/HowItWorks";
+import SecureTransactions from "@/components/Features/LandingPageComponents/SecureTransactions";
+import MawsouqBenefits from "@/components/Features/LandingPageComponents/MawsouqBenefits";
+import ContactUs from "@/components/Features/LandingPageComponents/ContactUs";
 
 const LandingPage = () => {
 	const textList = [
@@ -63,6 +66,10 @@ const LandingPage = () => {
 					/>
 				</HeroImage>
 			</HeroContainer>
+			<HowItWorks />
+			<SecureTransactions />
+			<MawsouqBenefits />
+			<ContactUs />
 		</>
 	);
 };
@@ -75,7 +82,8 @@ export const HeroContainer = styled.section`
 	text-align: center;
 	flex-direction: column;
 	min-height: 80vh;
-	background: linear-gradient(to top, #ddf8ed, #ffffff);
+	//background: linear-gradient(to top, #ddf8ed, #ffffff);
+	background: linear-gradient(to top, #b3fcdf, #ffffff);
 	padding: 1rem 2rem;
 
 	@media (max-width: 768px) {
