@@ -9,6 +9,8 @@ import HowItWorks from "@/components/Features/LandingPageComponents/HowItWorks";
 import SecureTransactions from "@/components/Features/LandingPageComponents/SecureTransactions";
 import MawsouqBenefits from "@/components/Features/LandingPageComponents/MawsouqBenefits";
 import ContactUs from "@/components/Features/LandingPageComponents/ContactUs";
+import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
+import FooterSection from "@/components/Features/LandingPageComponents/FooterSection";
 
 const LandingPage = () => {
 	const textList = [
@@ -66,10 +68,20 @@ const LandingPage = () => {
 					/>
 				</HeroImage>
 			</HeroContainer>
-			<HowItWorks />
-			<SecureTransactions />
-			<MawsouqBenefits />
-			<ContactUs />
+			<MSAnimatedDiv>
+				<HowItWorks />
+			</MSAnimatedDiv>
+
+			<MSAnimatedDiv>
+				<SecureTransactions />
+			</MSAnimatedDiv>
+			<MSAnimatedDiv>
+				<MawsouqBenefits />
+			</MSAnimatedDiv>
+			<MSAnimatedDiv>
+				<ContactUs />
+			</MSAnimatedDiv>
+			<FooterSection />
 		</>
 	);
 };
