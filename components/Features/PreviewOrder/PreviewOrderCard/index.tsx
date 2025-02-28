@@ -66,7 +66,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 			</PaymentSummaryDiv>
 
 			<MSButton
-				title={text.approve}
+				title={"Confirm and pay!"}
 				style={{ width: "100%" }}
 				onClick={onConfirmPress}
 			/>

@@ -11,6 +11,9 @@ import { useRouter } from "next/router";
 import OrderPreviewConfirmationPopUp from "@/components/Features/PreviewOrder/OrderPreviewConfirmationPopUp";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
 import ContactSummarySection from "@/components/Features/PreviewOrder/ContactSummarySection";
+import { OrderStatusEnum } from "@/constants";
+import { clientRoutes } from "@/routes";
+import { useNotification } from "@/store/SnackBarStore";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -19,6 +22,13 @@ const PreviewOrderSummary = () => {
 	const text = textTr(locale);
 	const { data, isLoading, error } = useFetchOrderPreview(orderId as string);
 	const [showBuyerPopUp, setShowBuyerPopUp] = useState(false);
+	const { showInfoNotification } = useNotification();
+	if (data?.order?.seller && data?.order?.buyer) {
+		router.replace({
+			pathname: clientRoutes.order,
+			query: { id: orderId },
+		});
+	}
 	return (
 		<PageContainer>
 			<MSErrorAndLoadingWrapper
@@ -45,7 +55,13 @@ const PreviewOrderSummary = () => {
 					sellerEmail={data?.order?.seller?.email ?? ""}
 					sellerName={data?.order?.seller?.name ?? ""}
 					price={data?.order?.price ?? 1}
-					onConfirmPress={() => setShowBuyerPopUp(true)}
+					onConfirmPress={() => {
+						if (data?.order?.isFetcherSeller) {
+							showInfoNotification("Seller can not pay for the order!");
+							return;
+						}
+						setShowBuyerPopUp(true);
+					}}
 				/>
 				<OrderPreviewConfirmationPopUp
 					open={showBuyerPopUp}

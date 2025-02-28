@@ -6,9 +6,9 @@ import { clientRoutes } from "@/routes";
 import { User } from "@/types/authenticationTypes";
 import { AxiosError } from "axios";
 import { LoginFormInput } from "@/components/Features/Authentication/LoginForm/types";
-import { useLinkOrder } from "./orderHooks";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { useHandleAcceptPayments } from "./useHandleAcceptPayment";
 
 export const useLoginHandler = (orderId?: string) => {
 	const router = useRouter();
@@ -17,13 +17,10 @@ export const useLoginHandler = (orderId?: string) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
-	const {
-		showAxiosErrorNotification,
-		showErrorNotification,
-		showSuccessNotification,
-	} = useNotification();
-	const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
-		useLinkOrder();
+	const { showAxiosErrorNotification, showErrorNotification } =
+		useNotification();
+	const { handleBuyerPayment, isBuyerPaymentPending } =
+		useHandleAcceptPayments();
 	const handleLogin = (
 		values: LoginFormInput,
 		setSubmitting: (isSubmitting: boolean) => void
@@ -62,32 +59,19 @@ export const useLoginHandler = (orderId?: string) => {
 
 	const navigateUser = () => {
 		if (orderId) {
-			LinkOrderMutate(
-				{ orderId },
-				{
-					onSuccess: () => {
-						router.replace({
-							pathname: clientRoutes.order,
-							query: { id: orderId },
-						});
-						showSuccessNotification(text.successfullyLinkedToOrder);
-					},
-					onError: (error) => {
-						showAxiosErrorNotification(error as AxiosError);
-						router.push({
-							pathname: clientRoutes.homePage,
-						});
-					},
-				}
-			);
+			handleBuyerPayment(orderId, {
+				onError: (error) => {
+					router.replace({
+						pathname: clientRoutes.homePage,
+					});
+				},
+			});
 		} else {
-			console.log("navigat3");
-
 			router.replace({
 				pathname: clientRoutes.homePage,
 			});
 		}
 	};
 
-	return { handleLogin, isPending: loginPending || linkOrderPending };
+	return { handleLogin, isPending: loginPending || isBuyerPaymentPending };
 };

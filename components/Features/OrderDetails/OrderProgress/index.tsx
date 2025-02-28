@@ -3,13 +3,7 @@ import { OrderProgressProps } from "./types";
 import { orderProgressBarData } from "@/constants";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
-const steps = [
-	"Pending Payment",
-	"Creating Order",
-	"In Transit",
-	"Delivered",
-	"Completed",
-];
+const steps = ["Pending Payment", "Money on hold", "Order Completed"];
 
 const OrderProgress = (props: OrderProgressProps) => {
 	const { status } = props;

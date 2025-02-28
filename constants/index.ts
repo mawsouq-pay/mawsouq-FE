@@ -1,5 +1,3 @@
-import { Order } from "@/types/ordersTypes";
-
 export enum OrderStatusEnum {
 	PENDING_PAYMENT = "PENDING_PAYMENT", // Buyer has joined, waiting for payment
 	IN_PROGRESS = "IN_PROGRESS", // Payment completed, order in progress
@@ -99,7 +97,7 @@ export const orderProgressBarData: Record<
 	},
 
 	IN_TRANSIT: {
-		activeStep: 2,
+		activeStep: 1,
 		messageForBuyer:
 			"Your order is currently in transit. Please confirm receipt once it has been delivered.",
 		messageForSeller:
@@ -110,7 +108,7 @@ export const orderProgressBarData: Record<
 	},
 
 	DELIVERED: {
-		activeStep: 3,
+		activeStep: 1,
 		messageForBuyer: "Order Is Delivered , awaiting your payment",
 		messageForSeller: "Order Is Delivered , awaiting buyer release",
 		buyerCTA: "Confirm Release",
@@ -118,7 +116,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	COMPLETED: {
-		activeStep: 4,
+		activeStep: 2,
 		messageForBuyer: "Thank you! Your order is completed.",
 		messageForSeller:
 			"The order is completed, and the payment has been released.",
@@ -127,7 +125,7 @@ export const orderProgressBarData: Record<
 		nextStatus: null,
 	},
 	DISPUTED: {
-		activeStep: 4,
+		activeStep: 2,
 		messageForBuyer:
 			"A dispute has been raised. Provide details to resolve it.",
 		messageForSeller:
@@ -137,7 +135,7 @@ export const orderProgressBarData: Record<
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 	CANCELLED: {
-		activeStep: 4,
+		activeStep: 2,
 		messageForBuyer: "The order has been cancelled.",
 		messageForSeller: "The order has been cancelled.",
 		buyerCTA: null,

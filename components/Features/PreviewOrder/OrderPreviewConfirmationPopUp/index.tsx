@@ -13,10 +13,9 @@ import {
 	IconWrapper,
 } from "./OrderPreviewConfirmationPopUp.styles";
 import MSButton from "@/components/Shared/MSButton";
-import { useLinkOrder } from "@/hooks/orderHooks";
 import { useNotification } from "@/store/SnackBarStore";
-import { AxiosError } from "axios";
 import { ShieldCheck } from "lucide-react";
+import { useHandleAcceptPayments } from "@/hooks/useHandleAcceptPayment";
 
 const OrderPreviewConfirmationPopUp = ({
 	open,
@@ -27,9 +26,8 @@ const OrderPreviewConfirmationPopUp = ({
 	const text = textTr(locale);
 	const { isLoggedIn } = useAuthStore();
 	const router = useRouter();
-	const { mutate: LinkOrderMutate, isPending } = useLinkOrder();
-	const { showAxiosErrorNotification, showSuccessNotification } =
-		useNotification();
+	const { handleBuyerPayment, isBuyerPaymentPending } =
+		useHandleAcceptPayments();
 
 	const handleRegisterRedirect = () => {
 		setOpen(false);
@@ -40,24 +38,7 @@ const OrderPreviewConfirmationPopUp = ({
 	};
 
 	const onConfirm = () => {
-		LinkOrderMutate(
-			{ orderId },
-			{
-				onSuccess: () => {
-					router.replace({
-						pathname: clientRoutes.order,
-						query: { id: orderId },
-					});
-					showSuccessNotification(text.successfullyLinkedToOrder);
-				},
-				onError: (error) => {
-					showAxiosErrorNotification(error as AxiosError);
-					router.push({
-						pathname: clientRoutes.homePage,
-					});
-				},
-			}
-		);
+		handleBuyerPayment(orderId);
 	};
 
 	return (
@@ -92,7 +73,7 @@ const OrderPreviewConfirmationPopUp = ({
 				}}
 				title={isLoggedIn ? "Confirm and Secure Order" : "Sign Up to Proceed"}
 				onClick={isLoggedIn ? onConfirm : handleRegisterRedirect}
-				loading={isPending}
+				loading={isBuyerPaymentPending}
 			/>
 		</MSModal>
 	);

@@ -9,6 +9,7 @@ import { RegisterFormInput } from "@/components/Features/Authentication/Register
 import { useLinkOrder } from "./orderHooks";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { useHandleAcceptPayments } from "./useHandleAcceptPayment";
 
 const useRegisterHandler = (orderId?: string) => {
 	const { locale } = useLocaleStore();
@@ -22,9 +23,10 @@ const useRegisterHandler = (orderId?: string) => {
 		showSuccessNotification,
 	} = useNotification();
 	const router = useRouter();
-	const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
-		useLinkOrder();
-
+	// const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
+	// 	useLinkOrder();
+	const { handleBuyerPayment, isBuyerPaymentPending } =
+		useHandleAcceptPayments();
 	const handleRegister = (
 		values: RegisterFormInput,
 		setSubmitting: (isSubmitting: boolean) => void
@@ -64,24 +66,13 @@ const useRegisterHandler = (orderId?: string) => {
 
 	const navigateUser = () => {
 		if (orderId) {
-			LinkOrderMutate(
-				{ orderId },
-				{
-					onSuccess: () => {
-						router.replace({
-							pathname: clientRoutes.order,
-							query: { id: orderId },
-						});
-						showSuccessNotification(text.successfullyLinkedToOrder);
-					},
-					onError: (error) => {
-						showAxiosErrorNotification(error as AxiosError);
-						router.replace({
-							pathname: clientRoutes.homePage,
-						});
-					},
-				}
-			);
+			handleBuyerPayment(orderId, {
+				onError: (error) => {
+					router.replace({
+						pathname: clientRoutes.homePage,
+					});
+				},
+			});
 		} else {
 			router.replace({
 				pathname: clientRoutes.homePage,
@@ -89,7 +80,10 @@ const useRegisterHandler = (orderId?: string) => {
 		}
 	};
 
-	return { handleRegister, isPending: registerPending || linkOrderPending };
+	return {
+		handleRegister,
+		isPending: registerPending || isBuyerPaymentPending,
+	};
 };
 
 export default useRegisterHandler;
