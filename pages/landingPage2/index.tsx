@@ -54,6 +54,7 @@ const LandingPage = () => {
 							height: "auto",
 							display: "block",
 						}}
+						layout="responsive"
 					/>
 					<IframeOverlay
 						src="https://www.youtube.com/embed/19g66ezsKAg"
@@ -76,6 +77,10 @@ export const HeroContainer = styled.section`
 	min-height: 80vh;
 	background: linear-gradient(to top, #ddf8ed, #ffffff);
 	padding: 1rem 2rem;
+
+	@media (max-width: 768px) {
+		padding: 2rem;
+	}
 `;
 
 export const HeroContent = styled.div`
@@ -90,6 +95,14 @@ export const HeroImage = styled.div`
 	align-items: center;
 	width: 600px;
 	height: auto;
+
+	@media (max-width: 1024px) {
+		width: 450px;
+	}
+
+	@media (max-width: 768px) {
+		width: 320px;
+	}
 `;
 
 export const IframeOverlay = styled.iframe`
@@ -100,12 +113,31 @@ export const IframeOverlay = styled.iframe`
 	height: 58%;
 	border: none;
 	border-radius: 10px;
+
+	@media (max-width: 1024px) {
+		top: 18%;
+		left: 12%;
+		width: 76%;
+		height: 55%;
+	}
+
+	@media (max-width: 768px) {
+		top: 17%;
+		left: 10%;
+		width: 80%;
+		height: 70%;
+	}
 `;
+
 export const HeroTitle = styled.h1`
 	font-size: 3rem;
 	font-weight: bold;
 	color: #222;
 	margin-bottom: 1rem;
+
+	@media (max-width: 768px) {
+		font-size: 2rem;
+	}
 `;
 
 export const HeroSubtitle = styled.p`
@@ -113,7 +145,12 @@ export const HeroSubtitle = styled.p`
 	color: #444;
 	line-height: 1.6;
 	margin-bottom: 1.5rem;
+
+	@media (max-width: 768px) {
+		font-size: 0.9rem;
+	}
 `;
+
 export const HeroButton = styled.button`
 	background-color: black;
 	color: white;
@@ -140,6 +177,12 @@ export const NavbarContainer = styled.nav`
 	width: fit-content;
 	margin: 20px auto 40px auto;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+	@media (max-width: 768px) {
+		width: 100%;
+		padding: 5px 10px;
+		justify-content: center;
+	}
 `;
 
 export const NavItems = styled.div`
