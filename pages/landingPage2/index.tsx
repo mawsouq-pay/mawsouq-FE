@@ -11,6 +11,7 @@ import MawsouqBenefits from "@/components/Features/LandingPageComponents/Mawsouq
 import ContactUs from "@/components/Features/LandingPageComponents/ContactUs";
 import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
 import FooterSection from "@/components/Features/LandingPageComponents/FooterSection";
+import Navbar from "@/components/Shared/MSNavBar";
 
 const LandingPage = () => {
 	const textList = [
@@ -24,15 +25,9 @@ const LandingPage = () => {
 	const displayText = useTypewriter(textList, 100);
 	return (
 		<>
+			<Navbar isLandingPage={true} />
+
 			<HeroContainer>
-				<NavbarContainer>
-					<NavItems>
-						<NavItem>People ▼</NavItem>
-						<NavItem>Business ▼</NavItem>
-						<NavItem>Company ▼</NavItem>
-					</NavItems>
-					<LoginButton>Log in</LoginButton>
-				</NavbarContainer>
 				<HeroContent>
 					<MSText
 						style={{ paddingTop: 24, color: `${colors.buttonGreenBackground}` }}
@@ -51,7 +46,7 @@ const LandingPage = () => {
 					<HeroButton>Get Started</HeroButton>
 				</HeroContent>
 				<HeroImage>
-					<Image
+					{/* <Image
 						src={FrameLaptopImage}
 						alt="Desktop Frame"
 						style={{
@@ -60,7 +55,7 @@ const LandingPage = () => {
 							display: "block",
 						}}
 						layout="responsive"
-					/>
+					/> */}
 					<IframeOverlay
 						src="https://www.youtube.com/embed/19g66ezsKAg"
 						allowFullScreen
@@ -126,26 +121,28 @@ export const HeroImage = styled.div`
 `;
 
 export const IframeOverlay = styled.iframe`
-	position: absolute;
+	/* position: absolute;
 	top: 20%;
 	left: 13.3%;
 	width: 72%;
 	height: 58%;
 	border: none;
-	border-radius: 10px;
-
+	border-radius: 10px; */
+	margin-top: 20px;
+	border: 5px solid black;
+	border-radius: 20px;
 	@media (max-width: 1024px) {
-		top: 18%;
+		/* top: 18%;
 		left: 12%;
 		width: 76%;
-		height: 55%;
+		height: 55%; */
 	}
 
 	@media (max-width: 768px) {
-		top: 17%;
+		/* top: 17%;
 		left: 10%;
 		width: 80%;
-		height: 70%;
+		height: 70%; */
 	}
 `;
 

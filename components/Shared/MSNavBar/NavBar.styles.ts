@@ -6,18 +6,9 @@ import { media } from "@/helpers/mediaQueryHelper";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	top: 0;
-	${({ isLandingPage }) =>
-		isLandingPage
-			? `
-    position: sticky;
-    margin-bottom: 24px;
-  `
-			: `
-    position: static;
-    margin-bottom: 0;
-  `}
-	padding-top: 8px;
-	padding-bottom: 8px;
+
+	padding-top: 12px;
+	padding-bottom: 12px;
 	z-index: 100;
 	opacity: 0.8;
 	display: flex;
@@ -180,10 +171,10 @@ export const NavBtn = styled.nav`
 `;
 
 export const LoginButton = styled.button`
-	border-radius: 16px;
+	border-radius: 8px;
 	background: transparent;
 	white-space: nowrap;
-	padding: 10px 22px;
+	padding: 2px 22px;
 	color: ${colors.white};
 	outline: none;
 	font-size: 1rem;
@@ -204,11 +195,11 @@ export const LoginButton = styled.button`
 	}
 `;
 export const RegisterButton = styled.button`
-	border-radius: 16px;
+	border-radius: 8px;
 	width: 100px;
 	background: transparent;
 	white-space: nowrap;
-	padding: 10px 22px;
+	padding: 2px 22px;
 	color: ${colors.black};
 	outline: none;
 	font-size: 1rem;
