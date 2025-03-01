@@ -123,7 +123,7 @@ const Navbar = (props: NavBarProps) => {
 												style={{
 													backgroundColor: "transparent",
 													padding: 0,
-													textDecoration: "underline",
+													marginInlineStart: 20,
 												}}
 												fontColor="black"
 											/>
@@ -148,7 +148,6 @@ const Navbar = (props: NavBarProps) => {
 						)}
 					</NavbarContainer>
 
-					{/* Mobile Sidebar */}
 					{isMobile && open && (
 						<Drawer anchor="right" open={open} onClose={() => toggleMenu()}>
 							<Sidebar>
@@ -209,7 +208,6 @@ const Navbar = (props: NavBarProps) => {
 												router.push(clientRoutes.register);
 											}}
 										/>
-										{/* Language Switch Button in Sidebar */}
 										<MSButton
 											title={locale === "en" ? "العربية 🌍" : "English 🌍"}
 											onClick={toggleLanguage}

@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import {
 	DropdownWrapper,
-	MenuIcon,
 	DropdownMenu,
 	DropdownItem,
 } from "./HamburgerDropdown.styles";
 import { HamburgerDropdownProps } from "./types";
 import { colors } from "@/constants/theme";
+import { MenuIcon } from "lucide-react";
 
 const HamburgerDropdown = (props: HamburgerDropdownProps) => {
 	const { buttonsList } = props;

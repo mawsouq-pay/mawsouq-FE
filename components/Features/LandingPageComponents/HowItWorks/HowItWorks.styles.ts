@@ -47,7 +47,6 @@ export const FeatureContent = styled.div`
 	flex: 1;
 	justify-content: flex-start;
 	align-items: flex-start;
-	text-align: left;
 `;
 
 export const FeatureImage = styled.div`

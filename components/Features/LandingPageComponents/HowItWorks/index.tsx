@@ -31,10 +31,23 @@ const HowItWorks = () => {
 						<Image src={Step1} alt={text.step1Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
-						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
+						<MSText
+							fontSize="16px"
+							mobileFontSize="16px"
+							fontWeight={"600"}
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step1Title}
 						</MSText>
-						<MSText fontSize="16px" mobileFontSize="14px">
+						<MSText
+							fontSize="16px"
+							mobileFontSize="14px"
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step1Description}
 						</MSText>
 					</FeatureContent>
@@ -46,10 +59,23 @@ const HowItWorks = () => {
 						<Image src={Step2} alt={text.step2Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
-						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
+						<MSText
+							fontSize="16px"
+							mobileFontSize="16px"
+							fontWeight={"600"}
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step2Title}
 						</MSText>
-						<MSText fontSize="16px" mobileFontSize="14px">
+						<MSText
+							fontSize="16px"
+							mobileFontSize="14px"
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step2Description}
 						</MSText>
 					</FeatureContent>
@@ -61,10 +87,23 @@ const HowItWorks = () => {
 						<Image src={Step3} alt={text.step3Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
-						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
+						<MSText
+							fontSize="16px"
+							mobileFontSize="16px"
+							fontWeight={"600"}
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step3Title}
 						</MSText>
-						<MSText fontSize="16px" mobileFontSize="14px">
+						<MSText
+							fontSize="16px"
+							mobileFontSize="14px"
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step3Description}
 						</MSText>
 					</FeatureContent>
@@ -76,10 +115,23 @@ const HowItWorks = () => {
 						<Image src={Step4} alt={text.step4Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
-						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
+						<MSText
+							fontSize="16px"
+							mobileFontSize="16px"
+							fontWeight={"600"}
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step4Title}
 						</MSText>
-						<MSText fontSize="16px" mobileFontSize="14px">
+						<MSText
+							fontSize="16px"
+							mobileFontSize="14px"
+							style={{
+								textAlign: "left",
+							}}
+						>
 							{text.step4Description}
 						</MSText>
 					</FeatureContent>

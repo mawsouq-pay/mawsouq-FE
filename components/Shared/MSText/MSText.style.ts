@@ -11,4 +11,5 @@ export const Text = styled.p<{
 	font-size: ${({ fontSize }) => fontSize || "16px"};
 	margin: 0;
 	font-family: roboto;
+	//text-align: right;
 `;

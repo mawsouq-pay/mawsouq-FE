@@ -3,7 +3,6 @@ import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
-import MSButton from "../MSButton";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	top: 0;
@@ -19,12 +18,12 @@ export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	align-items: center;
 	font-size: 1rem;
 	${media.below925`
-	padding-right: 32px;
-	padding-left: 32px;
-	margin-top:30px;
-	height: 52px;
+	margin-top:10px;
+	height: 40px;
 	padding-right: 20px;
 	padding-left: 20px;
+	padding-top: 0px;
+
 
  	 `}
 `;
