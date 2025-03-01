@@ -117,7 +117,7 @@ const Navbar = (props: NavBarProps) => {
 												router.push(clientRoutes.login);
 											}}
 										>
-											Login
+											Login.
 										</LoginButton>
 										<RegisterButton
 											onClick={() => {
