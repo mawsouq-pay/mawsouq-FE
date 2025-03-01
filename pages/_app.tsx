@@ -11,7 +11,9 @@ import MSLoadingScreen from "@/components/Shared/MSFallBacks/MSLoadingScreen";
 import { NotificationProvider } from "@/store/SnackBarStore";
 import { BrowserRouter } from "react-router-dom";
 import { Roboto } from "next/font/google";
-
+import { useLocaleStore } from "@/store/LocaleStore";
+import rtlPlugin from "stylis-plugin-rtl";
+import { StyleSheetManager } from "styled-components";
 const roboto = Roboto({
 	weight: ["400", "700", "900"],
 	subsets: ["latin"],
@@ -20,15 +22,25 @@ const roboto = Roboto({
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
-	const theme = createTheme();
-
+	const { locale } = useLocaleStore();
 	useEffect(() => {
-		console.log("------MY APP SETUP USE EFFECT", Component.CustomLayout);
 		setUpApp();
 	}, []);
+	useEffect(() => {
+		document.documentElement.setAttribute(
+			"dir",
+			locale === "ar" ? "rtl" : "ltr"
+		);
+	}, [locale]);
+
+	const theme = createTheme({
+		direction: locale === "ar" ? "rtl" : "ltr",
+	});
+
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
+
 	return (
 		<main className={roboto.className}>
 			<QueryClientProvider client={queryClient}>
@@ -37,21 +49,22 @@ function MyApp({ Component, pageProps }: any) {
 						protectedRoutes={protectedRoutes}
 						store={authStore}
 					>
-						{" "}
-						<ThemeProvider theme={theme}>
-							<NotificationProvider>
-								<GlobalStyles />
-								{Component.CustomLayout ? (
-									<Component.CustomLayout>
-										<Component {...pageProps} />
-									</Component.CustomLayout>
-								) : (
-									<MainLayout>
-										<Component {...pageProps} />
-									</MainLayout>
-								)}
-							</NotificationProvider>
-						</ThemeProvider>
+						<StyleSheetManager stylisPlugins={[rtlPlugin]}>
+							<ThemeProvider theme={theme}>
+								<NotificationProvider>
+									<GlobalStyles />
+									{Component.CustomLayout ? (
+										<Component.CustomLayout>
+											<Component {...pageProps} />
+										</Component.CustomLayout>
+									) : (
+										<MainLayout>
+											<Component {...pageProps} />
+										</MainLayout>
+									)}
+								</NotificationProvider>
+							</ThemeProvider>
+						</StyleSheetManager>
 					</ProtectedRouteWrapper>
 				</BrowserRouter>
 			</QueryClientProvider>

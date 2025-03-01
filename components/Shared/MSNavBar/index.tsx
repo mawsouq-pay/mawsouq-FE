@@ -3,14 +3,10 @@ import {
 	NavWrapper,
 	Logo,
 	NavLinkss,
-	HamburgerMenu,
 	NavbarContainer,
 	NavMenu,
 	NavItem,
 	NavBtn,
-	LoginButton,
-	RegisterButton,
-	CloseIcon,
 	Sidebar,
 	SidebarLink,
 } from "./NavBar.styles";
@@ -20,7 +16,9 @@ import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 import { useAuthStore } from "@/store";
 import UserNavbar from "./UserNavbar";
-
+import MSButton from "../MSButton";
+import { MenuIcon, SidebarCloseIcon } from "lucide-react";
+import { localeEnum } from "@/store/LocaleStore";
 const Navbar = (props: NavBarProps) => {
 	const { isLandingPage = false } = props;
 	const { isLoggedIn, logout } = useAuthStore();
@@ -32,6 +30,10 @@ const Navbar = (props: NavBarProps) => {
 	const isMobile = useMediaQuery("(max-width: 925px)");
 
 	const toggleMenu = () => setOpen(!open);
+
+	const toggleLanguage = () => {
+		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
+	};
 
 	return (
 		<>
@@ -48,37 +50,109 @@ const Navbar = (props: NavBarProps) => {
 							Mawsouq
 						</Logo>
 
-						<NavBtn>
-							{!isLoggedIn && (
-								<>
-									{" "}
-									<LoginButton
-										onClick={() => {
-											router.push(clientRoutes.login);
-										}}
-									>
-										Login
-									</LoginButton>
-									<RegisterButton
-										onClick={() => {
-											router.push(clientRoutes.register);
-										}}
-									>
-										Register
-									</RegisterButton>
-								</>
-							)}
-							{isLoggedIn && (
-								<>
-									<LoginButton onClick={logout}>Logout</LoginButton>
-								</>
-							)}
-						</NavBtn>
+						{isMobile ? (
+							<MenuIcon onClick={toggleMenu}>
+								<span />
+								<span />
+								<span />
+							</MenuIcon>
+						) : (
+							<>
+								<NavMenu>
+									<NavItem>
+										<NavLinkss
+											to="howItWorks"
+											activeClass="active"
+											smooth={true}
+											duration={500}
+											spy={true}
+											offset={0}
+										>
+											How it Works
+										</NavLinkss>
+									</NavItem>
+									<NavItem>
+										<NavLinkss
+											to="benefits"
+											activeClass="active"
+											smooth={true}
+											duration={500}
+											spy={true}
+											offset={-121}
+										>
+											Benefits
+										</NavLinkss>
+									</NavItem>
+									<NavItem>
+										<NavLinkss
+											to="contact"
+											activeClass="active"
+											smooth={true}
+											duration={500}
+											spy={true}
+											offset={-141}
+										>
+											Contact
+										</NavLinkss>
+									</NavItem>
+								</NavMenu>
+								<NavBtn>
+									{!isLoggedIn && (
+										<>
+											<MSButton
+												title="Login"
+												style={{
+													backgroundColor: "transparent",
+													padding: "0px 12px",
+													textDecoration: "underline",
+												}}
+												fontColor="black"
+											/>
+											<MSButton
+												title="Register"
+												style={{
+													backgroundColor: "transparent",
+													padding: 0,
+													textDecoration: "underline",
+												}}
+												fontColor="black"
+											/>
+											<MSButton
+												title={locale === "en" ? "العربية 🌍" : "English 🌍"}
+												onClick={toggleLanguage}
+												style={{
+													backgroundColor: "transparent",
+													padding: 0,
+													textDecoration: "underline",
+												}}
+												fontColor="black"
+											/>
+										</>
+									)}
+									{isLoggedIn && (
+										<>
+											<MSButton
+												title="Logout"
+												style={{
+													backgroundColor: "transparent",
+													padding: 0,
+													textDecoration: "underline",
+												}}
+												fontColor="black"
+												onClick={logout}
+											/>
+										</>
+									)}
+								</NavBtn>
+							</>
+						)}
 					</NavbarContainer>
+
+					{/* Mobile Sidebar */}
 					{isMobile && open && (
 						<Drawer anchor="right" open={open} onClose={() => toggleMenu()}>
 							<Sidebar>
-								<CloseIcon onClick={toggleMenu}>X</CloseIcon>
+								<SidebarCloseIcon onClick={toggleMenu} />
 								<SidebarLink
 									to="howItWorks"
 									activeClass="active"
@@ -100,7 +174,7 @@ const Navbar = (props: NavBarProps) => {
 									Benefits
 								</SidebarLink>
 								<SidebarLink
-									to="about"
+									to="contact"
 									activeClass="active"
 									smooth={true}
 									duration={500}
@@ -111,28 +185,57 @@ const Navbar = (props: NavBarProps) => {
 								</SidebarLink>
 								{!isLoggedIn && (
 									<>
-										{" "}
-										<LoginButton
+										<MSButton
+											title="Login"
+											style={{
+												backgroundColor: "transparent",
+												padding: 0,
+												textDecoration: "underline",
+											}}
+											fontColor="black"
 											onClick={() => {
 												router.push(clientRoutes.login);
 											}}
-										>
-											Login.
-										</LoginButton>
-										<RegisterButton
+										/>
+										<MSButton
+											title="Register"
+											style={{
+												backgroundColor: "transparent",
+												padding: 0,
+												textDecoration: "underline",
+											}}
+											fontColor="black"
 											onClick={() => {
 												router.push(clientRoutes.register);
 											}}
-										>
-											Register
-										</RegisterButton>
+										/>
+										{/* Language Switch Button in Sidebar */}
+										<MSButton
+											title={locale === "en" ? "العربية 🌍" : "English 🌍"}
+											onClick={toggleLanguage}
+											style={{
+												backgroundColor: "transparent",
+												padding: 0,
+												textDecoration: "underline",
+											}}
+											fontColor="black"
+										/>
 									</>
 								)}
 								{isLoggedIn && (
 									<>
-										<LoginButton onClick={logout}>Logout</LoginButton>
+										<MSButton
+											title="Logout"
+											style={{
+												backgroundColor: "transparent",
+												padding: 0,
+												textDecoration: "underline",
+											}}
+											fontColor="black"
+											onClick={logout}
+										/>
 									</>
-								)}{" "}
+								)}
 							</Sidebar>
 						</Drawer>
 					)}

@@ -8,73 +8,61 @@ import {
 	BenefitDescription,
 } from "./MawsouqBenefits.styles";
 
-import { ShieldCheck } from "lucide-react";
-import { ListOrdered } from "lucide-react";
-import { Vault } from "lucide-react";
-import { Loader } from "lucide-react";
+import { ShieldCheck, ListOrdered, Vault, Loader } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
-import ScribbledCircleText from "../ScribbledCircleText";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { benefitsText } from "./types";
+
 const MawsouqBenefits = () => {
+	const { locale } = useLocaleStore();
+	const text = benefitsText[locale];
+
 	return (
-		<BenefitsContainer>
+		<BenefitsContainer id="benefits">
 			<MSText
 				color="#222"
 				fontSize="2rem"
 				fontWeight="bold"
 				style={{ paddingLeft: "20px", paddingRight: "20px" }}
 			>
-				Benefits of using mawsouq.
-			</MSText>
-			<MSText
-				color="#222"
-				fontSize="2rem"
-				fontWeight="bold"
-				style={{ paddingLeft: "20px", paddingRight: "20px" }}
-			>
-				How will it help both buyers and sellers?
+				{text.title}
 			</MSText>
 			<BenefitsGrid>
-				{/* Benefit 1 */}
 				<BenefitItem>
 					<BenefitIcon>
 						<ShieldCheck size={30} color={"#b3fcdf"} />
 					</BenefitIcon>
-					<BenefitTitle>Safe Payments</BenefitTitle>
+					<BenefitTitle>{text.safePaymentsTitle}</BenefitTitle>
 					<BenefitDescription>
-						Your money is secured until the order is delivered. No more scams!
+						{text.safePaymentsDescription}
 					</BenefitDescription>
 				</BenefitItem>
 
-				{/* Benefit 2 */}
 				<BenefitItem>
 					<BenefitIcon>
 						<ListOrdered size={30} color={"#b3fcdf"} />
 					</BenefitIcon>
-					<BenefitTitle>Easy Process</BenefitTitle>
-					<BenefitDescription>
-						Simple steps to start a transaction and track your order.
-					</BenefitDescription>
+					<BenefitTitle>{text.easyProcessTitle}</BenefitTitle>
+					<BenefitDescription>{text.easyProcessDescription}</BenefitDescription>
 				</BenefitItem>
 
-				{/* Benefit 3 */}
 				<BenefitItem>
 					<BenefitIcon>
 						<Vault size={30} color={"#b3fcdf"} />
 					</BenefitIcon>
-					<BenefitTitle>Buyer Protection</BenefitTitle>
+					<BenefitTitle>{text.buyerProtectionTitle}</BenefitTitle>
 					<BenefitDescription>
-						If something goes wrong, your deposit is safe until resolved.
+						{text.buyerProtectionDescription}
 					</BenefitDescription>
 				</BenefitItem>
 
-				{/* Benefit 4 */}
 				<BenefitItem>
 					<BenefitIcon>
 						<Loader size={30} color={"#b3fcdf"} />
 					</BenefitIcon>
-					<BenefitTitle>Trusted Sellers</BenefitTitle>
+					<BenefitTitle>{text.trustedSellersTitle}</BenefitTitle>
 					<BenefitDescription>
-						Only verified sellers receive payments, reducing fraud.
+						{text.trustedSellersDescription}
 					</BenefitDescription>
 				</BenefitItem>
 			</BenefitsGrid>

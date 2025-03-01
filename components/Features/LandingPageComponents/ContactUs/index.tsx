@@ -2,12 +2,16 @@ import React from "react";
 import { MainWrapper } from "./ContactUs.styles";
 import MSText from "@/components/Shared/MSText";
 import ContactForm from "../ContactForm";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { textTr } from "@/constants/locales";
 
 const ContactUs = () => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	return (
-		<MainWrapper>
+		<MainWrapper id="contact">
 			<MSText fontSize="3rem" color="#222" fontWeight="500">
-				Contact Us
+				{text.contactUs}
 			</MSText>
 			<ContactForm />
 		</MainWrapper>

@@ -3,24 +3,23 @@ import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
+import MSButton from "../MSButton";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	top: 0;
 
 	padding-top: 12px;
-	padding-bottom: 12px;
 	z-index: 100;
 	opacity: 0.8;
 	display: flex;
 	background: ${({ isLandingPage }) => (isLandingPage ? "white" : "#ECF0F1")};
-	/* background: "white"; */
 	padding-right: 64px;
 	padding-left: 64px;
 	justify-content: center;
 	align-items: center;
 	font-size: 1rem;
 	${media.below925`
-		padding-right: 32px;
+	padding-right: 32px;
 	padding-left: 32px;
 	margin-top:30px;
 	height: 52px;
@@ -36,29 +35,13 @@ export const Logo = styled.div`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: bold;
 	color: ${colors.black};
 
 	span {
 		color: ${colors.green};
 		font-style: italic;
-	}
-`;
-
-export const HamburgerMenu = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-
-	cursor: pointer;
-	//padding-inline-end: 4px;
-	margin-top: 4px;
-
-	span {
-		width: 24px;
-		height: 2px;
-		background-color: black;
 	}
 `;
 
@@ -104,14 +87,6 @@ export const LogoutButton = styled.button`
 	}
 `;
 
-export const CloseIcon = styled.div`
-	font-size: 18px;
-	font-weight: bold;
-	color: #fff;
-	text-align: right;
-	cursor: pointer;
-`;
-
 export const NavbarContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -135,7 +110,6 @@ export const NavMenu = styled.ul`
 	align-items: center;
 	list-style: none;
 	text-align: center;
-	margin-right: -22px;
 
 	@media screen and (max-width: 768px) {
 		display: none;
@@ -153,7 +127,7 @@ export const NavLinkss = styled(LinkS)`
 	color: ${colors.black};
 	cursor: pointer;
 	font-family: "Roboto";
-	font-size: 18px;
+	font-size: 14px;
 	&.active {
 		border-bottom: 4px solid #52ab98;
 	}
@@ -163,56 +137,9 @@ export const NavLinkss = styled(LinkS)`
 `;
 export const NavBtn = styled.nav`
 	display: flex;
-	align-items: center;
+	//align-items: center;
 
 	@media screen and (max-width: 768px) {
 		display: none;
-	}
-`;
-
-export const LoginButton = styled.button`
-	border-radius: 8px;
-	background: transparent;
-	white-space: nowrap;
-	padding: 2px 22px;
-	color: ${colors.white};
-	outline: none;
-	font-size: 1rem;
-	border: 2px solid ${colors.green};
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
-	text-decoration: none;
-	margin-right: 10px;
-	font-family: "Roboto";
-	background: #31c48d;
-	width: 100px;
-
-	&:hover {
-		transition-duration: 0.4s;
-		background: ${colors.buttonGreenBackground};
-		color: ${colors.black};
-		border: 3px solid #31c48d;
-	}
-`;
-export const RegisterButton = styled.button`
-	border-radius: 8px;
-	width: 100px;
-	background: transparent;
-	white-space: nowrap;
-	padding: 2px 22px;
-	color: ${colors.black};
-	outline: none;
-	font-size: 1rem;
-	border: 2px solid ${colors.white};
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
-	text-decoration: none;
-	margin-right: 10px;
-	font-family: "Roboto";
-	outline: 2px solid #31c48d;
-
-	&:hover {
-		color: ${colors.white};
-		background: #31c48d;
 	}
 `;

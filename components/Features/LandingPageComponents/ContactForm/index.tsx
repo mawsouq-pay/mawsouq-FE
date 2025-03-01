@@ -4,7 +4,6 @@ import axios from "axios";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useNotification } from "@/store/SnackBarStore";
-import MSText from "@/components/Shared/MSText";
 import MSButton from "@/components/Shared/MSButton";
 const FORM_PUBLIC_KEY = process.env.NEXT_PUBLIC_FORM_PUBLIC_KEY;
 

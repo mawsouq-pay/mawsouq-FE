@@ -14,87 +14,73 @@ import Step4 from "@/assets/images/step4.png";
 
 import MSText from "@/components/Shared/MSText";
 import ScribbledCircleText from "../ScribbledCircleText";
+import { useLocaleStore } from "@/store/LocaleStore";
+import { howItWorksText } from "./types";
 
 const HowItWorks = () => {
+	const { locale } = useLocaleStore();
+	const text = howItWorksText[locale];
+
 	return (
-		<HowItWorksContainer>
-			<ScribbledCircleText text={"How Mawsouq Works"} />
+		<HowItWorksContainer id="howItWorks">
+			<ScribbledCircleText text={text.title} />
 			<FeaturesGrid>
-				{/* Feature 1: Secure Deposits */}
+				{/* Step 1 */}
 				<FeatureCard>
 					<FeatureImage>
-						<Image src={Step1} alt="Secure Deposits" width={200} height={100} />
+						<Image src={Step1} alt={text.step1Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
 						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
-							Buyer and Seller agree on terms
+							{text.step1Title}
 						</MSText>
-
 						<MSText fontSize="16px" mobileFontSize="14px">
-							The seller creates an order containing details of the item and the
-							price.
+							{text.step1Description}
 						</MSText>
 					</FeatureContent>
 				</FeatureCard>
 
-				{/* Feature 2: Track and Manage */}
+				{/* Step 2 */}
 				<FeatureCard>
 					<FeatureImage>
-						<Image
-							src={Step2}
-							alt="Track and Manage"
-							width={200}
-							height={100}
-						/>
+						<Image src={Step2} alt={text.step2Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
 						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
-							Buyer deposits money into mawsouq's account
+							{text.step2Title}
 						</MSText>
 						<MSText fontSize="16px" mobileFontSize="14px">
-							The buyer deposits money into mawsouq's secure account ensuring
-							both parties are protected.
+							{text.step2Description}
 						</MSText>
 					</FeatureContent>
 				</FeatureCard>
 
+				{/* Step 3 */}
 				<FeatureCard>
 					<FeatureImage>
-						<Image
-							src={Step3}
-							alt="Track and Manage"
-							width={200}
-							height={100}
-						/>
+						<Image src={Step3} alt={text.step3Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
 						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
-							Seller Delivers the item
+							{text.step3Title}
 						</MSText>
 						<MSText fontSize="16px" mobileFontSize="14px">
-							Once money is secured , seller delivers the item as described in
-							the order.
+							{text.step3Description}
 						</MSText>
 					</FeatureContent>
 				</FeatureCard>
 
-				{/* Feature 4: Confirmation & Security */}
+				{/* Step 4 */}
 				<FeatureCard>
 					<FeatureImage>
-						<Image
-							src={Step4}
-							alt="Secure Confirmation"
-							width={200}
-							height={100}
-						/>
+						<Image src={Step4} alt={text.step4Title} width={200} height={100} />
 					</FeatureImage>
 					<FeatureContent>
 						<MSText fontSize="16px" mobileFontSize="16px" fontWeight={"600"}>
-							Buyer Releases money
+							{text.step4Title}
 						</MSText>
 						<MSText fontSize="16px" mobileFontSize="14px">
-							Once the order is delivered as agreed, release the deposit. If
-							there’s an issue, Mawsouq ensures both are protected.
+							{text.step4Description}
 						</MSText>
 					</FeatureContent>
 				</FeatureCard>
