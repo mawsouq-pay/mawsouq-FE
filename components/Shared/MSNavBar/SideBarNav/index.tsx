@@ -87,7 +87,10 @@ const SidebarNav = ({
 				</SidebarLink>
 				<MSButton
 					title={locale === "en" ? "العربية 🌍" : "En 🌍"}
-					onClick={toggleLanguage}
+					onClick={() => {
+						toggleLanguage();
+						toggleMenu();
+					}}
 					style={{
 						backgroundColor: "#ddf8ed",
 						//padding: " 0 2px",
