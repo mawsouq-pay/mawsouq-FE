@@ -6,6 +6,7 @@ import MSText from "../../../Shared/MSText";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
 import ActionCard from "../ActionCard";
+import { PlusCircleIcon, PlusSquareIcon, ViewIcon } from "lucide-react";
 
 const ActionSection = () => {
 	const { locale } = useLocaleStore();
@@ -18,14 +19,14 @@ const ActionSection = () => {
 			</MSText>
 			<RowFlex>
 				<ActionCard
-					Icon={StartTransactionIcon}
+					Icon={PlusCircleIcon}
 					title={text.createANewTransaction}
 					onPress={() => {
 						push(clientRoutes.startTransaction);
 					}}
 				/>
 				<ActionCard
-					Icon={ViewTransactionIcon}
+					Icon={ViewIcon}
 					title={text.viewMyTransactions}
 					onPress={() => {
 						push(clientRoutes.orders);

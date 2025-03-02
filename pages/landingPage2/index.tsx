@@ -8,6 +8,7 @@ import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
 import FooterSection from "@/components/Features/LandingPageComponents/FooterSection";
 import Navbar from "@/components/Shared/MSNavBar";
 import HeroBanner from "@/components/Features/LandingPageComponents/HeroBanner";
+import LandingPageLayout from "@/layouts/LandingPageLayout";
 
 const LandingPage = () => {
 	return (
@@ -31,5 +32,6 @@ const LandingPage = () => {
 		</>
 	);
 };
+LandingPage.CustomLayout = LandingPageLayout;
 
 export default LandingPage;

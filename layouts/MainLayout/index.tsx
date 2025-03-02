@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledWrapper = styled.div`
 	background-color: ${colors.divBackground};
-	//padding: 20px;
+	padding: 20px;
 	height: 100dvh;
 `;
 

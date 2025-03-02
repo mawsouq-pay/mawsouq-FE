@@ -7,6 +7,8 @@ export const MainWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
+	border-radius: 10px;
+
 	${media.below925`
     flex-direction: column;
     `}

@@ -17,16 +17,7 @@ const HamburgerDropdown = (props: HamburgerDropdownProps) => {
 
 	return (
 		<DropdownWrapper ref={dropdownRef}>
-			<div
-				style={{
-					backgroundColor: `${colors.white}`,
-					borderRadius: 5,
-					width: "fit-content",
-					padding: 2,
-				}}
-			>
-				<MenuIcon onClick={() => setIsOpen((prev) => !prev)} />
-			</div>
+			<MenuIcon onClick={() => setIsOpen((prev) => !prev)} />
 
 			{isOpen && (
 				<DropdownMenu>

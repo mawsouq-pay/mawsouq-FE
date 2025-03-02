@@ -53,7 +53,6 @@ export interface CreatePaymentLinkInput {
 }
 
 export interface CreatePaymentLinkResponse {
-	message: string;
 	iframeLink: string;
 }
 

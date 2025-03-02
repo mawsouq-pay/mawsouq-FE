@@ -12,7 +12,7 @@ export const MainWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 31px;
+	padding: 20px;
 	text-align: center;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 	cursor: pointer;

@@ -11,6 +11,11 @@ const ar = {
 	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
 	getStartedNow: "ابدأ الآن!",
 
+	// Navbar
+	howItWorks: "كيف يعمل",
+	msBenefits: "الفوائد",
+	contact: "تواصل معنا",
+
 	// General
 	goodMorning: "صباح الخير،",
 	goodEvening: "مساء الخير،",

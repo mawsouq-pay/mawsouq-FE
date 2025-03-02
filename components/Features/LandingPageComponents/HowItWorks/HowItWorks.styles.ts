@@ -5,6 +5,7 @@ export const HowItWorksContainer = styled.section`
 	text-align: center;
 	padding: 4rem 2rem;
 	background: white;
+	border-radius: 10px;
 `;
 
 export const FeaturesGrid = styled.div`

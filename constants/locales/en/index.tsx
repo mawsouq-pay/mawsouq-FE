@@ -10,6 +10,11 @@ const en = {
 	moneyStaysSecure: "Your money stays secure until the deal is complete.",
 	getStartedNow: "Get Started Now!",
 
+	//Navbar
+	howItWorks: "How it works",
+	msBenefits: "Benefits",
+	contact: "Contact",
+
 	// General
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",

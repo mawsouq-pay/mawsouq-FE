@@ -3,10 +3,11 @@ import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
+import { MenuIcon, X } from "lucide-react";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	top: 0;
-
+	margin-top: 10px;
 	padding-top: 12px;
 	z-index: 100;
 	opacity: 0.8;
@@ -48,9 +49,9 @@ export const Sidebar = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	gap: 24px;
-	padding: 0px 20px;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 20px 20px;
 `;
 
 export const SidebarLink = styled(LinkS)`
@@ -69,6 +70,7 @@ export const SidebarLink = styled(LinkS)`
 	&:hover {
 		color: #31c48d;
 	}
+	gap: 4px;
 `;
 
 export const LogoutButton = styled.button`
@@ -87,11 +89,13 @@ export const LogoutButton = styled.button`
 `;
 
 export const NavbarContainer = styled.div`
+	position: relative;
 	display: flex;
 	justify-content: space-between;
-	z-index: 1;
+	align-items: center;
 	width: 100%;
 `;
+
 // export const NavLogo = styled(LinkR)`
 // 	color: #000;
 // 	justify-self: flex-start;
@@ -105,6 +109,9 @@ export const NavbarContainer = styled.div`
 // `;
 
 export const NavMenu = styled.ul`
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 	display: flex;
 	align-items: center;
 	list-style: none;
@@ -114,6 +121,7 @@ export const NavMenu = styled.ul`
 		display: none;
 	}
 `;
+
 export const NavItem = styled.li``;
 
 export const NavLinkss = styled(LinkS)`
@@ -140,5 +148,49 @@ export const NavBtn = styled.nav`
 
 	@media screen and (max-width: 768px) {
 		display: none;
+	}
+`;
+
+export const MenuButton = styled.div<{ open: boolean }>`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+
+	/* Rotates when open */
+	${({ open }) => open && "transform: rotate(90deg);"}
+
+	span {
+		width: 24px;
+		height: 3px;
+		background: black;
+		margin: 5px;
+		border-radius: 2px;
+		transition: all 0.3s ease-in-out;
+
+		/* Animations for lines to turn into an "X" */
+		${({ open }) =>
+			open
+				? `
+        &:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      `
+				: `
+        &:nth-child(1),
+        &:nth-child(3) {
+          transform: none;
+        }
+        &:nth-child(2) {
+          opacity: 1;
+        }
+      `}
 	}
 `;

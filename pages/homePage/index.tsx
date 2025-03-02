@@ -38,7 +38,7 @@ const HomePage = () => {
 		>
 			<HomePageWrapper>
 				{/* <StatusSection /> */}
-				<JoinTransactionSection />
+				{/* <JoinTransactionSection /> */}
 				<ActionSection />
 				<OrdersOverviewSection latestOrders={ordersData?.orders?.slice(0, 3)} />
 			</HomePageWrapper>

@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
 	text-align: center;
-	padding: 4rem 2rem;
-	background: linear-gradient(to bottom, #b3fcdf, #ffffff);
+	padding: 2rem 2rem;
+	background: linear-gradient(to bottom, #ddf8ed, #ffffff);
+	border-radius: 10px;
 `;
 
 export const ProofGrid = styled.div`

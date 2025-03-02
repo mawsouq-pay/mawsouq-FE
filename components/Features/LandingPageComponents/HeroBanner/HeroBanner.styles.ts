@@ -1,3 +1,4 @@
+import { colors } from "@/constants/theme";
 import { styled } from "styled-components";
 
 export const HeroContainer = styled.section`
@@ -7,8 +8,9 @@ export const HeroContainer = styled.section`
 	text-align: center;
 	flex-direction: column;
 	min-height: 80vh;
-	//background: linear-gradient(to top, #ddf8ed, #ffffff);
-	background: linear-gradient(to top, #b3fcdf, #ffffff);
+	border-radius: 10px;
+	background: linear-gradient(to top, #ddf8ed, #ffffff);
+	/* background: linear-gradient(to top, #b3fcdf, #ffffff); */
 	padding: 1rem 2rem;
 
 	@media (max-width: 768px) {
@@ -87,9 +89,9 @@ export const HeroSubtitle = styled.p`
 `;
 
 export const HeroButton = styled.button`
-	background-color: black;
+	background-color: ${colors.green};
 	color: white;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-weight: bold;
 	padding: 12px 20px;
 	border: none;
@@ -98,7 +100,7 @@ export const HeroButton = styled.button`
 	transition: 0.3s ease-in-out;
 
 	&:hover {
-		background-color: #015b53;
+		background-color: ${colors.buttonGreenHover};
 	}
 `;
 
