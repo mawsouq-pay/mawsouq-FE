@@ -9,23 +9,71 @@ export const HeroContainer = styled.section`
 	flex-direction: column;
 	min-height: 80vh;
 	border-radius: 10px;
-	/* background: linear-gradient(to top, #b3fcdf, #ffffff); */
 	padding: 5rem 2rem 0rem 2rem;
 
 	@media (max-width: 768px) {
+		align-items: flex-start;
+		text-align: start;
 		padding: 2rem;
 		min-height: 60vh;
-		/* align-items: flex-start;
-		justify-content: center;
-		text-align: center;
-		flex-direction: column; */
+		width: 100%;
 	}
 `;
 
 export const HeroContent = styled.div`
 	max-width: 700px;
 	margin-top: 1rem;
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
+
+export const HeroTitle = styled.h1`
+	font-size: 3.5rem;
+	font-weight: bold;
+	color: #222;
+	margin-bottom: 1rem;
+
+	@media (max-width: 768px) {
+		font-size: 2.3rem;
+		text-align: start;
+	}
+`;
+
+export const HeroSubtitle = styled.p`
+	font-size: 18px;
+	color: #444;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+
+	@media (max-width: 768px) {
+		font-size: 1.2rem;
+		text-align: start;
+	}
+`;
+
+// export const HeroContainer = styled.section`
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	text-align: center;
+// 	flex-direction: column;
+// 	min-height: 80vh;
+// 	border-radius: 10px;
+// 	/* background: linear-gradient(to top, #b3fcdf, #ffffff); */
+// 	padding: 5rem 2rem 0rem 2rem;
+
+// 	@media (max-width: 768px) {
+// 		padding: 2rem;
+// 		min-height: 60vh;
+// 	}
+// `;
+
+// export const HeroContent = styled.div`
+// 	max-width: 700px;
+// 	margin-top: 1rem;
+// `;
 
 export const HeroImage = styled.div`
 	position: relative;
@@ -70,27 +118,27 @@ export const IframeOverlay = styled.iframe`
 	}
 `;
 
-export const HeroTitle = styled.h1`
-	font-size: 3.5rem;
-	font-weight: bold;
-	color: #222;
-	margin-bottom: 1rem;
+// export const HeroTitle = styled.h1`
+// 	font-size: 3.5rem;
+// 	font-weight: bold;
+// 	color: #222;
+// 	margin-bottom: 1rem;
 
-	@media (max-width: 768px) {
-		font-size: 2.3rem;
-	}
-`;
+// 	@media (max-width: 768px) {
+// 		font-size: 2.3rem;
+// 	}
+// `;
 
-export const HeroSubtitle = styled.p`
-	font-size: 18px;
-	color: #444;
-	line-height: 1.6;
-	margin-bottom: 1.5rem;
+// export const HeroSubtitle = styled.p`
+// 	font-size: 18px;
+// 	color: #444;
+// 	line-height: 1.6;
+// 	margin-bottom: 1.5rem;
 
-	@media (max-width: 768px) {
-		font-size: 1.2rem;
-	}
-`;
+// 	@media (max-width: 768px) {
+// 		font-size: 1.2rem;
+// 	}
+// `;
 
 export const HeroButton = styled.button`
 	/* background-color: black; */
@@ -109,51 +157,51 @@ export const HeroButton = styled.button`
 	} */
 `;
 
-export const NavbarContainer = styled.nav`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: #111;
-	padding: 5px 20px;
-	border-radius: 10px;
-	width: fit-content;
-	margin: 20px auto 40px auto;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+// export const NavbarContainer = styled.nav`
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: space-between;
+// 	background: #111;
+// 	padding: 5px 20px;
+// 	border-radius: 10px;
+// 	width: fit-content;
+// 	margin: 20px auto 40px auto;
+// 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
-	@media (max-width: 768px) {
-		width: 100%;
-		padding: 5px 10px;
-		justify-content: center;
-	}
-`;
+// 	@media (max-width: 768px) {
+// 		width: 100%;
+// 		padding: 5px 10px;
+// 		justify-content: center;
+// 	}
+// `;
 
-export const NavItems = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 20px;
-`;
+// export const NavItems = styled.div`
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 20px;
+// `;
 
-export const NavItem = styled.div`
-	color: white;
-	font-size: 14px;
-	cursor: pointer;
-	&:hover {
-		opacity: 0.8;
-	}
-`;
+// export const NavItem = styled.div`
+// 	color: white;
+// 	font-size: 14px;
+// 	cursor: pointer;
+// 	&:hover {
+// 		opacity: 0.8;
+// 	}
+// `;
 
-export const LoginButton = styled.button`
-	background: white;
-	color: black;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 3px 10px;
-	border: none;
-	border-radius: 10px;
-	cursor: pointer;
-	transition: 0.3s ease-in-out;
-	margin-left: 20px;
-	&:hover {
-		background: #ddd;
-	}
-`;
+// export const LoginButton = styled.button`
+// 	background: white;
+// 	color: black;
+// 	font-size: 14px;
+// 	font-weight: bold;
+// 	padding: 3px 10px;
+// 	border: none;
+// 	border-radius: 10px;
+// 	cursor: pointer;
+// 	transition: 0.3s ease-in-out;
+// 	margin-left: 20px;
+// 	&:hover {
+// 		background: #ddd;
+// 	}
+// `;
