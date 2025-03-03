@@ -5,6 +5,8 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useNotification } from "@/store/SnackBarStore";
 import MSButton from "@/components/Shared/MSButton";
+import { colors } from "@/constants/theme";
+import MSText from "@/components/Shared/MSText";
 const FORM_PUBLIC_KEY = process.env.NEXT_PUBLIC_FORM_PUBLIC_KEY;
 
 const ContactForm = () => {
@@ -65,11 +67,16 @@ const ContactForm = () => {
 			style={{
 				maxWidth: "500px",
 				margin: "auto",
-				padding: "0px 20px 20px 20px",
+				padding: "20px 20px 20px 20px",
+				backgroundColor: "white",
+				borderRadius: 40,
 			}}
 		>
 			{success && <Alert severity="success">{success}</Alert>}
 			{error && <Alert severity="error">{error}</Alert>}
+			<MSText fontSize="24px" fontWeight="500">
+				{text.contactUs}
+			</MSText>
 
 			<TextField
 				fullWidth
@@ -79,6 +86,11 @@ const ContactForm = () => {
 				onChange={handleChange}
 				required
 				margin="normal"
+				style={{
+					// border: "1px solid white",
+					color: "white",
+					background: "white",
+				}}
 			/>
 			<TextField
 				fullWidth
@@ -89,6 +101,11 @@ const ContactForm = () => {
 				onChange={handleChange}
 				required
 				margin="normal"
+				style={{
+					// border: "1px solid white",
+					color: "white",
+					background: "white",
+				}}
 			/>
 			<TextField
 				fullWidth
@@ -100,13 +117,19 @@ const ContactForm = () => {
 				onChange={handleChange}
 				required
 				margin="normal"
+				style={{
+					// border: "1px solid white",
+					color: "white",
+					background: "white",
+				}}
 			/>
 
 			<MSButton
 				title={text.sendMessage}
 				type="submit"
 				loading={loading}
-				style={{ marginTop: "10px" }}
+				fontColor={colors.green}
+				style={{ marginTop: "10px", backgroundColor: "white" }}
 			/>
 		</form>
 	);

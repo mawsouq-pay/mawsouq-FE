@@ -155,18 +155,18 @@ import { CreditCard, Lock, PackageCheck, ExternalLink } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store";
 import ScribbledCircleText from "../ScribbledCircleText";
-import { Nb1Icon, Nb2Icon } from "@/assets/icons";
+import { Nb1Icon } from "@/assets/icons";
 
 export const securityFeatures = {
 	en: [
 		{
-			icon: <Nb1Icon color="#01796f" />,
+			icon: <CreditCard size={25} color="#01796f" />,
 			title: "Pay",
 			description:
 				"Make secure payments through Mawsouq, ensuring your money is protected.",
 		},
 		{
-			icon: <Nb1Icon color="#01796f" />,
+			icon: <Lock color="#01796f" />,
 			title: "Hold",
 			description:
 				"Your payment is held securely until the seller delivers as agreed.",
@@ -213,11 +213,19 @@ const HowItWorks = () => {
 	const { locale } = useLocaleStore();
 	const selectedFeatures = securityFeatures[locale];
 	return (
-		<div id="howItWorks">
+		<div
+			id="howItWorks"
+			style={{
+				backgroundColor: "#ecf9ee",
+				paddingTop: "80px",
+				borderRadius: 40,
+				marginTop: 50,
+			}}
+		>
 			<div
 				style={{
 					display: "flex",
-					marginTop: "100px",
+					// marginTop: "100px",
 					justifyContent: "center",
 				}}
 			>

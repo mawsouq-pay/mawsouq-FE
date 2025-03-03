@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BenefitsContainer = styled.div`
 	text-align: center;
-	padding: 4rem 0rem 4rem 0rem;
+	padding: 6rem 0rem 6rem 0rem;
 	/* background: white; */
 	border-radius: 40px;
 	/* margin-top: 50px; */

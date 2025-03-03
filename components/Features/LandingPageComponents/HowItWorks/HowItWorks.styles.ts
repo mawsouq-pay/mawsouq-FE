@@ -95,7 +95,8 @@ export const FeaturesContainer = styled.div`
 	grid-template-columns: repeat(4, 1fr);
 	gap: 32px;
 	width: 100%;
-	padding: 4rem 2rem 0rem 2rem;
+	padding: 4rem 2rem 4rem 2rem;
+	background-color: #ecf9ee;
 
 	${media.below925`
     grid-template-columns: repeat(1, 1fr);

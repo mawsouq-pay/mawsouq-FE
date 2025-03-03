@@ -9,12 +9,18 @@ const ContactUs = () => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	return (
-		<MainWrapper id="contact">
-			<MSText fontSize="2.5rem" color="#222" fontWeight="500">
-				{text.contactUs}
-			</MSText>
-			<ContactForm />
-		</MainWrapper>
+		<div
+			style={{
+				display: "flex",
+				alignContent: "center",
+				width: "100%",
+				justifyContent: "center",
+			}}
+		>
+			<MainWrapper id="contact">
+				<ContactForm />
+			</MainWrapper>
+		</div>
 	);
 };
 
