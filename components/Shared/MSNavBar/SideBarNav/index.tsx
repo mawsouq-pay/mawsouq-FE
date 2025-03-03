@@ -21,10 +21,11 @@ import { useRouter } from "next/router";
 const CustomDrawer = styled(Drawer)`
 	.MuiDrawer-paper {
 		width: 100%;
-		height: 35vh;
+		height: fit-content;
 		border-radius: 0px 0px 20px 20px;
 		//transition: transform 0.3s ease-in-out;
 		margin-top: 50px;
+		padding-bottom: 20px;
 		background: linear-gradient(to right, #b3fcdf 100%, #ffffff 20%);
 	}
 `;
