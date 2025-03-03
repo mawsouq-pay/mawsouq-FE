@@ -7,14 +7,14 @@ export const HeroContainer = styled.section`
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
-	//min-height: 70vh;
+	min-height: 80vh;
 	border-radius: 10px;
 	/* background: linear-gradient(to top, #b3fcdf, #ffffff); */
 	padding: 5rem 2rem 0rem 2rem;
 
 	@media (max-width: 768px) {
 		padding: 2rem;
-		min-height: 0vh;
+		min-height: 60vh;
 		/* align-items: flex-start;
 		justify-content: center;
 		text-align: center;
@@ -71,13 +71,13 @@ export const IframeOverlay = styled.iframe`
 `;
 
 export const HeroTitle = styled.h1`
-	font-size: 3rem;
+	font-size: 3.5rem;
 	font-weight: bold;
 	color: #222;
 	margin-bottom: 1rem;
 
 	@media (max-width: 768px) {
-		font-size: 1.6rem;
+		font-size: 2.3rem;
 	}
 `;
 
@@ -88,7 +88,7 @@ export const HeroSubtitle = styled.p`
 	margin-bottom: 1.5rem;
 
 	@media (max-width: 768px) {
-		font-size: 0.9rem;
+		font-size: 1.2rem;
 	}
 `;
 
@@ -96,11 +96,11 @@ export const HeroButton = styled.button`
 	/* background-color: black; */
 	background: linear-gradient(to left, #01796f, #43d9a4);
 	color: white;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: bold;
-	padding: 12px 20px;
+	padding: 20px 28px;
 	border: none;
-	border-radius: 8px;
+	border-radius: 20px;
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
 

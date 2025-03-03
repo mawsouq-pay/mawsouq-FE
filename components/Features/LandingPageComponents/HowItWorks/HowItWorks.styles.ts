@@ -112,17 +112,18 @@ export const FeatureItem = styled.div`
 	padding: 20px;
 	border-radius: 10px;
 	transition: 0.3s ease-in-out;
+	/* background-color: rgba(67, 180, 124, 0.2); */
 `;
 
 export const FeatureIcon = styled.div`
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 `;
 
 export const FeatureTitle = styled.h3`
 	font-size: 1.2rem;
 	font-weight: bold;
 	color: #222;
-	margin-top: 8px;
+	margin-top: 2px;
 	margin-bottom: 8px;
 `;
 

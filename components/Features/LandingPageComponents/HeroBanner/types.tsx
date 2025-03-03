@@ -16,11 +16,18 @@ export const heroBannerText = {
 		],
 
 		subtitle: [
-			"The safest way to ",
-			<strong key="bold1">ask for deposits</strong>,
-			", and ",
-			<strong key="bold2">secure your orders!</strong>,
+			<strong key="bold1">Need deposits</strong>,
+			" to confirm orders or ",
+			<strong key="bold2">worry about sending money?</strong>,
+			" ",
+			<strong key="bold3">Mawsouq-Pay</strong>,
+			" helps both ",
+			<strong key="bold4">buyers</strong>,
+			" and ",
+			<strong key="bold5">sellers</strong>,
+			" build trust and secure transactions.",
 		],
+
 		buttonText: "Get Started",
 	},
 	ar: {

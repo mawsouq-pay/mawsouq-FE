@@ -159,25 +159,25 @@ import ScribbledCircleText from "../ScribbledCircleText";
 export const securityFeatures = {
 	en: [
 		{
-			icon: <CreditCard size={30} color="#01796f" />,
+			icon: <CreditCard size={25} color="#01796f" />,
 			title: "Pay",
 			description:
 				"Make secure payments through Mawsouq, ensuring your money is protected.",
 		},
 		{
-			icon: <Lock size={30} color="#01796f" />,
+			icon: <Lock size={25} color="#01796f" />,
 			title: "Hold",
 			description:
 				"Your payment is held securely until the seller delivers as agreed.",
 		},
 		{
-			icon: <PackageCheck size={30} color="#01796f" />,
+			icon: <PackageCheck size={25} color="#01796f" />,
 			title: "Confirm",
 			description:
 				"Once you receive the order as expected, confirm the delivery.",
 		},
 		{
-			icon: <ExternalLink size={30} color="#01796f" />,
+			icon: <ExternalLink size={25} color="#01796f" />,
 			title: "Release",
 			description:
 				"After confirmation, the payment is safely released to the seller.",
@@ -185,23 +185,23 @@ export const securityFeatures = {
 	],
 	ar: [
 		{
-			icon: <CreditCard size={30} color="#01796f" />,
+			icon: <CreditCard size={25} color="#01796f" />,
 			title: "ادفع",
 			description: "قم بالدفع بأمان عبر Mawsouq لضمان حماية أموالك.",
 		},
 		{
-			icon: <Lock size={30} color="#01796f" />,
+			icon: <Lock size={25} color="#01796f" />,
 			title: "احتجز",
 			description:
 				"يتم الاحتفاظ بالدفع بأمان حتى يقوم البائع بالتسليم كما هو متفق عليه.",
 		},
 		{
-			icon: <PackageCheck size={30} color="#01796f" />,
+			icon: <PackageCheck size={25} color="#01796f" />,
 			title: "أكد",
 			description: "بمجرد استلام الطلب كما هو متوقع، قم بتأكيد التسليم.",
 		},
 		{
-			icon: <ExternalLink size={30} color="#01796f" />,
+			icon: <ExternalLink size={25} color="#01796f" />,
 			title: "حرر",
 			description: "بعد التأكيد، يتم إصدار الدفعة بأمان إلى البائع.",
 		},
