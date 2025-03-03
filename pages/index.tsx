@@ -24,9 +24,9 @@ const LandingPage = () => {
 					<HowItWorks />
 				</div>
 
-				<MSAnimatedDiv>
+				{/* <MSAnimatedDiv>
 					<AfterState />{" "}
-				</MSAnimatedDiv>
+				</MSAnimatedDiv> */}
 				<MSAnimatedDiv>
 					<CTA />
 				</MSAnimatedDiv>
