@@ -62,7 +62,11 @@ const ContactForm = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}
+			style={{
+				maxWidth: "500px",
+				margin: "auto",
+				padding: "0px 20px 20px 20px",
+			}}
 		>
 			{success && <Alert severity="success">{success}</Alert>}
 			{error && <Alert severity="error">{error}</Alert>}

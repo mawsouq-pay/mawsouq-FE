@@ -22,7 +22,7 @@ const PaymobFooter = () => {
 					padding: 20,
 				}}
 			>
-				<MSText fontWeight="bold" color="#222">
+				<MSText fontWeight="bold" color="#222" mobileFontSize="14px">
 					{text.paymobInfo}
 				</MSText>
 			</div>

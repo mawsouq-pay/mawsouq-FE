@@ -1,27 +1,53 @@
-import BenefitsSection from "@/components/Features/LandingPageComponents/BenefitsSection";
-import FAQ from "@/components/Features/LandingPageComponents/FAQ";
-import FooterSection from "@/components/Features/LandingPageComponents/FooterSection";
-import HeroSection from "@/components/Features/LandingPageComponents/HeroSection";
-import HowItWorksSection from "@/components/Features/LandingPageComponents/HowItWorksSection";
-import LandingPageLayout from "@/layouts/LandingPageLayout";
 import React from "react";
-import MSNavbar from "@/components/Shared/MSNavBar";
 
-const Home = () => {
+import HowItWorks from "@/components/Features/LandingPageComponents/HowItWorks";
+import MawsouqBenefits from "@/components/Features/LandingPageComponents/MawsouqBenefits";
+import ContactUs from "@/components/Features/LandingPageComponents/ContactUs";
+import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
+import FooterSection from "@/components/Features/LandingPageComponents/FooterSection";
+import Navbar from "@/components/Shared/MSNavBar";
+import HeroBanner from "@/components/Features/LandingPageComponents/HeroBanner";
+import LandingPageLayout from "@/layouts/LandingPageLayout";
+import PaymobFooter from "@/components/Features/LandingPageComponents/PaymobFooter";
+import AfterState from "@/components/Features/LandingPageComponents/AfterState";
+import styled from "styled-components";
+import { media } from "@/helpers/mediaQueryHelper";
+import CTA from "@/components/Features/LandingPageComponents/CTA";
+
+const LandingPage = () => {
 	return (
-		<div>
-			<MSNavbar isLandingPage={true} />
-			<div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-				<HeroSection />
-				<HowItWorksSection />
-				<BenefitsSection />
-				<FAQ />
+		<>
+			<Navbar isLandingPage={true} />
+			<MainDiv>
+				<div>
+					<HeroBanner />
+					<HowItWorks />
+				</div>
+
+				<MSAnimatedDiv>
+					<AfterState />{" "}
+				</MSAnimatedDiv>
+				<MSAnimatedDiv>
+					<CTA />
+				</MSAnimatedDiv>
+				<MSAnimatedDiv>
+					<MawsouqBenefits />
+				</MSAnimatedDiv>
+
+				<MSAnimatedDiv>
+					<PaymobFooter />
+					<ContactUs />
+				</MSAnimatedDiv>
 				<FooterSection />
-			</div>
-		</div>
+			</MainDiv>
+		</>
 	);
 };
+const MainDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+`;
+LandingPage.CustomLayout = LandingPageLayout;
 
-Home.CustomLayout = LandingPageLayout;
-
-export default Home;
+export default LandingPage;

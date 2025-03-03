@@ -19,7 +19,7 @@ export const BenefitsGrid = styled.div`
 	margin-top: 50px;
 
 	@media (max-width: 768px) {
-		grid-template-columns: repeat(1, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 
 		flex-direction: column;
 		align-items: center;
@@ -45,10 +45,21 @@ export const BenefitItem = styled.div`
 	&:hover {
 		transform: translateY(-5px);
 	}
+	@media (max-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+
+		flex-direction: column;
+		align-items: center;
+		height: 280px;
+	}
 `;
 
 export const BenefitIcon = styled.div`
+	display: flex;
 	margin-bottom: 10px;
+	flex-direction: column;
+	width: 100%;
+	justify-content: flex-start;
 `;
 
 export const BenefitTitle = styled.h3`

@@ -21,10 +21,11 @@ import { useRouter } from "next/router";
 const CustomDrawer = styled(Drawer)`
 	.MuiDrawer-paper {
 		width: 100%;
-		height: 60vh;
+		height: 35vh;
 		border-radius: 0px 0px 20px 20px;
 		//transition: transform 0.3s ease-in-out;
 		margin-top: 50px;
+		background: linear-gradient(to right, #b3fcdf 100%, #ffffff 20%);
 	}
 `;
 
@@ -59,7 +60,7 @@ const SidebarNav = ({
 				>
 					<ArrowRightCircle size={15} color={`${colors.green}`} />
 
-					<MSText fontSize="14px">{text.howItWorks}</MSText>
+					<MSText fontSize="16px">{text.howItWorks}</MSText>
 				</SidebarLink>
 				<SidebarLink
 					to="benefits"
@@ -71,7 +72,7 @@ const SidebarNav = ({
 				>
 					<ArrowRightCircle size={15} color={`${colors.green}`} />
 
-					<MSText fontSize="14px">{text.msBenefits}</MSText>
+					<MSText fontSize="16px">{text.msBenefits}</MSText>
 				</SidebarLink>
 				<SidebarLink
 					to="contact"
@@ -83,7 +84,7 @@ const SidebarNav = ({
 				>
 					<ArrowRightCircle size={15} color={`${colors.green}`} />
 
-					<MSText fontSize="14px">{text.contact}</MSText>
+					<MSText fontSize="16px">{text.contact}</MSText>
 				</SidebarLink>
 				<MSButton
 					title={locale === "en" ? "العربية 🌍" : "En 🌍"}

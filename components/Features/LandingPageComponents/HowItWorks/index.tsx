@@ -212,7 +212,7 @@ const HowItWorks = () => {
 	const { locale } = useLocaleStore();
 	const selectedFeatures = securityFeatures[locale];
 	return (
-		<>
+		<div id="howItWorks">
 			<div
 				style={{
 					display: "flex",
@@ -232,7 +232,7 @@ const HowItWorks = () => {
 					</FeatureItem>
 				))}
 			</FeaturesContainer>
-		</>
+		</div>
 	);
 };
 

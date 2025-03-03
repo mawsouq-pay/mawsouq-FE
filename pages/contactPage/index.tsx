@@ -1,4 +1,4 @@
-import ContactForm from "@/components/Features/LandingPageComponents/ContactForm";
+import ContactForm from "@/components/Features/LandingPageComponents/ContactUs/ContactForm";
 import HomePageLayout from "@/layouts/HomePageLayout";
 import React from "react";
 

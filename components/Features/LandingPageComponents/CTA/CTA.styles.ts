@@ -18,8 +18,8 @@ export const MainWrapper = styled.div`
 export const MainButton = styled.button`
 	/* background-color: black; */
 	width: 150px;
-	background: black;
-	color: white;
+	background: white;
+	color: #222;
 	font-size: 0.8rem;
 	font-weight: bold;
 	padding: 12px 20px;

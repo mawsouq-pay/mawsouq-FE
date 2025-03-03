@@ -1,7 +1,7 @@
 import React from "react";
 import { MainButton, MainWrapper } from "./CTA.styles";
 import MSText from "@/components/Shared/MSText";
-import ContactForm from "../ContactForm";
+import ContactForm from "../ContactUs/ContactForm";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 
@@ -14,8 +14,8 @@ const CTA = () => {
 				Ready to simplify your_____deals?{" "}
 			</MSText>
 			<MSText fontSize="1rem" color="#222" fontWeight="500">
-				Built for sellers and buyers alike. Join now and earn trust with every
-				transaction.
+				Designed for both sellers and buyers. Start now and build trust with
+				every transaction.
 			</MSText>
 			<MainButton>Start Transaction</MainButton>
 		</MainWrapper>

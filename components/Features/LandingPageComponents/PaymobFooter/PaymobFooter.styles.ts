@@ -3,11 +3,10 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainContainer = styled.div`
-	background: white;
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
 
-	background-color: #ddf8ed;
+	background-color: #43d9a4;
 	padding: 30px;
 	display: flex;
 	flex-direction: row;
