@@ -27,4 +27,5 @@ export const MainButton = styled.button`
 	border-radius: 8px;
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
+	width: fit-content;
 `;
