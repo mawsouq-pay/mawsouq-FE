@@ -38,7 +38,7 @@ export const BenefitItem = styled.div`
 	outline: 1px solid #ddf8ed;
 	box-shadow: 0 4px 8px #ddf8ed;
 	transition: 0.3s ease-in-out;
-
+	background-color: #c1e1c1;
 	&:hover {
 		transform: translateY(-5px);
 	}
