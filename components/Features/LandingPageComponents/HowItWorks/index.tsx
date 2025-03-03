@@ -155,17 +155,18 @@ import { CreditCard, Lock, PackageCheck, ExternalLink } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store";
 import ScribbledCircleText from "../ScribbledCircleText";
+import { Nb1Icon, Nb2Icon } from "@/assets/icons";
 
 export const securityFeatures = {
 	en: [
 		{
-			icon: <CreditCard size={25} color="#01796f" />,
+			icon: <Nb1Icon color="#01796f" />,
 			title: "Pay",
 			description:
 				"Make secure payments through Mawsouq, ensuring your money is protected.",
 		},
 		{
-			icon: <Lock size={25} color="#01796f" />,
+			icon: <Nb1Icon color="#01796f" />,
 			title: "Hold",
 			description:
 				"Your payment is held securely until the seller delivers as agreed.",
@@ -225,9 +226,19 @@ const HowItWorks = () => {
 			<FeaturesContainer>
 				{selectedFeatures.map((feature, index) => (
 					<FeatureItem key={index}>
-						<FeatureIcon>{feature.icon}</FeatureIcon>
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "row",
+								gap: 10,
+								alignItems: "center",
+							}}
+						>
+							<FeatureIcon>{feature.icon}</FeatureIcon>
+							<FeatureTitle>{feature.title}</FeatureTitle>
+						</div>
 						<Divider />
-						<FeatureTitle>{feature.title}</FeatureTitle>
+
 						<FeatureDescription>{feature.description}</FeatureDescription>
 					</FeatureItem>
 				))}

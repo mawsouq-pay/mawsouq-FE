@@ -12,6 +12,8 @@ import Show from "./show";
 import ErrorTriangleIcon from "./error_triangle";
 import CartIcon from "./cart_icon";
 import ShopIcon from "./shop_icon";
+import Nb1Icon from "./step1";
+import Nb2Icon from "./step2";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -27,4 +29,6 @@ export {
 	ErrorTriangleIcon,
 	CartIcon,
 	ShopIcon,
+	Nb1Icon,
+	Nb2Icon,
 };

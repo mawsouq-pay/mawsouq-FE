@@ -108,10 +108,14 @@ export const FeaturesContainer = styled.div`
 export const FeatureItem = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	/* align-items: center; */
 	padding: 20px;
 	border-radius: 10px;
 	transition: 0.3s ease-in-out;
+	/* background-color: red; */
+	align-content: start;
+	justify-content: start;
+	text-align: start;
 	/* background-color: rgba(67, 180, 124, 0.2); */
 `;
 
@@ -125,6 +129,7 @@ export const FeatureTitle = styled.h3`
 	color: #222;
 	margin-top: 2px;
 	margin-bottom: 8px;
+	text-align: start;
 `;
 
 export const FeatureDescription = styled.p`
@@ -132,6 +137,7 @@ export const FeatureDescription = styled.p`
 	color: #555;
 	text-align: center;
 	max-width: 300px;
+	text-align: start;
 `;
 
 export const Divider = styled.div`
