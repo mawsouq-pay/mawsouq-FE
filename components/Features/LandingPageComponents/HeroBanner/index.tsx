@@ -18,20 +18,9 @@ const HeroBanner = () => {
 	const { locale } = useLocaleStore();
 	const text = heroBannerText[locale];
 
-	const displayText = useTypewriter(text.textList, 100);
-
 	return (
 		<HeroContainer>
 			<HeroContent>
-				<MSText
-					style={{ paddingTop: 24, color: `${colors.buttonGreenBackground}` }}
-					fontSize={"1.5rem"}
-					fontWeight="600"
-					mobileFontSize={"1.5rem"}
-					color={colors.white}
-				>
-					{text.builtFor} <span>{displayText}</span>
-				</MSText>
 				<HeroTitle>{text.title}</HeroTitle>
 				<HeroSubtitle>{text.subtitle}</HeroSubtitle>
 				<HeroButton>{text.buttonText}</HeroButton>
@@ -47,11 +36,11 @@ const HeroBanner = () => {
             }}
             layout="responsive"
         /> */}
-				<IframeOverlay
+				{/* <IframeOverlay
 					src="https://www.youtube.com/embed/19g66ezsKAg"
 					allowFullScreen
 					title="Mawsouq Video"
-				/>
+				/> */}
 			</HeroImage>
 		</HeroContainer>
 	);

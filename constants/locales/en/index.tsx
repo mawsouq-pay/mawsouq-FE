@@ -15,6 +15,10 @@ const en = {
 	msBenefits: "Benefits",
 	contact: "Contact",
 
+	//paymob
+	paymobInfo:
+		"Processing Payments with paymob allows us to offer users world-clas security and ensures all payments and data are fully protected.",
+
 	// General
 	goodMorning: "Good Morning,",
 	goodEvening: "Good Evening,",

@@ -2,13 +2,16 @@ import styled from "styled-components";
 
 export const BenefitsContainer = styled.div`
 	text-align: center;
-	padding: 2rem 2rem;
+	padding: 0rem 2rem 0rem 2rem;
 	background: white;
 	border-radius: 10px;
+	/* margin-top: 10px; */
+	/* outline: 4px solid #ddf8ed; */
 `;
 
 export const BenefitsGrid = styled.div`
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	justify-content: space-between;
 	gap: 20px;
 	max-width: 1000px;
@@ -16,6 +19,8 @@ export const BenefitsGrid = styled.div`
 	margin-top: 50px;
 
 	@media (max-width: 768px) {
+		grid-template-columns: repeat(1, 1fr);
+
 		flex-direction: column;
 		align-items: center;
 	}
@@ -25,9 +30,12 @@ export const BenefitItem = styled.div`
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	padding: 20px;
+	align-items: flex-start;
+	text-align: start;
+	/* align-items: center;
+	text-align: center; */
+	padding: 30px 20px;
+	min-height: 200px;
 	//background: #f9f9f9;
 	border-radius: 12px;
 	outline: 1px solid #ddf8ed;
@@ -48,6 +56,7 @@ export const BenefitTitle = styled.h3`
 	font-weight: bold;
 	color: #111;
 	margin-bottom: 5px;
+	margin-top: 10px;
 `;
 
 export const BenefitDescription = styled.p`

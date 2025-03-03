@@ -9,29 +9,56 @@ import FooterSection from "@/components/Features/LandingPageComponents/FooterSec
 import Navbar from "@/components/Shared/MSNavBar";
 import HeroBanner from "@/components/Features/LandingPageComponents/HeroBanner";
 import LandingPageLayout from "@/layouts/LandingPageLayout";
+import PaymobFooter from "@/components/Features/LandingPageComponents/PaymobFooter";
+import AfterState from "@/components/Features/LandingPageComponents/AfterState";
+import styled from "styled-components";
+import { media } from "@/helpers/mediaQueryHelper";
+import CTA from "@/components/Features/LandingPageComponents/CTA";
 
 const LandingPage = () => {
 	return (
 		<>
 			<Navbar isLandingPage={true} />
-			<HeroBanner />
-			<MSAnimatedDiv>
-				<HowItWorks />
-			</MSAnimatedDiv>
+			<MainDiv>
+				<div
+				// style={{ background: "linear-gradient(to top, #ddf8ed, #ffffff)" }}
+				>
+					<HeroBanner />
+					{/* <MSAnimatedDiv> */}
+					<HowItWorks />
+					{/* </MSAnimatedDiv> */}
+				</div>
 
-			<MSAnimatedDiv>
-				<SecureTransactions />
-			</MSAnimatedDiv>
-			<MSAnimatedDiv>
-				<MawsouqBenefits />
-			</MSAnimatedDiv>
-			<MSAnimatedDiv>
-				<ContactUs />
-			</MSAnimatedDiv>
-			<FooterSection />
+				<MSAnimatedDiv>
+					<AfterState />{" "}
+				</MSAnimatedDiv>
+				<MSAnimatedDiv>
+					<CTA />
+				</MSAnimatedDiv>
+				<MSAnimatedDiv>
+					<MawsouqBenefits />
+				</MSAnimatedDiv>
+				{/* <MSAnimatedDiv>
+				<AfterState />
+			</MSAnimatedDiv> */}
+
+				<MSAnimatedDiv>
+					<PaymobFooter />
+					<ContactUs />
+				</MSAnimatedDiv>
+				<FooterSection />
+			</MainDiv>
 		</>
 	);
 };
+const MainDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	/* ${media.below925`
+	gap:100px,
+    `}; */
+`;
 LandingPage.CustomLayout = LandingPageLayout;
 
 export default LandingPage;

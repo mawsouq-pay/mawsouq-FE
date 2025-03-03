@@ -19,18 +19,18 @@ const MawsouqBenefits = () => {
 
 	return (
 		<BenefitsContainer id="benefits">
-			<MSText
+			{/* <MSText
 				color="#222"
 				fontSize="2rem"
 				fontWeight="bold"
 				style={{ paddingLeft: "20px", paddingRight: "20px" }}
 			>
 				{text.title}
-			</MSText>
+			</MSText> */}
 			<BenefitsGrid>
 				<BenefitItem>
 					<BenefitIcon>
-						<ShieldCheck size={30} color={"#b3fcdf"} />
+						<ShieldCheck size={30} color="#01796f" />
 					</BenefitIcon>
 					<BenefitTitle>{text.safePaymentsTitle}</BenefitTitle>
 					<BenefitDescription>
@@ -40,7 +40,7 @@ const MawsouqBenefits = () => {
 
 				<BenefitItem>
 					<BenefitIcon>
-						<ListOrdered size={30} color={"#b3fcdf"} />
+						<ListOrdered size={30} color="#01796f" />
 					</BenefitIcon>
 					<BenefitTitle>{text.easyProcessTitle}</BenefitTitle>
 					<BenefitDescription>{text.easyProcessDescription}</BenefitDescription>
@@ -48,7 +48,7 @@ const MawsouqBenefits = () => {
 
 				<BenefitItem>
 					<BenefitIcon>
-						<Vault size={30} color={"#b3fcdf"} />
+						<Vault size={30} color="#01796f" />
 					</BenefitIcon>
 					<BenefitTitle>{text.buyerProtectionTitle}</BenefitTitle>
 					<BenefitDescription>
@@ -58,7 +58,7 @@ const MawsouqBenefits = () => {
 
 				<BenefitItem>
 					<BenefitIcon>
-						<Loader size={30} color={"#b3fcdf"} />
+						<Loader size={30} color="#01796f" />
 					</BenefitIcon>
 					<BenefitTitle>{text.trustedSellersTitle}</BenefitTitle>
 					<BenefitDescription>

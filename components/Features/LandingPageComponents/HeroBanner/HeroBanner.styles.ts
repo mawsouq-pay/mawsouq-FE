@@ -7,14 +7,18 @@ export const HeroContainer = styled.section`
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
-	min-height: 80vh;
+	//min-height: 70vh;
 	border-radius: 10px;
-	background: linear-gradient(to top, #ddf8ed, #ffffff);
 	/* background: linear-gradient(to top, #b3fcdf, #ffffff); */
-	padding: 1rem 2rem;
+	padding: 5rem 2rem 0rem 2rem;
 
 	@media (max-width: 768px) {
 		padding: 2rem;
+		min-height: 0vh;
+		/* align-items: flex-start;
+		justify-content: center;
+		text-align: center;
+		flex-direction: column; */
 	}
 `;
 
@@ -73,12 +77,12 @@ export const HeroTitle = styled.h1`
 	margin-bottom: 1rem;
 
 	@media (max-width: 768px) {
-		font-size: 2rem;
+		font-size: 1.6rem;
 	}
 `;
 
 export const HeroSubtitle = styled.p`
-	font-size: 1rem;
+	font-size: 18px;
 	color: #444;
 	line-height: 1.6;
 	margin-bottom: 1.5rem;
@@ -89,7 +93,8 @@ export const HeroSubtitle = styled.p`
 `;
 
 export const HeroButton = styled.button`
-	background-color: ${colors.green};
+	/* background-color: black; */
+	background: linear-gradient(to left, #01796f, #43d9a4);
 	color: white;
 	font-size: 0.8rem;
 	font-weight: bold;
@@ -99,9 +104,9 @@ export const HeroButton = styled.button`
 	cursor: pointer;
 	transition: 0.3s ease-in-out;
 
-	&:hover {
+	/* &:hover {
 		background-color: ${colors.buttonGreenHover};
-	}
+	} */
 `;
 
 export const NavbarContainer = styled.nav`
