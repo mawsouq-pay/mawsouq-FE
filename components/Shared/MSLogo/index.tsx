@@ -19,7 +19,7 @@ const Logo = styled.div`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	font-size: 20px;
+	font-size: 45px;
 	font-weight: bold;
 	color: ${colors.black};
 

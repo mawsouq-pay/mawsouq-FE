@@ -32,20 +32,33 @@ export const heroBannerText = {
 	},
 	ar: {
 		builtFor: "مصمم لـ",
-		textList: [
-			"الأسواق",
-			"التجارة الإلكترونية",
-			"الأفراد",
-			"الشركات الناشئة",
-			"أنت",
+		textList: ["المشترين", "البائعين", "أنت"],
+		title: [
+			<span key="hold" style={{ color: "#01796f", fontWeight: "bold" }}>
+				احتفظ
+			</span>,
+			" بالمدفوعات بأمان،",
+			<br key="br1" />,
+			"حتى يتم ",
+			<span key="confirmed" style={{ color: "#01796f", fontWeight: "bold" }}>
+				التأكيد
+			</span>,
+			".",
 		],
-		title: "ثق في معاملاتك. قم بتأمين ودائعك.",
+
 		subtitle: [
-			"أسهل طريقة لـ ",
-			<strong key="bold1">طلب الودائع</strong>,
-			"، و ",
-			<strong key="bold2">تأمين طلباتك!</strong>,
+			<strong key="bold1">تحتاج إلى دفعة مقدمة</strong>,
+			" لتأكيد الطلبات أو ",
+			<strong key="bold2">تقلق بشأن إرسال الأموال؟</strong>,
+			" ",
+			<strong key="bold3">Mawsouq-Pay</strong>,
+			" يساعد كلاً من ",
+			<strong key="bold4">المشترين</strong>,
+			" و ",
+			<strong key="bold5">البائعين</strong>,
+			" على بناء الثقة وإجراء معاملات آمنة.",
 		],
+
 		buttonText: "ابدأ الآن",
 	},
 };

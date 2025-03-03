@@ -19,17 +19,17 @@ const LandingPage = () => {
 		<>
 			<Navbar isLandingPage={true} />
 			<MainDiv>
-				<div>
+				<MSAnimatedDiv>
 					<HeroBanner />
+				</MSAnimatedDiv>
+				<MSAnimatedDiv>
 					<HowItWorks />
-				</div>
+				</MSAnimatedDiv>
 
-				{/* <MSAnimatedDiv>
-					<AfterState />{" "}
-				</MSAnimatedDiv> */}
 				<MSAnimatedDiv>
 					<CTA />
 				</MSAnimatedDiv>
+
 				<MSAnimatedDiv>
 					<MawsouqBenefits />
 				</MSAnimatedDiv>
