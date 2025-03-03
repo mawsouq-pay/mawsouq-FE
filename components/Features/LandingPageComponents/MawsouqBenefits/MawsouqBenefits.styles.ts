@@ -19,7 +19,7 @@ export const BenefitsGrid = styled.div`
 	margin-top: 50px;
 
 	@media (max-width: 768px) {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(1, 1fr);
 
 		flex-direction: column;
 		align-items: center;
@@ -32,11 +32,8 @@ export const BenefitItem = styled.div`
 	flex-direction: column;
 	align-items: flex-start;
 	text-align: start;
-	/* align-items: center;
-	text-align: center; */
 	padding: 30px 20px;
 	min-height: 200px;
-	//background: #f9f9f9;
 	border-radius: 12px;
 	outline: 1px solid #ddf8ed;
 	box-shadow: 0 4px 8px #ddf8ed;
@@ -46,11 +43,9 @@ export const BenefitItem = styled.div`
 		transform: translateY(-5px);
 	}
 	@media (max-width: 768px) {
-		grid-template-columns: repeat(2, 1fr);
-
 		flex-direction: column;
 		align-items: center;
-		height: 280px;
+		height: 200px;
 	}
 `;
 
