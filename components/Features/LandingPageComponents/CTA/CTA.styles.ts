@@ -10,7 +10,7 @@ export const MainWrapper = styled.div`
 	flex-direction: column;
 	gap: 20px;
 	border-radius: 40px;
-	margin-top: 20px;
+	margin-top: 80px;
 	${media.below925`
     flex-direction: column;
     `}

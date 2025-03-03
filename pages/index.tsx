@@ -46,7 +46,7 @@ const LandingPage = () => {
 const MainDiv = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 50px;
+	/* gap: 50px; */
 `;
 LandingPage.CustomLayout = LandingPageLayout;
 

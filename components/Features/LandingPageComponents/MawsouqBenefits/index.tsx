@@ -32,7 +32,9 @@ const MawsouqBenefits = () => {
 					<BenefitIcon>
 						<ShieldCheck size={30} color="#01796f" />
 					</BenefitIcon>
-					<BenefitTitle>{text.safePaymentsTitle}</BenefitTitle>
+					<BenefitTitle style={{ textAlign: "start" }}>
+						{text.safePaymentsTitle}
+					</BenefitTitle>
 					<BenefitDescription>
 						{text.safePaymentsDescription}
 					</BenefitDescription>
