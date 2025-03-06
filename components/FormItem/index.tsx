@@ -8,6 +8,7 @@ import {
 	IconContainer,
 	ErrorText,
 } from "./FormItem.styles";
+import { colors } from "@/constants/theme";
 
 interface FormItemProps {
 	label: string;
@@ -17,7 +18,6 @@ interface FormItemProps {
 	placeholder?: string;
 	as?: "input" | "textarea";
 	style?: React.CSSProperties;
-	labelStyle?: React.CSSProperties;
 	icon?: React.ReactNode;
 	iconPosition?: "left" | "right";
 }
@@ -30,7 +30,6 @@ const FormItem: React.FC<FormItemProps> = ({
 	placeholder,
 	as = "input",
 	style,
-	labelStyle,
 	icon,
 	iconPosition = "right",
 }) => {
@@ -38,7 +37,7 @@ const FormItem: React.FC<FormItemProps> = ({
 
 	return (
 		<FormItemWrapper>
-			<Label style={labelStyle}>{label}</Label>
+			<Label style={{ color: "#222" }}>{label}</Label>
 			<div style={{ position: "relative" }}>
 				<Field
 					as={Component}

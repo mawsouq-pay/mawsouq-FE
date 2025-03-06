@@ -29,7 +29,7 @@ const ar = {
 	seller: "Seller",
 
 	// Actions
-	createANewTransaction: "ابدأ معاملة جديدة",
+	createANewTransaction: "ابدأ معاملة",
 	viewMyTransactions: "عرض المعاملات",
 	whatWouldYouLikeToDoTod: "ماذا تريد أن تقوم به اليوم؟",
 	createOrder: "إنشاء طلب",
@@ -49,10 +49,11 @@ const ar = {
 	myTransactions: "معاملاتي",
 	actionsRequired: "إجراءات مطلوبة",
 	actionRequired: "إجراء مطلوب",
-	noTransactionsFound: "No transactions found.",
-	startTransaction: "Start a New Transaction",
-	goToProfile: "Go to Profile",
-	profileManagement: "Profile Management",
+	noTransactionsFound: "لم يتم العثور على معاملات.",
+	startTransaction: "ابدأ معاملة جديدة",
+	goToProfile: "الذهاب إلى الملف الشخصي",
+	profileManagement: "إدارة الملف الشخصي",
+	profilePage: "صفحة الملف الشخصي",
 
 	// Order Attributes
 	description: "الوصف",
@@ -169,12 +170,12 @@ const ar = {
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
-		"	Enjoy a safe transaction! Your payment is held until you confirm receipt of your order. Track your order, and once you're satisfied, the payment is released to the seller.",
-	confirmOrder: "Confrim Order",
-	registerToConfirm: "Register to Confirm",
-	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
-	proceedByPaying: "Proceed by paying",
-	approveAndLinkOrder: "Proceed by approving order",
+		"استمتع بعملية آمنة! يتم الاحتفاظ بدفعتك حتى تؤكد استلام طلبك. تابع طلبك، وبمجرد رضاك، يتم تحويل الدفعة إلى البائع.",
+	confirmOrder: "تأكيد الطلب",
+	registerToConfirm: "سجّل لتأكيد الطلب",
+	securePaymentsWithMawsouq: "قم بتأمين مدفوعاتك مع مَوْسُوق",
+	proceedByPaying: "تابع بالدفع",
+	approveAndLinkOrder: "تابع بالموافقة على الطلب",
 
 	//contact form
 	contactUs: "Contact Us",
@@ -205,23 +206,23 @@ const ar = {
 	chooseAnOptions: "Choose An option",
 
 	//payoutSelection
-	payoutDetails: "Payout Details",
-	chooseYourPayoutMethod: "Choose your payout method",
-	chooseYourBankName: "Choose your bank name",
-	cardNumber: "Card Number",
-	payoutRequired: "Payout Method Required",
+	payoutDetails: "تفاصيل الاستلام",
+	chooseYourPayoutMethod: "اختر طريقة الاستلام",
+	chooseYourBankName: "اختر اسم البنك",
+	cardNumber: "رقم البطاقة",
+	payoutRequired: "مطلوب طريقة استلام",
 	payoutRequiredExplanation:
-		"As a seller, you need to set up a payout method in your profile before you can proceed.",
-	noPayoutMethods: "No payout methods added yet.",
-	yourPayoutMethods: "Your Payout Methods",
-	bank: "Bank",
+		"بصفتك بائعًا، تحتاج إلى إعداد طريقة استلام في ملفك الشخصي قبل المتابعة.",
+	noPayoutMethods: "لم يتم إضافة طرق استلام بعد.",
+	yourPayoutMethods: "طرق الاستلام الخاصة بك",
+	bank: "بنك",
 	enterYourPayoutDetails:
-		"Enter your payout details to receive payments when an order is completed.",
-	payoutAddedNotification: "payout successfully added",
-	addPayoutMethod: "Add Payout Method",
+		"أدخل تفاصيل الاستلام الخاصة بك لتلقي المدفوعات عند اكتمال الطلب.",
+	payoutAddedNotification: "تمت إضافة طريقة الاستلام بنجاح",
+	addPayoutMethod: "إضافة طريقة استلام",
 
 	//profile General info
-	generalInformation: "General Information",
+	generalInformation: "المعلومات العامة",
 
 	//Dispute form
 	selectAdisputeType: "Please select a complaint type",

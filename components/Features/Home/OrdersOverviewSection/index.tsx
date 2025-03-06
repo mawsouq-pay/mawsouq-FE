@@ -26,7 +26,7 @@ const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 	return (
 		<MainWrapper>
 			<MSText fontSize={"20px"} mobileFontSize={"16px"} fontWeight="600">
-				{text.transactionsOverview} ({latestOrders?.length ?? 0})
+				{text.myTransactions} ({latestOrders?.length ?? 0})
 			</MSText>
 			{latestOrders?.length === 0 ? (
 				<EmptyStateWrapper>

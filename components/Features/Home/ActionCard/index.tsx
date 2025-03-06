@@ -12,8 +12,8 @@ const ActionCard = (props: ActionCardProps) => {
 				onPress();
 			}}
 		>
-			<Icon size={isMobile ? 20 : 34} color={colors.green} />
-			<MSText fontSize={"16px"} mobileFontSize="12px">
+			<Icon size={isMobile ? 20 : 26} color={colors.white} />
+			<MSText fontSize={"14px"} mobileFontSize="12px" color={colors.white}>
 				{title}
 			</MSText>
 		</MainWrapper>

@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
 	justify-content: center;
 	gap: 16px;
 	padding: 40px;
-	background-color: ${colors.white};
-	border-radius: 12px;
+	/* background-color: ${colors.white};
+	border-radius: 12px; */
 	max-width: 700px;
 	margin: 0 auto;
 `;
@@ -32,7 +32,7 @@ export const LinkSection = styled.div`
 	border: 1px solid ${colors.blue};
 	border-radius: 8px;
 	padding: 20px 15px;
-	margin-top: 20px;
+	/* margin-top: 20px; */
 	gap: 15px;
 	color: ${colors.lightBlack};
 	flex-direction: column;

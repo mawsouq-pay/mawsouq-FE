@@ -10,8 +10,14 @@ import { CreateOrderInput } from "@/types/ordersTypes";
 import { useGetUserPayoutOptions } from "./authHooks";
 import { useManagePayout } from "./useManagePayout";
 import { PayoutDetailsT } from "@/types/authenticationTypes";
+import { useNotification } from "@/store/SnackBarStore";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
 
 export const useStartTransaction = () => {
+	const { showSuccessNotification } = useNotification();
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	const { mutate: createOrder, isPending, error } = useCreateOrder();
 	const {
 		data: userPayoutOptionsData,
@@ -92,6 +98,7 @@ export const useStartTransaction = () => {
 				const newOrderId = response?.data?.order?._id;
 				setOrderId(newOrderId);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
+				showSuccessNotification(text.orderSuccessfullyCreated);
 			},
 		});
 	};

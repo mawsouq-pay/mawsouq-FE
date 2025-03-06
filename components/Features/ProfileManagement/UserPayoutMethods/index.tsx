@@ -37,7 +37,12 @@ const UserPayoutMethods = () => {
 			error={getUserPayoutOptionsError}
 		>
 			<FlexRow>
-				<MSText fontSize="20px" fontWeight="bold" color={colors.black}>
+				<MSText
+					fontSize="18px"
+					mobileFontSize="16px"
+					fontWeight="bold"
+					color={colors.black}
+				>
 					{text.yourPayoutMethods}
 				</MSText>
 				<MSButton

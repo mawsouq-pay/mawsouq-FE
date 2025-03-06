@@ -1,25 +1,38 @@
-import Navbar from "@/components/Shared/MSNavBar";
+import Sidebar from "@/components/Shared/MSSideNavbar";
 import { colors } from "@/constants/theme";
-import React from "react";
-import styled from "styled-components";
+import { useLocaleStore } from "@/store";
+import { styled } from "styled-components";
 
-const StyledWrapper = styled.div`
-	background-color: ${colors.backgroundColor};
-	padding: 40px clamp(30px, 8vw, 150px);
-	min-height: 100vh;
-`;
-
-interface HomePageLayoutProps {
-	children: React.ReactNode;
-}
-
-const HomePageLayout: React.FC<HomePageLayoutProps> = ({ children }) => {
+const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({
+	children,
+}) => {
+	const { isSideNavbarOpen } = useLocaleStore();
 	return (
 		<>
-			<Navbar />
-			<StyledWrapper>{children}</StyledWrapper>
+			<LayoutWrapper>
+				<Sidebar />
+				<Content isOpen={isSideNavbarOpen}>{children}</Content>
+			</LayoutWrapper>
 		</>
 	);
 };
+
+const LayoutWrapper = styled.div`
+	display: flex;
+	min-height: 100vh;
+	background-color: ${colors.backgroundColor};
+`;
+
+const Content = styled.div<{ isOpen: boolean }>`
+	flex: 1;
+	padding: 30px clamp(30px, 5vw, 120px);
+	transition: margin 0.3s ease-in-out;
+
+	${({ isOpen, theme }) => `
+    ${theme.direction === "rtl" ? "margin-right" : "margin-left"}: ${
+			isOpen ? "240px" : "50px"
+		};
+  `}
+`;
 
 export default HomePageLayout;

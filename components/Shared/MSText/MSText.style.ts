@@ -6,7 +6,7 @@ export const Text = styled.p<{
 	fontSize?: string;
 	color?: string;
 }>`
-	color: ${({ color }) => color || colors.black};
+	color: ${({ color }) => color || "#222"};
 	font-weight: ${({ fontWeight }) => fontWeight || "normal"};
 	font-size: ${({ fontSize }) => fontSize || "16px"};
 	margin: 0;

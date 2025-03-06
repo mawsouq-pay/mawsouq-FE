@@ -14,22 +14,12 @@ const ActionSection = () => {
 	const { push } = useRouter();
 	return (
 		<MainWrapper>
-			<MSText fontSize={"20px"} mobileFontSize="16px" fontWeight="600">
-				{text.whatWouldYouLikeToDoTod}
-			</MSText>
 			<RowFlex>
 				<ActionCard
 					Icon={PlusCircleIcon}
 					title={text.createANewTransaction}
 					onPress={() => {
 						push(clientRoutes.startTransaction);
-					}}
-				/>
-				<ActionCard
-					Icon={ViewIcon}
-					title={text.viewMyTransactions}
-					onPress={() => {
-						push(clientRoutes.orders);
 					}}
 				/>
 			</RowFlex>

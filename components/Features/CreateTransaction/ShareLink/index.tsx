@@ -18,6 +18,7 @@ import { OrderSuccessImage } from "@/assets/images";
 import MSButton from "../../../Shared/MSButton";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
 const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
+import { CircleCheckBig } from "lucide-react";
 
 const ShareOrderLink = (props: ShareLinkProps) => {
 	const { isPending, error, navigateToFirstStep, orderId, isPendingSeller } =
@@ -66,14 +67,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 			displayErrorReason={true}
 		>
 			<Wrapper>
-				<ImageWrapper>
-					<Image
-						src={OrderSuccessImage}
-						alt="Order Success"
-						width={80}
-						height={80}
-					/>
-				</ImageWrapper>
+				{/* <CircleCheckBig />
 				<MSText
 					fontSize="14px"
 					color={colors.black}
@@ -81,11 +75,19 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 					style={{ textAlign: "center" }}
 				>
 					{text.orderSuccessfullyCreated}
-				</MSText>
+				</MSText> */}
 
 				<LinkSection>
+					{/* <MSText
+						fontSize="16px"
+						mobileFontSize="16px"
+						fontWeight="bold"
+						style={{ textAlign: "center" }}
+					>
+						{text.orderSuccessfullyCreated}
+					</MSText> */}
 					<MSText
-						fontSize="18px"
+						fontSize="16px"
 						mobileFontSize="16px"
 						color={colors.blue}
 						fontWeight="bold"
@@ -122,10 +124,10 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 					onClick={navigateToOrder}
 					type="submit"
 					style={{
-						height: 45,
+						height: 35,
 						// width: "fit-content",
 						marginTop: 15,
-						width: "200px",
+						width: "150px",
 					}}
 				/>
 			</Wrapper>

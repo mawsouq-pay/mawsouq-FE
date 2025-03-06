@@ -14,6 +14,7 @@ import { Roboto } from "next/font/google";
 import { useLocaleStore } from "@/store/LocaleStore";
 import rtlPlugin from "stylis-plugin-rtl";
 import { StyleSheetManager } from "styled-components";
+import { useTheme } from "styled-components";
 const roboto = Roboto({
 	weight: ["400", "700", "900"],
 	subsets: ["latin"],
@@ -34,9 +35,8 @@ function MyApp({ Component, pageProps }: any) {
 	}, [locale]);
 
 	const theme = createTheme({
-		direction: locale === "ar" ? "rtl" : "ltr",
+		direction: "ltr",
 	});
-
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
@@ -49,8 +49,10 @@ function MyApp({ Component, pageProps }: any) {
 						protectedRoutes={protectedRoutes}
 						store={authStore}
 					>
-						<StyleSheetManager stylisPlugins={[rtlPlugin]}>
-							<ThemeProvider theme={theme}>
+						<ThemeProvider theme={theme}>
+							<StyleSheetManager
+								stylisPlugins={locale == "ar" ? [rtlPlugin] : []}
+							>
 								<NotificationProvider>
 									<GlobalStyles />
 									{Component.CustomLayout ? (
@@ -63,8 +65,8 @@ function MyApp({ Component, pageProps }: any) {
 										</MainLayout>
 									)}
 								</NotificationProvider>
-							</ThemeProvider>
-						</StyleSheetManager>
+							</StyleSheetManager>
+						</ThemeProvider>
 					</ProtectedRouteWrapper>
 				</BrowserRouter>
 			</QueryClientProvider>

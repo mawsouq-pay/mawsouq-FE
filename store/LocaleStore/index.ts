@@ -6,6 +6,8 @@ export enum localeEnum {
 interface LocaleStore {
 	locale: localeEnum;
 	setLocale: (locale: localeEnum) => void;
+	isSideNavbarOpen: boolean;
+	setIsSideNavbarOpen: (o: boolean) => void;
 }
 
 export const useLocaleStore = create<LocaleStore>((set) => ({
@@ -20,5 +22,9 @@ export const useLocaleStore = create<LocaleStore>((set) => ({
 			localStorage.setItem("locale", locale);
 		}
 		set({ locale });
+	},
+	isSideNavbarOpen: true,
+	setIsSideNavbarOpen: (o: boolean) => {
+		set({ isSideNavbarOpen: o });
 	},
 }));

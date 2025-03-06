@@ -58,7 +58,9 @@ export const IconContainer = styled.span<{ position: "left" | "right" }>`
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	${(props) => (props.position === "right" ? "right: 10px;" : "left: 10px;")}
+	width: 100%;
+	justify-content: flex-end;
+	${(props) => (props.position === "right" ? "right: -10px;" : "left: 10px;")}
 	cursor: pointer;
 	display: flex;
 	align-items: center;

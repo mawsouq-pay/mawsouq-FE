@@ -3,16 +3,20 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainWrapper = styled.div`
-	background-color: ${colors.divBackground};
+	background-color: #43d9a4;
 	border: 1px solid ${colors.divBorder};
 	border-radius: 16px;
-	gap: 13px;
+	gap: 10px;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 20px;
+	padding: 12px;
+
+	width: 20%;
+	max-width: 150px;
+
 	text-align: center;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 	cursor: pointer;

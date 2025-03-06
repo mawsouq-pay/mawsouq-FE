@@ -1,3 +1,4 @@
+import { colors } from "@/constants/theme";
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
@@ -12,8 +13,10 @@ export const EmptyStateWrapper = styled.div`
 	justify-content: center;
 	padding: 40px;
 	text-align: center;
-	background-color: #f9f9f9;
-	border-radius: 8px;
+	/* background-color: ${colors.lightGray}; */
+	/* border-radius: 8px; */
 	margin-top: 20px;
 	gap: 15px;
+	max-width: 400px;
+	align-self: center;
 `;

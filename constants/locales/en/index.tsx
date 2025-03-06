@@ -49,9 +49,10 @@ const en = {
 	actionsRequired: "Actions Required",
 	actionRequired: "Action Required",
 	noTransactionsFound: "No transactions found.",
-	startTransaction: "Start a New Transaction",
+	startTransaction: "Start Transaction",
 	goToProfile: "Go to Profile",
 	profileManagement: "Profile Management",
+	profilePage: "Profile Page",
 
 	// Order attributes
 	transactionTitle: "Transaction title",

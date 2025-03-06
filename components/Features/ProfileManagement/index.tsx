@@ -14,7 +14,8 @@ const ProfileManagement = () => {
 	return (
 		<Container>
 			<MSText
-				fontSize="30px"
+				fontSize="24px"
+				mobileFontSize="20px"
 				fontWeight="bold"
 				color={colors.black}
 				style={{

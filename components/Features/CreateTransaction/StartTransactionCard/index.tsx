@@ -34,7 +34,7 @@ const StartTransactionCard = () => {
 
 	return (
 		<MainWrapper>
-			<TitleWrapper>
+			{/* <TitleWrapper>
 				<MSText
 					fontSize="30px"
 					fontWeight="bold"
@@ -42,10 +42,10 @@ const StartTransactionCard = () => {
 				>
 					{text.createOrder}
 				</MSText>
-			</TitleWrapper>
+			</TitleWrapper> */}
 			<MSStepProgressBar steps={steps} activeStep={activeStep} />
 			<ContentWrapper>
-				<div style={{ marginTop: "20px" }}>{renderStep()}</div>
+				<div style={{ marginTop: "10px" }}>{renderStep()}</div>
 			</ContentWrapper>
 			<PayoutOptionRequiredModal
 				open={payoutModalOpen}

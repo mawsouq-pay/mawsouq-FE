@@ -3,9 +3,9 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-	background-color: ${colors.divBackground};
+	background-color: ${colors.backgroundColor};
 	padding: 20px;
-	height: 100dvh;
+	min-height: 100vh;
 `;
 
 interface MainLayoutProps {
