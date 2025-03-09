@@ -76,13 +76,14 @@ const OrderBody = (props: OrderBodyProps) => {
 			<MainWrapper>
 				<InfoSection>
 					<MSText
-						fontSize="22px"
+						fontSize="20px"
+						mobileFontSize="18px"
 						fontWeight="700"
 						color={colors.black}
 						style={{
 							marginBottom: 10,
-							borderBottom: `5px solid ${colors.green}`,
-							width: "150px",
+							borderBottom: `3px solid ${colors.green}`,
+							width: "120px",
 						}}
 					>
 						{text.orderDetails}

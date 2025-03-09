@@ -14,6 +14,10 @@ export const SidebarContainer = styled.div<{ isOpen: boolean }>`
 	padding: 10px;
 	transition: width 0.3s ease-in-out;
 	overflow: hidden;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 `;
 
 export const ToggleButton = styled.button`

@@ -31,10 +31,10 @@ const OrderInfo = (props: OrderInfoProps) => {
 		<MainWrapper>
 			<RowDiv>
 				<MSText
-					fontSize="20px"
+					fontSize="18px"
 					mobileFontSize="16px"
 					fontWeight="700"
-					color={colors.darkGray}
+					color={colors.black}
 				>
 					{" "}
 					{text.orderDetails}

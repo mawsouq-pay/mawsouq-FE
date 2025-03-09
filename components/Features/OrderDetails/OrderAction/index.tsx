@@ -36,20 +36,21 @@ const OrderAction = (props: OrderActionProps) => {
 	return (
 		<MainWrapper>
 			<MSText
-				fontSize="22px"
+				fontSize="18px"
+				mobileFontSize="16px"
 				fontWeight="700"
 				color={colors.black}
 				style={{
 					marginBottom: 10,
-					borderBottom: `5px solid ${colors.green}`,
-					width: "150px",
+					borderBottom: `3px solid ${colors.green}`,
+					width: "120px",
 				}}
 			>
 				{text.orderStatus}
 			</MSText>
 			<MSText
-				fontSize="20px"
-				mobileFontSize="16px"
+				fontSize="16px"
+				mobileFontSize="14px"
 				fontWeight="700"
 				color={colors.darkGray}
 			>
@@ -57,7 +58,12 @@ const OrderAction = (props: OrderActionProps) => {
 				{orderStatusText}
 			</MSText>
 			<MessageDiv>
-				<MSText fontSize="16px" color={colors.black} fontWeight="500">
+				<MSText
+					fontSize="16px"
+					mobileFontSize="14px"
+					color={colors.black}
+					fontWeight="500"
+				>
 					{message}
 				</MSText>
 			</MessageDiv>

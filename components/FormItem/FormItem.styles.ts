@@ -60,7 +60,7 @@ export const IconContainer = styled.span<{ position: "left" | "right" }>`
 	transform: translateY(-50%);
 	width: 100%;
 	justify-content: flex-end;
-	${(props) => (props.position === "right" ? "right: -10px;" : "left: 10px;")}
+	${(props) => (props.position === "right" ? "right: 10px;" : "left: 10px;")}
 	cursor: pointer;
 	display: flex;
 	align-items: center;

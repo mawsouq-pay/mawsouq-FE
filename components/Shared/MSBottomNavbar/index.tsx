@@ -1,0 +1,40 @@
+import React from "react";
+import { useRouter } from "next/router";
+import { HomeIcon, CirclePlusIcon, SettingsIcon } from "lucide-react";
+import { clientRoutes } from "@/routes";
+import { colors } from "@/constants/theme";
+import { BottomNavContainer, NavItem } from "./MSBottomNavbar.styles";
+
+const MobileBottomNav = () => {
+	const router = useRouter();
+
+	// Function to check if a route is active
+	const isActive = (route: string) => router.pathname === route;
+
+	return (
+		<BottomNavContainer>
+			<NavItem
+				isActive={isActive(clientRoutes.homePage)}
+				onClick={() => router.push(clientRoutes.homePage)}
+			>
+				<HomeIcon size={24} />
+			</NavItem>
+
+			<NavItem
+				isActive={isActive(clientRoutes.startTransaction)}
+				onClick={() => router.push(clientRoutes.startTransaction)}
+			>
+				<CirclePlusIcon size={24} />
+			</NavItem>
+
+			<NavItem
+				isActive={isActive(clientRoutes.profilePage)}
+				onClick={() => router.push(clientRoutes.profilePage)}
+			>
+				<SettingsIcon size={24} />
+			</NavItem>
+		</BottomNavContainer>
+	);
+};
+
+export default MobileBottomNav;
