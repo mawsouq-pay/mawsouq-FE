@@ -15,6 +15,8 @@ import { orderStatusObject } from "@/constants";
 import { DueDateIcon } from "@/assets/icons";
 import OrderListItem from "../../OrderListItem";
 import { formatDate } from "@/helpers";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
 
 const MSOrderCard = (props: OrderCardProps) => {
 	const { isMobile } = useCustomBreakpoint();
@@ -28,6 +30,8 @@ const MSOrderCard = (props: OrderCardProps) => {
 		otherPartyName,
 	} = props;
 	const orderStatusInfo = orderStatusObject[status];
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	const formattedDate = formatDate(deliveryDate);
 	const renderValue = ({
 		value,
@@ -63,57 +67,57 @@ const MSOrderCard = (props: OrderCardProps) => {
 
 	return (
 		<MainWrapper onClick={onPress}>
-			{!isMobile ? (
-				<OrderListItem
-					transactionTitle={transactionTitle}
-					price={price}
-					status={status}
-					deliveryDate={deliveryDate}
-					isFetcherSeller={isFetcherSeller}
-					otherPartyName={otherPartyName}
-				/>
-			) : (
-				<MobileCardWrapper>
-					<MobileCardHeader>
-						{renderValue({
-							value: `${price}`,
-							color: colors.semiBlack,
-							size: "24px",
-							weight: "bold",
-							currencyText: "EGP",
-						})}
+			<MobileCardWrapper>
+				<MobileCardHeader>
+					{renderValue({
+						value: `${price}`,
+						color: colors.semiBlack,
+						size: "20px",
+						weight: "bold",
+						currencyText: "EGP",
+					})}
 
-						<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
-							<StatusDot color="#90EE90" />
-							{renderValue({
-								value: orderStatusInfo.text,
-								color: colors.lightBlack,
-								size: "14px",
-								weight: "normal",
-							})}
-						</StatusBadge>
-					</MobileCardHeader>
-
-					<MobileCardContent>
+					<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
+						<StatusDot color="#90EE90" />
 						{renderValue({
-							value: transactionTitle,
-							color: colors.gray,
+							value: orderStatusInfo.text,
+							color: colors.lightBlack,
 							size: "14px",
 							weight: "normal",
 						})}
-					</MobileCardContent>
+					</StatusBadge>
+				</MobileCardHeader>
 
-					<FlexEnd>
-						<DueDateIcon />
-						{renderValue({
-							value: formattedDate,
-							color: colors.gray,
-							size: "14px",
-							weight: "normal",
-						})}
-					</FlexEnd>
-				</MobileCardWrapper>
-			)}
+				<MobileCardContent>
+					{renderValue({
+						value: transactionTitle,
+						color: colors.gray,
+						size: "14px",
+						weight: "normal",
+					})}
+				</MobileCardContent>
+				<FlexEnd>
+					<MSText color={colors.LabelValue} fontSize="14px">
+						{isFetcherSeller ? text.buyerName : text.sellerName}:
+					</MSText>
+					{renderValue({
+						value: otherPartyName ?? "N/A",
+						color: colors.gray,
+						size: "14px",
+						weight: "normal",
+					})}
+				</FlexEnd>
+
+				{/* <FlexEnd>
+					<DueDateIcon />
+					{renderValue({
+						value: formattedDate,
+						color: colors.gray,
+						size: "14px",
+						weight: "normal",
+					})}
+				</FlexEnd> */}
+			</MobileCardWrapper>
 		</MainWrapper>
 	);
 };

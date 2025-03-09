@@ -4,7 +4,7 @@ import { media } from "@/helpers/mediaQueryHelper";
 
 export const MainWrapper = styled.div`
 	background-color: ${colors.white};
-	border-radius: 16px;
+	border-radius: 2px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -28,7 +28,7 @@ export const MobileCardHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-bottom: 15px;
+	padding-bottom: 10px;
 	border-bottom: 1px solid #eaeaea;
 	text-align: center;
 `;
