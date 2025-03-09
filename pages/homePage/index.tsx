@@ -9,7 +9,6 @@ import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapp
 import MSButton from "@/components/Shared/MSButton";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import JoinTransactionSection from "@/components/Features/Home/JoinTransactionSection";
 
 const HomePage = () => {
 	const { locale } = useLocaleStore();
@@ -38,7 +37,6 @@ const HomePage = () => {
 		>
 			<HomePageWrapper>
 				{/* <StatusSection /> */}
-				{/* <JoinTransactionSection /> */}
 				{/* <ActionSection /> */}
 				<OrdersOverviewSection latestOrders={ordersData?.orders} />
 			</HomePageWrapper>
