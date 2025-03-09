@@ -40,7 +40,12 @@ const OrderBody = (props: OrderBodyProps) => {
 			error={error}
 			displayErrorReason={true}
 		>
-			<MSText fontSize="32px" fontWeight="700" color={colors.black}>
+			<MSText
+				fontSize="20px"
+				mobileFontSize="18px"
+				fontWeight="700"
+				color={colors.black}
+			>
 				{text.orderDetails}
 			</MSText>
 			<ActionBox>

@@ -190,6 +190,7 @@ const en = {
 
 	//Success Snackbar Notifications
 	successfullyLinkedToOrder: "You have been successfully linked to the order",
+	transactionReleased: "Payment successfully released to the seller",
 
 	//joining a transaction
 	joinTransaction: "Join Transaction",
@@ -227,6 +228,63 @@ const en = {
 	//Dispute form
 	selectAdisputeType: "Please select a complaint type",
 	disputeDetailsAreRequired: "Complaint details are required",
+
+	//Order confirmation messages
+	ORDER_PENDING_PAYMENT_TITLE: "Mark as In Progress?",
+	ORDER_PENDING_PAYMENT_MESSAGE:
+		"Are you sure you want to proceed in the order by paying?",
+
+	ORDER_IN_PROGRESS_TITLE: "Mark as In Transit?",
+	ORDER_IN_PROGRESS_MESSAGE:
+		"Are you sure you want to mark order as out for delivery?",
+
+	ORDER_IN_TRANSIT_TITLE: "Mark as Delivered?",
+	ORDER_IN_TRANSIT_MESSAGE:
+		"Confirm that the order has been successfully delivered.",
+
+	ORDER_DELIVERED_TITLE: "Complete Order?",
+	ORDER_DELIVERED_MESSAGE:
+		"Final confirmation needed to mark the order as Completed.",
+
+	ORDER_COMPLETED_TITLE: "Complete Order?",
+	ORDER_COMPLETED_MESSAGE:
+		"Final confirmation needed to mark the order as Completed.",
+
+	ORDER_CANCELLED_TITLE: "Cancel Order?",
+	ORDER_CANCELLED_MESSAGE:
+		"Are you sure you want to cancel this order? This action cannot be undone.",
+
+	ORDER_DISPUTED_TITLE: "Cancel Order?",
+	ORDER_DISPUTED_MESSAGE:
+		"Are you sure you want to cancel this order? This action cannot be undone.",
+
+	//Order Actions Messages
+	ORDER_PENDING_PAYMENT_BUYER:
+		"Waiting for your payment to proceed with the order.",
+	ORDER_PENDING_PAYMENT_SELLER: "Waiting for the buyer to make the payment.",
+
+	ORDER_IN_PROGRESS_BUYER: "Your order is being prepared by the seller.",
+	ORDER_IN_PROGRESS_SELLER: "The order is currently in progress.",
+
+	ORDER_IN_TRANSIT_BUYER:
+		"Your order is currently in transit. Confirm delivery once received.",
+	ORDER_IN_TRANSIT_SELLER:
+		"The order is in transit. Awaiting confirmation from the buyer.",
+
+	ORDER_DELIVERED_BUYER: "Order is delivered, awaiting your confirmation.",
+	ORDER_DELIVERED_SELLER: "Order is delivered, awaiting buyer release.",
+
+	ORDER_COMPLETED_BUYER: "Thank you! Your order is completed.",
+	ORDER_COMPLETED_SELLER:
+		"The order is completed, and the payment has been released.",
+
+	ORDER_DISPUTED_BUYER:
+		"A dispute has been raised. Provide details to resolve it.",
+	ORDER_DISPUTED_SELLER:
+		"A dispute has been raised. Provide details to resolve it.",
+
+	ORDER_CANCELLED_BUYER: "The order has been cancelled.",
+	ORDER_CANCELLED_SELLER: "The order has been cancelled.",
 };
 
 export default en;

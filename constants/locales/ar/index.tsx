@@ -190,6 +190,7 @@ const ar = {
 
 	//Success Snackbar Notifications
 	successfullyLinkedToOrder: "You have been successfully linked to the order",
+	transactionReleased: "Payment successfully released to the seller",
 
 	//joining a transaction
 	joinTransaction: "Join Transaction",
@@ -227,6 +228,55 @@ const ar = {
 	//Dispute form
 	selectAdisputeType: "Please select a complaint type",
 	disputeDetailsAreRequired: "Complaint details are required",
+
+	//Order confirmation messages
+	ORDER_PENDING_PAYMENT_TITLE: "وضع الطلب قيد التنفيذ؟",
+	ORDER_PENDING_PAYMENT_MESSAGE:
+		"هل أنت متأكد أنك تريد المتابعة في الطلب عن طريق الدفع؟",
+
+	ORDER_IN_PROGRESS_TITLE: "تحديد الطلب كقيد الشحن؟",
+	ORDER_IN_PROGRESS_MESSAGE:
+		"هل أنت متأكد أنك تريد تحديد الطلب على أنه جاهز للتوصيل؟",
+
+	ORDER_IN_TRANSIT_TITLE: "تحديد الطلب كمُستلم؟",
+	ORDER_IN_TRANSIT_MESSAGE: "يرجى تأكيد أن الطلب قد تم تسليمه بنجاح.",
+
+	ORDER_DELIVERED_TITLE: "إكمال الطلب؟",
+	ORDER_DELIVERED_MESSAGE: "مطلوب تأكيد نهائي لوضع الطلب كمكتمل.",
+
+	ORDER_COMPLETED_TITLE: "إكمال الطلب؟",
+	ORDER_COMPLETED_MESSAGE: "مطلوب تأكيد نهائي لوضع الطلب كمكتمل.",
+
+	ORDER_CANCELLED_TITLE: "إلغاء الطلب؟",
+	ORDER_CANCELLED_MESSAGE:
+		"هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ هذا الإجراء لا يمكن التراجع عنه.",
+
+	ORDER_DISPUTED_TITLE: "إلغاء الطلب؟",
+	ORDER_DISPUTED_MESSAGE:
+		"هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ هذا الإجراء لا يمكن التراجع عنه.",
+
+	//Order Actions Messages
+	ORDER_PENDING_PAYMENT_BUYER: "في انتظار الدفع للمتابعة في الطلب.",
+	ORDER_PENDING_PAYMENT_SELLER: "في انتظار المشتري لإجراء الدفع.",
+
+	ORDER_IN_PROGRESS_BUYER: "طلبك قيد التحضير من قبل البائع.",
+	ORDER_IN_PROGRESS_SELLER: "الطلب قيد التنفيذ حاليًا.",
+
+	ORDER_IN_TRANSIT_BUYER: "طلبك قيد النقل. يرجى تأكيد التسليم عند الاستلام.",
+	ORDER_IN_TRANSIT_SELLER:
+		"الطلب في طريقه إلى المشتري. في انتظار تأكيد الاستلام.",
+
+	ORDER_DELIVERED_BUYER: "تم تسليم الطلب، في انتظار تأكيدك.",
+	ORDER_DELIVERED_SELLER: "تم تسليم الطلب، في انتظار المشتري للإفراج عن الدفع.",
+
+	ORDER_COMPLETED_BUYER: "شكرًا لك! تم إكمال طلبك.",
+	ORDER_COMPLETED_SELLER: "تم إكمال الطلب، وتم الإفراج عن الدفع.",
+
+	ORDER_DISPUTED_BUYER: "تم تقديم نزاع. يرجى تقديم التفاصيل لحله.",
+	ORDER_DISPUTED_SELLER: "تم تقديم نزاع. يرجى تقديم التفاصيل لحله.",
+
+	ORDER_CANCELLED_BUYER: "تم إلغاء الطلب.",
+	ORDER_CANCELLED_SELLER: "تم إلغاء الطلب.",
 };
 
 export default ar;

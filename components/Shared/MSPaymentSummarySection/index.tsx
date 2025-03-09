@@ -68,12 +68,12 @@ const MSPaymentSummarySection = ({
 
 				<TotalWrapper>
 					<LabelValue>
-						<MSText fontSize="18px" fontWeight="700" color={colors.black}>
+						<MSText fontSize="16px" fontWeight="700" color={colors.black}>
 							{text.totalDue}
 						</MSText>
 					</LabelValue>
 					<TextValue>
-						<MSText fontSize="18px" fontWeight="700" color={colors.black}>
+						<MSText fontSize="16px" fontWeight="700" color={colors.black}>
 							EGP {totalDue}
 						</MSText>
 					</TextValue>

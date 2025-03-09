@@ -20,9 +20,11 @@ const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({
 };
 
 const LayoutWrapper = styled.div`
-	display: flex;
+	/* display: flex;
 	min-height: 100vh;
+	width: 100%; */
 	background-color: ${colors.backgroundColor};
+	min-height: 100vh;
 `;
 
 const Content = styled.div<{ isOpen: boolean }>`
@@ -36,7 +38,7 @@ const Content = styled.div<{ isOpen: boolean }>`
 
 	@media (max-width: 768px) {
 		margin: 0;
-		padding: 20px;
+		padding: 40px 20px 200px 20px;
 	}
 `;
 

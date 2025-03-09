@@ -66,117 +66,165 @@ export const orderStatusObject: Record<
 		historyMessage: "The order has been cancelled and is no longer active.",
 	},
 };
+
+export enum OrderProgressMessages {
+	ORDER_PENDING_PAYMENT_BUYER = "ORDER_PENDING_PAYMENT_BUYER",
+	ORDER_PENDING_PAYMENT_SELLER = "ORDER_PENDING_PAYMENT_SELLER",
+
+	ORDER_IN_PROGRESS_BUYER = "ORDER_IN_PROGRESS_BUYER",
+	ORDER_IN_PROGRESS_SELLER = "ORDER_IN_PROGRESS_SELLER",
+
+	ORDER_IN_TRANSIT_BUYER = "ORDER_IN_TRANSIT_BUYER",
+	ORDER_IN_TRANSIT_SELLER = "ORDER_IN_TRANSIT_SELLER",
+
+	ORDER_DELIVERED_BUYER = "ORDER_DELIVERED_BUYER",
+	ORDER_DELIVERED_SELLER = "ORDER_DELIVERED_SELLER",
+
+	ORDER_COMPLETED_BUYER = "ORDER_COMPLETED_BUYER",
+	ORDER_COMPLETED_SELLER = "ORDER_COMPLETED_SELLER",
+
+	ORDER_DISPUTED_BUYER = "ORDER_DISPUTED_BUYER",
+	ORDER_DISPUTED_SELLER = "ORDER_DISPUTED_SELLER",
+
+	ORDER_CANCELLED_BUYER = "ORDER_CANCELLED_BUYER",
+	ORDER_CANCELLED_SELLER = "ORDER_CANCELLED_SELLER",
+}
+
 export const orderProgressBarData: Record<
 	OrderStatusEnum,
 	{
 		activeStep: number;
-		messageForBuyer: string;
-		messageForSeller: string;
-		buyerCTA: string | null;
-		sellerCTA: string | null;
+		messageForBuyer: OrderProgressMessages;
+		messageForSeller: OrderProgressMessages;
+		buyerActions: { label: string; key: string }[];
+		sellerActions: { label: string; key: string }[];
 		nextStatus: OrderStatusEnum | null;
 	}
 > = {
 	PENDING_PAYMENT: {
 		activeStep: 0,
-		messageForBuyer: "Waiting for your payment to proceed with the order.",
-		messageForSeller: "Waiting for the buyer to make the payment.",
-		buyerCTA: "Make Payment",
-		sellerCTA: null,
+		messageForBuyer: OrderProgressMessages.ORDER_PENDING_PAYMENT_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_PENDING_PAYMENT_SELLER,
+		buyerActions: [{ label: "Make Payment", key: "createPaymentLink" }],
+		sellerActions: [],
 		nextStatus: OrderStatusEnum.IN_PROGRESS,
 	},
+
 	IN_PROGRESS: {
 		activeStep: 1,
-		messageForBuyer:
-			"Your order is being prepared by the seller. Please wait for updates.",
-		messageForSeller:
-			"The order is currently in progress. Once ready, mark it as 'Out for Delivery' to update the buyer.",
-		buyerCTA: null,
-		sellerCTA: "Mark as Out for Delivery",
+		messageForBuyer: OrderProgressMessages.ORDER_IN_PROGRESS_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_IN_PROGRESS_SELLER,
+		buyerActions: [],
+		sellerActions: [
+			{ label: "Mark as Out for Delivery", key: "updateOrderToInTransit" },
+		],
 		nextStatus: OrderStatusEnum.IN_TRANSIT,
 	},
 
 	IN_TRANSIT: {
 		activeStep: 1,
-		messageForBuyer:
-			"Your order is currently in transit. Please confirm receipt once it has been delivered.",
-		messageForSeller:
-			"The order is in transit and on its way to the buyer. Awaiting confirmation from the buyer upon delivery.",
-		buyerCTA: "Mark as Delivered",
-		sellerCTA: null,
+		messageForBuyer: OrderProgressMessages.ORDER_IN_TRANSIT_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_IN_TRANSIT_SELLER,
+		buyerActions: [
+			{ label: "Mark as Delivered", key: "updateOrderToDelivered" },
+		],
+		sellerActions: [{ label: "Submit Dispute", key: "openDispute" }],
 		nextStatus: OrderStatusEnum.DELIVERED,
 	},
 
 	DELIVERED: {
 		activeStep: 1,
-		messageForBuyer: "Order Is Delivered , awaiting your payment",
-		messageForSeller: "Order Is Delivered , awaiting buyer release",
-		buyerCTA: "Confirm Release",
-		sellerCTA: null,
+		messageForBuyer: OrderProgressMessages.ORDER_DELIVERED_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_DELIVERED_SELLER,
+		buyerActions: [
+			{ label: "Confirm Release", key: "releasePayment" },
+			{ label: "Open Dispute", key: "openDispute" },
+		],
+		sellerActions: [],
 		nextStatus: OrderStatusEnum.COMPLETED,
 	},
+
 	COMPLETED: {
 		activeStep: 2,
-		messageForBuyer: "Thank you! Your order is completed.",
-		messageForSeller:
-			"The order is completed, and the payment has been released.",
-		buyerCTA: null,
-		sellerCTA: null,
+		messageForBuyer: OrderProgressMessages.ORDER_COMPLETED_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_COMPLETED_SELLER,
+		buyerActions: [],
+		sellerActions: [],
 		nextStatus: null,
 	},
+
 	DISPUTED: {
 		activeStep: 2,
-		messageForBuyer:
-			"A dispute has been raised. Provide details to resolve it.",
-		messageForSeller:
-			"A dispute has been raised. Provide details to resolve it.",
-		buyerCTA: "Submit Dispute Details",
-		sellerCTA: "Submit Dispute Details",
-		nextStatus: OrderStatusEnum.COMPLETED,
+		messageForBuyer: OrderProgressMessages.ORDER_DISPUTED_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_DISPUTED_SELLER,
+		buyerActions: [{ label: "Submit Dispute Details", key: "openDispute" }],
+		sellerActions: [{ label: "Submit Dispute Details", key: "openDispute" }],
+		nextStatus: null,
 	},
+
 	CANCELLED: {
-		activeStep: 2,
-		messageForBuyer: "The order has been cancelled.",
-		messageForSeller: "The order has been cancelled.",
-		buyerCTA: null,
-		sellerCTA: null,
+		activeStep: 3,
+		messageForBuyer: OrderProgressMessages.ORDER_CANCELLED_BUYER,
+		messageForSeller: OrderProgressMessages.ORDER_CANCELLED_SELLER,
+		buyerActions: [],
+		sellerActions: [],
 		nextStatus: null,
 	},
 };
 
+export enum OrderConfirmationMessages {
+	ORDER_PENDING_PAYMENT_TITLE = "ORDER_PENDING_PAYMENT_TITLE",
+	ORDER_PENDING_PAYMENT_MESSAGE = "ORDER_PENDING_PAYMENT_MESSAGE",
+
+	ORDER_IN_PROGRESS_TITLE = "ORDER_IN_PROGRESS_TITLE",
+	ORDER_IN_PROGRESS_MESSAGE = "ORDER_IN_PROGRESS_MESSAGE",
+
+	ORDER_IN_TRANSIT_TITLE = "ORDER_IN_TRANSIT_TITLE",
+	ORDER_IN_TRANSIT_MESSAGE = "ORDER_IN_TRANSIT_MESSAGE",
+
+	ORDER_DELIVERED_TITLE = "ORDER_DELIVERED_TITLE",
+	ORDER_DELIVERED_MESSAGE = "ORDER_DELIVERED_MESSAGE",
+
+	ORDER_COMPLETED_TITLE = "ORDER_COMPLETED_TITLE",
+	ORDER_COMPLETED_MESSAGE = "ORDER_COMPLETED_MESSAGE",
+
+	ORDER_CANCELLED_TITLE = "ORDER_CANCELLED_TITLE",
+	ORDER_CANCELLED_MESSAGE = "ORDER_CANCELLED_MESSAGE",
+
+	ORDER_DISPUTED_TITLE = "ORDER_DISPUTED_TITLE",
+	ORDER_DISPUTED_MESSAGE = "ORDER_DISPUTED_MESSAGE",
+}
 export const orderStatusConfirmationMessages: Record<
 	OrderStatusEnum,
-	{ title: string; message: string }
+	{ title: OrderConfirmationMessages; message: OrderConfirmationMessages }
 > = {
 	PENDING_PAYMENT: {
-		title: "Mark as In Progress?",
-		message: "Are you sure you want to proceed in the order by paying?",
+		title: OrderConfirmationMessages.ORDER_PENDING_PAYMENT_TITLE,
+		message: OrderConfirmationMessages.ORDER_PENDING_PAYMENT_MESSAGE,
 	},
 	IN_PROGRESS: {
-		title: "Mark as In Transit?",
-		message: "Are you sure you want to mark order as out for delivery?",
+		title: OrderConfirmationMessages.ORDER_IN_PROGRESS_TITLE,
+		message: OrderConfirmationMessages.ORDER_IN_PROGRESS_MESSAGE,
 	},
 	IN_TRANSIT: {
-		title: "Mark as Delivered?",
-		message: "Confirm that the order has been successfully delivered.",
+		title: OrderConfirmationMessages.ORDER_IN_TRANSIT_TITLE,
+		message: OrderConfirmationMessages.ORDER_IN_TRANSIT_MESSAGE,
 	},
 	DELIVERED: {
-		title: "Complete Order?",
-		message: "Final confirmation needed to mark the order as Completed.",
+		title: OrderConfirmationMessages.ORDER_DELIVERED_TITLE,
+		message: OrderConfirmationMessages.ORDER_DELIVERED_MESSAGE,
 	},
 	COMPLETED: {
-		title: "Complete Order?",
-		message: "Final confirmation needed to mark the order as Completed.",
+		title: OrderConfirmationMessages.ORDER_COMPLETED_TITLE,
+		message: OrderConfirmationMessages.ORDER_COMPLETED_MESSAGE,
 	},
 	CANCELLED: {
-		title: "Cancel Order?",
-		message:
-			"Are you sure you want to cancel this order? This action cannot be undone.",
+		title: OrderConfirmationMessages.ORDER_CANCELLED_TITLE,
+		message: OrderConfirmationMessages.ORDER_CANCELLED_MESSAGE,
 	},
 	DISPUTED: {
-		title: "Cancel Order?",
-		message:
-			"Are you sure you want to cancel this order? This action cannot be undone.",
+		title: OrderConfirmationMessages.ORDER_DISPUTED_TITLE,
+		message: OrderConfirmationMessages.ORDER_DISPUTED_MESSAGE,
 	},
 };
 

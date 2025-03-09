@@ -8,7 +8,6 @@ import MSButton from "../../../Shared/MSButton";
 import { useOrderActions } from "@/hooks/useOrderActions";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { OrderStatusEnum } from "@/constants";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { locale } = useLocaleStore();
@@ -16,23 +15,22 @@ const OrderAction = (props: OrderActionProps) => {
 
 	const { isFetcherSeller, orderStatus, orderId, setIsDisputeFormOpen } = props;
 	const {
-		statusMessage,
-		orderStatusText,
+		popupStatusMessage,
 		message,
-		buttonCta,
 		isConfirmModalOpen,
-		setIsConfirmModalOpen,
-		handleCtaClick,
 		loadingAndDisable,
-		handleConfirmRelease,
-		handleDispute,
-		handleCaptureOrder,
+		actions,
+		orderStatusText,
+		handleOpenConfirmationModal,
+		handleConfirmAction,
+		handleCloseConfirmationModal,
 	} = useOrderActions(
 		orderId,
 		isFetcherSeller,
 		orderStatus,
 		setIsDisputeFormOpen
 	);
+
 	return (
 		<MainWrapper>
 			<MSText
@@ -49,8 +47,8 @@ const OrderAction = (props: OrderActionProps) => {
 				{text.orderStatus}
 			</MSText>
 			<MSText
-				fontSize="16px"
-				mobileFontSize="14px"
+				fontSize="14px"
+				mobileFontSize="13px"
 				fontWeight="700"
 				color={colors.darkGray}
 			>
@@ -64,45 +62,33 @@ const OrderAction = (props: OrderActionProps) => {
 					color={colors.black}
 					fontWeight="500"
 				>
-					{message}
+					{text[message]}
 				</MSText>
 			</MessageDiv>
 
-			{orderStatus === OrderStatusEnum.DELIVERED ? (
+			{actions.length > 0 && (
 				<FlexRow>
-					<MSButton
-						title="Confirm Release"
-						onClick={handleConfirmRelease}
-						disabled={loadingAndDisable}
-					/>
-					<MSButton
-						title="Submit Dispute"
-						onClick={handleDispute}
-						disabled={loadingAndDisable}
-						style={{ backgroundColor: colors.red }}
-					/>
+					{actions.map((action, index) => (
+						<MSButton
+							key={index}
+							title={action.label}
+							onClick={() => handleOpenConfirmationModal(action.handler)}
+							loading={loadingAndDisable}
+						/>
+					))}
 				</FlexRow>
-			) : buttonCta ? (
-				<MSButton
-					title={buttonCta}
-					onClick={() => setIsConfirmModalOpen(true)}
-					loading={loadingAndDisable}
-					disabled={loadingAndDisable}
-					style={{
-						height: 40,
-						width: "fit-content",
-					}}
-				/>
-			) : null}
+			)}
 
 			<MSModal
 				open={isConfirmModalOpen}
-				onClose={() => setIsConfirmModalOpen(false)}
-				title={statusMessage.title}
-				onConfirm={handleCtaClick}
+				onClose={() => handleCloseConfirmationModal()}
+				title={text[popupStatusMessage.title]}
+				onConfirm={handleConfirmAction}
 			>
 				<div style={{ padding: "10px 0px" }}>
-					<MSText color={colors.black}>{statusMessage.message}</MSText>
+					<MSText color={colors.black}>
+						{text[popupStatusMessage.message]}
+					</MSText>
 				</div>
 			</MSModal>
 		</MainWrapper>

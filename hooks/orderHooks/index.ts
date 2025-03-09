@@ -1,7 +1,9 @@
 import { useFetch, usePost } from "@/client/customHooks";
 import queryClient from "@/client/reactQClient";
 import { OrderStatusEnum } from "@/constants";
+import { textTr } from "@/constants/locales";
 import { serverRoutes } from "@/routes";
+import { localeEnum } from "@/store/LocaleStore";
 import { useNotification } from "@/store/SnackBarStore";
 import {
 	CaptureOrderInput,
@@ -84,8 +86,10 @@ export const useFetchOrderPreview = (orderId: string) => {
 	);
 };
 
-export const useSellerRelease = () => {
-	const { showAxiosErrorNotification } = useNotification();
+export const useSellerRelease = (locale: localeEnum) => {
+	const text = textTr(locale);
+	const { showAxiosErrorNotification, showSuccessNotification } =
+		useNotification();
 
 	return usePost<SellerReleaseResponse, SellerReleaseInput>(
 		serverRoutes.sellerRelease,
@@ -105,6 +109,7 @@ export const useSellerRelease = () => {
 						};
 					}
 				);
+				showSuccessNotification(text.transactionReleased);
 			},
 			onError(error, variables, context) {
 				showAxiosErrorNotification(error as AxiosError);

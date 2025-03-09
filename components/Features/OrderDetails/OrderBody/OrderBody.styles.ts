@@ -43,7 +43,6 @@ export const ActionBox = styled.div`
 	width: fit-content;
 	background-color: #ffebee;
 	border: 1px solid #f44336;
-	color: #b71c1c;
 	padding: 5px;
 	border-radius: 8px;
 	text-align: center;

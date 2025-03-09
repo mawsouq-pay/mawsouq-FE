@@ -1,11 +1,12 @@
 import { useNotification } from "@/store/SnackBarStore";
 import { useCreatePaymentLink } from "./orderHooks";
 import queryClient from "@/client/reactQClient";
+import { AxiosError } from "axios";
 
 export const useHandleAcceptPayments = () => {
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
-	const { showErrorNotification } = useNotification();
+	const { showAxiosErrorNotification } = useNotification();
 
 	const handleBuyerPayment = (
 		orderId: string,
@@ -25,7 +26,7 @@ export const useHandleAcceptPayments = () => {
 					callbacks?.onSuccess?.(response);
 				},
 				onError: (error) => {
-					showErrorNotification("Error occurred while processing payment.");
+					showAxiosErrorNotification(error as AxiosError);
 					callbacks?.onError?.(error);
 				},
 			}

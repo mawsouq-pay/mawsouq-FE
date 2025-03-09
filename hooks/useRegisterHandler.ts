@@ -6,7 +6,6 @@ import { AxiosError } from "axios";
 import { clientRoutes } from "@/routes";
 import { User } from "@/types/authenticationTypes";
 import { RegisterFormInput } from "@/components/Features/Authentication/RegisterForm/types";
-import { useLinkOrder } from "./orderHooks";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useHandleAcceptPayments } from "./useHandleAcceptPayment";
