@@ -92,8 +92,6 @@ const en = {
 	invalidPhone:
 		"A valid phone number should start with '01' followed by 9 digits.",
 	invalidStatus: "Invalid status value",
-	phoneMustBeDifferent: "Phone number must be different from your own",
-	emailMustBeDifferent: "Email must be different from your own",
 	requiredField: "This field is required",
 	invalidBank: "Bank is invalid , please choose one of the provided options",
 

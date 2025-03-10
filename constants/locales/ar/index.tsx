@@ -24,9 +24,9 @@ const ar = {
 	goodMorning: "صباح الخير،",
 	goodEvening: "مساء الخير،",
 	todayIs: "اليوم هو",
-	orders: "Orders",
-	buyer: "Buyer",
-	seller: "Seller",
+	orders: "الطلبات",
+	buyer: "المشتري",
+	seller: "البائع",
 
 	// Actions
 	createANewTransaction: "ابدأ معاملة",
@@ -36,11 +36,11 @@ const ar = {
 	next: "التالي",
 	submit: "إرسال",
 	back: "رجوع",
-	cancel: "Cancel",
-	confirm: "Confirm",
-	save: "Save",
-	edit: "Edit",
-	logout: "Log out",
+	cancel: "إلغاء",
+	confirm: "تأكيد",
+	save: "حفظ",
+	edit: "تعديل",
+	logout: "تسجيل الخروج",
 
 	// Navigation and Overview
 	walletBalance: "رصيد المحفظة",
@@ -69,9 +69,9 @@ const ar = {
 	emailPlaceHolder: "أدخل البريد الإلكتروني",
 	enterDescription: "أدخل الوصف",
 	enterTitle: "أدخل عنوان المعاملة",
-	enterCardNumber: "Enter Card Number",
-	passwordPlaceHolder: "Enter your password",
-	namePlaceHolder: "Enter your name",
+	enterCardNumber: "أدخل رقم البطاقة",
+	passwordPlaceHolder: "أدخل كلمة المرور الخاصة بك",
+	namePlaceHolder: "أدخل اسمك",
 
 	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",
@@ -94,11 +94,9 @@ const ar = {
 	invalidPhone:
 		"يرجى إدخال رقم هاتف صالح بالتنسيق الصحيح. يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
 	invalidStatus: "قيمة الحالة غير صالحة",
-	phoneMustBeDifferent: "Phone number must be different from your own",
-	emailMustBeDifferent: "Email must be different from your own",
-	requiredPrice: "Price is required",
-	requiredField: "This field is required",
-	invalidBank: "Bank is invalid , please choose one of the provided options",
+	requiredPrice: "السعر مطلوب",
+	requiredField: "هذا الحقل مطلوب",
+	invalidBank: "البنك غير صالح، يرجى اختيار أحد الخيارات المتاحة",
 
 	//Error Messages
 	refreshAndTryAgain: "حدث خطأ غير متوقع، يرجى التحديث والمحاولة مرة أخرى.",
@@ -208,7 +206,7 @@ const ar = {
 	chooseRole: "Choose Your Role",
 
 	//Dropdown
-	chooseAnOptions: "Choose An option",
+	chooseAnOptions: "اختر خيارًا",
 
 	//payoutSelection
 	payoutDetails: "تفاصيل الاستلام",
