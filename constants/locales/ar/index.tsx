@@ -115,6 +115,11 @@ const ar = {
 	transactionDetails: "تفاصيل المعاملة",
 	shareLink: "مشاركة الرابط",
 
+	//Track Order steps
+	pendingPayment: "قيد الدفع",
+	moneyOnHold: "الأموال محتجزة",
+	orderCompleted: "تم إكمال الطلب",
+
 	//Order Success messages
 	emailSentToOtherParty:
 		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",
@@ -201,6 +206,7 @@ const ar = {
 	joinLinkInvalidType: "هذا الرابط ليس رابط انضمام Mawsouq!",
 	shareLinkWithOtherParty:
 		"يرجى مشاركة هذا الرابط مع الطرف الآخر لينضم إلى الطلب.",
+	linkCopiedSuccessfully: "تم نسخ الرابط بنجاح",
 
 	//chooseRole
 	chooseRole: "Choose Your Role",

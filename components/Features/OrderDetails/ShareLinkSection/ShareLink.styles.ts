@@ -1,24 +1,18 @@
 import { colors } from "@/constants/theme";
-import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const LinkSection = styled.div`
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: fit-content;
-	border-radius: 8px;
-	padding: 20px 15px;
-	margin-top: 20px;
-	gap: 15px;
-	color: ${colors.lightBlack};
 	flex-direction: column;
-
-	${media.below925`
-	margin-bottom:40px;
-	border: 1px solid #2A75D4;
-
- 	 `}
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: 2px solid ${colors.blue};
+	border-radius: 10px;
+	padding: 15px;
+	gap: 10px;
+	color: ${colors.darkGray};
+	background-color: ${colors.lightGray};
 `;
 
 export const ShareIcon = styled.span`

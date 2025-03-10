@@ -113,6 +113,11 @@ const en = {
 	transactionDetails: "Transaction Details",
 	shareLink: "Share Link",
 
+	//Track Order steps
+	pendingPayment: "Pending Payment",
+	moneyOnHold: "Money on hold",
+	orderCompleted: "Order Completed",
+
 	//Order Success messages
 	emailSentToOtherParty:
 		"An email with the order details has also been sent to the buyer.",
@@ -201,6 +206,7 @@ const en = {
 	joinLinkInvalidType: "This link is not a mawsouq join link!",
 	shareLinkWithOtherParty:
 		"Please Share this link with the other party for them to join the order",
+	linkCopiedSuccessfully: "Link copied successfully",
 
 	//chooseRole
 	chooseRole: "Choose Your Role",
