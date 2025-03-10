@@ -18,6 +18,7 @@ import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import { ArrowDown } from "@/assets/icons";
 import { CheckCircle } from "lucide-react";
+import { colors } from "@/constants/theme";
 
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
@@ -50,8 +51,6 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				</MawsouqBrand>
 
 				<ProgressBar>
-					{/* <ArrowDown height={"50px"} width={"50px"} /> */}
-
 					<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 						{steps.map((step, index) => (
 							<ProgressStep key={index} completed={index < 2}>
@@ -90,47 +89,59 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 							position: "relative",
 							bottom: 0,
 							width: "200px",
-							backgroundColor: "white",
+							backgroundColor: ` ${colors.white}`,
 						}}
-						fontColor="black"
+						fontColor={colors.black}
 					/>
 				</ButtonDiv>
 			</LeftPanel>
 
 			<RightPanel>
 				<OrderDetailsCard>
-					<MSText fontSize="16px" fontWeight="600" style={{ marginBottom: 20 }}>
+					<MSText fontSize="14px" fontWeight="600" style={{ marginBottom: 20 }}>
 						{text.orderDetails}
 					</MSText>
 					<DetailRow>
-						<MSText>{text.transactionTitle}:</MSText>
-						<HighlightText>{transactionTitle}</HighlightText>
+						<MSText fontSize="14px" fontWeight="600">
+							{text.transactionTitle}:
+						</MSText>
+						<MSText fontSize="14px">{transactionTitle}</MSText>
 					</DetailRow>
 					<DetailRow>
-						<MSText>{text.price}</MSText>
-						<HighlightText>{price} EGP</HighlightText>
+						<MSText fontSize="14px" fontWeight="600">
+							{text.price}
+						</MSText>
+						<MSText fontSize="14px">{price} EGP</MSText>
 					</DetailRow>
 					<DetailRow>
-						<MSText>{text.deliverDate}</MSText>
-						<HighlightText>{deliveryDate}</HighlightText>
+						<MSText fontSize="14px" fontWeight="600">
+							{text.deliverDate}
+						</MSText>
+						<MSText fontSize="14px">{deliveryDate}</MSText>
 					</DetailRow>
 					<DetailRow>
-						<MSText>{text.description}</MSText>
-						<MSText>{description}</MSText>
+						<MSText fontSize="14px" fontWeight="600">
+							{text.description}
+						</MSText>
+						<MSText fontSize="14px">{description}</MSText>
 					</DetailRow>
 				</OrderDetailsCard>
 
 				<OrderDetailsCard>
-					<MSText fontSize="16px" fontWeight="600" style={{ marginBottom: 20 }}>
+					<MSText fontSize="14px" fontWeight="600" style={{ marginBottom: 20 }}>
 						{text.sellerDetails}
 					</MSText>
 					<DetailRow>
-						<MSText>{text.fullName}:</MSText>
-						<HighlightText>Ahmed Mohamed</HighlightText>
+						<MSText fontSize="14px" fontWeight="600">
+							{text.fullName}:
+						</MSText>
+						<MSText fontSize="14px">Ahmed Mohamed</MSText>
 					</DetailRow>
 					<DetailRow>
-						<MSText>{text.email}</MSText>
-						<MSText>ahmedmohamed@gmail.com</MSText>
+						<MSText fontSize="14px" fontWeight="600">
+							{text.email}
+						</MSText>
+						<MSText fontSize="14px">ahmedmohamed@gmail.com</MSText>
 					</DetailRow>
 				</OrderDetailsCard>
 				<MSButton
