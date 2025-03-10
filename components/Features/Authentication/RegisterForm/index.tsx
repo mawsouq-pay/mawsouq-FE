@@ -71,14 +71,14 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 							id="password"
 							name="password"
 							placeholder={text.passwordPlaceHolder}
-							icon={
-								<span
-									onClick={togglePasswordVisibility}
-									style={{ cursor: "pointer" }}
-								>
-									{showPassword ? <Hide /> : <Show />}
-								</span>
-							}
+							// icon={
+							// 	<span
+							// 		onClick={togglePasswordVisibility}
+							// 		style={{ cursor: "pointer" }}
+							// 	>
+							// 		{showPassword ? <Hide /> : <Show />}
+							// 	</span>
+							// }
 							type={showPassword ? "text" : "password"}
 						/>
 						<FormItem
@@ -86,14 +86,14 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 							id="confirmPassword"
 							name="confirmPassword"
 							placeholder={text.confirmPasswordPlaceHolder}
-							icon={
-								<span
-									onClick={toggleConfirmPasswordVisibility}
-									style={{ cursor: "pointer" }}
-								>
-									{showConfirmPassword ? <Hide /> : <Show />}
-								</span>
-							}
+							// icon={
+							// 	<span
+							// 		onClick={toggleConfirmPasswordVisibility}
+							// 		style={{ cursor: "pointer" }}
+							// 	>
+							// 		{showConfirmPassword ? <Hide /> : <Show />}
+							// 	</span>
+							// }
 							type={showConfirmPassword ? "text" : "password"}
 						/>
 
