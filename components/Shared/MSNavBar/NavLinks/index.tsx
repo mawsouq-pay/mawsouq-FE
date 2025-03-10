@@ -1,7 +1,12 @@
 import React from "react";
 import { NavItem, NavLinkss } from "../NavBar.styles";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
 
 const NavLinks = () => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+
 	return (
 		<>
 			<NavItem>
@@ -12,7 +17,7 @@ const NavLinks = () => {
 					spy={true}
 					offset={0}
 				>
-					How it Works
+					{text.howItWorks}
 				</NavLinkss>
 			</NavItem>
 			<NavItem>
@@ -23,7 +28,7 @@ const NavLinks = () => {
 					spy={true}
 					offset={-121}
 				>
-					Benefits
+					{text.msBenefits}
 				</NavLinkss>
 			</NavItem>
 			<NavItem>
@@ -34,7 +39,7 @@ const NavLinks = () => {
 					spy={true}
 					offset={-141}
 				>
-					Contact
+					{text.contact}
 				</NavLinkss>
 			</NavItem>
 		</>
