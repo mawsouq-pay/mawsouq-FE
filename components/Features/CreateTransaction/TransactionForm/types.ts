@@ -6,6 +6,7 @@ export interface TransactionFormProps {
 	onSubmit: (formData: StartTransactionData) => void;
 	initialValues: StartTransactionData;
 	onBack: () => void;
+	disableButton?: boolean;
 }
 
 export const createValidationSchema = (locale: any) => {

@@ -1,7 +1,6 @@
 import React from "react";
 import MSModal from "@/components/Shared/MSModal";
 import MSText from "@/components/Shared/MSText";
-import { useRouter } from "next/router";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
@@ -20,13 +19,11 @@ const PayoutOptionRequiredModal = ({
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
-	const router = useRouter();
-
 	return (
 		<MSModal
 			open={open}
 			onClose={() => {
-				router.back();
+				setOpen(false);
 			}}
 			title={text.payoutRequired}
 			confirmText={text.addPayoutMethod}

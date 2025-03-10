@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const StyledDialog = styled(Dialog)`
 	.MuiDialog-paper {
 		max-width: 800px;
-		width: 100%;
+		/* width: 100%; */
 		overflow: visible;
 	}
 `;

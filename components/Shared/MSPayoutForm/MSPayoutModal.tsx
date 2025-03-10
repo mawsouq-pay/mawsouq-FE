@@ -6,16 +6,15 @@ import MSPayoutForm from ".";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { useFormikContext } from "formik";
 
 const MSPayoutModal = ({
 	payoutModalOpen,
-	setPayoutModalOpen,
 	onSubmit,
 	onCancel,
 	isPending,
 }: {
 	payoutModalOpen: boolean;
-	setPayoutModalOpen: (b: boolean) => void;
 	onSubmit: (d: PayoutDetailsT) => void;
 	onCancel: () => void;
 	isPending: boolean;
@@ -30,20 +29,14 @@ const MSPayoutModal = ({
 			showActions={false}
 			title={text.payoutDetails}
 		>
-			<div style={{ maxHeight: "80vh", overflowY: "auto", padding: "0 10px" }}>
-				<MSText
-					fontSize="18px"
-					color={colors.gray}
-					style={{ marginBottom: 15 }}
-				>
-					{text.enterYourPayoutDetails}
-				</MSText>
-				<MSPayoutForm
-					onCancel={onCancel}
-					onSubmit={(details: PayoutDetailsT) => onSubmit(details)}
-					isPending={isPending}
-				/>
-			</div>{" "}
+			<MSText fontSize="16px" color={colors.black} style={{ marginBottom: 15 }}>
+				{text.enterYourPayoutDetails}
+			</MSText>
+			<MSPayoutForm
+				onCancel={onCancel}
+				onSubmit={(details: PayoutDetailsT) => onSubmit(details)}
+				isPending={isPending}
+			/>
 		</MSModal>
 	);
 };

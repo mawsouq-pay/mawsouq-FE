@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import queryClient from "@/client/reactQClient";
 import { RolesEnum } from "@/constants";
 import { useCreateOrder } from "@/hooks/orderHooks";
 import { StartTransactionData } from "@/components/Features/CreateTransaction/StartTransactionCard/types";
-import RoleSelection from "@/components/Features/CreateTransaction/RoleSelection";
 import TransactionForm from "@/components/Features/CreateTransaction/TransactionForm";
 import ShareLink from "@/components/Features/CreateTransaction/ShareLink";
 import { CreateOrderInput } from "@/types/ordersTypes";
-import { useGetUserPayoutOptions } from "./authHooks";
 import { useManagePayout } from "./useManagePayout";
 import { PayoutDetailsT } from "@/types/authenticationTypes";
 import { useNotification } from "@/store/SnackBarStore";
@@ -18,17 +16,17 @@ export const useStartTransaction = () => {
 	const { showSuccessNotification } = useNotification();
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+
 	const { mutate: createOrder, isPending, error } = useCreateOrder();
 	const {
-		data: userPayoutOptionsData,
-		isPending: getUserPayoutOptionsLoading,
-	} = useGetUserPayoutOptions();
-	const {
+		userPayoutOptions: userPayoutOptionsData,
+		getUserPayoutOptionsLoading,
 		createUserPayoutMethod,
 		isPending: createUserPayoutPending,
 		payoutModalOpen: payoutModalFormOpen,
 		setPayoutModalOpen: setPayoutModalFormOpen,
 	} = useManagePayout();
+
 	const [payoutModalOpen, setPayoutModalOpen] = useState(false);
 	const [formData, setFormData] = useState<StartTransactionData>({
 		role: RolesEnum.SELLER,
@@ -37,21 +35,11 @@ export const useStartTransaction = () => {
 		price: "",
 		deliveryDate: "",
 	});
+
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const [activeStep, setActiveStep] = useState(0);
+	const steps = [text.startTransaction, text.shareLink];
 
-	const steps = ["Transaction Details", "Share Link"];
-
-	useEffect(() => {
-		if (
-			formData.role === RolesEnum.SELLER &&
-			!getUserPayoutOptionsLoading &&
-			userPayoutOptionsData?.payoutOptions?.length === 0
-		) {
-			setPayoutModalOpen(true);
-		}
-	}, [formData.role, userPayoutOptionsData, getUserPayoutOptionsLoading]);
-	console.log(error, "EERROR");
 	const renderStep = () => {
 		return (
 			<>
@@ -63,6 +51,7 @@ export const useStartTransaction = () => {
 						initialValues={formData}
 						onSubmit={handleConfirmOrder}
 						onBack={handleBack}
+						disableButton={getUserPayoutOptionsLoading}
 					/>
 				)}
 				{activeStep === 1 && (
@@ -78,21 +67,31 @@ export const useStartTransaction = () => {
 		);
 	};
 
-	const handleNext = (updatedData: Partial<StartTransactionData>) => {
-		setFormData((prev) => ({ ...prev, ...updatedData }));
-		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+	const checkPayoutOptions = () => {
+		if (
+			formData.role === RolesEnum.SELLER &&
+			!getUserPayoutOptionsLoading &&
+			userPayoutOptionsData?.length === 0
+		) {
+			setPayoutModalOpen(true);
+			return true;
+		}
+		return false;
 	};
 
 	const handleConfirmOrder = (updatedData: StartTransactionData) => {
-		handleNext(updatedData);
-		console.log(updatedData, "updatedData");
+		if (checkPayoutOptions()) return;
+
+		setFormData((prev) => ({ ...prev, ...updatedData }));
+		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+
 		const orderData: CreateOrderInput = {
 			...updatedData,
 			price: parseFloat(updatedData.price),
 			deliveryDate: new Date(updatedData.deliveryDate),
 			description: updatedData.description,
 		};
-		console.log(orderData, "Order");
+
 		createOrder(orderData, {
 			onSuccess: (response) => {
 				const newOrderId = response?.data?.order?._id;
@@ -136,5 +135,6 @@ export const useStartTransaction = () => {
 		setPayoutModalFormOpen,
 		onPayoutFormSubmit,
 		createUserPayoutPending,
+		getUserPayoutOptionsLoading,
 	};
 };

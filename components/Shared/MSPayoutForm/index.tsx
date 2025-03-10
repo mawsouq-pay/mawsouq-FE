@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik } from "formik";
+import { Formik, Form, useFormikContext } from "formik";
 import {
 	PayoutDropdownSelections,
 	PayoutFormNames,
@@ -9,7 +9,6 @@ import {
 import { BANK_CODES, BankCode, PayoutMethodEnum } from "@/constants";
 import MSBankDropdown from "@/components/Shared/MSBankDropdown";
 import MSDropdown from "@/components/Shared/MSDropdown";
-import MSButton from "@/components/Shared/MSButton";
 import FormItem from "@/components/FormItem";
 import { textTr } from "@/constants/locales";
 import { useLocaleStore } from "@/store/LocaleStore";
@@ -22,13 +21,14 @@ import {
 import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import { PayoutDetailsT } from "@/types/authenticationTypes";
+import { isValid } from "date-fns";
+import MSButton from "../MSButton";
 
-const MSPayoutForm = (props: PayoutFormProps) => {
-	const { onCancel, onSubmit, isPending } = props;
+const MSPayoutForm = ({ onCancel, onSubmit, isPending }: PayoutFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const validationSchema = createValidationSchema(locale);
-	const [initialValues, setInitialValues] = useState<PayoutDetailsT>({
+	const [initialValues] = useState<PayoutDetailsT>({
 		method: PayoutMethodEnum.VODAFONE,
 		phoneNumber: "",
 		fullName: "",
@@ -42,10 +42,7 @@ const MSPayoutForm = (props: PayoutFormProps) => {
 			phoneNumber: values.phoneNumber,
 			fullName: values.fullName,
 			...(values.method === PayoutMethodEnum.BANK_CARD
-				? { cardNumber: values.cardNumber }
-				: {}),
-			...(values.method === PayoutMethodEnum.BANK_CARD
-				? { bankCode: values.bankCode }
+				? { cardNumber: values.cardNumber, bankCode: values.bankCode }
 				: {}),
 		};
 		onSubmit(paymentDetails);
@@ -72,7 +69,13 @@ const MSPayoutForm = (props: PayoutFormProps) => {
 
 						{values.method === PayoutMethodEnum.BANK_CARD && (
 							<>
-								<MSText color={colors.gray}>{text.chooseYourBankName}</MSText>
+								<MSText
+									fontSize="14px"
+									color={colors.black}
+									style={{ marginTop: 5 }}
+								>
+									{text.chooseYourBankName}
+								</MSText>
 								<MSBankDropdown
 									options={BANK_CODES}
 									onChange={(val) =>

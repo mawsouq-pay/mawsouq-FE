@@ -12,14 +12,6 @@ export const MainWrapper = styled.div`
 	//height: 810px;
 `;
 
-export const TitleWrapper = styled.div`
-	display: flex;
-	justify-content: center;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	text-align: center;
-`;
-
 export const ContentWrapper = styled.div`
 	display: flex;
 	flex: 1;

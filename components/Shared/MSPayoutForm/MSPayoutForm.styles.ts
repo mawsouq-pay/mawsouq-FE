@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
 export const StyledForm = styled(Form)`
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 10px;
 `;
 export const BackButton = styled.button`
 	display: flex;

@@ -4,7 +4,7 @@ import { colors } from "@/constants/theme";
 import { CircularProgress } from "@mui/material";
 import MSText from "../MSText";
 
-const MSButton = (props: ButtonProps) => {
+const MSButton = (props: MSButtonProps) => {
 	const {
 		onClick,
 		style = {},

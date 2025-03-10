@@ -111,6 +111,10 @@ const en = {
 	//Button CTA
 	viewOrder: "View Order",
 
+	//Start transaction steps
+	transactionDetails: "Transaction Details",
+	shareLink: "Share Link",
+
 	//Order Success messages
 	emailSentToOtherParty:
 		"An email with the order details has also been sent to the buyer.",

@@ -94,7 +94,6 @@ const UserPayoutMethods = () => {
 
 			<MSPayoutModal
 				payoutModalOpen={payoutModalOpen}
-				setPayoutModalOpen={setPayoutModalOpen}
 				onCancel={() => {
 					setPayoutModalOpen(false);
 				}}

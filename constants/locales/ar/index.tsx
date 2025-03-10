@@ -113,6 +113,10 @@ const ar = {
 	//Button CTA
 	viewOrder: "عرض الطلب",
 
+	//Start transaction steps
+	transactionDetails: "Transaction Details",
+	shareLink: "Share Link",
+
 	//Order Success messages
 	emailSentToOtherParty:
 		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",

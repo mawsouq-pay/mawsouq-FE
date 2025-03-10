@@ -1,4 +1,4 @@
-interface ButtonProps {
+interface MSButtonProps {
 	onClick?: (inp?: any) => void;
 	style?: React.CSSProperties;
 	loading?: boolean;

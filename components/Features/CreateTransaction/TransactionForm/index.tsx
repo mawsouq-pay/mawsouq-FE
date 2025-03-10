@@ -8,7 +8,7 @@ import MSButton from "@/components/Shared/MSButton";
 import MSPaymentSummarySection from "@/components/Shared/MSPaymentSummarySection";
 import { StartTransactionFormNames } from "../StartTransactionCard/types";
 const TransactionForm = (props: TransactionFormProps) => {
-	const { onSubmit, initialValues, onBack } = props;
+	const { onSubmit, initialValues, disableButton } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
@@ -76,6 +76,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 								alignSelf: "flex-end",
 								marginTop: 10,
 							}}
+							disabled={disableButton}
 						/>
 					</StyledForm>
 				)}

@@ -1,24 +1,14 @@
 import React from "react";
-import MSText from "../../../Shared/MSText";
-import {
-	MainWrapper,
-	TitleWrapper,
-	ContentWrapper,
-} from "./StartTransactionCard.styles";
+import { MainWrapper, ContentWrapper } from "./StartTransactionCard.styles";
 import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
 import { useStartTransaction } from "@/hooks/useStartTransaction";
 import PayoutOptionRequiredModal from "../PayoutOptionRequiredModal";
-import { useLocaleStore } from "@/store/LocaleStore";
-import { textTr } from "@/constants/locales";
 import MSPayoutModal from "@/components/Shared/MSPayoutForm/MSPayoutModal";
 import { useRouter } from "next/router";
 import { clientRoutes } from "@/routes";
 
 const StartTransactionCard = () => {
-	const { locale } = useLocaleStore();
-	const text = textTr(locale);
 	const router = useRouter();
-	const { back } = router;
 	const {
 		steps,
 		activeStep,
@@ -54,10 +44,8 @@ const StartTransactionCard = () => {
 			/>
 			<MSPayoutModal
 				payoutModalOpen={payoutModalFormOpen}
-				setPayoutModalOpen={setPayoutModalFormOpen}
 				onCancel={() => {
 					setPayoutModalFormOpen(false);
-					router.replace(clientRoutes.homePage);
 				}}
 				onSubmit={onPayoutFormSubmit}
 				isPending={createUserPayoutPending}

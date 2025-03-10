@@ -9,4 +9,6 @@ export interface MSModalProps {
 	cancelText?: string;
 	onConfirm?: () => void;
 	showActions?: boolean;
+	confirmButtonProps?: Partial<MSButtonProps>;
+	cancelButtonProps?: Partial<MSButtonProps>;
 }
