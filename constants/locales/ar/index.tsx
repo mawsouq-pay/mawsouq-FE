@@ -163,6 +163,11 @@ const ar = {
 	approve: "الموافقة",
 	descriptionMessage:
 		"قام البائع بإنشاء هذا الطلب لك. يرجى مراجعة التفاصيل أدناه. إذا كان كل شيء يبدو صحيحًا، يمكنك الموافقة على الطلب للمتابعة.",
+	buyerSendPayment: "المشتري يرسل الدفعة",
+	paymentIsSecured: "تم تأمين الدفعة في موثوق",
+	sellerDeliversOrder: "البائع يقوم بتسليم الطلب",
+	buyerReceives: "المشتري يستلم ويفحص الطلب",
+	paymentReleased: "تم الإفراج عن الدفعة للبائع",
 
 	//seller and buyer descriptions
 	sellerEmail: "البريد الإلكتروني للبائع",

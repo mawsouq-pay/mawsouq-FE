@@ -60,8 +60,8 @@ const PreviewOrderSummary = () => {
 const PageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	width: 100%;
+	/* align-items: center; */
+	/* width: 100%; */
 	/* padding: 20px; */
 	/* max-height: 100vh; */
 `;

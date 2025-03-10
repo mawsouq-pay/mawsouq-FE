@@ -162,6 +162,11 @@ const en = {
 	approve: "Approve",
 	descriptionMessage:
 		"The seller has created this order for you. Please review the details below. If everything looks correct, you can approve the order to proceed.",
+	buyerSendPayment: "Buyer sends payment",
+	paymentIsSecured: "Payment is secured in Mawsouq",
+	sellerDeliversOrder: "Seller delivers the order",
+	buyerReceives: "Buyer receives and inspects",
+	paymentReleased: "Payment released to seller",
 
 	//seller and buyer descriptions
 	sellerEmail: "Seller Email",

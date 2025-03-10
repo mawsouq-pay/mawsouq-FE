@@ -3,22 +3,23 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 export const Wrapper = styled.div`
 	display: flex;
+	flex: 1;
 	width: 100%;
+	height: 100%;
 	${media.below925`
-	flex-direction: column;
+		flex-direction: column;
 		height: auto;
     `}
 `;
 
 export const LeftPanel = styled.div`
 	background: ${colors.green};
-	color: white;
+	/* color: white; */
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
-	position: relative;
 
 	${media.below925`
 	width: 100%;
@@ -31,7 +32,6 @@ export const LeftPanel = styled.div`
 export const MawsouqBrand = styled.div`
 	text-align: center;
 	margin-top: 30px;
-	margin-bottom: 20px;
 
 	${media.below925`
 		margin-top: 15px;
@@ -43,10 +43,8 @@ export const ProgressBar = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	gap: 10px;
+	flex: 1;
+	height: 100%;
 `;
 
 export const BigArrow = styled.div`
@@ -74,7 +72,6 @@ export const RightPanel = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 	${media.below925`
 	width: 100%;
 	padding: 15px;
@@ -112,4 +109,10 @@ export const DetailRow = styled.div`
 export const HighlightText = styled.span`
 	/* font-weight: bold;
 	color: ${colors.green}; */
+`;
+
+export const ButtonDiv = styled.div`
+	@media (min-width: 925px) {
+		display: none;
+	}
 `;

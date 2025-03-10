@@ -12,6 +12,7 @@ import {
 	ProgressStep,
 	MawsouqBrand,
 	BigArrow,
+	ButtonDiv,
 } from "./PreviewOrderCard.styles";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
@@ -29,19 +30,18 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	};
 
 	const steps = [
-		"Buyer sends payment",
-		"Payment is secured in Mawsouq",
-		"Seller fulfills order",
-		"Buyer receives and inspects",
-		"Complaint period",
-		"Funds released to seller",
+		text.buyerSendPayment,
+		text.paymentIsSecured,
+		text.sellerDeliversOrder,
+		text.buyerReceives,
+		text.paymentReleased,
 	];
 
 	return (
 		<Wrapper>
 			<LeftPanel>
 				<MawsouqBrand>
-					<MSText fontSize="22px" fontWeight="bold" color="white">
+					<MSText fontSize="24px" fontWeight="bold" color="white">
 						Mawsouq
 					</MSText>
 					<MSText fontSize="14px" color="white">
@@ -50,29 +50,53 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				</MawsouqBrand>
 
 				<ProgressBar>
-					<BigArrow>
-						<ArrowDown height={"900px"} width={"50px"} />
-					</BigArrow>
+					{/* <ArrowDown height={"50px"} width={"50px"} /> */}
 
 					<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
 						{steps.map((step, index) => (
 							<ProgressStep key={index} completed={index < 2}>
-								<MSText fontSize="18px" color={index < 2 ? "black" : "white"}>
-									{index + 1}. {step}
-								</MSText>
-								{index < 2 && (
-									<CheckCircle
-										style={{ color: "white", marginTop: 4 }}
-										size={"14px"}
-									/>
-								)}{" "}
+								{index > 1 ? (
+									<MSText fontSize="18px" color={index < 2 ? "black" : "white"}>
+										{index + 1}. {step}
+									</MSText>
+								) : (
+									<div
+										style={{
+											backgroundColor: "#222",
+											display: "flex",
+											flexDirection: "row",
+											gap: 8,
+											padding: "0px 2px",
+										}}
+									>
+										<MSText fontSize="18px" color={"white"}>
+											{index + 1}. {step}
+										</MSText>
+										<CheckCircle
+											style={{ color: "white", marginTop: 4 }}
+											size={"14px"}
+										/>
+									</div>
+								)}
 							</ProgressStep>
 						))}
 					</div>
 				</ProgressBar>
+				<ButtonDiv>
+					<MSButton
+						title={text.proceedToPayment}
+						onClick={handleProceedToPayment}
+						style={{
+							position: "relative",
+							bottom: 0,
+							width: "200px",
+							backgroundColor: "white",
+						}}
+						fontColor="black"
+					/>
+				</ButtonDiv>
 			</LeftPanel>
 
-			{/* Right Panel - Order Details */}
 			<RightPanel>
 				<OrderDetailsCard>
 					<MSText fontSize="16px" fontWeight="600" style={{ marginBottom: 20 }}>
@@ -109,11 +133,10 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 						<MSText>ahmedmohamed@gmail.com</MSText>
 					</DetailRow>
 				</OrderDetailsCard>
-
 				<MSButton
 					title={text.proceedToPayment}
 					onClick={handleProceedToPayment}
-					style={{ marginTop: 40, width: "200px" }}
+					style={{ position: "relative", bottom: 0, width: "200px" }}
 				/>
 			</RightPanel>
 		</Wrapper>

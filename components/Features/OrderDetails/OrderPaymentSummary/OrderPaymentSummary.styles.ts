@@ -6,7 +6,7 @@ export const MainWrapper = styled.div`
 	flex-direction: column;
 	background-color: ${colors.lightGray};
 	flex: 1;
-	border-radius: 20px;
+	border-radius: 8px;
 	gap: 20px;
 	padding: 25px;
 `;
