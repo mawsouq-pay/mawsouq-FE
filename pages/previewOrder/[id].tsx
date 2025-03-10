@@ -36,18 +36,6 @@ const PreviewOrderSummary = () => {
 				error={error}
 				displayErrorReason={true}
 			>
-				<InfoWrapper>
-					<InfoMessage>
-						<MSText fontSize="18px" fontWeight="500" color="#757575">
-							{text.descriptionMessage}
-						</MSText>
-					</InfoMessage>
-					<ContactSummarySection
-						sellerNaming={true}
-						email={data?.order?.seller?.email ?? ""}
-						name={data?.order?.seller?.name ?? ""}
-					/>
-				</InfoWrapper>
 				<PreviewOrderCard
 					transactionTitle={data?.order?.transactionTitle ?? ""}
 					description={data?.order?.description ?? ""}
@@ -56,10 +44,6 @@ const PreviewOrderSummary = () => {
 					sellerName={data?.order?.seller?.name ?? ""}
 					price={data?.order?.price ?? 1}
 					onConfirmPress={() => {
-						if (data?.order?.isFetcherSeller) {
-							showInfoNotification("Seller can not pay for the order!");
-							return;
-						}
 						setShowBuyerPopUp(true);
 					}}
 				/>
@@ -78,7 +62,8 @@ const PageContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	padding: 20px;
+	/* padding: 20px; */
+	/* max-height: 100vh; */
 `;
 
 const InfoWrapper = styled.div`

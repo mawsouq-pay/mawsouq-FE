@@ -285,6 +285,14 @@ const ar = {
 
 	ORDER_CANCELLED_BUYER: "تم إلغاء الطلب.",
 	ORDER_CANCELLED_SELLER: "تم إلغاء الطلب.",
+
+	//Preview texts
+	proceedToPayment: "المتابعة للدفع",
+	sellerDetails: "تفاصيل البائع",
+	contactSeller: "تواصل مع البائع للمزيد من التفاصيل.",
+	deliveryDate: "تاريخ التسليم المتوقع",
+	mawsouqExplanation:
+		"يضمن موقع Mawsouq الدفع الآمن بين المشترين والبائعين. يتم الاحتفاظ بأموالك بأمان حتى تستلم طلبك كما هو متوقع.",
 };
 
 export default ar;

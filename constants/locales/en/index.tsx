@@ -293,6 +293,14 @@ const en = {
 
 	ORDER_CANCELLED_BUYER: "The order has been cancelled.",
 	ORDER_CANCELLED_SELLER: "The order has been cancelled.",
+
+	//Preview texts
+	proceedToPayment: "Proceed to Payment",
+	sellerDetails: "Seller Details",
+	contactSeller: "Contact the seller for more details.",
+	deliveryDate: "Expected Delivery",
+	mawsouqExplanation:
+		"Mawsouq ensures safe payments between buyers and sellers. Your money is held securely until you receive your order as expected.",
 };
 
 export default en;

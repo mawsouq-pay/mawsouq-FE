@@ -14,6 +14,7 @@ import CartIcon from "./cart_icon";
 import ShopIcon from "./shop_icon";
 import Nb1Icon from "./step1";
 import Nb2Icon from "./step2";
+import ArrowDown from "./arrow_down";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -31,4 +32,5 @@ export {
 	ShopIcon,
 	Nb1Icon,
 	Nb2Icon,
+	ArrowDown,
 };
