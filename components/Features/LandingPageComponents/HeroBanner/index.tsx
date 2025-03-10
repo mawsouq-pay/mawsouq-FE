@@ -1,4 +1,3 @@
-import MSText from "@/components/Shared/MSText";
 import React from "react";
 import {
 	HeroContainer,
@@ -7,41 +6,34 @@ import {
 	HeroSubtitle,
 	HeroButton,
 	HeroImage,
-	IframeOverlay,
 } from "./HeroBanner.styles";
-import { colors } from "@/constants/theme";
-import useTypewriter from "@/hooks/useTypeWriter";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { heroBannerText } from "./types";
+import { useAuthStore } from "@/store";
+import router from "next/router";
+import { clientRoutes } from "@/routes";
 
 const HeroBanner = () => {
 	const { locale } = useLocaleStore();
 	const text = heroBannerText[locale];
-
+	const { isLoggedIn } = useAuthStore();
 	return (
 		<HeroContainer>
 			<HeroContent>
 				<HeroTitle>{text.title}</HeroTitle>
 				<HeroSubtitle>{text.subtitle}</HeroSubtitle>
-				<HeroButton>{text.buttonText}</HeroButton>
+				<HeroButton
+					onClick={() => {
+						if (isLoggedIn) {
+							router.push(clientRoutes.startTransaction);
+						}
+						router.push(clientRoutes.login);
+					}}
+				>
+					{text.buttonText}
+				</HeroButton>
 			</HeroContent>
-			<HeroImage>
-				{/* <Image
-            src={FrameLaptopImage}
-            alt="Desktop Frame"
-            style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-            }}
-            layout="responsive"
-        /> */}
-				{/* <IframeOverlay
-					src="https://www.youtube.com/embed/19g66ezsKAg"
-					allowFullScreen
-					title="Mawsouq Video"
-				/> */}
-			</HeroImage>
+			<HeroImage></HeroImage>
 		</HeroContainer>
 	);
 };

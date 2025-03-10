@@ -7,9 +7,9 @@ export const HeroContainer = styled.section`
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
-	min-height: 80vh;
+	min-height: 85vh;
 	border-radius: 10px;
-	padding: 5rem 2rem 0rem 2rem;
+	/* padding: 5rem 2rem 0rem 2rem; */
 
 	@media (max-width: 768px) {
 		align-items: flex-start;
@@ -52,28 +52,6 @@ export const HeroSubtitle = styled.p`
 		text-align: start;
 	}
 `;
-
-// export const HeroContainer = styled.section`
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	text-align: center;
-// 	flex-direction: column;
-// 	min-height: 80vh;
-// 	border-radius: 10px;
-// 	/* background: linear-gradient(to top, #b3fcdf, #ffffff); */
-// 	padding: 5rem 2rem 0rem 2rem;
-
-// 	@media (max-width: 768px) {
-// 		padding: 2rem;
-// 		min-height: 60vh;
-// 	}
-// `;
-
-// export const HeroContent = styled.div`
-// 	max-width: 700px;
-// 	margin-top: 1rem;
-// `;
 
 export const HeroImage = styled.div`
 	position: relative;
@@ -118,35 +96,13 @@ export const IframeOverlay = styled.iframe`
 	}
 `;
 
-// export const HeroTitle = styled.h1`
-// 	font-size: 3.5rem;
-// 	font-weight: bold;
-// 	color: #222;
-// 	margin-bottom: 1rem;
-
-// 	@media (max-width: 768px) {
-// 		font-size: 2.3rem;
-// 	}
-// `;
-
-// export const HeroSubtitle = styled.p`
-// 	font-size: 18px;
-// 	color: #444;
-// 	line-height: 1.6;
-// 	margin-bottom: 1.5rem;
-
-// 	@media (max-width: 768px) {
-// 		font-size: 1.2rem;
-// 	}
-// `;
-
 export const HeroButton = styled.button`
 	/* background-color: black; */
 	background: linear-gradient(to left, #01796f, #43d9a4);
 	color: white;
 	font-size: 1rem;
 	font-weight: bold;
-	padding: 20px 28px;
+	padding: 18px 28px;
 	border: none;
 	border-radius: 20px;
 	cursor: pointer;
