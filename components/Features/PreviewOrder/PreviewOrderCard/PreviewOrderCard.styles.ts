@@ -3,9 +3,10 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 export const Wrapper = styled.div`
 	display: flex;
-	flex: 1;
+	height: 100vh;
 	width: 100%;
-	height: 100%;
+	align-items: center;
+	justify-content: center;
 	${media.below925`
 		flex-direction: column;
 		height: auto;
@@ -19,13 +20,13 @@ export const LeftPanel = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
-
+	height: 500px;
 	${media.below925`
-	width: 100%;
-	flex: none;
-	padding: 15px;  
-	height:300px
-	`}
+		width: 100%;
+		flex: none;
+		padding: 15px;  
+		height:300px
+		`}
 `;
 
 export const MawsouqBrand = styled.div`
@@ -78,9 +79,13 @@ export const RightPanel = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	height: 500px;
+
 	${media.below925`
 	width: 100%;
 	padding: 15px;
+	height: 100%;
+
 
 	`}
 `;

@@ -46,122 +46,137 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 
 	return (
 		<Wrapper>
-			<LeftPanel>
-				<MawsouqBrand>
-					<MSText fontSize="24px" fontWeight="bold" color="white">
-						Mawsouq
-					</MSText>
-					<MSText fontSize="14px" color="white">
-						Protecting Your Order
-					</MSText>
-				</MawsouqBrand>
+			<>
+				<LeftPanel>
+					<MawsouqBrand>
+						<MSText fontSize="24px" fontWeight="bold" color="white">
+							Mawsouq
+						</MSText>
+						<MSText fontSize="14px" color="white">
+							Protecting Your Order
+						</MSText>
+					</MawsouqBrand>
 
-				<ProgressBar>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: 10,
-						}}
-					>
-						{steps.map((step, index) => (
-							<ProgressStep key={index} completed={index < 2}>
-								{index > 1 ? (
-									<MSText fontSize="18px" color={index < 2 ? "black" : "white"}>
-										{index + 1}. {step}
-									</MSText>
-								) : (
-									<div
-										style={{
-											backgroundColor: "#222",
-											display: "flex",
-											flexDirection: "row",
-											gap: 8,
-											padding: "0px 2px",
-										}}
-									>
-										<MSText fontSize="18px" color={"white"}>
+					<ProgressBar>
+						<div
+							style={{
+								display: "flex",
+								flexDirection: "column",
+								gap: 10,
+							}}
+						>
+							{steps.map((step, index) => (
+								<ProgressStep key={index} completed={index < 2}>
+									{index > 1 ? (
+										<MSText
+											fontSize="18px"
+											color={index < 2 ? "black" : "white"}
+										>
 											{index + 1}. {step}
 										</MSText>
-										<CheckCircle
-											style={{ color: "white", marginTop: 4 }}
-											size={"14px"}
-										/>
-									</div>
-								)}
-							</ProgressStep>
-						))}
-					</div>
-				</ProgressBar>
-				<ButtonDiv>
+									) : (
+										<div
+											style={{
+												backgroundColor: "#222",
+												display: "flex",
+												flexDirection: "row",
+												gap: 8,
+												padding: "0px 2px",
+											}}
+										>
+											<MSText fontSize="18px" color={"white"}>
+												{index + 1}. {step}
+											</MSText>
+											<CheckCircle
+												style={{ color: "white", marginTop: 4 }}
+												size={"14px"}
+											/>
+										</div>
+									)}
+								</ProgressStep>
+							))}
+						</div>
+					</ProgressBar>
+					<ButtonDiv>
+						<MSButton
+							title={text.proceedToPayment}
+							onClick={handleProceedToPayment}
+							style={{
+								position: "relative",
+								bottom: 0,
+								width: "200px",
+								backgroundColor: ` ${colors.white}`,
+							}}
+							fontColor={colors.black}
+						/>
+					</ButtonDiv>
+				</LeftPanel>
+
+				<RightPanel>
+					<OrderDetailsCard>
+						<MSText
+							fontSize="14px"
+							fontWeight="600"
+							style={{ marginBottom: 20 }}
+						>
+							{text.orderDetails}
+						</MSText>
+						<DetailRow>
+							<MSText fontSize="14px" fontWeight="600">
+								{text.transactionTitle}:
+							</MSText>
+							<MSText fontSize="14px">{transactionTitle}</MSText>
+						</DetailRow>
+						<DetailRow>
+							<MSText fontSize="14px" fontWeight="600">
+								{text.price}
+							</MSText>
+							<MSText fontSize="14px">{price} EGP</MSText>
+						</DetailRow>
+						<DetailRow>
+							<MSText fontSize="14px" fontWeight="600">
+								{text.deliverDate}
+							</MSText>
+							<MSText fontSize="14px">{deliveryDate}</MSText>
+						</DetailRow>
+						<DetailRow>
+							<MSText fontSize="14px" fontWeight="600">
+								{text.description}
+							</MSText>
+							<MSText fontSize="14px">{description}</MSText>
+						</DetailRow>
+					</OrderDetailsCard>
+
+					<OrderDetailsCard>
+						<MSText
+							fontSize="14px"
+							fontWeight="600"
+							style={{ marginBottom: 20 }}
+						>
+							{text.sellerDetails}
+						</MSText>
+						<DetailRow>
+							<MSText fontSize="14px" fontWeight="600">
+								{text.fullName}:
+							</MSText>
+							<MSText fontSize="14px">Ahmed Mohamed</MSText>
+						</DetailRow>
+						<DetailRow>
+							<MSText fontSize="14px" fontWeight="600">
+								{text.email}
+							</MSText>
+							<MSText fontSize="14px">ahmedmohamed@gmail.com</MSText>
+						</DetailRow>
+					</OrderDetailsCard>
 					<MSButton
-						title={text.proceedToPayment}
+						title={
+							orderIsJoined ? "Login to track order" : text.proceedToPayment
+						}
 						onClick={handleProceedToPayment}
-						style={{
-							position: "relative",
-							bottom: 0,
-							width: "200px",
-							backgroundColor: ` ${colors.white}`,
-						}}
-						fontColor={colors.black}
+						style={{ position: "relative", bottom: 0, width: "200px" }}
 					/>
-				</ButtonDiv>
-			</LeftPanel>
-
-			<RightPanel>
-				<OrderDetailsCard>
-					<MSText fontSize="14px" fontWeight="600" style={{ marginBottom: 20 }}>
-						{text.orderDetails}
-					</MSText>
-					<DetailRow>
-						<MSText fontSize="14px" fontWeight="600">
-							{text.transactionTitle}:
-						</MSText>
-						<MSText fontSize="14px">{transactionTitle}</MSText>
-					</DetailRow>
-					<DetailRow>
-						<MSText fontSize="14px" fontWeight="600">
-							{text.price}
-						</MSText>
-						<MSText fontSize="14px">{price} EGP</MSText>
-					</DetailRow>
-					<DetailRow>
-						<MSText fontSize="14px" fontWeight="600">
-							{text.deliverDate}
-						</MSText>
-						<MSText fontSize="14px">{deliveryDate}</MSText>
-					</DetailRow>
-					<DetailRow>
-						<MSText fontSize="14px" fontWeight="600">
-							{text.description}
-						</MSText>
-						<MSText fontSize="14px">{description}</MSText>
-					</DetailRow>
-				</OrderDetailsCard>
-
-				<OrderDetailsCard>
-					<MSText fontSize="14px" fontWeight="600" style={{ marginBottom: 20 }}>
-						{text.sellerDetails}
-					</MSText>
-					<DetailRow>
-						<MSText fontSize="14px" fontWeight="600">
-							{text.fullName}:
-						</MSText>
-						<MSText fontSize="14px">Ahmed Mohamed</MSText>
-					</DetailRow>
-					<DetailRow>
-						<MSText fontSize="14px" fontWeight="600">
-							{text.email}
-						</MSText>
-						<MSText fontSize="14px">ahmedmohamed@gmail.com</MSText>
-					</DetailRow>
-				</OrderDetailsCard>
-				<MSButton
-					title={orderIsJoined ? "Login to track order" : text.proceedToPayment}
-					onClick={handleProceedToPayment}
-					style={{ position: "relative", bottom: 0, width: "200px" }}
-				/>
-			</RightPanel>
+				</RightPanel>
+			</>
 		</Wrapper>
 	);
 };

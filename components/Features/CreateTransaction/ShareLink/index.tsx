@@ -113,19 +113,6 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 						</Tooltip>
 					)}
 				</LinkSection>
-
-				<ActionButtonWrapper>
-					<MSButton
-						title={text.viewOrder}
-						onClick={navigateToOrder}
-						type="submit"
-						style={{
-							height: 45,
-							width: "100%",
-							backgroundColor: colors.green,
-						}}
-					/>
-				</ActionButtonWrapper>
 			</Wrapper>
 		</MSErrorAndLoadingWrapper>
 	);

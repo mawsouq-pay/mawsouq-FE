@@ -2,29 +2,19 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useFetchOrderPreview } from "@/hooks/orderHooks";
 import PreviewOrderCard from "@/components/Features/PreviewOrder/PreviewOrderCard";
-import HomePageLayout from "@/layouts/HomePageLayout";
 import { formatDate } from "@/helpers";
-import MSText from "@/components/Shared/MSText";
-import { useLocaleStore } from "@/store/LocaleStore";
-import { textTr } from "@/constants/locales";
 import { useRouter } from "next/router";
 import OrderPreviewConfirmationPopUp from "@/components/Features/PreviewOrder/OrderPreviewConfirmationPopUp";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
-import ContactSummarySection from "@/components/Features/PreviewOrder/ContactSummarySection";
-import { OrderStatusEnum } from "@/constants";
 import { clientRoutes } from "@/routes";
-import { useNotification } from "@/store/SnackBarStore";
 import { useAuthStore } from "@/store";
 import MSLoader from "@/components/Shared/MSLoader";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
 	const orderId = router.query.id;
-	const { locale } = useLocaleStore();
-	const text = textTr(locale);
 	const { data, isLoading, error } = useFetchOrderPreview(orderId as string);
 	const [showBuyerPopUp, setShowBuyerPopUp] = useState(false);
-	const { showInfoNotification } = useNotification();
 	const { isLoggedIn } = useAuthStore();
 	const orderIsJoined = Boolean(data?.order?.seller && data?.order?.buyer);
 	if (isLoading) {
@@ -75,25 +65,11 @@ const PreviewOrderSummary = () => {
 const PageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* align-items: center; */
-	/* width: 100%; */
-	/* padding: 20px; */
-	/* max-height: 100vh; */
-`;
+	height: 100%;
+	flex: 1;
+	height: 100vh;
 
-const InfoWrapper = styled.div`
-	width: 100%;
-	max-width: 600px;
-	margin-bottom: 20px;
-	background-color: #fff;
-	padding: 16px;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	gap: 30px;
-`;
-
-const InfoMessage = styled.div`
-	text-align: center;
+	align-items: center;
 `;
 
 export default PreviewOrderSummary;

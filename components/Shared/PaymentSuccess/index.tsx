@@ -28,7 +28,7 @@ const PaymentSuccess = (props: PaymentSuccessProps) => {
 			setTimeout(() => {
 				handleReturnToOrderDetails();
 			}, 500);
-		}, 2000);
+		}, 1000);
 
 		return () => clearTimeout(timer);
 	}, [router, orderId]);
@@ -49,7 +49,7 @@ const PaymentSuccess = (props: PaymentSuccessProps) => {
 					exit={{ opacity: 0, y: -50, transition: { duration: 0.5 } }}
 				>
 					<PageInner>
-						<Image src={CheckImage} width={255} height={255} alt={""} />
+						<Image src={CheckImage} width={200} height={200} alt={""} />
 						<MessagesDiv>
 							<MSText fontSize="25px" mobileFontSize="18px" fontWeight="bold">
 								{text.paymentHasBeenReceivedSuccessfully}
