@@ -1,6 +1,5 @@
 import PaymentFailure from "@/components/Shared/PaymentFailure";
 import PaymentSuccess from "@/components/Shared/PaymentSuccess";
-import HomePageLayout from "@/layouts/HomePageLayout";
 import React from "react";
 import { useRouter } from "next/router";
 import MSLoader from "@/components/Shared/MSLoader";
@@ -27,5 +26,4 @@ const PaymentRedirect = () => {
 	);
 };
 
-PaymentRedirect.CustomLayout = HomePageLayout;
 export default PaymentRedirect;

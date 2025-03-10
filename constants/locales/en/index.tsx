@@ -306,6 +306,11 @@ const en = {
 	deliveryDate: "Expected Delivery",
 	mawsouqExplanation:
 		"Mawsouq ensures safe payments between buyers and sellers. Your money is held securely until you receive your order as expected.",
+
+	//CTA
+	designsForBothSellersAndBuyers:
+		"Designed for both sellers and buyers. Start now and build trust with every transaction.",
+	readyToDesignYourDeals: "Ready to simplify your_____deals?",
 };
 
 export default en;

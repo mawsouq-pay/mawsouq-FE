@@ -298,6 +298,11 @@ const ar = {
 	deliveryDate: "تاريخ التسليم المتوقع",
 	mawsouqExplanation:
 		"يضمن موقع Mawsouq الدفع الآمن بين المشترين والبائعين. يتم الاحتفاظ بأموالك بأمان حتى تستلم طلبك كما هو متوقع.",
+
+	//CTA
+	designsForBothSellersAndBuyers:
+		"مصمم لكل من البائعين والمشترين. ابدأ الآن وابنِ الثقة في كل معاملة.",
+	readyToDesignYourDeals: "هل أنت مستعد لتبسيط صفقاتك _____؟",
 };
 
 export default ar;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { MessagesDiv, PageInner } from "./PaymentSuccess.styles";
@@ -17,7 +17,13 @@ const PaymentSuccess = (props: PaymentSuccessProps) => {
 	const { orderId } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			handleReturnToOrderDetails();
+		}, 2000);
 
+		return () => clearTimeout(timer);
+	}, [router, orderId]);
 	const handleReturnToOrderDetails = () => {
 		router.push({
 			pathname: clientRoutes.order,

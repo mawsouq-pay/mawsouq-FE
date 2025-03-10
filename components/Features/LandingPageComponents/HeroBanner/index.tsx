@@ -26,8 +26,9 @@ const HeroBanner = () => {
 					onClick={() => {
 						if (isLoggedIn) {
 							router.push(clientRoutes.startTransaction);
+						} else {
+							router.push(clientRoutes.login);
 						}
-						router.push(clientRoutes.login);
 					}}
 				>
 					{text.buttonText}

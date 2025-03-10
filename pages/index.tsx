@@ -36,7 +36,7 @@ const LandingPage = () => {
 					{/* <PaymobFooter /> */}
 					{/* <ContactUs /> */}
 				</MSAnimatedDiv>
-				<FooterSection />
+				{/* <FooterSection /> */}
 			</MainDiv>
 		</>
 	);
