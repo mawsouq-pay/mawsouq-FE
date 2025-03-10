@@ -14,6 +14,8 @@ import ContactSummarySection from "@/components/Features/PreviewOrder/ContactSum
 import { OrderStatusEnum } from "@/constants";
 import { clientRoutes } from "@/routes";
 import { useNotification } from "@/store/SnackBarStore";
+import { useAuthStore } from "@/store";
+import MSLoader from "@/components/Shared/MSLoader";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -23,7 +25,12 @@ const PreviewOrderSummary = () => {
 	const { data, isLoading, error } = useFetchOrderPreview(orderId as string);
 	const [showBuyerPopUp, setShowBuyerPopUp] = useState(false);
 	const { showInfoNotification } = useNotification();
-	if (data?.order?.seller && data?.order?.buyer) {
+	const { isLoggedIn } = useAuthStore();
+	const orderIsJoined = Boolean(data?.order?.seller && data?.order?.buyer);
+	if (isLoading) {
+		return <MSLoader />;
+	}
+	if (orderIsJoined && isLoggedIn) {
 		router.replace({
 			pathname: clientRoutes.order,
 			query: { id: orderId },
@@ -44,8 +51,16 @@ const PreviewOrderSummary = () => {
 					sellerName={data?.order?.seller?.name ?? ""}
 					price={data?.order?.price ?? 1}
 					onConfirmPress={() => {
-						setShowBuyerPopUp(true);
+						if (orderIsJoined) {
+							router.replace({
+								pathname: clientRoutes.register,
+								query: { orderId: orderId },
+							});
+						} else {
+							setShowBuyerPopUp(true);
+						}
 					}}
+					orderIsJoined={orderIsJoined ?? false}
 				/>
 				<OrderPreviewConfirmationPopUp
 					open={showBuyerPopUp}

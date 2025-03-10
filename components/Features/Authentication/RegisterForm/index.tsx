@@ -5,10 +5,10 @@ import { registerInitialValues, registerValidationSchema } from "./types";
 import { textTr } from "@/constants/locales";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { FormWrapper, Logo, OrDivider, TextLink } from "./RegisterForm.styles";
-import { Hide, Show } from "@/assets/icons";
 import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
 import useRegisterHandler from "@/hooks/useRegisterHandler";
+import { Eye, EyeOff } from "lucide-react";
 
 const RegisterForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
@@ -71,14 +71,14 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 							id="password"
 							name="password"
 							placeholder={text.passwordPlaceHolder}
-							// icon={
-							// 	<span
-							// 		onClick={togglePasswordVisibility}
-							// 		style={{ cursor: "pointer" }}
-							// 	>
-							// 		{showPassword ? <Hide /> : <Show />}
-							// 	</span>
-							// }
+							icon={
+								<span
+									onClick={togglePasswordVisibility}
+									style={{ cursor: "pointer" }}
+								>
+									{showPassword ? <EyeOff /> : <Eye />}
+								</span>
+							}
 							type={showPassword ? "text" : "password"}
 						/>
 						<FormItem
@@ -86,14 +86,14 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 							id="confirmPassword"
 							name="confirmPassword"
 							placeholder={text.confirmPasswordPlaceHolder}
-							// icon={
-							// 	<span
-							// 		onClick={toggleConfirmPasswordVisibility}
-							// 		style={{ cursor: "pointer" }}
-							// 	>
-							// 		{showConfirmPassword ? <Hide /> : <Show />}
-							// 	</span>
-							// }
+							icon={
+								<span
+									onClick={toggleConfirmPasswordVisibility}
+									style={{ cursor: "pointer" }}
+								>
+									{showConfirmPassword ? <EyeOff /> : <Eye />}
+								</span>
+							}
 							type={showConfirmPassword ? "text" : "password"}
 						/>
 

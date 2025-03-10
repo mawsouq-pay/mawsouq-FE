@@ -64,4 +64,5 @@ export const IconContainer = styled.span<{ position: "left" | "right" }>`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
+	width: fit-content;
 `;

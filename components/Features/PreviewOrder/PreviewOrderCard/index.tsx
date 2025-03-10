@@ -23,8 +23,14 @@ import { colors } from "@/constants/theme";
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { transactionTitle, description, deliveryDate, onConfirmPress, price } =
-		props;
+	const {
+		transactionTitle,
+		description,
+		deliveryDate,
+		onConfirmPress,
+		price,
+		orderIsJoined,
+	} = props;
 
 	const handleProceedToPayment = () => {
 		onConfirmPress();
@@ -151,7 +157,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 					</DetailRow>
 				</OrderDetailsCard>
 				<MSButton
-					title={text.proceedToPayment}
+					title={orderIsJoined ? "Login to track order" : text.proceedToPayment}
 					onClick={handleProceedToPayment}
 					style={{ position: "relative", bottom: 0, width: "200px" }}
 				/>

@@ -6,4 +6,5 @@ interface PreviewOrderCardProps {
 	sellerName: string;
 	price: number;
 	onConfirmPress: () => void;
+	orderIsJoined: boolean;
 }

@@ -5,10 +5,10 @@ import { loginInitialValues, loginValidationSchema } from "./types";
 import { textTr } from "@/constants/locales";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { FormWrapper, Logo, OrDivider, TextLink } from "./LoginForm.styles";
-import { Hide, Show } from "@/assets/icons";
 import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
 import { useLoginHandler } from "@/hooks/useLoginHandler";
+import { Eye, EyeOff } from "lucide-react";
 
 const LoginForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
@@ -61,7 +61,7 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 									onClick={togglePasswordVisibility}
 									style={{ cursor: "pointer" }}
 								>
-									{showPassword ? <Hide /> : <Show />}
+									{showPassword ? <EyeOff /> : <Eye />}
 								</span>
 							}
 							type={showPassword ? "text" : "password"}
