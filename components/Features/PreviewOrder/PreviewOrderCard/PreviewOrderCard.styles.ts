@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 
 export const LeftPanel = styled.div`
 	background: ${colors.green};
-	/* color: white; */
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -25,7 +24,7 @@ export const LeftPanel = styled.div`
 	width: 100%;
 	flex: none;
 	padding: 15px;  
-	height:400px
+	height:300px
 	`}
 `;
 
@@ -34,8 +33,8 @@ export const MawsouqBrand = styled.div`
 	margin-top: 30px;
 
 	${media.below925`
-		margin-top: 15px;
-		margin-bottom: 10px;
+		margin-top: 0px;
+		margin-bottom: 8px;
 	`}
 `;
 
@@ -45,6 +44,13 @@ export const ProgressBar = styled.div`
 	align-items: center;
 	flex: 1;
 	height: 100%;
+	${media.below925`
+	align-items: flex-start;
+	margin-top:10px;
+	margin-bottom: 2px;
+	
+	height: fit-content;
+	`}
 `;
 
 export const BigArrow = styled.div`

@@ -51,7 +51,13 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				</MawsouqBrand>
 
 				<ProgressBar>
-					<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+					<div
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							gap: 10,
+						}}
+					>
 						{steps.map((step, index) => (
 							<ProgressStep key={index} completed={index < 2}>
 								{index > 1 ? (
