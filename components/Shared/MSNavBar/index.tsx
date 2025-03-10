@@ -6,7 +6,6 @@ import {
 	NavBtn,
 	MenuButton,
 } from "./NavBar.styles";
-import UserNavbar from "./UserNavbar";
 import NavLinks from "./NavLinks";
 import NavButtons from "./NavButtons";
 import { MenuIcon, X } from "lucide-react";
@@ -22,31 +21,27 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 
 	return (
 		<>
-			{isLandingPage ? (
-				<NavWrapper isLandingPage={isLandingPage}>
-					<NavbarContainer>
-						<Image src={MawsouqLogo} alt="Mawsouq image" />
-						{isMobile ? (
-							<MenuButton onClick={toggleMenu} open={open}>
-								{open ? <X size={28} /> : <MenuIcon size={28} />}
-							</MenuButton>
-						) : (
-							<>
-								<NavMenu>
-									<NavLinks />
-								</NavMenu>
-								<NavBtn>
-									<NavButtons />
-								</NavBtn>
-							</>
-						)}
-					</NavbarContainer>
+			<NavWrapper isLandingPage={isLandingPage}>
+				<NavbarContainer>
+					<Image src={MawsouqLogo} alt="Mawsouq image" />
+					{isMobile ? (
+						<MenuButton onClick={toggleMenu} open={open}>
+							{open ? <X size={28} /> : <MenuIcon size={28} />}
+						</MenuButton>
+					) : (
+						<>
+							<NavMenu>
+								<NavLinks />
+							</NavMenu>
+							<NavBtn>
+								<NavButtons />
+							</NavBtn>
+						</>
+					)}
+				</NavbarContainer>
 
-					{isMobile && <SidebarNav open={open} toggleMenu={toggleMenu} />}
-				</NavWrapper>
-			) : (
-				<UserNavbar />
-			)}
+				{isMobile && <SidebarNav open={open} toggleMenu={toggleMenu} />}
+			</NavWrapper>
 		</>
 	);
 };
