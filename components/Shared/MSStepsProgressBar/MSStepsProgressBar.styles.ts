@@ -9,7 +9,6 @@ export const VerticalConnector = styled(StepConnector)(({ theme }) => ({
 		borderColor: `${colors.green}`,
 		borderLeftWidth: 3,
 		borderRadius: 1,
-		//marginLeft: "15px",
 		height: "20px",
 	},
 	[`&.${stepConnectorClasses.active} .${stepConnectorClasses.line}`]: {
@@ -19,28 +18,35 @@ export const VerticalConnector = styled(StepConnector)(({ theme }) => ({
 		borderColor: `${colors.green}`,
 	},
 }));
-export const HorizontalConnector = styled(StepConnector)(({ theme }) => ({
-	[`&.${stepConnectorClasses.alternativeLabel}`]: {
-		top: 15,
-		left: "calc(-50% + 16px)",
-		right: "calc(50% + 16px)",
-	},
-	[`&.${stepConnectorClasses.active}`]: {
-		[`& .${stepConnectorClasses.line}`]: {
-			borderColor: `${colors.green}`,
+
+interface ConnectorProps {
+	$isRTL?: boolean;
+}
+
+export const HorizontalConnector = styled(StepConnector)<ConnectorProps>(
+	({ $isRTL }) => ({
+		[`&.${stepConnectorClasses.alternativeLabel}`]: {
+			top: 15,
+			left: $isRTL ? "calc(50% + 16px)" : "calc(-50% + 16px)",
+			right: $isRTL ? "calc(-50% + 16px)" : "calc(50% + 16px)",
 		},
-	},
-	[`&.${stepConnectorClasses.completed}`]: {
-		[`& .${stepConnectorClasses.line}`]: {
-			borderColor: `${colors.green}`,
+		[`&.${stepConnectorClasses.active}`]: {
+			[`& .${stepConnectorClasses.line}`]: {
+				borderColor: colors.green,
+			},
 		},
-	},
-	[`& .${stepConnectorClasses.line}`]: {
-		borderColor: "#eaeaf0",
-		borderTopWidth: 3,
-		borderRadius: 1,
-	},
-}));
+		[`&.${stepConnectorClasses.completed}`]: {
+			[`& .${stepConnectorClasses.line}`]: {
+				borderColor: colors.green,
+			},
+		},
+		[`& .${stepConnectorClasses.line}`]: {
+			borderColor: "#eaeaf0",
+			borderTopWidth: 3,
+			borderRadius: 1,
+		},
+	})
+);
 
 export const QontoStepIconRoot = styled("div")<{
 	ownerState: { active?: boolean; completed?: boolean };

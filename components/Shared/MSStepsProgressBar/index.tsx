@@ -11,6 +11,7 @@ import {
 	HorizontalConnector,
 } from "./MSStepsProgressBar.styles";
 import MSText from "../MSText";
+import { useLocaleStore } from "@/store";
 
 function QontoStepIcon(props: StepIconProps) {
 	const { active, completed, icon, className } = props;
@@ -27,7 +28,8 @@ function QontoStepIcon(props: StepIconProps) {
 
 const MSStepProgressBar = (props: StepProgressBarProps) => {
 	const { steps, activeStep, orientation = "horizontal" } = props;
-
+	const { locale } = useLocaleStore();
+	const isRTL = locale === "ar";
 	return (
 		<Stepper
 			alternativeLabel={orientation == "horizontal" ? true : false}
@@ -36,11 +38,12 @@ const MSStepProgressBar = (props: StepProgressBarProps) => {
 				orientation === "vertical" ? (
 					<VerticalConnector />
 				) : (
-					<HorizontalConnector />
+					<HorizontalConnector $isRTL={isRTL} />
 				)
 			}
 			orientation={orientation}
 			style={{ display: "flex", width: "100%" }}
+			sx={{ direction: isRTL ? "rtl" : "ltr" }}
 		>
 			{steps.map((label, index) => (
 				<Step key={label}>

@@ -112,8 +112,8 @@ const ar = {
 	viewOrder: "عرض الطلب",
 
 	//Start transaction steps
-	transactionDetails: "Transaction Details",
-	shareLink: "Share Link",
+	transactionDetails: "تفاصيل المعاملة",
+	shareLink: "مشاركة الرابط",
 
 	//Order Success messages
 	emailSentToOtherParty:
@@ -121,15 +121,15 @@ const ar = {
 	shareOrderLink: "نسخ رابط الطلب",
 	copyOrderLink: "نسخ رابط الطلب",
 	copied: "تم النسخ!",
-	orderSuccessfullyCreated: "Order Successfully Created",
-	toJoinTheOrder: "to join the order",
-	withThe: "with the",
+	orderSuccessfullyCreated: "تم إنشاء الطلب بنجاح",
+	toJoinTheOrder: "للانضمام إلى الطلب",
+	withThe: "مع",
 
 	//OrderDetails
-	history: "History",
-	orderDetails: "Order Details",
-	ordersList: "Orders List",
-	orderStatus: "Order Status",
+	history: "التاريخ",
+	orderDetails: "تفاصيل الطلب",
+	ordersList: "قائمة الطلبات",
+	orderStatus: "حالة الطلب",
 
 	//Register
 	register: "تسجيل",
@@ -195,12 +195,12 @@ const ar = {
 	transactionReleased: "Payment successfully released to the seller",
 
 	//joining a transaction
-	joinTransaction: "Join Transaction",
+	joinTransaction: "الانضمام إلى المعاملة",
 	joinTransactionPrompt:
-		"Please paste the link you received from the person to join a transaction.",
-	joinLinkInvalidType: "This link is not a mawsouq join link!",
+		"يرجى لصق الرابط الذي تلقيته من الشخص للانضمام إلى المعاملة.",
+	joinLinkInvalidType: "هذا الرابط ليس رابط انضمام Mawsouq!",
 	shareLinkWithOtherParty:
-		"Please Share this link with the other party for them to join the order",
+		"يرجى مشاركة هذا الرابط مع الطرف الآخر لينضم إلى الطلب.",
 
 	//chooseRole
 	chooseRole: "Choose Your Role",

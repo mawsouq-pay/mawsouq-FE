@@ -4,11 +4,8 @@ import MSStepProgressBar from "../../../Shared/MSStepsProgressBar";
 import { useStartTransaction } from "@/hooks/useStartTransaction";
 import PayoutOptionRequiredModal from "../PayoutOptionRequiredModal";
 import MSPayoutModal from "@/components/Shared/MSPayoutForm/MSPayoutModal";
-import { useRouter } from "next/router";
-import { clientRoutes } from "@/routes";
 
 const StartTransactionCard = () => {
-	const router = useRouter();
 	const {
 		steps,
 		activeStep,
@@ -24,15 +21,6 @@ const StartTransactionCard = () => {
 
 	return (
 		<MainWrapper>
-			{/* <TitleWrapper>
-				<MSText
-					fontSize="30px"
-					fontWeight="bold"
-					style={{ alignSelf: "center" }}
-				>
-					{text.createOrder}
-				</MSText>
-			</TitleWrapper> */}
 			<MSStepProgressBar steps={steps} activeStep={activeStep} />
 			<ContentWrapper>
 				<div style={{ marginTop: "10px" }}>{renderStep()}</div>

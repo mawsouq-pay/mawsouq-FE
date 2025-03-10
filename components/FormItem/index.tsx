@@ -9,6 +9,7 @@ import {
 	ErrorText,
 } from "./FormItem.styles";
 import { colors } from "@/constants/theme";
+import MSText from "../Shared/MSText";
 
 interface FormItemProps {
 	label: string;
@@ -37,7 +38,9 @@ const FormItem: React.FC<FormItemProps> = ({
 
 	return (
 		<FormItemWrapper>
-			<Label style={{ color: "#222" }}>{label}</Label>
+			<MSText fontWeight="600" fontSize="14px">
+				{label}
+			</MSText>
 			<div style={{ position: "relative" }}>
 				<Field
 					as={Component}

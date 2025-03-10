@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 import MSText from "../../../Shared/MSText";
 import { colors } from "@/constants/theme";
-import {
-	Wrapper,
-	ImageWrapper,
-	LinkSection,
-	Tooltip,
-} from "./ShareLink.styles";
+import { Wrapper, LinkSection, Tooltip } from "./ShareLink.styles";
 import { ShareLinkProps } from "./types";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import Image from "next/image";
 
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
-import { OrderSuccessImage } from "@/assets/images";
 import MSButton from "../../../Shared/MSButton";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
 const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
-import { CircleCheckBig } from "lucide-react";
 
 const ShareOrderLink = (props: ShareLinkProps) => {
 	const { isPending, error, navigateToFirstStep, orderId, isPendingSeller } =
@@ -67,25 +59,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 			displayErrorReason={true}
 		>
 			<Wrapper>
-				{/* <CircleCheckBig />
-				<MSText
-					fontSize="14px"
-					color={colors.black}
-					fontWeight="600"
-					style={{ textAlign: "center" }}
-				>
-					{text.orderSuccessfullyCreated}
-				</MSText> */}
-
 				<LinkSection>
-					{/* <MSText
-						fontSize="16px"
-						mobileFontSize="16px"
-						fontWeight="bold"
-						style={{ textAlign: "center" }}
-					>
-						{text.orderSuccessfullyCreated}
-					</MSText> */}
 					<MSText
 						fontSize="16px"
 						mobileFontSize="16px"
@@ -119,17 +93,26 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 					{tooltip.visible && <Tooltip>{text.copied}</Tooltip>}
 				</LinkSection>
 
-				<MSButton
-					title={text.viewOrder}
-					onClick={navigateToOrder}
-					type="submit"
+				<div
 					style={{
-						height: 35,
-						// width: "fit-content",
-						marginTop: 15,
-						width: "150px",
+						position: "fixed",
+						bottom: 20,
+						display: "flex",
+						flex: 1,
+						width: "50%",
 					}}
-				/>
+				>
+					<MSButton
+						title={text.viewOrder}
+						onClick={navigateToOrder}
+						type="submit"
+						style={{
+							height: 40,
+							marginTop: 15,
+							width: "100%",
+						}}
+					/>
+				</div>
 			</Wrapper>
 		</MSErrorAndLoadingWrapper>
 	);
