@@ -40,6 +40,7 @@ const en = {
 	save: "Save",
 	edit: "Edit",
 	logout: "Log out",
+	delete: "Delete",
 
 	// Navigation and Overview
 	walletBalance: "Wallet Balance",
@@ -251,9 +252,9 @@ const en = {
 	ORDER_IN_PROGRESS_MESSAGE:
 		"Are you sure you want to mark order as out for delivery?",
 
-	ORDER_IN_TRANSIT_TITLE: "Mark as Delivered?",
+	ORDER_IN_TRANSIT_TITLE: "Mark as in transit?",
 	ORDER_IN_TRANSIT_MESSAGE:
-		"Confirm that the order has been successfully delivered.",
+		"Confirm that the order is on its way to the buyer.",
 
 	ORDER_DELIVERED_TITLE: "Complete Order?",
 	ORDER_DELIVERED_MESSAGE:
@@ -267,9 +268,9 @@ const en = {
 	ORDER_CANCELLED_MESSAGE:
 		"Are you sure you want to cancel this order? This action cannot be undone.",
 
-	ORDER_DISPUTED_TITLE: "Cancel Order?",
+	ORDER_DISPUTED_TITLE: "Send A Complaint?",
 	ORDER_DISPUTED_MESSAGE:
-		"Are you sure you want to cancel this order? This action cannot be undone.",
+		"Are you sure you want to send a complaint about this order",
 
 	//Order Actions Messages
 	ORDER_PENDING_PAYMENT_BUYER:
@@ -311,6 +312,11 @@ const en = {
 	designsForBothSellersAndBuyers:
 		"Designed for both sellers and buyers. Start now and build trust with every transaction.",
 	readyToDesignYourDeals: "Ready to simplify your_____deals?",
+
+	//Deleting A payout
+	deletePayoutMethod: "Delete Payout Method",
+	deletePayoutDescription: "Are you sure you want to delete this payout?",
+	payoutSuccessfullyDeleted: "Payout successfully deleted!",
 };
 
 export default en;

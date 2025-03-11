@@ -25,6 +25,7 @@ export const LinkSection = styled.div`
 	gap: 10px;
 	color: ${colors.darkGray};
 	background-color: ${colors.lightGray};
+	margin-top: 30px;
 `;
 
 export const CopyButtonWrapper = styled.div`

@@ -34,7 +34,7 @@ const MSModal = (props: MSModalProps) => {
 	return (
 		<StyledDialog
 			open={open}
-			onClose={onClose}
+			// onClose={onClose}
 			scroll={scroll}
 			aria-labelledby="modal-title"
 			aria-describedby="modal-description"

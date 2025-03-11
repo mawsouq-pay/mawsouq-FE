@@ -8,12 +8,14 @@ import MSButton from "../../../Shared/MSButton";
 import { useOrderActions } from "@/hooks/useOrderActions";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { OrderActionCTAType, OrderActionT } from "@/constants";
+import DisputeFormModal from "../DisputeFormModal";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
-	const { isFetcherSeller, orderStatus, orderId, setIsDisputeFormOpen } = props;
+	const { isFetcherSeller, orderStatus, orderId } = props;
 	const {
 		popupStatusMessage,
 		message,
@@ -24,12 +26,9 @@ const OrderAction = (props: OrderActionProps) => {
 		handleOpenConfirmationModal,
 		handleConfirmAction,
 		handleCloseConfirmationModal,
-	} = useOrderActions(
-		orderId,
-		isFetcherSeller,
-		orderStatus,
-		setIsDisputeFormOpen
-	);
+		isDisputeFormOpen,
+		setIsDisputeFormOpen,
+	} = useOrderActions(orderId, isFetcherSeller, orderStatus);
 
 	return (
 		<MainWrapper>
@@ -68,29 +67,44 @@ const OrderAction = (props: OrderActionProps) => {
 
 			{actions.length > 0 && (
 				<FlexRow>
-					{actions.map((action, index) => (
-						<MSButton
-							key={index}
-							title={action.label}
-							onClick={() => handleOpenConfirmationModal(action.handler)}
-							loading={loadingAndDisable}
-						/>
-					))}
+					{actions.map(
+						(action: OrderActionT & { handler: () => void }, index) => (
+							<MSButton
+								key={index}
+								title={action.label}
+								onClick={() => handleOpenConfirmationModal(action)}
+								loading={loadingAndDisable}
+								style={{
+									backgroundColor:
+										action.type === OrderActionCTAType.DANGER
+											? colors.red
+											: colors.green,
+								}}
+							/>
+						)
+					)}
 				</FlexRow>
 			)}
 
 			<MSModal
 				open={isConfirmModalOpen}
 				onClose={() => handleCloseConfirmationModal()}
-				title={text[popupStatusMessage.title]}
+				title={text[popupStatusMessage?.title as keyof typeof text]}
 				onConfirm={handleConfirmAction}
 			>
 				<div style={{ padding: "10px 0px" }}>
 					<MSText color={colors.black}>
-						{text[popupStatusMessage.message]}
+						{text[popupStatusMessage?.message as keyof typeof text]}
 					</MSText>
 				</div>
 			</MSModal>
+			<DisputeFormModal
+				open={isDisputeFormOpen}
+				setOpen={setIsDisputeFormOpen}
+				onSubmit={() => {
+					setIsDisputeFormOpen(false);
+				}}
+			/>
 		</MainWrapper>
 	);
 };

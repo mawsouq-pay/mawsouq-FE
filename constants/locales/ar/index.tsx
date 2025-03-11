@@ -41,6 +41,7 @@ const ar = {
 	save: "حفظ",
 	edit: "تعديل",
 	logout: "تسجيل الخروج",
+	delete: "Delete",
 
 	// Navigation and Overview
 	walletBalance: "رصيد المحفظة",
@@ -303,6 +304,11 @@ const ar = {
 	designsForBothSellersAndBuyers:
 		"مصمم لكل من البائعين والمشترين. ابدأ الآن وابنِ الثقة في كل معاملة.",
 	readyToDesignYourDeals: "هل أنت مستعد لتبسيط صفقاتك _____؟",
+
+	//Deleting A payout
+	deletePayoutMethod: "حذف طريقة الاستلام",
+	deletePayoutDescription: "هل أنت متأكد أنك تريد حذف طريقة الاستلام هذه؟",
+	payoutSuccessfullyDeleted: "تم حذف طريقة الاستلام بنجاح!",
 };
 
 export default ar;

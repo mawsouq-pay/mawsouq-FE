@@ -1,4 +1,7 @@
 import {
+	DisputeTypeEnum,
+	OrderActionT,
+	OrderConfirmationMessages,
 	OrderStatusEnum,
 	orderProgressBarData,
 	orderStatusConfirmationMessages,
@@ -11,18 +14,28 @@ import {
 	useCaptureOrder,
 } from "./orderHooks";
 import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
 
 export const useOrderActions = (
 	orderId: string,
 	isFetcherSeller: boolean,
-	orderStatus: OrderStatusEnum,
-	setIsDisputeFormOpen: (value: boolean) => void
+	orderStatus: OrderStatusEnum
 ) => {
 	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 	const [selectedAction, setSelectedAction] = useState<(() => void) | null>(
 		null
 	);
+	const [isDisputeFormOpen, setIsDisputeFormOpen] = useState(false);
+
+	const [popupStatusMessage, setPopupStatusMessage] = useState<{
+		title: OrderConfirmationMessages;
+		message: OrderConfirmationMessages;
+	} | null>({
+		title: OrderConfirmationMessages.ORDER_PENDING_PAYMENT_TITLE,
+		message: OrderConfirmationMessages.ORDER_PENDING_PAYMENT_MESSAGE,
+	});
 
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
@@ -33,7 +46,6 @@ export const useOrderActions = (
 	const { mutate: captureOrder, isPending: captureOrderPending } =
 		useCaptureOrder();
 
-	const popupStatusMessage = orderStatusConfirmationMessages[orderStatus];
 	const orderData = orderProgressBarData[orderStatus];
 
 	const message = isFetcherSeller
@@ -51,32 +63,40 @@ export const useOrderActions = (
 		openDispute: () => setIsDisputeFormOpen(true),
 	};
 
-	const actions = (
+	const actions: (OrderActionT & { handler: () => void })[] = (
 		isFetcherSeller ? orderData.sellerActions : orderData.buyerActions
 	).map((action) => ({
 		...action,
 		handler: actionHandlers[action.key],
 	}));
 
-	const handleOpenConfirmationModal = (actionHandler: () => void) => {
-		setSelectedAction(() => actionHandler);
+	const handleOpenConfirmationModal = (
+		action: OrderActionT & { handler: () => void }
+	) => {
+		setSelectedAction(() => action.handler);
+		setPopupStatusMessage(orderStatusConfirmationMessages[action.status]);
 		setIsConfirmModalOpen(true);
 	};
+
 	const handleCloseConfirmationModal = () => {
 		setSelectedAction(null);
+		setPopupStatusMessage(null);
 		setIsConfirmModalOpen(false);
 	};
+
 	const handleConfirmAction = () => {
 		if (selectedAction) {
 			setIsConfirmModalOpen(false);
 			selectedAction();
 			setSelectedAction(null);
+			setPopupStatusMessage(null);
 		}
 	};
 
 	const loadingAndDisable =
 		createLinkPending || updateOrderPending || sellerReleasePending;
 
+	const submitDispute = (type: DisputeTypeEnum, description: string) => {};
 	return {
 		popupStatusMessage,
 		message,
@@ -88,5 +108,7 @@ export const useOrderActions = (
 		handleConfirmAction,
 		loadingAndDisable,
 		handleCloseConfirmationModal,
+		isDisputeFormOpen,
+		setIsDisputeFormOpen,
 	};
 };

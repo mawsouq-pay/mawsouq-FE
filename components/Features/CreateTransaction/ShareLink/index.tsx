@@ -82,7 +82,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 						{text.shareOrderLink} {text.withThe}{" "}
 						{isPendingSeller ? text.seller : text.buyer} {text.toJoinTheOrder}!
 					</MSText>
-					<a
+					{/* <a
 						href={previewLink}
 						style={{
 							textDecoration: "none",
@@ -97,7 +97,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 						rel="noopener noreferrer"
 					>
 						{previewLink}
-					</a>
+					</a> */}
 
 					<CopyButtonWrapper>
 						<MSButton

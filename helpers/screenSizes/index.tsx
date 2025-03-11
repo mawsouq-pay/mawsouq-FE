@@ -16,7 +16,6 @@ function useCustomBreakpoint(): {
 			const handleWindowSizeChange = () => {
 				setWidth(window.innerWidth);
 			};
-			console.log(window.innerHeight);
 			setWidth(window.innerWidth);
 			window.addEventListener("resize", handleWindowSizeChange);
 

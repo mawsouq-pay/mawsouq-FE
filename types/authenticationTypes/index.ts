@@ -7,6 +7,7 @@ export interface User {
 	payoutOptions?: PayoutDetailsT[];
 }
 export interface PayoutDetailsT {
+	_id?: string;
 	method: PayoutMethodEnum;
 	phoneNumber: string;
 	fullName: string;
@@ -39,18 +40,26 @@ export interface RegisterResponse {
 	email: string;
 }
 
-export interface CreatePaymentMethodInput {
-	method: PayoutMethodEnum;
-	phoneNumber: string;
-	fullName: string;
-	cardNumber?: string;
-	bankCode?: BankCode;
-}
+export interface CreatePaymentMethodInput extends PayoutDetailsT {}
+
 export interface CreatePaymentMethodResponse {
 	message: String;
 	payment: PayoutDetailsT;
 }
 export interface GetUserPayoutOptionsResponse {
-	message: string;
 	payoutOptions?: PayoutDetailsT[];
+}
+
+export interface DeletePayoutOptionResponse {
+	success: string;
+}
+export interface DeletePayoutOptionInput {
+	payoutId: string;
+}
+
+export interface EditPayoutOptionInput {
+	updateData: PayoutDetailsT;
+}
+export interface EditPayoutOptionResponse {
+	payoutMethod: PayoutDetailsT;
 }

@@ -18,7 +18,6 @@ const MSDropdown = <T extends { label: string; value: string }>({
 }: MSDropdownProps<T>) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-
 	return (
 		<Select
 			name={name}

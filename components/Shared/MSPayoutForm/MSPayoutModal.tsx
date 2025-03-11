@@ -6,18 +6,19 @@ import MSPayoutForm from ".";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { useFormikContext } from "formik";
 
 const MSPayoutModal = ({
 	payoutModalOpen,
 	onSubmit,
 	onCancel,
 	isPending,
+	initialValues,
 }: {
 	payoutModalOpen: boolean;
 	onSubmit: (d: PayoutDetailsT) => void;
 	onCancel: () => void;
 	isPending: boolean;
+	initialValues?: PayoutDetailsT | null;
 }) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -36,6 +37,7 @@ const MSPayoutModal = ({
 				onCancel={onCancel}
 				onSubmit={(details: PayoutDetailsT) => onSubmit(details)}
 				isPending={isPending}
+				initialValues={initialValues || undefined}
 			/>
 		</MSModal>
 	);

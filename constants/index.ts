@@ -90,35 +90,60 @@ export enum OrderProgressMessages {
 	ORDER_CANCELLED_SELLER = "ORDER_CANCELLED_SELLER",
 }
 
+export enum OrderActionCTAType {
+	UPDATE = "update",
+	DANGER = "danger",
+}
+export type OrderActionT = {
+	label: string;
+	key: string;
+	type?: OrderActionCTAType;
+	status: OrderStatusEnum;
+};
+
 export const orderProgressBarData: Record<
 	OrderStatusEnum,
 	{
 		activeStep: number;
 		messageForBuyer: OrderProgressMessages;
 		messageForSeller: OrderProgressMessages;
-		buyerActions: { label: string; key: string }[];
-		sellerActions: { label: string; key: string }[];
-		nextStatus: OrderStatusEnum | null;
+		buyerActions: OrderActionT[];
+		sellerActions: OrderActionT[];
 	}
 > = {
 	PENDING_PAYMENT: {
 		activeStep: 0,
 		messageForBuyer: OrderProgressMessages.ORDER_PENDING_PAYMENT_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_PENDING_PAYMENT_SELLER,
-		buyerActions: [{ label: "Make Payment", key: "createPaymentLink" }],
+		buyerActions: [
+			{
+				label: "Make Payment",
+				key: "createPaymentLink",
+				status: OrderStatusEnum.PENDING_PAYMENT,
+			},
+		],
 		sellerActions: [],
-		nextStatus: OrderStatusEnum.IN_PROGRESS,
 	},
 
 	IN_PROGRESS: {
 		activeStep: 1,
 		messageForBuyer: OrderProgressMessages.ORDER_IN_PROGRESS_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_IN_PROGRESS_SELLER,
-		buyerActions: [],
-		sellerActions: [
-			{ label: "Mark as Out for Delivery", key: "updateOrderToInTransit" },
+		buyerActions: [
+			{
+				label: "Send Complaint",
+				key: "openDispute",
+				type: OrderActionCTAType.DANGER,
+				status: OrderStatusEnum.DISPUTED,
+			},
 		],
-		nextStatus: OrderStatusEnum.IN_TRANSIT,
+		sellerActions: [
+			{
+				label: "Mark as Out for Delivery",
+				key: "updateOrderToInTransit",
+				status: OrderStatusEnum.IN_TRANSIT,
+			},
+		],
 	},
 
 	IN_TRANSIT: {
@@ -126,22 +151,34 @@ export const orderProgressBarData: Record<
 		messageForBuyer: OrderProgressMessages.ORDER_IN_TRANSIT_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_IN_TRANSIT_SELLER,
 		buyerActions: [
-			{ label: "Mark as Delivered", key: "updateOrderToDelivered" },
+			{
+				label: "Confirm Release",
+				key: "releasePayment",
+				status: OrderStatusEnum.COMPLETED,
+			},
+			{
+				label: "Send Complaint",
+				key: "openDispute",
+				type: OrderActionCTAType.DANGER,
+				status: OrderStatusEnum.DISPUTED,
+			},
 		],
-		sellerActions: [{ label: "Submit Dispute", key: "openDispute" }],
-		nextStatus: OrderStatusEnum.DELIVERED,
+		sellerActions: [
+			{
+				label: "Submit Complaint",
+				key: "openDispute",
+				type: OrderActionCTAType.DANGER,
+				status: OrderStatusEnum.DISPUTED,
+			},
+		],
 	},
 
 	DELIVERED: {
 		activeStep: 1,
 		messageForBuyer: OrderProgressMessages.ORDER_DELIVERED_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_DELIVERED_SELLER,
-		buyerActions: [
-			{ label: "Confirm Release", key: "releasePayment" },
-			{ label: "Open Dispute", key: "openDispute" },
-		],
+		buyerActions: [],
 		sellerActions: [],
-		nextStatus: OrderStatusEnum.COMPLETED,
 	},
 
 	COMPLETED: {
@@ -150,16 +187,14 @@ export const orderProgressBarData: Record<
 		messageForSeller: OrderProgressMessages.ORDER_COMPLETED_SELLER,
 		buyerActions: [],
 		sellerActions: [],
-		nextStatus: null,
 	},
 
 	DISPUTED: {
 		activeStep: 2,
 		messageForBuyer: OrderProgressMessages.ORDER_DISPUTED_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_DISPUTED_SELLER,
-		buyerActions: [{ label: "Submit Dispute Details", key: "openDispute" }],
-		sellerActions: [{ label: "Submit Dispute Details", key: "openDispute" }],
-		nextStatus: null,
+		buyerActions: [],
+		sellerActions: [],
 	},
 
 	CANCELLED: {
@@ -168,7 +203,6 @@ export const orderProgressBarData: Record<
 		messageForSeller: OrderProgressMessages.ORDER_CANCELLED_SELLER,
 		buyerActions: [],
 		sellerActions: [],
-		nextStatus: null,
 	},
 };
 

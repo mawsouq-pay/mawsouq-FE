@@ -7,6 +7,7 @@ export interface PayoutFormProps {
 	onSubmit: (payoutDetails: PayoutDetailsT) => void;
 	onCancel: () => void;
 	isPending: boolean;
+	initialValues?: PayoutDetailsT | null;
 }
 export const PayoutDropdownSelections = [
 	{ label: "Vodafone", value: PayoutMethodEnum.VODAFONE },

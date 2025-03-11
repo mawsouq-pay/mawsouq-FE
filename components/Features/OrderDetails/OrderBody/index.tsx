@@ -28,7 +28,6 @@ const OrderBody = (props: OrderBodyProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const { orderId } = props;
-	const [isDisputeFormOpen, setIsDisputeFormOpen] = useState(false);
 	const { data, isLoading, error } = useFetchOrderById(orderId as string);
 	const isOrderPendingJoin =
 		data?.order?.status === OrderStatusEnum.PENDING_PAYMENT;
@@ -75,7 +74,6 @@ const OrderBody = (props: OrderBodyProps) => {
 					orderId={data?.order?._id ?? ""}
 					isFetcherSeller={data?.order?.isFetcherSeller ?? false}
 					orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_PAYMENT}
-					setIsDisputeFormOpen={() => setIsDisputeFormOpen(true)}
 				/>
 			</TopSection>
 			<MainWrapper>
@@ -110,13 +108,6 @@ const OrderBody = (props: OrderBodyProps) => {
 					<OrderHistory statusHistory={data?.order.statusHistory} />
 				</HistorySection>
 			</MainWrapper>
-			<DisputeFormModal
-				open={isDisputeFormOpen}
-				setOpen={setIsDisputeFormOpen}
-				onSubmit={() => {
-					setIsDisputeFormOpen(false);
-				}}
-			/>
 		</MSErrorAndLoadingWrapper>
 	);
 };

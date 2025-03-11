@@ -4,8 +4,11 @@ const serverRoutes = {
 	regenerateTokens: "/user/refreshTokens",
 	getUser: "/user/user",
 	logout: "/user/logout",
+
 	createPayouttMethod: "/user/createPayoutMethod",
 	getUserPayoutOptions: "/user/getUserPayoutOptions",
+	deletePayoutOption: "/user/deleteUserPayoutOption",
+	editPayoutOption: "/user/editPayoutMethod",
 
 	fetchOrders: "/order/my-orders",
 	createOrder: "/order/create",

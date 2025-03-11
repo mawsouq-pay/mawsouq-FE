@@ -60,7 +60,7 @@ export const useUpdateOrderStatus = () => {
 				const { orderId, newStatus } = variables;
 				queryClient.setQueryData(
 					["fetchOrderById", orderId],
-					(oldData: any) => {
+					(oldData: FetchOrderDetailsResponse) => {
 						if (!oldData) return oldData;
 						return {
 							...oldData,

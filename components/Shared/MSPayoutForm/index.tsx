@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, useFormikContext } from "formik";
 import {
 	PayoutDropdownSelections,
@@ -21,21 +21,25 @@ import {
 import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import { PayoutDetailsT } from "@/types/authenticationTypes";
-import { isValid } from "date-fns";
 import MSButton from "../MSButton";
 
-const MSPayoutForm = ({ onCancel, onSubmit, isPending }: PayoutFormProps) => {
+const MSPayoutForm = ({
+	onCancel,
+	onSubmit,
+	isPending,
+	initialValues: editInitialValues,
+}: PayoutFormProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const validationSchema = createValidationSchema(locale);
-	const [initialValues] = useState<PayoutDetailsT>({
+
+	const defaultValues: PayoutDetailsT = {
 		method: PayoutMethodEnum.VODAFONE,
 		phoneNumber: "",
 		fullName: "",
 		cardNumber: "",
 		bankCode: "" as BankCode,
-	});
-
+	};
 	const handleSubmit = async (values: PayoutDetailsT) => {
 		const paymentDetails = {
 			method: values.method,
@@ -44,6 +48,7 @@ const MSPayoutForm = ({ onCancel, onSubmit, isPending }: PayoutFormProps) => {
 			...(values.method === PayoutMethodEnum.BANK_CARD
 				? { cardNumber: values.cardNumber, bankCode: values.bankCode }
 				: {}),
+			...(editInitialValues ? { _id: values._id } : {}),
 		};
 		onSubmit(paymentDetails);
 	};
@@ -51,9 +56,10 @@ const MSPayoutForm = ({ onCancel, onSubmit, isPending }: PayoutFormProps) => {
 	return (
 		<FormContainer>
 			<Formik
-				initialValues={initialValues}
+				initialValues={editInitialValues || defaultValues}
 				validationSchema={validationSchema}
 				onSubmit={handleSubmit}
+				enableReinitialize={true}
 			>
 				{({ values, setFieldValue, isValid, dirty }) => (
 					<StyledForm>
@@ -65,6 +71,7 @@ const MSPayoutForm = ({ onCancel, onSubmit, isPending }: PayoutFormProps) => {
 								setFieldValue(`${PayoutFormNames.payoutMethod}`, val);
 							}}
 							name={PayoutFormNames.payoutMethod}
+							defaultValue={values.method}
 						/>
 
 						{values.method === PayoutMethodEnum.BANK_CARD && (
@@ -82,6 +89,7 @@ const MSPayoutForm = ({ onCancel, onSubmit, isPending }: PayoutFormProps) => {
 										setFieldValue(`${PayoutFormNames.payoutBankCode}`, val)
 									}
 									name={PayoutFormNames.payoutBankCode}
+									defaultValue={values.bankCode}
 								/>
 								<FormItem
 									label={text.cardNumber}
