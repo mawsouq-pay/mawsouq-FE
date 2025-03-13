@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { HomeIcon, CirclePlusIcon, SettingsIcon } from "lucide-react";
+import { HomeIcon, CirclePlusIcon, SettingsIcon, UserIcon } from "lucide-react";
 import { clientRoutes } from "@/routes";
 import { colors } from "@/constants/theme";
 import { BottomNavContainer, NavItem } from "./MSBottomNavbar.styles";
@@ -31,7 +31,7 @@ const MobileBottomNav = () => {
 				isActive={isActive(clientRoutes.profilePage)}
 				onClick={() => router.push(clientRoutes.profilePage)}
 			>
-				<SettingsIcon size={24} />
+				<UserIcon size={24} />
 			</NavItem>
 		</BottomNavContainer>
 	);

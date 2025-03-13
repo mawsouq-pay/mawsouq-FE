@@ -54,13 +54,6 @@ export const ProgressBar = styled.div`
 	`}
 `;
 
-export const BigArrow = styled.div`
-	display: flex;
-	${media.below925`
-		display: none;
-	`}
-`;
-
 export const ProgressStep = styled.div<{ completed: boolean }>`
 	display: flex;
 	gap: 10px;
@@ -116,12 +109,11 @@ export const DetailRow = styled.div`
 
 	`}
 `;
-
-export const HighlightText = styled.span`
-	/* font-weight: bold;
-	color: ${colors.green}; */
+export const FlexRow = styled.div`
+	display: flex;
+	justify-content: space-between;
+	padding: 2px 0;
 `;
-
 export const ButtonDiv = styled.div`
 	@media (min-width: 925px) {
 		display: none;

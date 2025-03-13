@@ -8,11 +8,3 @@ export const PageInner = styled.div`
 	margin-top: 10%;
 	gap: 30px;
 `;
-
-export const MessagesDiv = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	align-items: center;
-	text-align: center;
-`;

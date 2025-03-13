@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 
 export const HistoryContainer = styled.div`
 	background-color: ${colors.lightGray};
@@ -10,8 +11,13 @@ export const HistoryContainer = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 15px;
 	margin-top: 55px;
+
+	${media.below925`
+	margin-top: 15px;
+
+    `}
 `;
 export const RowDiv = styled.div`
 	display: flex;
@@ -20,7 +26,7 @@ export const RowDiv = styled.div`
 `;
 
 export const Entry = styled.div`
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;

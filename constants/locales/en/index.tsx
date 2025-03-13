@@ -168,6 +168,7 @@ const en = {
 	sellerDeliversOrder: "Seller delivers the order",
 	buyerReceives: "Buyer receives and inspects",
 	paymentReleased: "Payment released to seller",
+	loginToTrackOrder: "Login to track order",
 
 	//seller and buyer descriptions
 	sellerEmail: "Seller Email",

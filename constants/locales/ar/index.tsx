@@ -169,6 +169,7 @@ const ar = {
 	sellerDeliversOrder: "البائع يقوم بتسليم الطلب",
 	buyerReceives: "المشتري يستلم ويفحص الطلب",
 	paymentReleased: "تم الإفراج عن الدفعة للبائع",
+	loginToTrackOrder: "Login to track order",
 
 	//seller and buyer descriptions
 	sellerEmail: "البريد الإلكتروني للبائع",

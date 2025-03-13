@@ -7,16 +7,14 @@ import {
 	RightPanel,
 	OrderDetailsCard,
 	DetailRow,
-	HighlightText,
 	ProgressBar,
 	ProgressStep,
 	MawsouqBrand,
-	BigArrow,
 	ButtonDiv,
+	FlexRow,
 } from "./PreviewOrderCard.styles";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
-import { ArrowDown } from "@/assets/icons";
 import { CheckCircle } from "lucide-react";
 import { colors } from "@/constants/theme";
 
@@ -30,6 +28,8 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 		onConfirmPress,
 		price,
 		orderIsJoined,
+		sellerName,
+		sellerEmail,
 	} = props;
 
 	const handleProceedToPayment = () => {
@@ -155,22 +155,22 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 						>
 							{text.sellerDetails}
 						</MSText>
-						<DetailRow>
+						<FlexRow>
 							<MSText fontSize="14px" fontWeight="600">
 								{text.fullName}:
 							</MSText>
-							<MSText fontSize="14px">Ahmed Mohamed</MSText>
-						</DetailRow>
-						<DetailRow>
+							<MSText fontSize="14px">{sellerName}</MSText>
+						</FlexRow>
+						<FlexRow>
 							<MSText fontSize="14px" fontWeight="600">
 								{text.email}
 							</MSText>
-							<MSText fontSize="14px">ahmedmohamed@gmail.com</MSText>
-						</DetailRow>
+							<MSText fontSize="14px">{sellerEmail}</MSText>
+						</FlexRow>
 					</OrderDetailsCard>
 					<MSButton
 						title={
-							orderIsJoined ? "Login to track order" : text.proceedToPayment
+							orderIsJoined ? text.loginToTrackOrder : text.proceedToPayment
 						}
 						onClick={handleProceedToPayment}
 						style={{ position: "relative", bottom: 0, width: "200px" }}

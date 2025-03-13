@@ -2,10 +2,10 @@ import React from "react";
 import { Tooltip } from "@mui/material";
 import {
 	CirclePlusIcon,
-	EarthIcon,
+	GlobeIcon,
 	HomeIcon,
 	Menu,
-	SettingsIcon,
+	UserIcon,
 	X,
 } from "lucide-react";
 import { useLocaleStore } from "@/store";
@@ -88,7 +88,7 @@ const Sidebar = () => {
 						isActive={isActive(clientRoutes.profilePage)}
 						onClick={() => router.push(clientRoutes.profilePage)}
 					>
-						<SettingsIcon size={22} />
+						<UserIcon size={22} />
 						{isSideNavbarOpen && <span>{text.profilePage}</span>}
 					</NavItem>
 				</Tooltip>
@@ -100,7 +100,7 @@ const Sidebar = () => {
 					disableHoverListener={isSideNavbarOpen}
 				>
 					<NavItem isOpen={isSideNavbarOpen} onClick={toggleLanguage}>
-						<EarthIcon size={22} />
+						<GlobeIcon size={22} />
 						{isSideNavbarOpen && (
 							<span>{locale === "en" ? "العربية" : "English"}</span>
 						)}
