@@ -10,7 +10,6 @@ export const MainWrapper = styled.div`
 	border: 2px solid ${colors.green};
 	border-radius: 10px;
 	padding: 20px;
-	/* align-items: center; */
 `;
 
 export const MessageDiv = styled.div`
@@ -19,6 +18,7 @@ export const MessageDiv = styled.div`
 	display: flex;
 	border: 1px solid ${colors.black};
 	margin-top: 10px;
+	margin-bottom: 10px;
 `;
 
 export const FlexRow = styled.div`
