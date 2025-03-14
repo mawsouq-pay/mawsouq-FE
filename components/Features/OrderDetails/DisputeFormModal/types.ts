@@ -6,11 +6,32 @@ export const disputeFormNames = {
 	type: "type",
 	description: "description",
 };
-export const DisputeDropdownSelections = [
-	{ value: DisputeTypeEnum.NOT_RECEIVED, label: "Didn't receive order" },
-	{ value: DisputeTypeEnum.NOT_AS_EXPECTED, label: "Order not as expected" },
-	{ value: DisputeTypeEnum.OTHERS, label: "Others" },
-];
+export const DisputeDropdownSelections = (locale: any) => {
+	const text = textTr(locale);
+
+	return [
+		{
+			value: DisputeTypeEnum.NOT_RECEIVED,
+			label: text[DisputeTypeEnum.NOT_RECEIVED],
+		},
+		{
+			value: DisputeTypeEnum.INCORRECT_ITEM,
+			label: text[DisputeTypeEnum.INCORRECT_ITEM],
+		},
+		{
+			value: DisputeTypeEnum.QUALITY_ISSUE,
+			label: text[DisputeTypeEnum.QUALITY_ISSUE],
+		},
+		{
+			value: DisputeTypeEnum.DAMAGED_ITEM,
+			label: text[DisputeTypeEnum.DAMAGED_ITEM],
+		},
+		{
+			value: DisputeTypeEnum.OTHER,
+			label: text[DisputeTypeEnum.OTHER],
+		},
+	];
+};
 
 export const createValidationSchema = (locale: any) => {
 	const text = textTr(locale);

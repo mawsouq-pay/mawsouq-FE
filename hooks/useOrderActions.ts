@@ -12,9 +12,13 @@ import {
 	useUpdateOrderStatus,
 	useSellerRelease,
 	useCaptureOrder,
+	useCreateDispute,
 } from "./orderHooks";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
+import { useNotification } from "@/store/SnackBarStore";
+import { AxiosError } from "axios";
+import { useSendEmail } from "./useSendEmail";
 
 export const useOrderActions = (
 	orderId: string,
@@ -23,6 +27,9 @@ export const useOrderActions = (
 ) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+	const { showAxiosErrorNotification, showSuccessNotification } =
+		useNotification();
+
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 	const [selectedAction, setSelectedAction] = useState<(() => void) | null>(
 		null
@@ -37,6 +44,7 @@ export const useOrderActions = (
 		message: OrderConfirmationMessages.ORDER_PENDING_PAYMENT_MESSAGE,
 	});
 
+	const { sendEmail } = useSendEmail();
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
 	const { mutate: updateOrder, isPending: updateOrderPending } =
@@ -45,6 +53,8 @@ export const useOrderActions = (
 		useSellerRelease(locale);
 	const { mutate: captureOrder, isPending: captureOrderPending } =
 		useCaptureOrder();
+	const { mutate: createDispute, isPending: isCreateDisputePending } =
+		useCreateDispute();
 
 	const orderData = orderProgressBarData[orderStatus];
 
@@ -96,7 +106,33 @@ export const useOrderActions = (
 	const loadingAndDisable =
 		createLinkPending || updateOrderPending || sellerReleasePending;
 
-	const submitDispute = (type: DisputeTypeEnum, description: string) => {};
+	const submitDispute = async (values: {
+		type: DisputeTypeEnum;
+		description: string;
+	}) => {
+		createDispute(
+			{
+				orderId: orderId,
+				type: values.type,
+				description: values.description,
+			},
+			{
+				onSuccess() {
+					showSuccessNotification(text.disputeSentSuccessfully);
+					setIsDisputeFormOpen(false);
+				},
+				onError(error) {
+					console.log(error);
+					showAxiosErrorNotification(error as AxiosError);
+				},
+			}
+		);
+		await sendEmail({
+			name: `DISPUTE FOR ${orderId}`,
+			subject: "New Dispute Submitted",
+			message: `A new dispute has been submitted for order ID: ${orderId}.\n\nType: ${values.type}\n\nDescription: ${values.description}`,
+		});
+	};
 	return {
 		popupStatusMessage,
 		message,
@@ -110,5 +146,6 @@ export const useOrderActions = (
 		handleCloseConfirmationModal,
 		isDisputeFormOpen,
 		setIsDisputeFormOpen,
+		submitDispute,
 	};
 };

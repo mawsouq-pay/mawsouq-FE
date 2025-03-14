@@ -48,9 +48,7 @@ const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 						deliveryDate={order.deliveryDate}
 						isFetcherSeller={order.isFetcherSeller}
 						otherPartyName={
-							order.isFetcherSeller
-								? order.buyer?.name || order.otherPartyEmail
-								: order.seller?.name || order.otherPartyEmail
+							order.isFetcherSeller ? order.buyer?.name : order.seller?.name
 						}
 						onPress={() => {
 							navigateToOrder(order._id);

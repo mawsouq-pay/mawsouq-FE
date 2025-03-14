@@ -190,7 +190,7 @@ export const orderProgressBarData: Record<
 	},
 
 	DISPUTED: {
-		activeStep: 2,
+		activeStep: 1,
 		messageForBuyer: OrderProgressMessages.ORDER_DISPUTED_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_DISPUTED_SELLER,
 		buyerActions: [],
@@ -314,7 +314,15 @@ export enum PayoutMethodEnum {
 	BANK_CARD = "bank_card",
 }
 export enum DisputeTypeEnum {
-	NOT_RECEIVED = "Didn't receive order",
-	NOT_AS_EXPECTED = "Order not as expected",
-	OTHERS = "Others",
+	QUALITY_ISSUE = "QUALITY_ISSUE",
+	INCORRECT_ITEM = "INCORRECT_ITEM",
+	DAMAGED_ITEM = "DAMAGED_ITEM",
+	OTHER = "OTHER",
+	NOT_RECEIVED = "NOT_RECEIVED",
+}
+export enum DisputeStatusEnum {
+	PENDING = "PENDING",
+	UNDER_REVIEW = "UNDER_REVIEW",
+	RESOLVED = "RESOLVED",
+	REJECTED = "REJECTED",
 }

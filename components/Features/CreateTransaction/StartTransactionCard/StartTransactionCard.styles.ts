@@ -1,3 +1,4 @@
+import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
@@ -6,6 +7,11 @@ export const MainWrapper = styled.div`
 	max-width: 850px;
 	margin: 30px auto;
 	border-radius: 8px;
+	${media.below925`
+	margin: 30px 10px;
+
+
+    `}
 `;
 
 export const ContentWrapper = styled.div`
@@ -14,4 +20,5 @@ export const ContentWrapper = styled.div`
 	height: 100%;
 	width: 100%;
 	flex-direction: column;
+	margin-top: 10px;
 `;

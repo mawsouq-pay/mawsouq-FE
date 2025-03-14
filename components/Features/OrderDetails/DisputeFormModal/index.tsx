@@ -55,9 +55,10 @@ const DisputeFormModal = ({
 				{({ setFieldValue, handleSubmit, isValid, dirty, isSubmitting }) => (
 					<StyledForm onSubmit={handleSubmit}>
 						<MSDropdown
-							options={DisputeDropdownSelections}
+							options={DisputeDropdownSelections(locale)}
 							onChange={(val) => setFieldValue(disputeFormNames.type, val)}
 							name={disputeFormNames.type}
+							defaultValue={DisputeTypeEnum.NOT_RECEIVED}
 						/>
 
 						<FormItem

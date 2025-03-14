@@ -21,6 +21,8 @@ const serverRoutes = {
 
 	sellerRelease: "/order/sellerRelease",
 	captureOrder: "/order/captureOrder",
+
+	createDispute: "/order/addDispute",
 };
 
 export default serverRoutes;

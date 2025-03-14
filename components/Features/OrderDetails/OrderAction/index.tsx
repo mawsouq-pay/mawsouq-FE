@@ -28,6 +28,7 @@ const OrderAction = (props: OrderActionProps) => {
 		handleCloseConfirmationModal,
 		isDisputeFormOpen,
 		setIsDisputeFormOpen,
+		submitDispute,
 	} = useOrderActions(orderId, isFetcherSeller, orderStatus);
 
 	return (
@@ -101,9 +102,7 @@ const OrderAction = (props: OrderActionProps) => {
 			<DisputeFormModal
 				open={isDisputeFormOpen}
 				setOpen={setIsDisputeFormOpen}
-				onSubmit={() => {
-					setIsDisputeFormOpen(false);
-				}}
+				onSubmit={submitDispute}
 			/>
 		</MainWrapper>
 	);

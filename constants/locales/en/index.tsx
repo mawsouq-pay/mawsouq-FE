@@ -243,6 +243,8 @@ const en = {
 	//Dispute form
 	selectAdisputeType: "Please select a complaint type",
 	disputeDetailsAreRequired: "Complaint details are required",
+	disputeSentSuccessfully:
+		"Complaint has been sent successfullt and is being reviewed by the team.",
 
 	//Order confirmation messages
 	ORDER_PENDING_PAYMENT_TITLE: "Mark as In Progress?",
@@ -318,6 +320,13 @@ const en = {
 	deletePayoutMethod: "Delete Payout Method",
 	deletePayoutDescription: "Are you sure you want to delete this payout?",
 	payoutSuccessfullyDeleted: "Payout successfully deleted!",
+
+	//Dispute options
+	QUALITY_ISSUE: "The item has a quality issue.",
+	INCORRECT_ITEM: "You received an incorrect item.",
+	DAMAGED_ITEM: "The item arrived damaged.",
+	OTHER: "Other issue.",
+	NOT_RECEIVED: "The item did not arrive",
 };
 
 export default en;

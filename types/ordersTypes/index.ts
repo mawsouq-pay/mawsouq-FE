@@ -1,4 +1,9 @@
-import { OrderStatusEnum, RolesEnum } from "@/constants";
+import {
+	DisputeStatusEnum,
+	DisputeTypeEnum,
+	OrderStatusEnum,
+	RolesEnum,
+} from "@/constants";
 import { User } from "../authenticationTypes";
 
 export interface Order {
@@ -7,10 +12,9 @@ export interface Order {
 	seller?: User | null;
 	transactionTitle: string;
 	price: number;
+	fees: number;
 	description: string;
 	deliveryDate: string;
-	otherPartyEmail?: string | null;
-	otherPartyPhone?: string | null;
 	isFetcherSeller: boolean;
 	status: OrderStatusEnum;
 	statusHistory: {
@@ -23,6 +27,7 @@ export interface Order {
 export interface CreateOrderInput {
 	transactionTitle: string;
 	price: number;
+	fees: number;
 	description: string;
 	deliveryDate: Date;
 	role: RolesEnum;
@@ -30,12 +35,6 @@ export interface CreateOrderInput {
 
 export interface CreateOrderResponse {
 	message: string;
-	order: Order;
-}
-export interface LinkOrderInput {
-	orderId: string;
-}
-export interface LinkOrderResponse {
 	order: Order;
 }
 
@@ -82,4 +81,26 @@ export interface CaptureOrderInput {
 }
 export interface CaptureOrderResponse {
 	order: Order;
+}
+
+export interface DisputeModel {
+	initiatedBy: RolesEnum;
+	orderId: string;
+	raisedBy: string;
+	raisedByType: RolesEnum;
+	type: DisputeTypeEnum;
+	description: string;
+	status: DisputeStatusEnum;
+	updatedAt: string;
+	createdAt: string;
+}
+
+export interface CreateDisputeInput {
+	orderId: string;
+	type: DisputeTypeEnum;
+	description: string;
+}
+
+export interface CreateDisputeResponse {
+	dispute: DisputeModel;
 }

@@ -90,6 +90,7 @@ export const useStartTransaction = () => {
 			price: parseFloat(updatedData.price),
 			deliveryDate: new Date(updatedData.deliveryDate),
 			description: updatedData.description,
+			fees: 50,
 		};
 
 		createOrder(orderData, {

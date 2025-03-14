@@ -241,8 +241,10 @@ const ar = {
 	generalInformation: "المعلومات العامة",
 
 	//Dispute form
-	selectAdisputeType: "Please select a complaint type",
-	disputeDetailsAreRequired: "Complaint details are required",
+	selectAdisputeType: "يرجى اختيار نوع الشكوى",
+	disputeDetailsAreRequired: "تفاصيل الشكوى مطلوبة",
+	disputeSentSuccessfully:
+		"تم إرسال الشكوى بنجاح وهي قيد المراجعة من قبل الفريق.",
 
 	//Order confirmation messages
 	ORDER_PENDING_PAYMENT_TITLE: "وضع الطلب قيد التنفيذ؟",
@@ -310,6 +312,13 @@ const ar = {
 	deletePayoutMethod: "حذف طريقة الاستلام",
 	deletePayoutDescription: "هل أنت متأكد أنك تريد حذف طريقة الاستلام هذه؟",
 	payoutSuccessfullyDeleted: "تم حذف طريقة الاستلام بنجاح!",
+
+	//Dispute options
+	QUALITY_ISSUE: "العنصر به مشكلة في الجودة.",
+	INCORRECT_ITEM: "لقد استلمت عنصرًا غير صحيح.",
+	DAMAGED_ITEM: "وصل العنصر تالفًا.",
+	NOT_RECEIVED: "The item did not arrive",
+	OTHER: "مشكلة أخرى.",
 };
 
 export default ar;

@@ -22,7 +22,6 @@ import {
 } from "..";
 import { OrderStatusEnum } from "@/constants";
 import ShareLinkSection from "../ShareLinkSection";
-import DisputeFormModal from "../DisputeFormModal";
 
 const OrderBody = (props: OrderBodyProps) => {
 	const { locale } = useLocaleStore();
@@ -93,8 +92,8 @@ const OrderBody = (props: OrderBodyProps) => {
 					</MSText>{" "}
 					<OrderPaymentSummary
 						price={data?.order.price || 0}
-						escrowFee={50}
-						totalDue={(data?.order?.price || 0) + 50}
+						escrowFee={data?.order.fees || 0}
+						totalDue={(data?.order?.price || 0) + (data?.order.fees || 0)}
 					/>
 					<OrderInfo
 						transactionTitle={data?.order?.transactionTitle || ""}

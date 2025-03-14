@@ -8,6 +8,8 @@ import { useNotification } from "@/store/SnackBarStore";
 import {
 	CaptureOrderInput,
 	CaptureOrderResponse,
+	CreateDisputeInput,
+	CreateDisputeResponse,
 	CreateOrderInput,
 	CreateOrderResponse,
 	CreatePaymentLinkInput,
@@ -15,8 +17,6 @@ import {
 	FetchOrderDetailsResponse,
 	FetchOrderPreviewResponse,
 	FetchOrdersResponse,
-	LinkOrderInput,
-	LinkOrderResponse,
 	SellerReleaseInput,
 	SellerReleaseResponse,
 	UpdateOrderStatusInput,
@@ -29,9 +29,7 @@ export const useCreateOrder = () => {
 		serverRoutes.createOrder
 	);
 };
-export const useLinkOrder = () => {
-	return usePost<LinkOrderResponse, LinkOrderInput>(serverRoutes.linkOrder);
-};
+
 export const useFetchOrders = () => {
 	return useFetch<FetchOrdersResponse>(serverRoutes.fetchOrders, {
 		queryKey: ["fetchOrders"],
@@ -121,5 +119,29 @@ export const useSellerRelease = (locale: localeEnum) => {
 export const useCaptureOrder = () => {
 	return usePost<CaptureOrderResponse, CaptureOrderInput>(
 		serverRoutes.captureOrder
+	);
+};
+
+export const useCreateDispute = () => {
+	return usePost<CreateDisputeResponse, CreateDisputeInput>(
+		serverRoutes.createDispute,
+		{
+			onSuccess(data, variables, context) {
+				const { orderId } = variables;
+				queryClient.setQueryData(
+					["fetchOrderById", orderId],
+					(oldData: FetchOrderDetailsResponse) => {
+						if (!oldData) return oldData;
+						return {
+							...oldData,
+							order: {
+								...oldData.order,
+								status: OrderStatusEnum.DISPUTED,
+							},
+						};
+					}
+				);
+			},
+		}
 	);
 };
