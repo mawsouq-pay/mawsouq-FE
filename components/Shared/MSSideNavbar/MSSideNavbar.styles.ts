@@ -76,3 +76,16 @@ export const NavItem = styled.li<{ isOpen: boolean; isActive?: boolean }>`
 		opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
 	}
 `;
+
+export const LogoItem = styled.div`
+	padding: 10px;
+	border-radius: 5px;
+	transition:
+		background 0.3s,
+		color 0.3s;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	position: relative;
+`;

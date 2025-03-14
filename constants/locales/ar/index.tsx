@@ -55,6 +55,7 @@ const ar = {
 	goToProfile: "الذهاب إلى الملف الشخصي",
 	profileManagement: "إدارة الملف الشخصي",
 	profilePage: "صفحة الملف الشخصي",
+	home: "الصفحة الرئيسية",
 
 	// Order Attributes
 	description: "الوصف",
@@ -130,7 +131,7 @@ const ar = {
 	copyOrderLink: "نسخ رابط الطلب",
 	copied: "تم النسخ!",
 	orderSuccessfullyCreated: "تم إنشاء الطلب بنجاح",
-	toJoinTheOrder: "للانضمام إلى الطلب",
+	toJoinTheOrder: "للانضمام ودفع الطلب",
 	withThe: "مع",
 
 	//OrderDetails
@@ -276,23 +277,27 @@ const ar = {
 
 	//Order Actions Messages
 	ORDER_PENDING_PAYMENT_BUYER: "في انتظار الدفع للمتابعة في الطلب.",
-	ORDER_PENDING_PAYMENT_SELLER: "في انتظار المشتري لإجراء الدفع.",
+	ORDER_PENDING_PAYMENT_SELLER:
+		"لم يقم المشتري بالدفع بعد. يرجى مشاركة رابط الدفع معه للمتابعة.",
 
-	ORDER_IN_PROGRESS_BUYER: "طلبك قيد التحضير من قبل البائع.",
-	ORDER_IN_PROGRESS_SELLER: "الطلب قيد التنفيذ حاليًا.",
+	ORDER_IN_PROGRESS_BUYER:
+		"يتم تجهيز طلبك من قبل البائع. يرجى متابعة حالته، وعند استلامه قم بإطلاق الدفعة من هنا.",
+	ORDER_IN_PROGRESS_SELLER:
+		"تم استلام الدفعة. يرجى إبلاغنا بمجرد شحن الطلب للتسليم.",
 
-	ORDER_IN_TRANSIT_BUYER: "طلبك قيد النقل. يرجى تأكيد التسليم عند الاستلام.",
+	ORDER_IN_TRANSIT_BUYER: "طلبك في الطريق. يرجى تأكيد الاستلام عند استلامه.",
 	ORDER_IN_TRANSIT_SELLER:
-		"الطلب في طريقه إلى المشتري. في انتظار تأكيد الاستلام.",
-
+		"الطلب قيد الشحن وينتظر تأكيد المشتري. يرجى التواصل معه إذا لزم الأمر.",
 	ORDER_DELIVERED_BUYER: "تم تسليم الطلب، في انتظار تأكيدك.",
 	ORDER_DELIVERED_SELLER: "تم تسليم الطلب، في انتظار المشتري للإفراج عن الدفع.",
 
 	ORDER_COMPLETED_BUYER: "شكرًا لك! تم إكمال طلبك.",
 	ORDER_COMPLETED_SELLER: "تم إكمال الطلب، وتم الإفراج عن الدفع.",
 
-	ORDER_DISPUTED_BUYER: "تم تقديم نزاع. يرجى تقديم التفاصيل لحله.",
-	ORDER_DISPUTED_SELLER: "تم تقديم نزاع. يرجى تقديم التفاصيل لحله.",
+	ORDER_DISPUTED_BUYER:
+		"تم تقديم شكوى، والدفعة معلقة. سنقوم بالتواصل معك قريبًا. يرجى تقديم التفاصيل اللازمة لحل المشكلة.",
+	ORDER_DISPUTED_SELLER:
+		"تم تقديم شكوى، والدفعة معلقة. سنقوم بالتواصل معك قريبًا. يرجى تقديم التفاصيل اللازمة لحل المشكلة.",
 
 	ORDER_CANCELLED_BUYER: "تم إلغاء الطلب.",
 	ORDER_CANCELLED_SELLER: "تم إلغاء الطلب.",
@@ -321,6 +326,15 @@ const ar = {
 	DAMAGED_ITEM: "وصل العنصر تالفًا.",
 	NOT_RECEIVED: "The item did not arrive",
 	OTHER: "مشكلة أخرى.",
+
+	//Order Status
+	PENDING_PAYMENT: "في انتظار الدفع",
+	IN_PROGRESS: "الطلب قيد التنفيذ",
+	IN_TRANSIT: "الطلب قيد الشحن",
+	DELIVERED: "تم توصيل الطلب",
+	COMPLETED: "تم إكمال الطلب",
+	DISPUTED: "تم إرسال شكوى الطلب",
+	CANCELLED: "تم إلغاء الطلب",
 };
 
 export default ar;

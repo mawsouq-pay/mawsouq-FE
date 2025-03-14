@@ -77,7 +77,7 @@ const MSOrderCard = (props: OrderCardProps) => {
 					<StatusBadge backgroundColor={orderStatusInfo.backgroundColor}>
 						<StatusDot color="#90EE90" />
 						{renderValue({
-							value: orderStatusInfo.text,
+							value: text[orderStatusInfo.text],
 							color: colors.lightBlack,
 							size: "14px",
 							weight: "normal",

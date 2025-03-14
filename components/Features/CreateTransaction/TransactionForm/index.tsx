@@ -65,6 +65,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 								price={parseFloat(values.price) || 0}
 								escrowFee={parseFloat(values.price) || 0 > 0 ? 50 : 0}
 								totalDue={(parseFloat(values.price) || 0) + 50}
+								showTitle={true}
 							/>{" "}
 						</div>
 						<MSButton

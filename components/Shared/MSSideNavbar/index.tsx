@@ -15,12 +15,14 @@ import {
 	ToggleButton,
 	NavList,
 	NavItem,
+	LogoItem,
 } from "./MSSideNavbar.styles";
 import MawsouqLogo from "@/assets/images/Logo.png";
 import Image from "next/image";
 import { clientRoutes } from "@/routes";
 import router from "next/router";
 import { localeEnum } from "@/store/LocaleStore";
+import { MSLogo } from "@/assets/icons";
 
 const Sidebar = () => {
 	const { isSideNavbarOpen, setIsSideNavbarOpen, locale, setLocale } =
@@ -40,9 +42,9 @@ const Sidebar = () => {
 
 			<NavList>
 				{isSideNavbarOpen && (
-					<NavItem isOpen={isSideNavbarOpen}>
-						<Image src={MawsouqLogo} alt="Mawsouq image" />
-					</NavItem>
+					<LogoItem>
+						<MSLogo />
+					</LogoItem>
 				)}
 
 				<Tooltip

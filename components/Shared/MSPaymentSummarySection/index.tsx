@@ -19,6 +19,7 @@ const MSPaymentSummarySection = ({
 	price,
 	escrowFee,
 	totalDue,
+	showTitle = false,
 }: PaymentSummarySectionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
@@ -43,6 +44,11 @@ const MSPaymentSummarySection = ({
 
 	return (
 		<MainWrapper>
+			{showTitle && (
+				<MSText fontSize="16px" fontWeight="600">
+					{text.paymentSummary}
+				</MSText>
+			)}
 			<ItemsContainer>
 				{paymentItems.map((item, index) => (
 					<ItemWrapper key={index}>

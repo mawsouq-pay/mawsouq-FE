@@ -54,6 +54,7 @@ const en = {
 	goToProfile: "Go to Profile",
 	profileManagement: "Profile Management",
 	profilePage: "Profile Page",
+	home: "Home",
 
 	// Order attributes
 	transactionTitle: "Transaction title",
@@ -128,7 +129,7 @@ const en = {
 	copyOrderLink: "Copy Order Link",
 	copied: "Copied!",
 	orderSuccessfullyCreated: "Order Successfully Created",
-	toJoinTheOrder: "to join the order",
+	toJoinTheOrder: "To join and pay for the order",
 	withThe: "with the",
 	//OrderDetails
 	history: "History",
@@ -280,15 +281,18 @@ const en = {
 	//Order Actions Messages
 	ORDER_PENDING_PAYMENT_BUYER:
 		"Waiting for your payment to proceed with the order.",
-	ORDER_PENDING_PAYMENT_SELLER: "Waiting for the buyer to make the payment.",
+	ORDER_PENDING_PAYMENT_SELLER:
+		"The buyer has not made the payment yet. Please share the payment link with them to proceed.",
 
-	ORDER_IN_PROGRESS_BUYER: "Your order is being prepared by the seller.",
-	ORDER_IN_PROGRESS_SELLER: "The order is currently in progress.",
+	ORDER_IN_PROGRESS_BUYER:
+		"Your order is being prepared by the seller. Please track its progress, and once delivered, release the payment from here.",
+	ORDER_IN_PROGRESS_SELLER:
+		"The payment has been received. Please inform us once the order has been shipped for delivery.",
 
 	ORDER_IN_TRANSIT_BUYER:
-		"Your order is currently in transit. Confirm delivery once received.",
+		"Your order is on its way. Please confirm delivery once you receive it.",
 	ORDER_IN_TRANSIT_SELLER:
-		"The order is in transit. Awaiting confirmation from the buyer.",
+		"The order is in transit, awaiting buyer confirmation. Please contact them if needed.",
 
 	ORDER_DELIVERED_BUYER: "Order is delivered, awaiting your confirmation.",
 	ORDER_DELIVERED_SELLER: "Order is delivered, awaiting buyer release.",
@@ -298,9 +302,9 @@ const en = {
 		"The order is completed, and the payment has been released.",
 
 	ORDER_DISPUTED_BUYER:
-		"A dispute has been raised. Provide details to resolve it.",
+		"A complaint has been filed, and the payment is on hold. We will be reaching out to you soon. Please provide the necessary details to resolve the issue.",
 	ORDER_DISPUTED_SELLER:
-		"A dispute has been raised. Provide details to resolve it.",
+		"A complaint has been filed, and the payment is on hold. We will be reaching out to you soon. Please provide the necessary details to resolve the issue.",
 
 	ORDER_CANCELLED_BUYER: "The order has been cancelled.",
 	ORDER_CANCELLED_SELLER: "The order has been cancelled.",
@@ -329,6 +333,15 @@ const en = {
 	DAMAGED_ITEM: "The item arrived damaged.",
 	OTHER: "Other issue.",
 	NOT_RECEIVED: "The item did not arrive",
+
+	//Order Status
+	PENDING_PAYMENT: "Pending Payment",
+	IN_PROGRESS: "Order in Progress",
+	IN_TRANSIT: "Order in Transit",
+	DELIVERED: "Order Delivered",
+	COMPLETED: "Order Completed",
+	DISPUTED: "Order Complaint sent",
+	CANCELLED: "Order Cancelled",
 };
 
 export default en;

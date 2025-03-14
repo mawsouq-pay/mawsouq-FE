@@ -16,51 +16,51 @@ export enum RolesEnum {
 export const orderStatusObject: Record<
 	OrderStatusEnum,
 	{
-		text: string;
+		text: OrderStatusEnum;
 		backgroundColor: string;
 		textColor: string;
 		historyMessage: string;
 	}
 > = {
-	PENDING_PAYMENT: {
-		text: "pending_payment",
+	[OrderStatusEnum.PENDING_PAYMENT]: {
+		text: OrderStatusEnum.PENDING_PAYMENT,
 		backgroundColor: "#FFF9C4",
 		textColor: "#000000",
 		historyMessage:
 			"Order was confirmed and is pending payment from the buyer.",
 	},
-	IN_PROGRESS: {
-		text: "in_progress",
+	[OrderStatusEnum.IN_PROGRESS]: {
+		text: OrderStatusEnum.IN_PROGRESS,
 		backgroundColor: "#BBDEFB",
 		textColor: "#000000",
 		historyMessage: "Order has been paid; the seller is working on the item.",
 	},
-	IN_TRANSIT: {
-		text: "in_transit",
+	[OrderStatusEnum.IN_TRANSIT]: {
+		text: OrderStatusEnum.IN_TRANSIT,
 		backgroundColor: "#FFE0B2",
 		textColor: "#000000",
 		historyMessage: "Order is on the way; the seller has dispatched the item.",
 	},
-	DELIVERED: {
-		text: "delivered",
+	[OrderStatusEnum.DELIVERED]: {
+		text: OrderStatusEnum.DELIVERED,
 		backgroundColor: "#C8E6C9",
 		textColor: "#000000",
 		historyMessage: "Order has been delivered to the buyer.",
 	},
-	COMPLETED: {
-		text: "completed",
+	[OrderStatusEnum.COMPLETED]: {
+		text: OrderStatusEnum.COMPLETED,
 		backgroundColor: "#A5D6A7",
 		textColor: "#000000",
 		historyMessage: "Order is completed; the buyer approved the delivery.",
 	},
-	DISPUTED: {
-		text: "disputed",
+	[OrderStatusEnum.DISPUTED]: {
+		text: OrderStatusEnum.DISPUTED,
 		backgroundColor: "#FFCCBC",
 		textColor: "#000000",
 		historyMessage: "The order is disputed; the buyer has raised an issue.",
 	},
-	CANCELLED: {
-		text: "cancelled",
+	[OrderStatusEnum.CANCELLED]: {
+		text: OrderStatusEnum.CANCELLED,
 		backgroundColor: "#F0F0F0",
 		textColor: "#000000",
 		historyMessage: "The order has been cancelled and is no longer active.",
@@ -130,6 +130,11 @@ export const orderProgressBarData: Record<
 		messageForBuyer: OrderProgressMessages.ORDER_IN_PROGRESS_BUYER,
 		messageForSeller: OrderProgressMessages.ORDER_IN_PROGRESS_SELLER,
 		buyerActions: [
+			{
+				label: "Confirm Release",
+				key: "releasePayment",
+				status: OrderStatusEnum.COMPLETED,
+			},
 			{
 				label: "Send Complaint",
 				key: "openDispute",

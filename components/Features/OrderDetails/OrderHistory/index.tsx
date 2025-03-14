@@ -20,12 +20,7 @@ const OrderHistory = ({ statusHistory }: HistoryProps) => {
 	return (
 		<HistoryContainer>
 			<RowDiv>
-				<MSText
-					fontSize="18px"
-					mobileFontSize="16px"
-					fontWeight="700"
-					color={colors.black}
-				>
+				<MSText fontSize="16px" fontWeight="700" color={colors.black}>
 					{text.history}
 				</MSText>
 				<Icon title="Refresh history">&#x21bb;</Icon>

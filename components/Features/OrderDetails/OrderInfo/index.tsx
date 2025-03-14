@@ -30,12 +30,7 @@ const OrderInfo = (props: OrderInfoProps) => {
 	return (
 		<MainWrapper>
 			<RowDiv>
-				<MSText
-					fontSize="18px"
-					mobileFontSize="16px"
-					fontWeight="700"
-					color={colors.black}
-				>
+				<MSText fontSize="16px" fontWeight="700" color={colors.black}>
 					{" "}
 					{text.orderDetails}
 				</MSText>

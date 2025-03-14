@@ -69,11 +69,13 @@ const OrderBody = (props: OrderBodyProps) => {
 						/>
 					</div>
 				)}
-				<OrderAction
-					orderId={data?.order?._id ?? ""}
-					isFetcherSeller={data?.order?.isFetcherSeller ?? false}
-					orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_PAYMENT}
-				/>
+				{!isOrderPendingJoin && (
+					<OrderAction
+						orderId={data?.order?._id ?? ""}
+						isFetcherSeller={data?.order?.isFetcherSeller ?? false}
+						orderStatus={data?.order.status ?? OrderStatusEnum.PENDING_PAYMENT}
+					/>
+				)}
 			</TopSection>
 			<MainWrapper>
 				<InfoSection>

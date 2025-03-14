@@ -33,38 +33,28 @@ const OrderAction = (props: OrderActionProps) => {
 
 	return (
 		<MainWrapper>
-			<MSText
-				fontSize="18px"
-				mobileFontSize="16px"
-				fontWeight="700"
-				color={colors.black}
-				style={{
-					marginBottom: 10,
-					borderBottom: `3px solid ${colors.green}`,
-					width: "120px",
-				}}
-			>
-				{text.orderStatus}
-			</MSText>
-			<MSText
-				fontSize="14px"
-				mobileFontSize="13px"
-				fontWeight="700"
-				color={colors.darkGray}
-			>
-				{" "}
-				{orderStatusText}
-			</MSText>
-			<MessageDiv>
+			<div style={{ flexDirection: "column" }}>
 				<MSText
-					fontSize="16px"
-					mobileFontSize="14px"
-					color={colors.black}
-					fontWeight="500"
+					fontSize="18px"
+					mobileFontSize="16px"
+					fontWeight="700"
+					color={colors.darkGray}
+					style={{ alignSelf: "flex-start" }}
 				>
-					{text[message]}
+					{" "}
+					{orderStatusText}
 				</MSText>
-			</MessageDiv>
+				<MessageDiv>
+					<MSText
+						fontSize="18px"
+						mobileFontSize="16px"
+						color={colors.black}
+						fontWeight="500"
+					>
+						{text[message]}
+					</MSText>
+				</MessageDiv>
+			</div>
 
 			{actions.length > 0 && (
 				<FlexRow>

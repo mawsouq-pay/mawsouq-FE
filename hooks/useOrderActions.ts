@@ -61,7 +61,7 @@ export const useOrderActions = (
 	const message = isFetcherSeller
 		? orderData.messageForSeller
 		: orderData.messageForBuyer;
-	const orderStatusText = orderStatus;
+	const orderStatusText = text[orderStatus];
 
 	const actionHandlers: Record<string, () => void> = {
 		createPaymentLink: () => createLink({ orderId }),
