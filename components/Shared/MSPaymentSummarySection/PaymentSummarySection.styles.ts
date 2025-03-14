@@ -26,6 +26,7 @@ export const ItemWrapper = styled.div`
 export const LabelValue = styled.div`
 	display: flex;
 	flex: 1;
+	flex-direction: column;
 `;
 export const TextValue = styled.div`
 	display: flex;

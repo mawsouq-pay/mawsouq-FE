@@ -105,9 +105,11 @@ const ar = {
 
 	// Payment Summary
 	subTotal: "الإجمالي الفرعي",
-	escrowFee: "الرسوم",
+	escrowFee: "رسوم Mawsouq",
 	totalDue: "الإجمالي المستحق",
-	paymentSummary: "Payment Summary",
+	paymentSummary: "ملخص الدفع",
+	escrowFeeDescription:
+		"رسوم حماية صغيرة يدفعها المشتري لتأمين الدفعة حتى يتم تأكيد التسليم.",
 
 	//Button CTA
 	viewOrder: "عرض الطلب",

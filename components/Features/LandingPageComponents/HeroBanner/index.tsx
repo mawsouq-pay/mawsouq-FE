@@ -27,7 +27,7 @@ const HeroBanner = () => {
 						if (isLoggedIn) {
 							router.push(clientRoutes.startTransaction);
 						} else {
-							router.push(clientRoutes.login);
+							router.push(clientRoutes.register);
 						}
 					}}
 				>

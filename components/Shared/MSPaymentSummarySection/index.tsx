@@ -13,6 +13,7 @@ import { PaymentSummarySectionProps } from "./types";
 import { colors } from "@/constants/theme";
 import { Divider } from "@mui/material";
 import MSText from "../MSText";
+import { AlertCircleIcon } from "lucide-react";
 
 const MSPaymentSummarySection = ({
 	price,
@@ -36,6 +37,7 @@ const MSPaymentSummarySection = ({
 			fontSize: "16px",
 			fontWeight: "500",
 			color: colors.red,
+			description: text.escrowFeeDescription,
 		},
 	];
 
@@ -44,24 +46,40 @@ const MSPaymentSummarySection = ({
 			<ItemsContainer>
 				{paymentItems.map((item, index) => (
 					<ItemWrapper key={index}>
-						<LabelValue>
-							<MSText
-								color={colors.black}
-								fontSize={item.fontSize}
-								fontWeight={item.fontWeight}
-							>
-								{item.title}
-							</MSText>
-						</LabelValue>
-						<TextValue>
-							<MSText
-								fontSize={item.fontSize}
-								fontWeight={item.fontWeight}
-								color={item.color}
-							>
-								{item.value}
-							</MSText>
-						</TextValue>
+						<>
+							<LabelValue>
+								<MSText
+									color={colors.black}
+									fontSize={item.fontSize}
+									fontWeight={item.fontWeight}
+								>
+									{item.title}
+								</MSText>
+								{item?.description && (
+									<MSText
+										fontSize={"12px"}
+										fontWeight={"500"}
+										color={colors.gray}
+									>
+										<AlertCircleIcon
+											size={12}
+											style={{ paddingTop: 2 }}
+											color={colors.green}
+										/>
+										{item.description}
+									</MSText>
+								)}
+							</LabelValue>
+							<TextValue>
+								<MSText
+									fontSize={item.fontSize}
+									fontWeight={item.fontWeight}
+									color={item.color}
+								>
+									{item.value}
+								</MSText>
+							</TextValue>
+						</>
 					</ItemWrapper>
 				))}
 				<Divider style={{ margin: "10px 0" }} />

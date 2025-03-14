@@ -103,9 +103,11 @@ const en = {
 
 	// Payment Summary
 	subTotal: "Sub total",
-	escrowFee: "Fee",
+	escrowFee: "Mawsouq Fee",
 	totalDue: "Total due",
 	paymentSummary: "Payment Summary",
+	escrowFeeDescription:
+		"A small protection fee paid by the buyer to keep the payment secure until delivery is confirmed.",
 
 	//Button CTA
 	viewOrder: "View Order",

@@ -15,6 +15,7 @@ import ShopIcon from "./shop_icon";
 import Nb1Icon from "./step1";
 import Nb2Icon from "./step2";
 import ArrowDown from "./arrow_down";
+import MSLogo from "./mslogo";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -33,4 +34,5 @@ export {
 	Nb1Icon,
 	Nb2Icon,
 	ArrowDown,
+	MSLogo,
 };
