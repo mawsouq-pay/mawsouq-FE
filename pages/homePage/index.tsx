@@ -1,5 +1,3 @@
-import ActionSection from "@/components/Features/Home/ActionsSection";
-import StatusSection from "@/components/Features/Home/StatusSection";
 import OrdersOverviewSection from "@/components/Features/Home/OrdersOverviewSection";
 import { useFetchOrders } from "@/hooks/orderHooks";
 import HomePageLayout from "@/layouts/HomePageLayout";
@@ -36,8 +34,6 @@ const HomePage = () => {
 			displayErrorReason={true}
 		>
 			<HomePageWrapper>
-				{/* <StatusSection /> */}
-				{/* <ActionSection /> */}
 				<OrdersOverviewSection latestOrders={ordersData?.orders} />
 			</HomePageWrapper>
 		</MSErrorAndLoadingWrapper>
