@@ -19,14 +19,6 @@ const MawsouqBenefits = () => {
 
 	return (
 		<BenefitsContainer id="benefits">
-			{/* <MSText
-				color="#222"
-				fontSize="2rem"
-				fontWeight="bold"
-				style={{ paddingLeft: "20px", paddingRight: "20px" }}
-			>
-				{text.title}
-			</MSText> */}
 			<BenefitsGrid>
 				<BenefitItem>
 					<BenefitIcon>

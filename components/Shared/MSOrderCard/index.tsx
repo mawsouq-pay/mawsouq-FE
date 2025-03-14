@@ -12,14 +12,11 @@ import { OrderCardProps, RenderValueProps } from "./types";
 import { colors } from "@/constants/theme";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import { orderStatusObject } from "@/constants";
-import { DueDateIcon } from "@/assets/icons";
-import OrderListItem from "../../OrderListItem";
 import { formatDate } from "@/helpers";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 
 const MSOrderCard = (props: OrderCardProps) => {
-	const { isMobile } = useCustomBreakpoint();
 	const {
 		transactionTitle,
 		price,

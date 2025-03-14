@@ -34,16 +34,18 @@ export const heroBannerText = {
 		builtFor: "مصمم لـ",
 		textList: ["المشترين", "البائعين", "أنت"],
 		title: [
-			<span key="hold" style={{ color: "#01796f", fontWeight: "bold" }}>
-				احتفظ
-			</span>,
-			" بالمدفوعات بأمان،",
-			<br key="br1" />,
-			"حتى يتم ",
-			<span key="confirmed" style={{ color: "#01796f", fontWeight: "bold" }}>
-				التأكيد
-			</span>,
-			".",
+			<>
+				<span key="hold" style={{ color: "#01796f", fontWeight: "bold" }}>
+					احتفظ
+				</span>
+				{" بالمدفوعات بأمان،"}
+				<br key="br1" />
+				{"حتى يتم "}
+				<span key="confirmed" style={{ color: "#01796f", fontWeight: "bold" }}>
+					التأكيد على التسليم
+				</span>
+				{"."}
+			</>,
 		],
 
 		subtitle: [

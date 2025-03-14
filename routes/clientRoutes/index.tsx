@@ -7,7 +7,6 @@ const clientRoutes = {
 
 	startTransaction: "/startTransaction",
 	orderConfirmation: "/orderConfirmation",
-	orders: "/orders",
 	order: "/orders/[id]",
 	paymentPage: "/paymentPage",
 	previewOrder: "/previewOrder",

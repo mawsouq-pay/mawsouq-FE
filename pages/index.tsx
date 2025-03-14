@@ -1,5 +1,4 @@
 import React from "react";
-
 import HowItWorks from "@/components/Features/LandingPageComponents/HowItWorks";
 import MawsouqBenefits from "@/components/Features/LandingPageComponents/MawsouqBenefits";
 import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
@@ -32,11 +31,7 @@ const LandingPage = () => {
 
 				<MSAnimatedDiv>
 					<FooterSection />
-
-					{/* <PaymobFooter /> */}
-					{/* <ContactUs /> */}
 				</MSAnimatedDiv>
-				{/* <FooterSection /> */}
 			</MainDiv>
 		</>
 	);
@@ -44,7 +39,6 @@ const LandingPage = () => {
 const MainDiv = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* gap: 50px; */
 `;
 LandingPage.CustomLayout = LandingPageLayout;
 

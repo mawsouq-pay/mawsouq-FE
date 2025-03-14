@@ -2,7 +2,7 @@ import React from "react";
 import { Drawer } from "@mui/material";
 import { ArrowRightCircle, MenuIcon, X } from "lucide-react";
 import { MenuButton, Sidebar, SidebarLink } from "../NavBar.styles";
-import { useLocaleStore } from "@/store";
+import { useAuthStore, useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import MSText from "../../MSText";
 import styled from "styled-components";
@@ -19,7 +19,6 @@ const CustomDrawer = styled(Drawer)`
 		width: 100%;
 		height: fit-content;
 		border-radius: 0px 0px 20px 20px;
-		/* transition: transform 0.5s ease-in-out; */
 		padding-bottom: 20px;
 		background: ${colors.green};
 	}
@@ -33,6 +32,7 @@ const SidebarNav = ({
 	toggleMenu: () => void;
 }) => {
 	const { locale, setLocale } = useLocaleStore();
+	const { logout, isLoggedIn } = useAuthStore();
 	const text = textTr(locale);
 	const router = useRouter();
 	const toggleLanguage = () => {
@@ -114,27 +114,35 @@ const SidebarNav = ({
 						}}
 						style={{
 							backgroundColor: "#ddf8ed",
-							//padding: " 0 2px",
-							// width: "100%",
 						}}
 						fontColor="black"
 					/>
-					<MSButton
-						title={text.login}
-						style={{ width: "100%", marginTop: 10 }}
-						onClick={() => router.push(clientRoutes.login)}
-					/>
-					<MSButton
-						title={text.register}
-						style={{
-							backgroundColor: "transparent",
-							width: "100%",
-							marginTop: 4,
-							border: "1px solid green",
-						}}
-						fontColor={colors.black}
-						onClick={() => router.push(clientRoutes.register)}
-					/>
+					{!isLoggedIn ? (
+						<>
+							<MSButton
+								title={text.login}
+								style={{ width: "100%", marginTop: 10 }}
+								onClick={() => router.push(clientRoutes.login)}
+							/>
+							<MSButton
+								title={text.register}
+								style={{
+									backgroundColor: "transparent",
+									width: "100%",
+									marginTop: 4,
+									border: "1px solid green",
+								}}
+								fontColor={colors.black}
+								onClick={() => router.push(clientRoutes.register)}
+							/>
+						</>
+					) : (
+						<MSButton
+							title={text.logout}
+							style={{ width: "100%", marginTop: 10 }}
+							onClick={logout}
+						/>
+					)}
 				</Sidebar>
 			</div>
 		</CustomDrawer>
