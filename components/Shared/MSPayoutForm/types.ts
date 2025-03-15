@@ -49,6 +49,9 @@ export const createValidationSchema = (locale: any) => {
 					.matches(/^\d{16}$|^\d{4}-\d{4}-\d{4}-\d{4}$/)
 					.required(text.requiredField),
 		}),
-		fullName: Yup.string().required(text.requiredField),
+		fullName: Yup.string()
+			.trim()
+			.min(3, text.minLength)
+			.required(text.requiredField),
 	});
 };

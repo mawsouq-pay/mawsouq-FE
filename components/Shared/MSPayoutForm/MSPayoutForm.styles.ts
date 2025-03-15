@@ -10,7 +10,7 @@ export const FormContainer = styled.div`
 	border-radius: 20px;
 	padding: 20px 0px 50px 0px;
 	${media.below925`
-	padding: 30px 25px 50px 25px;
+	padding: 30px 5px 30px 5px;
  	 `}
 
 	display: flex;
@@ -45,5 +45,5 @@ export const FlexRow = styled.div`
 	width: 100%;
 	justify-content: space-between;
 	gap: 30px;
-	margin-top: 50px;
+	margin-top: 15px;
 `;

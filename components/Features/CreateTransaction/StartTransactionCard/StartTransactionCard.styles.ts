@@ -8,7 +8,7 @@ export const MainWrapper = styled.div`
 	margin: 30px auto;
 	border-radius: 8px;
 	${media.below925`
-	margin: 30px 10px;
+	margin: 30px 0px;
 
 
     `}

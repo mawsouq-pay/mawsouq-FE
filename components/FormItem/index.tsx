@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorMessage, Field } from "formik";
+import { ErrorMessage, Field, useFormikContext } from "formik";
 import {
 	FormItemWrapper,
 	Label,
@@ -8,7 +8,6 @@ import {
 	IconContainer,
 	ErrorText,
 } from "./FormItem.styles";
-import { colors } from "@/constants/theme";
 import MSText from "../Shared/MSText";
 
 interface FormItemProps {
@@ -35,6 +34,15 @@ const FormItem: React.FC<FormItemProps> = ({
 	iconPosition = "right",
 }) => {
 	const Component = as === "textarea" ? StyledTextArea : StyledInput;
+	const { setFieldValue } = useFormikContext(); // Get Formik context
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		const sanitizedValue =
+			type === "tel" ? e.target.value.replace(/\s/g, "") : e.target.value;
+		setFieldValue(name, sanitizedValue);
+	};
 
 	return (
 		<FormItemWrapper>
@@ -49,6 +57,7 @@ const FormItem: React.FC<FormItemProps> = ({
 					name={name}
 					placeholder={placeholder}
 					style={style}
+					onChange={handleChange} // Handle change internally
 				/>
 				{icon && <IconContainer position={iconPosition}>{icon}</IconContainer>}
 			</div>

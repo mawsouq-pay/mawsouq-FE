@@ -73,6 +73,7 @@ const en = {
 	enterCardNumber: "Enter Card Number",
 	passwordPlaceHolder: "Enter your password",
 	namePlaceHolder: "Enter your name",
+	iAmSelling: "I'm selling",
 
 	//FORM Error Messages
 	requiredTitle: "Transaction title is required",

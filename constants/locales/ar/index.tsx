@@ -74,6 +74,7 @@ const ar = {
 	enterCardNumber: "أدخل رقم البطاقة",
 	passwordPlaceHolder: "أدخل كلمة المرور الخاصة بك",
 	namePlaceHolder: "أدخل اسمك",
+	iAmSelling: "أنا أبيع",
 
 	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",

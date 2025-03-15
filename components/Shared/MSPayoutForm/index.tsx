@@ -105,6 +105,7 @@ const MSPayoutForm = ({
 									label={text.phoneNumber}
 									name={PayoutFormNames.payoutPhoneNumer}
 									placeholder={text.phoneNumberPlaceHolder}
+									type="tel"
 								/>
 								<FormItem
 									label={text.fullName}

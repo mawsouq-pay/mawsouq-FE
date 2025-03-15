@@ -27,7 +27,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 				{({ values }) => (
 					<StyledForm>
 						<FormItem
-							label={text.transactionTitle}
+							label={text.iAmSelling}
 							id={initialValues.transactionTitle}
 							name={StartTransactionFormNames.transactionTitle}
 							placeholder={text.enterTitle}
