@@ -132,6 +132,8 @@ const en = {
 	orderSuccessfullyCreated: "Order Successfully Created",
 	toJoinTheOrder: "To join and pay for the order",
 	withThe: "with the",
+	linkCopiedSuccessfully: "Link copied successfully",
+
 	//OrderDetails
 	history: "History",
 	orderDetails: "Order Details",

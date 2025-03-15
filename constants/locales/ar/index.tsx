@@ -134,6 +134,7 @@ const ar = {
 	orderSuccessfullyCreated: "تم إنشاء الطلب بنجاح",
 	toJoinTheOrder: "للانضمام ودفع الطلب",
 	withThe: "مع",
+	linkCopiedSuccessfully: "تم نسخ الرابط بنجاح",
 
 	//OrderDetails
 	history: "التاريخ",
