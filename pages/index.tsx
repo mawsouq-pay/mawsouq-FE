@@ -8,6 +8,7 @@ import HeroBanner from "@/components/Features/LandingPageComponents/HeroBanner";
 import LandingPageLayout from "@/layouts/LandingPageLayout";
 import styled from "styled-components";
 import CTA from "@/components/Features/LandingPageComponents/CTA";
+import FAQ from "@/components/Features/LandingPageComponents/FAQ";
 
 const LandingPage = () => {
 	return (
@@ -24,7 +25,9 @@ const LandingPage = () => {
 				<MSAnimatedDiv>
 					<CTA />
 				</MSAnimatedDiv>
-
+				<MSAnimatedDiv>
+					<FAQ />
+				</MSAnimatedDiv>
 				<MSAnimatedDiv>
 					<MawsouqBenefits />
 				</MSAnimatedDiv>

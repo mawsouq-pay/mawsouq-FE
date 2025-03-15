@@ -11,8 +11,8 @@ import NavButtons from "./NavButtons";
 import { MenuIcon, X } from "lucide-react";
 import { useMediaQuery } from "@mui/material";
 import SidebarNav from "./SideBarNav";
-import MawsouqLogo from "@/assets/images/Logo.png";
-import Image from "next/image";
+import { MSLogo } from "@/assets/icons";
+
 const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	const [open, setOpen] = useState(false);
 	const isMobile = useMediaQuery("(max-width: 925px)");
@@ -23,7 +23,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
 				<NavbarContainer>
-					<Image src={MawsouqLogo} alt="Mawsouq image" />
+					<MSLogo width={90} height={40} />
 					{isMobile ? (
 						<MenuButton onClick={toggleMenu} open={open}>
 							{open ? <X size={28} /> : <MenuIcon size={28} />}

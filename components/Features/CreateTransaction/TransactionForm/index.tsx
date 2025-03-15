@@ -24,7 +24,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 				validationSchema={validationSchema}
 				onSubmit={handleSubmit}
 			>
-				{({ values }) => (
+				{({ values, isValid, dirty }) => (
 					<StyledForm>
 						<FormItem
 							label={text.iAmSelling}
@@ -59,7 +59,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 							name={StartTransactionFormNames.deliveryDate}
 						/>
 
-						<div style={{ marginTop: 20 }}>
+						<div style={{ marginTop: 25, marginBottom: 20 }}>
 							{" "}
 							<MSPaymentSummarySection
 								price={parseFloat(values.price) || 0}
@@ -77,7 +77,7 @@ const TransactionForm = (props: TransactionFormProps) => {
 								alignSelf: "flex-end",
 								marginTop: 10,
 							}}
-							disabled={disableButton}
+							disabled={disableButton || !(isValid && dirty)}
 						/>
 					</StyledForm>
 				)}

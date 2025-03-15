@@ -7,42 +7,22 @@ import { MenuIcon, X } from "lucide-react";
 
 export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	top: 0;
-	margin-top: 10px;
-	padding-top: 12px;
+	/* padding-top: 12px; */
 	z-index: 100;
 	opacity: 0.8;
 	display: flex;
-	background: ${({ isLandingPage }) => (isLandingPage ? "white" : "#ECF0F1")};
-	padding-right: 64px;
-	padding-left: 64px;
+	padding: 5px 64px;
 	justify-content: center;
 	align-items: center;
+	background-color: ${colors.green};
 	font-size: 1rem;
+	position: sticky;
 	${media.below925`
-	margin-top:10px;
 	height: 40px;
-	padding-right: 20px;
-	padding-left: 20px;
-	padding-top: 0px;
+	padding:25px 20px;
 
 
  	 `}
-`;
-
-export const Logo = styled.div`
-	justify-self: flex-start;
-	border-radius: 100%;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	font-size: 20px;
-	font-weight: bold;
-	color: ${colors.black};
-
-	span {
-		color: ${colors.green};
-		font-style: italic;
-	}
 `;
 
 export const Sidebar = styled.div`
@@ -131,7 +111,7 @@ export const NavLinkss = styled(LinkS)`
 	text-decoration: none;
 	padding: 0 1rem;
 	height: 100%;
-	color: ${colors.black};
+	color: ${colors.white};
 	cursor: pointer;
 	font-family: "Roboto";
 	font-size: 14px;
@@ -139,7 +119,7 @@ export const NavLinkss = styled(LinkS)`
 		border-bottom: 4px solid #52ab98;
 	}
 	&:hover {
-		color: #31c48d;
+		color: black;
 	}
 `;
 export const NavBtn = styled.nav`
@@ -193,4 +173,13 @@ export const MenuButton = styled.div<{ open: boolean }>`
         }
       `}
 	}
+`;
+export const Logo = styled.div`
+	cursor: pointer;
+	text-align: center;
+	width: 100%;
+	background-color: ${colors.green};
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 5px;
 `;

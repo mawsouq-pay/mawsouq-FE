@@ -74,7 +74,6 @@ const HowItWorks = () => {
 			style={{
 				backgroundColor: "#ecf9ee",
 				paddingTop: "80px",
-				marginTop: 50,
 				borderRadius: 40,
 			}}
 		>

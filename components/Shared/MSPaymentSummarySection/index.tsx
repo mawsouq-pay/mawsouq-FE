@@ -66,6 +66,7 @@ const MSPaymentSummarySection = ({
 										fontSize={"12px"}
 										fontWeight={"500"}
 										color={colors.gray}
+										style={{ width: "200px", marginTop: 5 }}
 									>
 										<AlertCircleIcon
 											size={12}

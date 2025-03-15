@@ -1,11 +1,13 @@
 export default function (props: React.SVGProps<SVGSVGElement>) {
 	const fill = props.fill || "white";
+	const width = props.width || "160";
+	const height = props.height || "62";
 	return (
 		<svg
-			width="160"
+			width={width}
 			zoomAndPan="magnify"
 			viewBox="0 0 179.25 61.499998"
-			height="62"
+			height={height}
 			preserveAspectRatio="xMidYMid meet"
 		>
 			<defs>

@@ -49,10 +49,12 @@ const UserPayoutMethods = () => {
 				>
 					{text.yourPayoutMethods}
 				</MSText>
-				<MSButton
-					title={text.addPayoutMethod}
-					onClick={() => setPayoutModalOpen(true)}
-				/>
+				{!(userPayoutOptions && userPayoutOptions?.length > 0) && (
+					<MSButton
+						title={text.addPayoutMethod}
+						onClick={() => setPayoutModalOpen(true)}
+					/>
+				)}
 			</FlexRow>
 
 			<div style={{ marginTop: 25 }}>

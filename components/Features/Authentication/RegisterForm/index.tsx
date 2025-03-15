@@ -31,7 +31,7 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 	return (
 		<Formik
 			initialValues={registerInitialValues}
-			validationSchema={registerValidationSchema}
+			validationSchema={() => registerValidationSchema(locale)}
 			onSubmit={(values, { setSubmitting }) =>
 				handleRegister(values, setSubmitting)
 			}
@@ -68,6 +68,7 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 								name="email"
 								placeholder={text.emailPlaceHolder}
 							/>
+
 							<FormItem
 								label={text.phoneNumber}
 								type="tel"

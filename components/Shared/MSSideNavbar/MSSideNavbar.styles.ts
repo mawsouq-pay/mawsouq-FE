@@ -37,7 +37,9 @@ export const NavList = styled.ul`
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	gap: 15px;
+	height: 100%;
 `;
 
 export const NavItem = styled.li<{ isOpen: boolean; isActive?: boolean }>`
@@ -51,6 +53,7 @@ export const NavItem = styled.li<{ isOpen: boolean; isActive?: boolean }>`
 	gap: 10px;
 	cursor: pointer;
 	position: relative;
+	margin-top: 8px;
 
 	&:hover {
 		background: ${colors.buttonGreenHover};

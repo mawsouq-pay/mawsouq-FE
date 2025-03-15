@@ -22,16 +22,15 @@ const NavButtons = () => {
 			{!isLoggedIn ? (
 				<>
 					<MSButton
-						title={text.login}
+						title={text.getStarted}
 						style={{
-							backgroundColor: "transparent",
-							padding: "0px 12px",
-							textDecoration: "underline",
+							backgroundColor: "black",
+							padding: "5px 12px",
 						}}
-						fontColor="black"
-						onClick={() => router.push(clientRoutes.login)}
+						fontColor="white"
+						onClick={() => router.push(clientRoutes.register)}
 					/>
-					<MSButton
+					{/* <MSButton
 						title={text.register}
 						style={{
 							backgroundColor: "transparent",
@@ -40,7 +39,7 @@ const NavButtons = () => {
 						}}
 						fontColor="black"
 						onClick={() => router.push(clientRoutes.register)}
-					/>
+					/> */}
 				</>
 			) : (
 				<MSButton
@@ -60,7 +59,7 @@ const NavButtons = () => {
 				onClick={toggleLanguage}
 				style={{
 					backgroundColor: "#ddf8ed",
-					padding: " 0 2px",
+					padding: "5px 12px",
 					marginInlineStart: 30,
 					marginInlineEnd: "-50px",
 				}}

@@ -149,6 +149,7 @@ const en = {
 	alreadyHaveAnAccount: "Already have an account?",
 	dontHaveAnAccount: "Don't have an account?",
 	login: "Login",
+	getStarted: "Get Started",
 	passwordRequired: "",
 	requiredConfirmPassword: "Confirm password is required",
 	matchPasswords: "Passwords do not match",
@@ -207,20 +208,7 @@ const en = {
 	goToHome: "Go To Home!",
 
 	//Success Snackbar Notifications
-	successfullyLinkedToOrder: "You have been successfully linked to the order",
 	transactionReleased: "Payment successfully released to the seller",
-
-	//joining a transaction
-	joinTransaction: "Join Transaction",
-	joinTransactionPrompt:
-		"Please paste the link you received from the person to join the transaction.",
-	joinLinkInvalidType: "This link is not a mawsouq join link!",
-	shareLinkWithOtherParty:
-		"Please Share this link with the other party for them to join the order",
-	linkCopiedSuccessfully: "Link copied successfully",
-
-	//chooseRole
-	chooseRole: "Choose Your Role",
 
 	//Dropdown
 	chooseAnOptions: "Choose An option",
@@ -234,7 +222,7 @@ const en = {
 	payoutRequiredExplanation:
 		"As a seller, you need to set up a payout method in your profile before you can proceed.",
 	noPayoutMethods: "No payout methods added yet.",
-	yourPayoutMethods: "Your Payout Methods",
+	yourPayoutMethods: "Your Payout Method",
 	bank: "Bank",
 	enterYourPayoutDetails:
 		"Enter your payout details to receive payments when an order is completed.",

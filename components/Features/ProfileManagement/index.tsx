@@ -6,9 +6,12 @@ import GeneralInfo from "./GeneralInfo";
 import UserPayoutMethods from "./UserPayoutMethods";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import MSButton from "@/components/Shared/MSButton";
+import { useAuthStore } from "@/store";
 
 const ProfileManagement = () => {
 	const { locale } = useLocaleStore();
+	const { logout } = useAuthStore();
 	const text = textTr(locale);
 
 	return (
@@ -32,6 +35,22 @@ const ProfileManagement = () => {
 			</div>
 
 			<UserPayoutMethods />
+
+			<div style={{ marginTop: 50 }}>
+				<MSText
+					fontSize="18px"
+					mobileFontSize="16px"
+					fontWeight="bold"
+					color={colors.black}
+				>
+					Profile Actions
+				</MSText>{" "}
+				<MSButton
+					title={text.logout}
+					onClick={logout}
+					style={{ marginTop: 20 }}
+				/>
+			</div>
 		</Container>
 	);
 };

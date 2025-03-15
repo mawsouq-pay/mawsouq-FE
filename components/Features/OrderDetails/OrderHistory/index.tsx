@@ -23,7 +23,6 @@ const OrderHistory = ({ statusHistory }: HistoryProps) => {
 				<MSText fontSize="16px" fontWeight="700" color={colors.black}>
 					{text.history}
 				</MSText>
-				<Icon title="Refresh history">&#x21bb;</Icon>
 			</RowDiv>
 
 			{statusHistory?.map((entry, index) => (

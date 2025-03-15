@@ -39,10 +39,10 @@ const OrderInfo = (props: OrderInfoProps) => {
 
 			<ItemsContainer>
 				<ColumnDiv>
-					<MSText color={colors.black} fontSize="16px" fontWeight="600">
+					<MSText color={colors.black} fontSize="14px">
 						{text.description}
 					</MSText>
-					<MSText fontSize="16px" color={colors.black} fontWeight="400">
+					<MSText fontSize="14px" color={colors.black}>
 						{description}
 					</MSText>
 					<Divider style={{ margin: "10px 0" }} />

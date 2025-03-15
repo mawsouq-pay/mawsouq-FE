@@ -29,7 +29,7 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 	return (
 		<Formik
 			initialValues={loginInitialValues}
-			validationSchema={loginValidationSchema}
+			validationSchema={() => loginValidationSchema(locale)}
 			onSubmit={(values, { setSubmitting }) =>
 				handleLogin(values, setSubmitting)
 			}
@@ -91,7 +91,7 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 								}}
 							>
 								<p>
-									{text.alreadyHaveAnAccount}{" "}
+									{text.dontHaveAnAccount}{" "}
 									<TextLink
 										href={
 											orderId ? `/register?orderId=${orderId}` : "/register"

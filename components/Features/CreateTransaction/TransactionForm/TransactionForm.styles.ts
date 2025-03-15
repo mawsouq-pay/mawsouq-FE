@@ -12,7 +12,7 @@ export const FormContainer = styled.div`
 	flex-direction: column;
 
 	${media.below925`
-	padding: 30px 10px 50px 10px;
+	padding: 10px 10px 50px 10px;
  	`}
 `;
 

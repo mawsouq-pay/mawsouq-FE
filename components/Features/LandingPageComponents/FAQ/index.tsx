@@ -7,42 +7,31 @@ import { colors } from "@/constants/theme";
 import { faqData } from "./types";
 import MSText from "@/components/Shared/MSText";
 import ScribbledCircleText from "../ScribbledCircleText";
-import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
+import { MainDiv } from "./FAQ.styles";
 
 const FAQ = () => {
 	return (
-		<MSAnimatedDiv>
-			<div
-				style={{
-					maxWidth: "1000px",
-					margin: "auto",
-					padding: "20px",
-				}}
-			>
-				<div style={{ textAlign: "center" }}>
-					<ScribbledCircleText text="FAQS" />
-				</div>
-
-				<MSText
-					fontSize="1.5rem"
-					color={colors.gray}
-					style={{
-						textAlign: "center",
-						marginTop: "10px",
-						marginBottom: "60px",
-					}}
-				>
-					Find Answers to Common Questions About Our Process.
-				</MSText>
+		<div
+			id="faq"
+			style={{
+				backgroundColor: `${colors.backgroundColor}`,
+				paddingTop: "50px",
+				borderRadius: 40,
+			}}
+		>
+			<div style={{ textAlign: "center" }}>
+				<ScribbledCircleText text="FAQS" />
+			</div>
+			<MainDiv>
 				{faqData.map((item, index) => (
-					<Accordion key={index}>
+					<Accordion key={index} style={{}}>
 						<AccordionSummary
 							expandIcon={<ExpandMoreIcon />}
 							aria-controls={`panel${index}-content`}
 							id={`panel${index}-header`}
 						>
 							<MSText
-								fontSize="20px"
+								fontSize="16px"
 								fontWeight="600"
 								color={colors.black}
 								style={{ textAlign: "start" }}
@@ -51,14 +40,14 @@ const FAQ = () => {
 							</MSText>
 						</AccordionSummary>
 						<AccordionDetails>
-							<MSText fontSize="20px" color={colors.black}>
+							<MSText fontSize="16px" color={colors.black}>
 								{item.answer}
 							</MSText>
 						</AccordionDetails>
 					</Accordion>
 				))}
-			</div>
-		</MSAnimatedDiv>
+			</MainDiv>
+		</div>
 	);
 };
 

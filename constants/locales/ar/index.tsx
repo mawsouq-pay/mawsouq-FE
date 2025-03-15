@@ -147,11 +147,12 @@ const ar = {
 	fullName: "اسم المستخدم",
 	password: "كلمة المرور",
 	confirmPassword: "تأكيد كلمة المرور",
-	confirmPasswordPlaceHolder: "Confirm Your Password",
+	confirmPasswordPlaceHolder: "أكد كلمة المرور الخاصة بك",
 	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",
-	dontHaveAnAccount: "Don't have an account?",
+	dontHaveAnAccount: "ليس لديك حساب؟",
 
 	login: "تسجيل",
+	getStarted: "ابدأ الآن",
 	requiredConfirmPassword: "تأكيد كلمة المرور مطلوب",
 	matchPasswords: "كلمات السر غير متطابقة",
 	passwordLength: "كلمة المرور يجب أن تكون على الأقل 8 أحرف",
@@ -173,7 +174,7 @@ const ar = {
 	sellerDeliversOrder: "البائع يقوم بتسليم الطلب",
 	buyerReceives: "المشتري يستلم ويفحص الطلب",
 	paymentReleased: "تم الإفراج عن الدفعة للبائع",
-	loginToTrackOrder: "Login to track order",
+	loginToTrackOrder: "قم بتسجيل الدخول لتتبع الطلب",
 
 	//seller and buyer descriptions
 	sellerEmail: "البريد الإلكتروني للبائع",
@@ -184,7 +185,7 @@ const ar = {
 	buyerName: "اسم المشتري",
 
 	//error Messages
-	genericErrorMessage: "An unexpected error occurred. Please try again later.",
+	genericErrorMessage: "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.",
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
@@ -196,31 +197,17 @@ const ar = {
 	approveAndLinkOrder: "تابع بالموافقة على الطلب",
 
 	//contact form
-	contactUs: "Contact Us",
-	sendMessage: "Send Message",
-	messageSent: "Your message has been sent successfully!",
+	contactUs: "اتصل بنا",
+	sendMessage: "إرسال الرسالة",
+	messageSent: "تم إرسال رسالتك بنجاح!",
 
 	//fallbacks
 	pageNotFound: "Page Not Found",
-	pageNotFoundDescription:
-		"The page you're looking for doesn't exist or has been moved.",
-	goToHome: "Go To Home!",
+	pageNotFoundDescription: "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+	goToHome: "العودة إلى الصفحة الرئيسية!",
 
 	//Success Snackbar Notifications
-	successfullyLinkedToOrder: "You have been successfully linked to the order",
-	transactionReleased: "Payment successfully released to the seller",
-
-	//joining a transaction
-	joinTransaction: "الانضمام إلى المعاملة",
-	joinTransactionPrompt:
-		"يرجى لصق الرابط الذي تلقيته من الشخص للانضمام إلى المعاملة.",
-	joinLinkInvalidType: "هذا الرابط ليس رابط انضمام Mawsouq!",
-	shareLinkWithOtherParty:
-		"يرجى مشاركة هذا الرابط مع الطرف الآخر لينضم إلى الطلب.",
-	linkCopiedSuccessfully: "تم نسخ الرابط بنجاح",
-
-	//chooseRole
-	chooseRole: "Choose Your Role",
+	transactionReleased: "تم تحرير الدفعة بنجاح للبائع",
 
 	//Dropdown
 	chooseAnOptions: "اختر خيارًا",
@@ -325,7 +312,7 @@ const ar = {
 	QUALITY_ISSUE: "العنصر به مشكلة في الجودة.",
 	INCORRECT_ITEM: "لقد استلمت عنصرًا غير صحيح.",
 	DAMAGED_ITEM: "وصل العنصر تالفًا.",
-	NOT_RECEIVED: "The item did not arrive",
+	NOT_RECEIVED: "لم يصل المنتج",
 	OTHER: "مشكلة أخرى.",
 
 	//Order Status
