@@ -276,9 +276,9 @@ const en = {
 		"The buyer has not made the payment yet. Please share the payment link with them to proceed.",
 
 	ORDER_IN_PROGRESS_BUYER:
-		"Your order is being prepared by the seller. Please track its progress, and once delivered, release the payment from here.",
+		"Your order is being prepared. Track progress and release payment when delivered.",
 	ORDER_IN_PROGRESS_SELLER:
-		"The payment has been received. Please inform us once the order has been shipped for delivery.",
+		"Payment received. Notify us when the order is out for delivery.",
 
 	ORDER_IN_TRANSIT_BUYER:
 		"Your order is on its way. Please confirm delivery once you receive it.",
