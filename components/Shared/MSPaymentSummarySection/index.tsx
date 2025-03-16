@@ -28,14 +28,14 @@ const MSPaymentSummarySection = ({
 		{
 			title: text.price,
 			value: `EGP ${price}`,
-			fontSize: "16px",
+			fontSize: "14px",
 			fontWeight: "500",
 			color: colors.black,
 		},
 		{
 			title: text.escrowFee,
 			value: `EGP ${escrowFee}`,
-			fontSize: "16px",
+			fontSize: "14px",
 			fontWeight: "500",
 			color: colors.red,
 			description: text.escrowFeeDescription,
@@ -64,7 +64,6 @@ const MSPaymentSummarySection = ({
 								{item?.description && (
 									<MSText
 										fontSize={"12px"}
-										fontWeight={"500"}
 										color={colors.gray}
 										style={{ width: "200px", marginTop: 5 }}
 									>
@@ -93,12 +92,12 @@ const MSPaymentSummarySection = ({
 
 				<TotalWrapper>
 					<LabelValue>
-						<MSText fontSize="16px" fontWeight="700" color={colors.black}>
+						<MSText fontSize="16px" fontWeight="bold" color={colors.black}>
 							{text.totalDue}
 						</MSText>
 					</LabelValue>
 					<TextValue>
-						<MSText fontSize="16px" fontWeight="700" color={colors.black}>
+						<MSText fontSize="16px" fontWeight="bold" color={colors.black}>
 							EGP {totalDue}
 						</MSText>
 					</TextValue>

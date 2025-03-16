@@ -9,26 +9,20 @@ export const FormItemWrapper = styled.div`
 	margin-top: 20px;
 `;
 
-export const Label = styled.label`
-	font-size: 14px;
-	font-weight: 600;
-	color: ${colors.gray};
-`;
-
 export const StyledInput = styled.input`
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ddd;
 	border-radius: 6px;
 	font-size: 14px;
-	background-color: #f7f7f7;
+	background-color: ${colors.white};
 	outline: none;
 	transition: border 0.3s ease;
 
 	&:focus {
 		border-color: #31c48d;
 		background-color: white;
-		border-width: 2px;
+		border-width: 1px;
 	}
 `;
 export const StyledTextArea = styled.textarea`

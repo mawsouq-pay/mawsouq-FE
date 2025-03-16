@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
 	background-color: ${colors.backgroundColor};
 	padding: 20px;
 	min-height: 100vh;
-	position: relative;
+	/* position: relative; */
 `;
 
 const LanguageToggle = styled.button`
@@ -44,7 +44,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 				<GlobeIcon size={22} />
 				<MSText>{localeToShow.toUpperCase()}</MSText>
 			</LanguageToggle>
-			{children}
+			<div style={{ marginTop: 15 }}>{children}</div>
 		</StyledWrapper>
 	);
 };

@@ -40,7 +40,7 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 						<MSLogo />
 					</Logo>
 					<FormWrapper>
-						<MSText
+						{/* <MSText
 							fontSize="14px"
 							color="#75859E"
 							style={{
@@ -49,7 +49,7 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 							}}
 						>
 							{text.securePaymentsWithMawsouq}
-						</MSText>
+						</MSText> */}
 
 						<Form style={{ gap: 20 }}>
 							<FormItem

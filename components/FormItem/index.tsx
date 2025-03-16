@@ -2,13 +2,13 @@ import React from "react";
 import { ErrorMessage, Field, useFormikContext } from "formik";
 import {
 	FormItemWrapper,
-	Label,
 	StyledInput,
 	StyledTextArea,
 	IconContainer,
 	ErrorText,
 } from "./FormItem.styles";
 import MSText from "../Shared/MSText";
+import { useLocaleStore } from "@/store";
 
 interface FormItemProps {
 	label: string;
@@ -33,8 +33,9 @@ const FormItem: React.FC<FormItemProps> = ({
 	icon,
 	iconPosition = "right",
 }) => {
+	const { locale } = useLocaleStore();
 	const Component = as === "textarea" ? StyledTextArea : StyledInput;
-	const { setFieldValue } = useFormikContext(); // Get Formik context
+	const { setFieldValue } = useFormikContext();
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,7 +58,8 @@ const FormItem: React.FC<FormItemProps> = ({
 					name={name}
 					placeholder={placeholder}
 					style={style}
-					onChange={handleChange} // Handle change internally
+					onChange={handleChange}
+					{...(type === "tel" && locale == "ar" ? { dir: "rtl" } : {})}
 				/>
 				{icon && <IconContainer position={iconPosition}>{icon}</IconContainer>}
 			</div>

@@ -9,6 +9,7 @@ export interface MSTextProps {
 	skeletonHeight?: string;
 	color?: string;
 	fontSize?: string;
-	fontWeight?: string;
+	fontWeight?: "500" | "600" | "bold" | string;
 	mobileFontSize?: string;
+	fontStyle?: string;
 }

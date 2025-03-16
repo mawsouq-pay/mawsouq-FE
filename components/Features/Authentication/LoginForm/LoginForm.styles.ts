@@ -6,8 +6,8 @@ export const MainWrapper = styled.div`
 	background: white;
 	flex-direction: column;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-	min-width: 40%;
-	max-width: 700px;
+	width: 100%;
+	max-width: 500px;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -48,5 +48,5 @@ export const Logo = styled.div`
 	background-color: ${colors.green};
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	padding: 5px;
+	padding: 0px;
 `;

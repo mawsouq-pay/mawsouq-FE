@@ -30,7 +30,7 @@ const OrdersOverviewSection = (props: OrdersOverViewSectionProps) => {
 			</MSText>
 			{latestOrders?.length === 0 ? (
 				<EmptyStateWrapper>
-					<MSText fontSize={"18px"} color={"#757575"} fontWeight="500">
+					<MSText fontSize={"18px"} color={"#757575"} fontWeight="600">
 						{text.noTransactionsFound}
 					</MSText>
 					<MSButton

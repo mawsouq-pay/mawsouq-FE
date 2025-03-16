@@ -37,7 +37,7 @@ const OrderAction = (props: OrderActionProps) => {
 				<MSText
 					fontSize="18px"
 					mobileFontSize="16px"
-					fontWeight="700"
+					fontWeight="600"
 					color={colors.darkGray}
 					style={{ alignSelf: "flex-start" }}
 				>
@@ -49,7 +49,7 @@ const OrderAction = (props: OrderActionProps) => {
 						fontSize="18px"
 						mobileFontSize="16px"
 						color={colors.black}
-						fontWeight="500"
+						fontWeight="600"
 					>
 						{text[message]}
 					</MSText>
@@ -62,7 +62,7 @@ const OrderAction = (props: OrderActionProps) => {
 						(action: OrderActionT & { handler: () => void }, index) => (
 							<MSButton
 								key={index}
-								title={action.label}
+								title={text[action.label]}
 								onClick={() => handleOpenConfirmationModal(action)}
 								loading={loadingAndDisable}
 								style={{

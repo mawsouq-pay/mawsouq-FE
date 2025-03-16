@@ -7,7 +7,7 @@ export const HeroContainer = styled.section`
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
-	min-height: 85vh;
+	min-height: 95vh;
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 

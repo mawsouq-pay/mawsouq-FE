@@ -43,17 +43,6 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 					</Logo>
 
 					<FormWrapper>
-						<MSText
-							fontSize="14px"
-							color="#75859E"
-							style={{
-								paddingBottom: "12px",
-								textAlign: "center",
-							}}
-						>
-							{text.securePaymentsWithMawsouq}
-						</MSText>
-
 						<Form style={{ gap: 20 }}>
 							<FormItem
 								label={text.fullName}

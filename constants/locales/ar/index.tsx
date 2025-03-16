@@ -324,6 +324,13 @@ const ar = {
 	COMPLETED: "تم إكمال الطلب",
 	DISPUTED: "تم إرسال شكوى الطلب",
 	CANCELLED: "تم إلغاء الطلب",
+
+	//Order Action labels
+	MAKE_PAYMENT: "قم بالدفع",
+	CONFIRM_RELEASE: "تأكيد الإصدار",
+	SEND_COMPLAINT: "إرسال شكوى",
+	MARK_AS_OUT_FOR_DELIVERY: "وضع قيد التوصيل",
+	SUBMIT_COMPLAINT: "تقديم شكوى",
 };
 
 export default ar;

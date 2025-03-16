@@ -333,6 +333,13 @@ const en = {
 	COMPLETED: "Order Completed",
 	DISPUTED: "Order Complaint sent",
 	CANCELLED: "Order Cancelled",
+
+	//Order Action labes
+	MAKE_PAYMENT: "Make Payment",
+	CONFIRM_RELEASE: "Confirm Release",
+	SEND_COMPLAINT: "Send Complaint",
+	MARK_AS_OUT_FOR_DELIVERY: "Mark as Out for Delivery",
+	SUBMIT_COMPLAINT: "Submit Complaint",
 };
 
 export default en;

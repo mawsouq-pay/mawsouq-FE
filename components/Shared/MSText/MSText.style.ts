@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import { colors } from "@/constants/theme";
 
 export const Text = styled.p<{
-	fontWeight?: string;
 	fontSize?: string;
-	color?: string;
+	fontWeight?: string;
+	fontStyle?: string;
 }>`
-	color: ${({ color }) => color || "#222"};
-	font-weight: ${({ fontWeight }) => fontWeight || "normal"};
+	font-family: "Inter", sans-serif;
 	font-size: ${({ fontSize }) => fontSize || "16px"};
+	font-weight: ${({ fontWeight }) => fontWeight || "400"};
+	font-style: ${({ fontStyle }) => fontStyle || "normal"};
+	color: ${({ color }) => color || "inherit"};
 	margin: 0;
-	font-family: roboto;
-	//text-align: right;
 `;

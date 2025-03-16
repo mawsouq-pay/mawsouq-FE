@@ -41,7 +41,7 @@ const OrderBody = (props: OrderBodyProps) => {
 			<MSText
 				fontSize="20px"
 				mobileFontSize="18px"
-				fontWeight="700"
+				fontWeight="bold"
 				color={colors.black}
 			>
 				{text.orderDetails}
@@ -82,12 +82,12 @@ const OrderBody = (props: OrderBodyProps) => {
 					<MSText
 						fontSize="20px"
 						mobileFontSize="18px"
-						fontWeight="700"
+						fontWeight="600"
 						color={colors.black}
 						style={{
 							marginBottom: 10,
 							borderBottom: `3px solid ${colors.green}`,
-							width: "120px",
+							width: "135px",
 						}}
 					>
 						{text.orderDetails}

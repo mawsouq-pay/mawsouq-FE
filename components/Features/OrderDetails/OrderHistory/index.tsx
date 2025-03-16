@@ -20,7 +20,7 @@ const OrderHistory = ({ statusHistory }: HistoryProps) => {
 	return (
 		<HistoryContainer>
 			<RowDiv>
-				<MSText fontSize="16px" fontWeight="700" color={colors.black}>
+				<MSText fontSize="16px" fontWeight="bold" color={colors.black}>
 					{text.history}
 				</MSText>
 			</RowDiv>

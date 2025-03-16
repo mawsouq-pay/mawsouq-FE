@@ -15,6 +15,7 @@ const MSText: React.FC<MSTextProps> = ({
 	skeletonHeight,
 	skeletonWidth,
 	mobileFontSize,
+	fontStyle,
 	...props
 }) => {
 	const { isMobile } = useCustomBreakpoint();
@@ -38,6 +39,7 @@ const MSText: React.FC<MSTextProps> = ({
 						fontSize={adjustedFontSize}
 						color={color}
 						fontWeight={fontWeight}
+						fontStyle={fontStyle}
 					>
 						{children}
 					</Text>

@@ -74,7 +74,7 @@ const ContactForm = () => {
 		>
 			{success && <Alert severity="success">{success}</Alert>}
 			{error && <Alert severity="error">{error}</Alert>}
-			<MSText fontSize="24px" fontWeight="500">
+			<MSText fontSize="24px" fontWeight="600">
 				{text.contactUs}
 			</MSText>
 

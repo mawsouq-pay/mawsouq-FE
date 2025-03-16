@@ -17,7 +17,7 @@ const CTA = () => {
 			<MSText fontSize="40px" color="#222" fontWeight="bold">
 				Ready to simplify your_____deals?{" "}
 			</MSText>
-			<MSText fontSize="1rem" color="#222" fontWeight="500">
+			<MSText fontSize="1rem" color="#222" fontWeight="600">
 				Designed for both sellers and buyers. Start now and build trust with
 				every transaction.
 			</MSText>

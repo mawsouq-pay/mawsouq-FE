@@ -6,13 +6,14 @@ export const MainWrapper = styled.div`
 	background: white;
 	flex-direction: column;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-	min-width: 40%;
-	max-width: 700px;
+	width: 100%;
+	max-width: 600px;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+	margin-top: 15px;
 `;
 export const FormWrapper = styled.div`
 	padding: 5px 30px 30px 30px;

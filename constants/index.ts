@@ -95,11 +95,19 @@ export enum OrderActionCTAType {
 	DANGER = "danger",
 }
 export type OrderActionT = {
-	label: string;
+	label: OrderActionLabelsEnum;
 	key: string;
 	type?: OrderActionCTAType;
 	status: OrderStatusEnum;
 };
+
+export enum OrderActionLabelsEnum {
+	MAKE_PAYMENT = "MAKE_PAYMENT",
+	CONFIRM_RELEASE = "CONFIRM_RELEASE",
+	SEND_COMPLAINT = "SEND_COMPLAINT",
+	MARK_AS_OUT_FOR_DELIVERY = "MARK_AS_OUT_FOR_DELIVERY",
+	SUBMIT_COMPLAINT = "SUBMIT_COMPLAINT",
+}
 
 export const orderProgressBarData: Record<
 	OrderStatusEnum,
@@ -117,7 +125,7 @@ export const orderProgressBarData: Record<
 		messageForSeller: OrderProgressMessages.ORDER_PENDING_PAYMENT_SELLER,
 		buyerActions: [
 			{
-				label: "Make Payment",
+				label: OrderActionLabelsEnum.MAKE_PAYMENT,
 				key: "createPaymentLink",
 				status: OrderStatusEnum.PENDING_PAYMENT,
 			},
@@ -131,12 +139,12 @@ export const orderProgressBarData: Record<
 		messageForSeller: OrderProgressMessages.ORDER_IN_PROGRESS_SELLER,
 		buyerActions: [
 			{
-				label: "Confirm Release",
+				label: OrderActionLabelsEnum.CONFIRM_RELEASE,
 				key: "releasePayment",
 				status: OrderStatusEnum.COMPLETED,
 			},
 			{
-				label: "Send Complaint",
+				label: OrderActionLabelsEnum.SEND_COMPLAINT,
 				key: "openDispute",
 				type: OrderActionCTAType.DANGER,
 				status: OrderStatusEnum.DISPUTED,
@@ -144,7 +152,7 @@ export const orderProgressBarData: Record<
 		],
 		sellerActions: [
 			{
-				label: "Mark as Out for Delivery",
+				label: OrderActionLabelsEnum.MARK_AS_OUT_FOR_DELIVERY,
 				key: "updateOrderToInTransit",
 				status: OrderStatusEnum.IN_TRANSIT,
 			},
@@ -157,12 +165,12 @@ export const orderProgressBarData: Record<
 		messageForSeller: OrderProgressMessages.ORDER_IN_TRANSIT_SELLER,
 		buyerActions: [
 			{
-				label: "Confirm Release",
+				label: OrderActionLabelsEnum.CONFIRM_RELEASE,
 				key: "releasePayment",
 				status: OrderStatusEnum.COMPLETED,
 			},
 			{
-				label: "Send Complaint",
+				label: OrderActionLabelsEnum.SEND_COMPLAINT,
 				key: "openDispute",
 				type: OrderActionCTAType.DANGER,
 				status: OrderStatusEnum.DISPUTED,
@@ -170,7 +178,7 @@ export const orderProgressBarData: Record<
 		],
 		sellerActions: [
 			{
-				label: "Submit Complaint",
+				label: OrderActionLabelsEnum.SUBMIT_COMPLAINT,
 				key: "openDispute",
 				type: OrderActionCTAType.DANGER,
 				status: OrderStatusEnum.DISPUTED,

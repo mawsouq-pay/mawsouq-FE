@@ -12,7 +12,7 @@
 		local("proximaNova"),
 		url(../../../assets/fonts/proximaNova/ProximaNova_Semi_Bold.ttf)
 			format("truetype");
-	font-weight: 500 600;
+	font-weight: 600;
 }
 
 @font-face {

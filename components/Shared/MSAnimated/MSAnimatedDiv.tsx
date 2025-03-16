@@ -26,7 +26,7 @@ const MSAnimatedDiv: React.FC<AnimatedDivProps> = ({ children }) => {
 		<motion.div
 			initial="offscreen"
 			whileInView="onscreen"
-			viewport={{ once: true, amount: 0.5 }}
+			viewport={{ once: true, amount: 0.25 }}
 			variants={fadeInVariants}
 		>
 			{children}

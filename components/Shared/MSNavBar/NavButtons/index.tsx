@@ -24,8 +24,9 @@ const NavButtons = () => {
 					<MSButton
 						title={text.getStarted}
 						style={{
-							backgroundColor: "black",
+							backgroundColor: "#0D3B66",
 							padding: "5px 12px",
+							borderRadius: 8,
 						}}
 						fontColor="white"
 						onClick={() => router.push(clientRoutes.register)}
@@ -58,7 +59,7 @@ const NavButtons = () => {
 				title={locale === "en" ? "العربية 🌍" : "En 🌍"}
 				onClick={toggleLanguage}
 				style={{
-					backgroundColor: "#ddf8ed",
+					background: "none",
 					padding: "5px 12px",
 					marginInlineStart: 30,
 					marginInlineEnd: "-50px",
