@@ -5,18 +5,21 @@ import {
 	HeroTitle,
 	HeroSubtitle,
 	HeroButton,
-	HeroImage,
+	FrameDive,
 } from "./HeroBanner.styles";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { heroBannerText } from "./types";
 import { useAuthStore } from "@/store";
 import router from "next/router";
 import { clientRoutes } from "@/routes";
+import Image from "next/image";
+import ReleaseFrame from "@/assets/images/ENFrame.png";
 
 const HeroBanner = () => {
 	const { locale } = useLocaleStore();
 	const text = heroBannerText[locale];
 	const { isLoggedIn } = useAuthStore();
+
 	return (
 		<HeroContainer>
 			<HeroContent>
@@ -24,17 +27,17 @@ const HeroBanner = () => {
 				<HeroSubtitle>{text.subtitle}</HeroSubtitle>
 				<HeroButton
 					onClick={() => {
-						if (isLoggedIn) {
-							router.push(clientRoutes.startTransaction);
-						} else {
-							router.push(clientRoutes.register);
-						}
+						router.push(
+							isLoggedIn ? clientRoutes.startTransaction : clientRoutes.register
+						);
 					}}
 				>
 					{text.buttonText}
 				</HeroButton>
 			</HeroContent>
-			<HeroImage></HeroImage>
+			<FrameDive>
+				<Image src={ReleaseFrame} alt="Release" height={500} width={350} />
+			</FrameDive>
 		</HeroContainer>
 	);
 };

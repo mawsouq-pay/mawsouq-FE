@@ -18,8 +18,6 @@ import {
 	NavItem,
 	LogoItem,
 } from "./MSSideNavbar.styles";
-import MawsouqLogo from "@/assets/images/Logo.png";
-import Image from "next/image";
 import { clientRoutes } from "@/routes";
 import router from "next/router";
 import { localeEnum } from "@/store/LocaleStore";
