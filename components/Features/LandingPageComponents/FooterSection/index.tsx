@@ -54,6 +54,8 @@ const FooterLinks = styled.div`
 	display: flex;
 	gap: 15px;
 	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 
 	a {
 		color: ${colors.white};

@@ -26,7 +26,7 @@ export const MainWrapper = styled.div`
 `;
 
 export const ContentDiv = styled.div`
-	background: white;
+	background: ${colors.backgroundColor};
 	border-radius: 12px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 	/* border: 1px solid #01796f; */

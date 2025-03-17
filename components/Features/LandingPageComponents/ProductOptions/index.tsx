@@ -99,14 +99,37 @@ const ProductOptions = () => {
 	const options = locale == "ar" ? productOptionsAR : productOptions;
 	const text = textTr(locale);
 	const { isLoggedIn } = useAuthStore();
+	const isArabic = locale == "ar";
 
 	return (
 		<Wrapper>
-			<MSText fontWeight="600" fontSize="26px" color={colors.darkGreen}>
-				<DoodleIcon />
-				{text.mawsouqForAllKindsOfOrders}
-				<DoodleIconOp />
-			</MSText>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "row",
+					marginTop: 20,
+					alignItems: "center",
+					gap: 18,
+				}}
+			>
+				<DoodleIcon
+					style={{ transform: isArabic ? "rotate(90deg)" : "none" }}
+				/>
+				<MSText
+					fontWeight="600"
+					fontSize="26px"
+					mobileFontSize="14px"
+					color={colors.darkGreen}
+				>
+					{text.mawsouqForAllKindsOfOrders}
+				</MSText>
+				<DoodleIconOp
+					style={{
+						transform: isArabic ? "rotate(180deg)" : "none",
+					}}
+				/>
+			</div>
+
 			<MSButton
 				onClick={() => {
 					if (isLoggedIn) {

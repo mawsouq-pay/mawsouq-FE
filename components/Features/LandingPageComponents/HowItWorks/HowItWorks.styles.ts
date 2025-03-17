@@ -8,9 +8,8 @@ export const FeaturesContainer = styled.div`
 	/* align-items: center; */
 	width: 100%;
 	padding: 4rem 2rem 7rem 2rem;
-	/* background-color: #ecf9ee;
-	border-radius: 40px; */
-	background-color: ${colors.backgroundColor};
+	background-color: #ecf9ee;
+	border-radius: 40px;
 	gap: 24px;
 
 	${media.below925`

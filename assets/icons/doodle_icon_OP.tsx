@@ -1,6 +1,6 @@
 import * as React from "react";
 const SVGComponent = (props: React.SVGProps<SVGSVGElement>) => (
-	<svg width={68} height={74} viewBox="0 0 68 74" fill="none" {...props}>
+	<svg width={30} height={30} viewBox="0 0 68 74" fill="none" {...props}>
 		<path
 			fillRule="evenodd"
 			clipRule="evenodd"

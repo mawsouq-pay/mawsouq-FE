@@ -8,8 +8,8 @@ export const HeroContainer = styled.section`
 	/* align-items: center; */
 	min-height: 90vh;
 	padding: 40px 5%;
-	/* border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px; */
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 	background-color: ${colors.backgroundColor};
 
 	@media (max-width: 1024px) {

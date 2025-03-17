@@ -26,7 +26,7 @@ const FAQ = () => {
 			style={{
 				backgroundColor: `${colors.backgroundColor}`,
 				paddingTop: "50px",
-				borderRadius: 20,
+				borderRadius: 40,
 				paddingBottom: "50px",
 			}}
 		>

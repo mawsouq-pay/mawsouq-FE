@@ -86,8 +86,9 @@ const HowItWorks = () => {
 		<div
 			id="howItWorks"
 			style={{
-				backgroundColor: `${colors.backgroundColor}`,
+				backgroundColor: "#ecf9ee",
 				paddingTop: "70px",
+				borderRadius: 40,
 			}}
 		>
 			<div
@@ -97,10 +98,10 @@ const HowItWorks = () => {
 				}}
 			>
 				<MSText
-					fontWeight="600"
+					fontWeight="bold"
 					fontSize="2rem"
 					mobileFontSize="22px"
-					color={"#01796f"}
+					color={colors.green}
 					style={{ textAlign: "center" }}
 				>
 					{text.howMawsouqActs}
