@@ -1,7 +1,6 @@
 import React from "react";
 import { MainButton, MainWrapper } from "./CTA.styles";
 import MSText from "@/components/Shared/MSText";
-import ContactForm from "../ContactForm";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useAuthStore } from "@/store";
