@@ -9,7 +9,7 @@ import { colors } from "@/constants/theme";
 import MSText from "@/components/Shared/MSText";
 const FORM_PUBLIC_KEY = process.env.NEXT_PUBLIC_FORM_PUBLIC_KEY;
 
-const ContactForm = () => {
+const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
 	const { locale } = useLocaleStore();
 	const { showErrorNotification } = useNotification();
 	const text = textTr(locale);
@@ -128,8 +128,13 @@ const ContactForm = () => {
 				title={text.sendMessage}
 				type="submit"
 				loading={loading}
-				fontColor={colors.green}
-				style={{ marginTop: "10px", backgroundColor: "white" }}
+				style={{ marginTop: "10px" }}
+			/>
+			<MSButton
+				title={text.cancel}
+				style={{ backgroundColor: "white" }}
+				fontColor="black"
+				onClick={onCancel}
 			/>
 		</form>
 	);

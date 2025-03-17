@@ -9,7 +9,12 @@ const en = {
 	for: "For",
 	moneyStaysSecure: "Your money stays secure until the deal is complete.",
 	getStartedNow: "Get Started Now!",
-
+	howMawsouqActs: "How Mawsouq acts as a trusted middle-man",
+	mawsouqForAllKindsOfOrders:
+		"Order Anything with Confidence—Mawsouq Protects Your Payments",
+	simplifyYourDeals: "Ready to simplify your_____deals?",
+	designedForBoth:
+		"Designed for both sellers and buyers. Start now and build trust with every transaction.",
 	//Navbar
 	howItWorks: "How it works",
 	msBenefits: "Benefits",
@@ -199,7 +204,8 @@ const en = {
 
 	//contact form
 	contactUs: "Contact Us",
-	sendMessage: "Send Message",
+	haveAQuestion: "Have a question?",
+	sendMessage: "Send us a message",
 	messageSent: "Your message has been sent successfully!",
 	messageNotSent: "Failed to send message. Please try again.",
 

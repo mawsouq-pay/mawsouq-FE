@@ -16,6 +16,16 @@ import Nb1Icon from "./step1";
 import Nb2Icon from "./step2";
 import ArrowDown from "./arrow_down";
 import MSLogo from "./mslogo";
+import FormIcon from "./form_icon";
+import HoldIcon from "./hold_icon";
+import DeliverIcon from "./deliver_icon";
+import ApproveIcon from "./approve_icon";
+import ReleaseIcon from "./release_icon";
+import ArrowDownScribbledIcon from "./arrow_down_scribbled_icon";
+import PaintingIcon from "./paint_icon";
+import CateringIcon from "./catering_icon";
+import DoodleIcon from "./doodle_icon";
+import DoodleIconOp from "./doodle_icon_OP";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -35,4 +45,14 @@ export {
 	Nb2Icon,
 	ArrowDown,
 	MSLogo,
+	FormIcon,
+	HoldIcon,
+	DeliverIcon,
+	ApproveIcon,
+	ReleaseIcon,
+	ArrowDownScribbledIcon,
+	PaintingIcon,
+	CateringIcon,
+	DoodleIcon,
+	DoodleIconOp,
 };

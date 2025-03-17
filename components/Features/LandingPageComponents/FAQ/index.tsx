@@ -1,52 +1,80 @@
-import React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
+import React, { useState } from "react";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { colors } from "@/constants/theme";
-import { faqData } from "./types";
+import { faqData, faqDataAr } from "./types";
 import MSText from "@/components/Shared/MSText";
 import ScribbledCircleText from "../ScribbledCircleText";
-import { MainDiv } from "./FAQ.styles";
+import {
+	MainDiv,
+	StyledAccordion,
+	StyledSummary,
+	StyledExpandIcon,
+} from "./FAQ.styles";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
+import ContactForm from "../ContactForm";
+import MSModal from "@/components/Shared/MSModal";
 
 const FAQ = () => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
+	const finalData = locale === "ar" ? faqDataAr : faqData;
+	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	return (
 		<div
 			id="faq"
 			style={{
 				backgroundColor: `${colors.backgroundColor}`,
 				paddingTop: "50px",
-				borderRadius: 40,
+				borderRadius: 20,
+				paddingBottom: "50px",
 			}}
 		>
-			<div style={{ textAlign: "center" }}>
-				<ScribbledCircleText text="FAQS" />
+			<div style={{ textAlign: "center", marginBottom: "20px" }}>
+				<ScribbledCircleText text="FAQs" />
 			</div>
 			<MainDiv>
-				{faqData.map((item, index) => (
-					<Accordion key={index} style={{}}>
-						<AccordionSummary
-							expandIcon={<ExpandMoreIcon />}
+				{finalData.map((item, index) => (
+					<StyledAccordion key={index}>
+						<StyledSummary
+							expandIcon={<StyledExpandIcon />}
 							aria-controls={`panel${index}-content`}
 							id={`panel${index}-header`}
 						>
-							<MSText
-								fontSize="16px"
-								fontWeight="600"
-								color={colors.black}
-								style={{ textAlign: "start" }}
-							>
+							<MSText fontSize="18px" fontWeight="600" color={colors.black}>
 								{item.question}
 							</MSText>
-						</AccordionSummary>
+						</StyledSummary>
 						<AccordionDetails>
 							<MSText fontSize="16px" color={colors.black}>
 								{item.answer}
 							</MSText>
 						</AccordionDetails>
-					</Accordion>
+					</StyledAccordion>
 				))}
+				<div
+					onClick={() => {
+						setIsContactModalOpen(true);
+					}}
+					style={{ cursor: "pointer" }}
+				>
+					<MSText fontSize="18px" style={{ marginTop: 25 }} fontWeight="bold">
+						{text.haveAQuestion}
+						<MSText
+							style={{ textDecoration: "underline", color: colors.darkGreen }}
+						>
+							{text.sendMessage}
+						</MSText>
+					</MSText>
+				</div>
 			</MainDiv>
+			<MSModal
+				open={isContactModalOpen}
+				onClose={() => setIsContactModalOpen(false)}
+				showActions={false}
+			>
+				<ContactForm onCancel={() => setIsContactModalOpen(false)} />
+			</MSModal>
 		</div>
 	);
 };

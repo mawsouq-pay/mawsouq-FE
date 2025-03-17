@@ -9,6 +9,7 @@ import LandingPageLayout from "@/layouts/LandingPageLayout";
 import styled from "styled-components";
 import CTA from "@/components/Features/LandingPageComponents/CTA";
 import FAQ from "@/components/Features/LandingPageComponents/FAQ";
+import ProductOptions from "@/components/Features/LandingPageComponents/ProductOptions";
 
 const LandingPage = () => {
 	return (
@@ -31,7 +32,9 @@ const LandingPage = () => {
 				<MSAnimatedDiv>
 					<MawsouqBenefits />
 				</MSAnimatedDiv>
-
+				<MSAnimatedDiv>
+					<ProductOptions />
+				</MSAnimatedDiv>
 				<MSAnimatedDiv>
 					<FooterSection />
 				</MSAnimatedDiv>

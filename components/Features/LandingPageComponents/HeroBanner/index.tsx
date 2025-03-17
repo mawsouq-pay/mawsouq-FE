@@ -36,7 +36,7 @@ const HeroBanner = () => {
 				</HeroButton>
 			</HeroContent>
 			<FrameDive>
-				<Image src={ReleaseFrame} alt="Release" height={500} width={350} />
+				<Image src={ReleaseFrame} alt="Release" height={500} width={300} />
 			</FrameDive>
 		</HeroContainer>
 	);

@@ -3,78 +3,91 @@ import {
 	FeaturesContainer,
 	FeatureItem,
 	FeatureIcon,
-	FeatureTitle,
 	FeatureDescription,
-	Divider,
 } from "./HowItWorks.styles";
-import { CreditCard, Lock, PackageCheck, ExternalLink } from "lucide-react";
-import MSText from "@/components/Shared/MSText";
+import {
+	CreditCard,
+	Lock,
+	PackageCheck,
+	ExternalLink,
+	ClipboardList,
+} from "lucide-react";
 import { useLocaleStore } from "@/store";
 import ScribbledCircleText from "../ScribbledCircleText";
-import { Nb1Icon } from "@/assets/icons";
+import Image from "next/image";
+import ArrowScribble from "@/assets/images/ArrowScribbled.png";
+import {
+	ApproveIcon,
+	ArrowDownScribbledIcon,
+	DeliverIcon,
+	FormIcon,
+	HoldIcon,
+	ReleaseIcon,
+} from "@/assets/icons";
+import { textTr } from "@/constants/locales";
+import MSText from "@/components/Shared/MSText";
+import { colors } from "@/constants/theme";
+import { useMediaQuery } from "@mui/material";
 
-export const securityFeatures = {
+export const howItWorksFeatures = {
 	en: [
 		{
-			icon: <CreditCard size={25} color="#01796f" />,
-			title: "Pay",
-			description:
-				"Make secure payments through Mawsouq, ensuring your money is protected.",
+			icon: <FormIcon color="#01796f" />,
+			description: "The seller adds the details of the product or service.",
 		},
 		{
-			icon: <Lock color="#01796f" />,
-			title: "Hold",
-			description:
-				"Your payment is held securely until the seller delivers as agreed.",
+			icon: <HoldIcon color="#01796f" />,
+			description: "The buyer pays using Mawsouq, and is held safely.",
 		},
 		{
-			icon: <PackageCheck size={25} color="#01796f" />,
-			title: "Confirm",
-			description:
-				"Once you receive the order as expected, confirm the delivery.",
+			icon: <DeliverIcon color="#01796f" />,
+			description: "The seller delivers the product or service.",
 		},
 		{
-			icon: <ExternalLink size={25} color="#01796f" />,
-			title: "Release",
-			description:
-				"After confirmation, the payment is safely released to the seller.",
+			icon: <ApproveIcon color="#01796f" />,
+			description: "The buyer confirms receiving product as described.",
+		},
+		{
+			icon: <ReleaseIcon color="#01796f" />,
+			description: "Mawsouq releases the money to the seller safely.",
 		},
 	],
 	ar: [
 		{
-			icon: <CreditCard size={25} color="#01796f" />,
-			title: "ادفع",
-			description: "قم بالدفع بأمان عبر Mawsouq لضمان حماية أموالك.",
+			icon: <ClipboardList size={40} color="#01796f" />,
+			description: "يقوم البائع بإضافة المنتج.",
 		},
 		{
-			icon: <Lock size={25} color="#01796f" />,
-			title: "احتجز",
-			description:
-				"يتم الاحتفاظ بالدفع بأمان حتى يقوم البائع بالتسليم كما هو متفق عليه.",
+			icon: <CreditCard size={40} color="#01796f" />,
+			description: "يدفع المشتري باستخدام Mawsouq.",
 		},
 		{
-			icon: <PackageCheck size={25} color="#01796f" />,
-			title: "أكد",
-			description: "بمجرد استلام الطلب كما هو متوقع، قم بتأكيد التسليم.",
+			icon: <Lock size={40} color="#01796f" />,
+			description: "البائع يسلم المنتج أو الخدمة	",
 		},
 		{
-			icon: <ExternalLink size={25} color="#01796f" />,
-			title: "حرر",
-			description: "بعد التأكيد، يتم إصدار الدفعة بأمان إلى البائع.",
+			icon: <PackageCheck size={40} color="#01796f" />,
+			description: "الـمشتري يوافق على الاستلام",
+		},
+		{
+			icon: <ExternalLink size={40} color="#01796f" />,
+			description: "Mawsouq يحوّل الفلوس للبائع",
 		},
 	],
 };
 
 const HowItWorks = () => {
 	const { locale } = useLocaleStore();
-	const selectedFeatures = securityFeatures[locale];
+	const text = textTr(locale);
+	const selectedFeatures = howItWorksFeatures[locale];
+	const isMobile = useMediaQuery("(max-width: 925px)");
+
 	return (
 		<div
 			id="howItWorks"
 			style={{
-				backgroundColor: "#ecf9ee",
-				paddingTop: "80px",
-				borderRadius: 40,
+				backgroundColor: `${colors.backgroundColor}`,
+				paddingTop: "70px",
 			}}
 		>
 			<div
@@ -83,28 +96,43 @@ const HowItWorks = () => {
 					justifyContent: "center",
 				}}
 			>
-				<ScribbledCircleText text="A transaction in 4 steps" />
+				<MSText
+					fontWeight="600"
+					fontSize="2rem"
+					mobileFontSize="22px"
+					color={"#01796f"}
+					style={{ textAlign: "center" }}
+				>
+					{text.howMawsouqActs}
+				</MSText>
 			</div>
-			<FeaturesContainer>
-				{selectedFeatures.map((feature, index) => (
-					<FeatureItem key={index}>
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "row",
-								gap: 10,
-								alignItems: "center",
-							}}
-						>
-							<FeatureIcon>{feature.icon}</FeatureIcon>
-							<FeatureTitle>{feature.title}</FeatureTitle>
-						</div>
-						<Divider />
-
-						<FeatureDescription>{feature.description}</FeatureDescription>
-					</FeatureItem>
-				))}
-			</FeaturesContainer>
+			<div style={{ marginTop: 15 }}>
+				<FeaturesContainer>
+					{selectedFeatures.map((feature, index) => (
+						<React.Fragment key={index}>
+							<FeatureItem>
+								<FeatureIcon>{feature.icon}</FeatureIcon>
+								<FeatureDescription>{feature.description}</FeatureDescription>
+							</FeatureItem>
+							{index < selectedFeatures.length - 1 &&
+								(!isMobile ? (
+									<Image
+										src={ArrowScribble}
+										alt="Release"
+										height={20}
+										width={100}
+										style={{
+											marginTop: 10,
+											transform: locale === "ar" ? "rotate(180deg)" : "none",
+										}}
+									/>
+								) : (
+									<ArrowDownScribbledIcon />
+								))}
+						</React.Fragment>
+					))}
+				</FeaturesContainer>
+			</div>
 		</div>
 	);
 };
