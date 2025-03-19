@@ -44,7 +44,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 				<GlobeIcon size={22} />
 				<MSText>{localeToShow.toUpperCase()}</MSText>
 			</LanguageToggle>
-			<div style={{ marginTop: 15 }}>{children}</div>
+			<div style={{ marginTop: 35 }}>{children}</div>
 		</StyledWrapper>
 	);
 };

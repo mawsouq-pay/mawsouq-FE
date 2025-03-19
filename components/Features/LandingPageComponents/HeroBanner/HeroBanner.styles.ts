@@ -1,33 +1,46 @@
 import { colors } from "@/constants/theme";
-import { styled } from "styled-components";
+import { media } from "@/helpers/mediaQueryHelper";
+import { styled, keyframes } from "styled-components";
 
 export const HeroContainer = styled.section`
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	flex-direction: column;
+	/* justify-content: space-between; */
 	/* align-items: center; */
-	min-height: 90vh;
-	padding: 40px 5%;
+	height: 90vh;
+	max-height: 600px;
+	padding: 80px 4% 40px 4%;
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	background-color: ${colors.backgroundColor};
+	${media.below925`
+	padding: 35px 4% 40px 4%;
 
-	@media (max-width: 1024px) {
-		flex-direction: column;
+	height: 900px;
+	max-height: 3800px;
+	`}
+`;
+export const FlexRow = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	${media.below925`
+	flex-direction: column;
 		text-align: center;
 		min-height: auto;
-		padding: 60px 20px;
-	}
+		padding: 0px 20px;
+    `}
 `;
 
 export const HeroContent = styled.div`
 	max-width: 800px;
-	margin-top: 30px;
-	@media (max-width: 1024px) {
+	/* margin-top: 60px; */
+	${media.below925`
 		width: 100%;
 		margin-bottom: 30px;
 		margin-top: 0px;
-	}
+	`}
 `;
 
 export const HeroTitle = styled.h1`
@@ -72,10 +85,36 @@ export const FrameDive = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	max-width: 500px;
+	flex-direction: column;
 	@media (max-width: 1024px) {
 		max-width: 100%;
 		justify-content: center;
 		margin-inline-end: 30px;
 	}
+`;
+
+const marqueeAnimation = keyframes`
+  0% { transform: translateX(100vw); } 
+  100% { transform: translateX(-100%); } 
+`;
+
+export const MarqueeWrapper = styled.div`
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	background-color: ${colors.pastelGreen};
+	border-radius: 40px;
+	max-width: 320px;
+`;
+
+export const MarqueeText = styled.div`
+	/* display: inline-block; */
+	font-size: 16px;
+	font-weight: 500;
+	color: ${colors.semiBlack};
+	padding: 2px;
+	margin-left: 24px;
+	margin-right: 24px;
+	animation: ${marqueeAnimation} 10s linear infinite;
 `;

@@ -18,7 +18,7 @@ export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	font-size: 1rem;
 	position: sticky;
 	${media.below925`
-	height: 40px;
+	height: 30px;
 	padding:25px 20px;
 
 

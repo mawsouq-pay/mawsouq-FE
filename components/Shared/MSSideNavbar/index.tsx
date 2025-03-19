@@ -48,7 +48,7 @@ const Sidebar = () => {
 						</LogoItem>
 					)}
 					<Tooltip
-						title={text.home}
+						title={text.myTransactions}
 						placement="right"
 						arrow
 						disableHoverListener={isSideNavbarOpen}
@@ -59,7 +59,7 @@ const Sidebar = () => {
 							onClick={() => router.push(clientRoutes.homePage)}
 						>
 							<HomeIcon size={22} />
-							{isSideNavbarOpen && <span>{text.home}</span>}
+							{isSideNavbarOpen && <span>{text.myTransactions}</span>}
 						</NavItem>
 					</Tooltip>
 

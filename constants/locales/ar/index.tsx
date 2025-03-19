@@ -1,4 +1,6 @@
 const ar = {
+	MAWSOUQ: "mawsouq",
+	protectingYourOrder: "حماية طلبك",
 	//Hero Section
 	secureEveryTransaction: "أمّن كل معاملة مع",
 	confidence: "الثقة",

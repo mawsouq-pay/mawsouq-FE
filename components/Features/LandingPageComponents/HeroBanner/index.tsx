@@ -6,6 +6,9 @@ import {
 	HeroSubtitle,
 	HeroButton,
 	FrameDive,
+	MarqueeWrapper,
+	MarqueeText,
+	FlexRow,
 } from "./HeroBanner.styles";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { heroBannerText } from "./types";
@@ -22,22 +25,31 @@ const HeroBanner = () => {
 
 	return (
 		<HeroContainer>
-			<HeroContent>
-				<HeroTitle>{text.title}</HeroTitle>
-				<HeroSubtitle>{text.subtitle}</HeroSubtitle>
-				<HeroButton
-					onClick={() => {
-						router.push(
-							isLoggedIn ? clientRoutes.startTransaction : clientRoutes.register
-						);
-					}}
-				>
-					{text.buttonText}
-				</HeroButton>
-			</HeroContent>
-			<FrameDive>
-				<Image src={ReleaseFrame} alt="Release" height={500} width={300} />
-			</FrameDive>
+			<FlexRow>
+				<HeroContent>
+					<HeroTitle>{text.title}</HeroTitle>
+					<HeroSubtitle>{text.subtitle}</HeroSubtitle>
+					<HeroButton
+						onClick={() => {
+							router.push(
+								isLoggedIn
+									? clientRoutes.startTransaction
+									: clientRoutes.register
+							);
+						}}
+					>
+						{text.buttonText}
+					</HeroButton>
+				</HeroContent>
+				<FrameDive>
+					<Image src={ReleaseFrame} alt="Release" height={350} width={300} />
+					<MarqueeWrapper>
+						<MarqueeText>
+							All payments are secured and processed by Paymob
+						</MarqueeText>
+					</MarqueeWrapper>
+				</FrameDive>
+			</FlexRow>
 		</HeroContainer>
 	);
 };

@@ -1,4 +1,5 @@
 import MobileBottomNav from "@/components/Shared/MSBottomNavbar";
+import Navbar from "@/components/Shared/MSNavBar";
 import Sidebar from "@/components/Shared/MSSideNavbar";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store";
@@ -10,6 +11,7 @@ const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({
 	const { isSideNavbarOpen } = useLocaleStore();
 	return (
 		<>
+			<Navbar />
 			<LayoutWrapper>
 				<Sidebar />
 				<Content isOpen={isSideNavbarOpen}>{children}</Content>
@@ -20,16 +22,13 @@ const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({
 };
 
 const LayoutWrapper = styled.div`
-	/* display: flex;
-	min-height: 100vh;
-	width: 100%; */
 	background-color: ${colors.backgroundColor};
 	min-height: 100vh;
 `;
 
 const Content = styled.div<{ isOpen: boolean }>`
 	flex: 1;
-	padding: 30px clamp(20px, 4vw, 80px);
+	padding: 2px clamp(20px, 4vw, 80px);
 	transition: margin 0.3s ease-in-out;
 
 	${({ isOpen, theme }) => `
@@ -38,7 +37,7 @@ const Content = styled.div<{ isOpen: boolean }>`
 
 	@media (max-width: 768px) {
 		margin: 0;
-		padding: 40px 20px 200px 20px;
+		padding: 20px 20px 200px 20px;
 	}
 `;
 

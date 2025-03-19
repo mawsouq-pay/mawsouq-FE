@@ -26,6 +26,9 @@ import PaintingIcon from "./paint_icon";
 import CateringIcon from "./catering_icon";
 import DoodleIcon from "./doodle_icon";
 import DoodleIconOp from "./doodle_icon_OP";
+import ElectronicsIcon from "./electronics_icon";
+import CraftIcon from "./craft_icon";
+import RandomIcon from "./random_icon";
 export {
 	StartTransactionIcon,
 	ViewTransactionIcon,
@@ -55,4 +58,7 @@ export {
 	CateringIcon,
 	DoodleIcon,
 	DoodleIconOp,
+	ElectronicsIcon,
+	CraftIcon,
+	RandomIcon,
 };

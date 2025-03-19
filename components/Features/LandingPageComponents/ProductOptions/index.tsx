@@ -17,9 +17,12 @@ import {
 import { useMediaQuery } from "@mui/material";
 import {
 	CateringIcon,
+	CraftIcon,
 	DoodleIcon,
 	DoodleIconOp,
+	ElectronicsIcon,
 	PaintingIcon,
+	RandomIcon,
 } from "@/assets/icons";
 import { useAuthStore, useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
@@ -27,69 +30,61 @@ import { colors } from "@/constants/theme";
 import { clientRoutes } from "@/routes";
 import router from "next/router";
 import MSButton from "@/components/Shared/MSButton";
-
 const productOptions = [
 	{
 		icon: <CateringIcon />,
 		title: "Catering Services",
-		description:
-			"With Mawsouq, secure your catering payments and ensure smooth transactions between you and the service provider.",
+		description: "Secure your catering payments and avoid payment risks.",
 	},
 	{
 		icon: <PaintingIcon />,
-		title: "Custom Art & Paintings",
-		description:
-			"Mawsouq helps artists and buyers secure transactions, ensuring payments are protected until the artwork is delivered.",
+		title: "Custom Art",
+		description: "Pay safely for custom artwork—funds are held until delivery.",
 	},
 	{
-		icon: <ShoppingBag size={25} color="#01796f" />,
+		icon: <CraftIcon color="#01796f" />,
 		title: "Handmade Crafts",
-		description:
-			"Shop for handmade crafts with confidence—Mawsouq ensures your money is safe until you receive your custom order.",
+		description: "Shop handmade goods with confidence—payment is protected.",
 	},
 	{
-		icon: <Gift size={25} color="#01796f" />,
-		title: "Customized Gifts",
-		description:
-			"Order personalized gifts without worries—Mawsouq secures your payment until your custom gift is delivered as requested.",
+		icon: <ElectronicsIcon color="#01796f" />,
+		title: "Electronics",
+		description: "Buy electronics securely—funds are released upon delivery.",
 	},
 	{
-		icon: <Shirt size={25} color="#01796f" />,
-		title: "Custom Apparel & Accessories",
-		description:
-			"Mawsouq ensures your custom fashion orders are fulfilled properly by holding payments securely until delivery.",
+		icon: <RandomIcon color="#01796f" />,
+		title: "Buy & Sell Anything",
+		description: "Trade safely—Mawsouq holds payments until order fulfillment.",
 	},
 ];
+
 const productOptionsAR = [
 	{
 		icon: <CateringIcon />,
 		title: "خدمات الطعام",
-		description:
-			"مع ماوسوق، احمِ دفعاتك عند طلب الطعام وتأكد من إتمام المعاملة بسهولة.",
+		description: "أمّن دفعاتك عند طلب الطعام وتجنب المخاطر.",
 	},
 	{
 		icon: <PaintingIcon />,
-		title: "اللوحات والفن المخصص",
+		title: "فن مخصص",
 		description:
-			"يساعد ماوسوق الفنانين والمشترين على تأمين المدفوعات حتى استلام العمل الفني.",
+			"ادفع بأمان للأعمال الفنية المخصصة—يتم الاحتفاظ بالمبلغ حتى التسليم.",
 	},
 	{
-		icon: <ShoppingBag size={25} color="#01796f" />,
+		icon: <CraftIcon color="#01796f" />,
 		title: "منتجات يدوية",
-		description:
-			"تسوق المنتجات اليدوية بثقة—ماوسوق يحفظ أموالك حتى تستلم طلبك.",
+		description: "تسوق المنتجات اليدوية بثقة—دفعتك محمية.",
 	},
 	{
-		icon: <Gift size={25} color="#01796f" />,
-		title: "هدايا مخصصة",
+		icon: <ElectronicsIcon color="#01796f" />,
+		title: "الإلكترونيات",
 		description:
-			"اطلب هدايا مخصصة بدون قلق—ماوسوق يضمن أموالك حتى وصول الهدية كما طلبتها.",
+			"اشترِ الأجهزة الإلكترونية بأمان—يتم الإفراج عن المبلغ عند التسليم.",
 	},
 	{
-		icon: <Shirt size={25} color="#01796f" />,
-		title: "ملابس وإكسسوارات مخصصة",
-		description:
-			"ماوسوق يؤمن دفعاتك للطلبات المخصصة حتى يتم تسليمها كما هو متفق عليه.",
+		icon: <RandomIcon color="#01796f" />,
+		title: "بيع وشراء أي شيء",
+		description: "تداول بأمان—ماوسوق يحتفظ بالدفعات حتى إتمام الطلب.",
 	},
 ];
 

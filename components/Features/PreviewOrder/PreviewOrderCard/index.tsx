@@ -17,6 +17,7 @@ import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import { CheckCircle } from "lucide-react";
 import { colors } from "@/constants/theme";
+import { MSLogo } from "@/assets/icons";
 
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
@@ -49,11 +50,9 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 			<>
 				<LeftPanel>
 					<MawsouqBrand>
-						<MSText fontSize="24px" fontWeight="bold" color="white">
-							Mawsouq
-						</MSText>
+						<MSLogo />
 						<MSText fontSize="14px" color="white">
-							Protecting Your Order
+							{text.protectingYourOrder}
 						</MSText>
 					</MawsouqBrand>
 

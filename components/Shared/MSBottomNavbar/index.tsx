@@ -8,7 +8,6 @@ import { BottomNavContainer, NavItem } from "./MSBottomNavbar.styles";
 const MobileBottomNav = () => {
 	const router = useRouter();
 
-	// Function to check if a route is active
 	const isActive = (route: string) => router.pathname === route;
 
 	return (

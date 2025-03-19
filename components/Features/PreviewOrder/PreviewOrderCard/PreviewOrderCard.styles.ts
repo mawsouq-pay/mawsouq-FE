@@ -25,7 +25,7 @@ export const LeftPanel = styled.div`
 		width: 100%;
 		flex: none;
 		padding: 15px;  
-		height:300px
+		height:340px
 		`}
 `;
 
@@ -102,6 +102,7 @@ export const DetailRow = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 2px 0;
+	margin-top: 8px;
 
 	${media.below925`
 	flex-direction: column;

@@ -1,4 +1,6 @@
 const en = {
+	MAWSOUQ: "mawsouq",
+	protectingYourOrder: "Protecting Your Order",
 	//Hero Section
 	secureEveryTransaction: "Secure Every Transaction With",
 	confidence: "Confidence",
