@@ -13,7 +13,7 @@ const ar = {
 	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
 	getStartedNow: "ابدأ الآن!",
 	howMawsouqActs: "كيف يعمل Mawsouq كوسيط مؤمّن.",
-	mawsouqForAllKindsOfOrders: "اطلب أي شيء بثقة—ماوسوق يضمن أموالك",
+	mawsouqForAllKindsOfOrders: "اطلب أي شيء بثقة—Mawsouq يضمن أموالك",
 	simplifyYourDeals: "جاهز لتبسيط صفقاتك؟",
 	designedForBoth:
 		"مصمم للبائعين والمشترين. ابدأ الآن وابنِ الثقة في كل معاملة.",

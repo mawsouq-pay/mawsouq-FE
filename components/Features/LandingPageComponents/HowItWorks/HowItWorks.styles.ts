@@ -42,7 +42,7 @@ export const FeatureTitle = styled.h3`
 	color: #222;
 `;
 export const FeatureDescription = styled.p`
-	font-size: 20px;
+	font-size: 22px;
 	max-width: 300px;
 	color: #01796f;
 	font-weight: 600;
