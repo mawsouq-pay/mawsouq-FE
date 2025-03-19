@@ -25,26 +25,32 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	const toggleLanguage = () => {
 		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
 	};
+	if (!isMobile) return null;
 	return (
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
 				<NavbarContainer>
 					<MSLogo width={90} height={40} />
 					{isMobile ? (
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "row",
-								gap: 4,
-							}}
-						>
-							<GlobeIcon color="white" onClick={toggleLanguage} />
-
-							<MSText fontWeight="400">{locale === "en" ? "عر" : "En"}</MSText>
-						</div>
+						isLandingPage ? (
+							<MenuButton onClick={toggleMenu} open={open}>
+								{open ? <X size={28} /> : <MenuIcon size={28} />}
+							</MenuButton>
+						) : (
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "row",
+									gap: 4,
+								}}
+							>
+								<GlobeIcon color="white" onClick={toggleLanguage} />
+								<MSText fontWeight="400">
+									{locale === "en" ? "عر" : "En"}
+								</MSText>
+							</div>
+						)
 					) : (
-						// {open ? <X size={28} /> : <MenuIcon size={28} />}
-
 						<>
 							<NavMenu>
 								<NavLinks />
@@ -55,6 +61,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 						</>
 					)}
 				</NavbarContainer>
+				{isMobile && <SidebarNav open={open} toggleMenu={toggleMenu} />}
 			</NavWrapper>
 		</>
 	);
