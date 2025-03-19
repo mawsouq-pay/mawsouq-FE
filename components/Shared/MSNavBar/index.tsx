@@ -25,7 +25,6 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	const toggleLanguage = () => {
 		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
 	};
-	if (!isMobile) return null;
 	return (
 		<>
 			<NavWrapper isLandingPage={isLandingPage}>
