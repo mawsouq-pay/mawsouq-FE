@@ -1,3 +1,4 @@
+import { requestProcessor } from "@/client/axiosClient";
 import { useFetch, usePost } from "@/client/customHooks";
 import queryClient from "@/client/reactQClient";
 import { OrderStatusEnum } from "@/constants";
@@ -22,7 +23,7 @@ import {
 	UpdateOrderStatusInput,
 	UpdateOrderStatusResponse,
 } from "@/types/ordersTypes";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 
 export const useCreateOrder = () => {
 	return usePost<CreateOrderResponse, CreateOrderInput>(
@@ -42,6 +43,14 @@ export const useFetchOrderById = (orderId: string) => {
 			queryKey: ["fetchOrderById", orderId],
 		}
 	);
+};
+export const preFetchOrderById = async (
+	orderId: string
+): Promise<FetchOrderDetailsResponse> => {
+	const response = await requestProcessor.get<FetchOrderDetailsResponse>(
+		`${serverRoutes.fetchOrderById}/${orderId}`
+	);
+	return response.data;
 };
 
 export const useCreatePaymentLink = () => {

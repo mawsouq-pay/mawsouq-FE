@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { WelcomeEmail } from "../../email_templates/first_email";
 import { error } from "console";
 import { ResetPasswordEmail } from "@/email_templates/reset_password";
+import SellerPaidNotificationEmail from "@/email_templates/SellerPaidNotificationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -23,7 +24,9 @@ export default async function handler(
 			react:
 				templateName === "ResetPasswordEmail"
 					? ResetPasswordEmail(templateProps)
-					: WelcomeEmail({ firstName: "John" }),
+					: templateName === "SellerPaidEmail"
+						? SellerPaidNotificationEmail(templateProps)
+						: WelcomeEmail({ firstName: "John" }),
 		});
 		if (data?.error) {
 			throw new Error();
