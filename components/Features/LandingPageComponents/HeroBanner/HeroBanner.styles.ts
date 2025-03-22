@@ -86,10 +86,13 @@ export const FrameDive = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 	flex-direction: column;
+
 	@media (max-width: 1024px) {
 		max-width: 100%;
 		justify-content: center;
-		margin-inline-end: 30px;
+
+		${({ theme }) =>
+			theme.rtl ? "margin-right: 30px;" : "margin-right: 30px;"}
 	}
 `;
 

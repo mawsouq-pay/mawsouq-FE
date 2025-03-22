@@ -63,3 +63,19 @@ export interface EditPayoutOptionInput {
 export interface EditPayoutOptionResponse {
 	payoutMethod: PayoutDetailsT;
 }
+
+export interface ResetPasswordInput {
+	email: string;
+}
+export interface ResetPasswordResponse {
+	resetPasswordToken: string;
+	name: string;
+}
+
+export interface UpdatePasswordInput {
+	newPassword: string;
+	token: string;
+}
+export interface UpdatePasswordResponse {
+	message: string;
+}

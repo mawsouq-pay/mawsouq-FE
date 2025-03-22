@@ -348,6 +348,14 @@ const en = {
 	SEND_COMPLAINT: "Send Complaint",
 	MARK_AS_OUT_FOR_DELIVERY: "Mark as Out for Delivery",
 	SUBMIT_COMPLAINT: "Submit Complaint",
+
+	//reset password
+	resetPassword: "Reset Your Password",
+	confirmNewPassword: "Confirm Your New Password",
+	passwordResetSuccess: "Your password has been successfully reset!",
+	forgotPassword: "Forgot Password?",
+	enterEmailToResetPassword:
+		"Enter your email so we can send you a link to reset your password",
 };
 
 export default en;

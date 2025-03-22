@@ -9,6 +9,7 @@ import {
 	Logo,
 	MainWrapper,
 	OrDivider,
+	PasswordDiv,
 	TextLink,
 } from "./LoginForm.styles";
 import MSText from "../../../Shared/MSText";
@@ -16,6 +17,7 @@ import MSButton from "../../../Shared/MSButton";
 import { useLoginHandler } from "@/hooks/useLoginHandler";
 import { Eye, EyeOff } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
+import ResetPasswordButton from "../ResetPasswordButton";
 
 const LoginForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
@@ -59,21 +61,24 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 								name="email"
 								placeholder={text.emailPlaceHolder}
 							/>
-							<FormItem
-								label={text.password}
-								id="password"
-								name="password"
-								placeholder={text.passwordPlaceHolder}
-								icon={
-									<span
-										onClick={togglePasswordVisibility}
-										style={{ cursor: "pointer" }}
-									>
-										{showPassword ? <EyeOff /> : <Eye />}
-									</span>
-								}
-								type={showPassword ? "text" : "password"}
-							/>
+							<PasswordDiv>
+								<FormItem
+									label={text.password}
+									id="password"
+									name="password"
+									placeholder={text.passwordPlaceHolder}
+									icon={
+										<span
+											onClick={togglePasswordVisibility}
+											style={{ cursor: "pointer" }}
+										>
+											{showPassword ? <EyeOff /> : <Eye />}
+										</span>
+									}
+									type={showPassword ? "text" : "password"}
+								/>
+								<ResetPasswordButton />
+							</PasswordDiv>
 
 							<MSButton
 								title={text.login}

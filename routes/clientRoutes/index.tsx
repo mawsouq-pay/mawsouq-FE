@@ -4,6 +4,7 @@ const clientRoutes = {
 	login: "/login",
 	register: "/register",
 	contactPage: "/contactPage",
+	resetPassword: "/resetPassword",
 
 	startTransaction: "/startTransaction",
 	orderConfirmation: "/orderConfirmation",
@@ -20,6 +21,7 @@ const publicRoutes = [
 	clientRoutes.register,
 	clientRoutes.landingPage,
 	clientRoutes.previewOrder,
+	clientRoutes.resetPassword,
 ];
 const protectedRoutes = Object.values(clientRoutes).filter(
 	(route) => !publicRoutes.includes(route)

@@ -24,6 +24,8 @@ const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({
 const LayoutWrapper = styled.div`
 	background-color: ${colors.backgroundColor};
 	min-height: 100vh;
+	/* padding-top: 10px;
+	padding-bottom: 30px; */
 `;
 
 const Content = styled.div<{ isOpen: boolean }>`
@@ -34,6 +36,7 @@ const Content = styled.div<{ isOpen: boolean }>`
 	${({ isOpen, theme }) => `
 		${theme.direction === "rtl" ? "margin-right" : "margin-left"}: ${isOpen ? "240px" : "50px"};
 	`}
+	padding: 30px 50px 100px 50px;
 
 	@media (max-width: 768px) {
 		margin: 0;

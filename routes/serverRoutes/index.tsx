@@ -4,6 +4,8 @@ const serverRoutes = {
 	regenerateTokens: "/user/refreshTokens",
 	getUser: "/user/user",
 	logout: "/user/logout",
+	resetPassword: "/user/resetPassword",
+	updatePassword: "/user/updatePassword",
 
 	createPayouttMethod: "/user/createPayoutMethod",
 	getUserPayoutOptions: "/user/getUserPayoutOptions",

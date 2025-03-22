@@ -338,6 +338,14 @@ const ar = {
 	SEND_COMPLAINT: "إرسال شكوى",
 	MARK_AS_OUT_FOR_DELIVERY: "وضع قيد التوصيل",
 	SUBMIT_COMPLAINT: "تقديم شكوى",
+
+	//reset password
+	resetPassword: "إعادة تعيين كلمة المرور",
+	confirmNewPassword: "تأكيد كلمة المرور الجديدة",
+	passwordResetSuccess: "تم إعادة تعيين كلمة المرور بنجاح!",
+	forgotPassword: "نسيت كلمة المرور؟",
+	enterEmailToResetPassword:
+		"ادخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور",
 };
 
 export default ar;

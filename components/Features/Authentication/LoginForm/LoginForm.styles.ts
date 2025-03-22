@@ -11,15 +11,14 @@ export const MainWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	border-radius: 10px;
 `;
 export const FormWrapper = styled.div`
 	padding: 5px 30px 30px 30px;
 
 	${media.below925`
    	width: 100%;
-	   padding: 15px 30px 30px 30px;
+	padding: 0px 20px 30px 20px;
     `}
 `;
 
@@ -27,7 +26,7 @@ export const OrDivider = styled.div`
 	text-align: center;
 	color: #888;
 	font-size: 14px;
-	margin: 10px 0;
+	margin: 15px 0;
 `;
 
 export const TextLink = styled.a`
@@ -49,4 +48,11 @@ export const Logo = styled.div`
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	padding: 0px;
+`;
+export const PasswordDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+	align-items: flex-end;
 `;

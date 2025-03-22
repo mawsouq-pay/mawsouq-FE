@@ -11,8 +11,7 @@ export const MainWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+	border-radius: 10px;
 	margin-top: 15px;
 `;
 export const FormWrapper = styled.div`
@@ -20,7 +19,7 @@ export const FormWrapper = styled.div`
 
 	${media.below925`
    	width: 100%;
-	   padding: 15px 30px 30px 30px;
+	   padding: 0px 20px 30px 20px;
     `}
 `;
 

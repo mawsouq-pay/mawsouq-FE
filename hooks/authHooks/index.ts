@@ -13,6 +13,10 @@ import {
 	PayoutDetailsT,
 	RegisterInput,
 	RegisterResponse,
+	ResetPasswordInput,
+	ResetPasswordResponse,
+	UpdatePasswordInput,
+	UpdatePasswordResponse,
 } from "@/types/authenticationTypes";
 
 export const useRegister = () => {
@@ -73,5 +77,17 @@ export const useEditPayoutMethod = () => {
 				});
 			},
 		}
+	);
+};
+
+export const useResetPassword = () => {
+	return usePost<ResetPasswordResponse, ResetPasswordInput>(
+		serverRoutes.resetPassword
+	);
+};
+
+export const useUpdatePassword = () => {
+	return usePost<UpdatePasswordResponse, UpdatePasswordInput>(
+		serverRoutes.updatePassword
 	);
 };
