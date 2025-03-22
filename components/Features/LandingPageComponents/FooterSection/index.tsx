@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { colors } from "@/constants/theme";
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
+import { clientRoutes } from "@/routes";
 
 const FooterWrapper = styled.footer`
 	background-color: #43d9a4;
@@ -82,7 +83,7 @@ const FooterSection = () => {
 				<MSLogo />
 				<SocialLinks>
 					<a
-						href="https://www.instagram.com/mawsouq"
+						href="https://www.instagram.com/mawsouq.pay"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -103,7 +104,7 @@ const FooterSection = () => {
 					<a href="/contact">Contact Us</a>
 					<a href="/about">About Us</a>
 					<a href="/terms">Terms of Service</a>
-					<a href="/privacy">Privacy Policy</a>
+					<a href={clientRoutes.privacyPolicy}>Privacy Policy</a>
 				</FooterLinks>
 				<FooterText>
 					&copy; {new Date().getFullYear()} Mawsouq. All rights reserved.
