@@ -12,6 +12,12 @@ import { useNotification } from "@/store/SnackBarStore";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import SellerPrompt from "@/components/Features/CreateTransaction/SellerPrompt";
+import {
+	trackCancelPayoutDetails,
+	trackConfirmPayoutPrompt,
+	trackOpenedPayoutPrompt,
+	trackOrderSubmitted,
+} from "@/helpers/tracking";
 
 export const useStartTransaction = () => {
 	const { showSuccessNotification } = useNotification();
@@ -82,6 +88,7 @@ export const useStartTransaction = () => {
 			!getUserPayoutOptionsLoading &&
 			userPayoutOptionsData?.length === 0
 		) {
+			trackOpenedPayoutPrompt();
 			setPayoutModalOpen(true);
 			return true;
 		}
@@ -106,6 +113,7 @@ export const useStartTransaction = () => {
 				setOrderId(newOrderId);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
 				showSuccessNotification(text.orderSuccessfullyCreated);
+				trackOrderSubmitted(response?.data?.order);
 			},
 		});
 	};
@@ -119,12 +127,17 @@ export const useStartTransaction = () => {
 	};
 
 	const onPayoutRequiredModalSubmit = () => {
+		trackConfirmPayoutPrompt();
 		setPayoutModalOpen(false);
 		setPayoutModalFormOpen(true);
 	};
 
 	const onPayoutFormSubmit = (details: PayoutDetailsT) => {
 		createUserPayoutMethod(details);
+	};
+	const onPayoutFormCancel = () => {
+		setPayoutModalFormOpen(false);
+		trackCancelPayoutDetails();
 	};
 	return {
 		steps,
@@ -144,5 +157,6 @@ export const useStartTransaction = () => {
 		onPayoutFormSubmit,
 		createUserPayoutPending,
 		getUserPayoutOptionsLoading,
+		onPayoutFormCancel,
 	};
 };

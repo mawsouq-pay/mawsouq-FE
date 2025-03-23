@@ -9,6 +9,7 @@ import { RegisterFormInput } from "@/components/Features/Authentication/Register
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useHandleAcceptPayments } from "./useHandleAcceptPayment";
+import { trackIdentifyUser } from "@/helpers/tracking";
 
 const useRegisterHandler = (orderId?: string) => {
 	const { locale } = useLocaleStore();
@@ -44,11 +45,18 @@ const useRegisterHandler = (orderId?: string) => {
 
 					if (accessToken && refreshToken) {
 						const user: User = {
+							_id: response?.data?.id,
 							name: response?.data?.name,
 							email: response?.data?.email,
 							phone: response?.data?.phone,
 						};
 						storeRegister({ accessToken, refreshToken }, user);
+						trackIdentifyUser({
+							_id: response?.data?.id,
+							name: response?.data?.name,
+							email: response?.data?.email,
+							phone: response?.data?.phone,
+						});
 						navigateUser();
 					} else {
 						showErrorNotification("Something went wrong. Please try again.");

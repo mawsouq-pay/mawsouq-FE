@@ -17,6 +17,7 @@ const StartTransactionCard = () => {
 		setPayoutModalFormOpen,
 		createUserPayoutPending,
 		onPayoutFormSubmit,
+		onPayoutFormCancel,
 	} = useStartTransaction();
 
 	return (
@@ -32,9 +33,7 @@ const StartTransactionCard = () => {
 			/>
 			<MSPayoutModal
 				payoutModalOpen={payoutModalFormOpen}
-				onCancel={() => {
-					setPayoutModalFormOpen(false);
-				}}
+				onCancel={onPayoutFormCancel}
 				onSubmit={onPayoutFormSubmit}
 				isPending={createUserPayoutPending}
 			/>

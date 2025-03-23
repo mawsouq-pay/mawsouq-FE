@@ -15,6 +15,11 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import rtlPlugin from "stylis-plugin-rtl";
 import { StyleSheetManager } from "styled-components";
 import { useTheme } from "styled-components";
+// PostHog imports
+import posthog from "posthog-js";
+import { PostHogProvider } from "posthog-js/react";
+import { Router } from "next/router";
+
 const roboto = Roboto({
 	weight: ["400", "700", "900"],
 	subsets: ["latin"],
@@ -24,15 +29,34 @@ function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
 	const { locale } = useLocaleStore();
+
 	useEffect(() => {
 		setUpApp();
 	}, []);
+
 	useEffect(() => {
 		document.documentElement.setAttribute(
 			"dir",
 			locale === "ar" ? "rtl" : "ltr"
 		);
 	}, [locale]);
+
+	useEffect(() => {
+		posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
+			api_host: "/ingest",
+			ui_host: "https://eu.posthog.com",
+			loaded: (ph) => {
+				if (process.env.NODE_ENV === "development") ph.debug();
+			},
+		});
+
+		const handleRouteChange = () => posthog?.capture("$pageview");
+		Router.events.on("routeChangeComplete", handleRouteChange);
+
+		return () => {
+			Router.events.off("routeChangeComplete", handleRouteChange);
+		};
+	}, []);
 
 	const theme = createTheme({
 		direction: "ltr",
@@ -42,35 +66,37 @@ function MyApp({ Component, pageProps }: any) {
 	}
 
 	return (
-		<main className={roboto.className}>
-			<QueryClientProvider client={queryClient}>
-				<BrowserRouter>
-					<ProtectedRouteWrapper
-						protectedRoutes={protectedRoutes}
-						store={authStore}
-					>
-						<ThemeProvider theme={theme}>
-							<StyleSheetManager
-								stylisPlugins={locale == "ar" ? [rtlPlugin] : []}
-							>
-								<NotificationProvider>
-									<GlobalStyles />
-									{Component.CustomLayout ? (
-										<Component.CustomLayout>
-											<Component {...pageProps} />
-										</Component.CustomLayout>
-									) : (
-										<MainLayout>
-											<Component {...pageProps} />
-										</MainLayout>
-									)}
-								</NotificationProvider>
-							</StyleSheetManager>
-						</ThemeProvider>
-					</ProtectedRouteWrapper>
-				</BrowserRouter>
-			</QueryClientProvider>
-		</main>
+		<PostHogProvider client={posthog}>
+			<main className={roboto.className}>
+				<QueryClientProvider client={queryClient}>
+					<BrowserRouter>
+						<ProtectedRouteWrapper
+							protectedRoutes={protectedRoutes}
+							store={authStore}
+						>
+							<ThemeProvider theme={theme}>
+								<StyleSheetManager
+									stylisPlugins={locale == "ar" ? [rtlPlugin] : []}
+								>
+									<NotificationProvider>
+										<GlobalStyles />
+										{Component.CustomLayout ? (
+											<Component.CustomLayout>
+												<Component {...pageProps} />
+											</Component.CustomLayout>
+										) : (
+											<MainLayout>
+												<Component {...pageProps} />
+											</MainLayout>
+										)}
+									</NotificationProvider>
+								</StyleSheetManager>
+							</ThemeProvider>
+						</ProtectedRouteWrapper>
+					</BrowserRouter>
+				</QueryClientProvider>
+			</main>
+		</PostHogProvider>
 	);
 }
 

@@ -11,6 +11,10 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useState } from "react";
 import queryClient from "@/client/reactQClient";
+import {
+	trackCancelPayoutDetails,
+	trackSubmitPayoutDetails,
+} from "@/helpers/tracking";
 
 export const useManagePayout = () => {
 	const { locale } = useLocaleStore();
@@ -43,11 +47,13 @@ export const useManagePayout = () => {
 		useEditPayoutMethod();
 
 	const createUserPayoutMethod = (details: PayoutDetailsT) => {
+		trackSubmitPayoutDetails(details);
+
 		if (editInitialValues) {
 			editPayout(
 				{ payoutMethod: details },
 				{
-					onSuccess: () => {
+					onSuccess: (response) => {
 						showSuccessNotification("Payout Method Successfully edited");
 						setPayoutModalOpen(false);
 					},
@@ -58,7 +64,7 @@ export const useManagePayout = () => {
 			);
 		} else {
 			createPayout(details, {
-				onSuccess: () => {
+				onSuccess: (response) => {
 					queryClient.invalidateQueries({
 						queryKey: ["getUserPayoutOptionsK"],
 					});
@@ -74,6 +80,8 @@ export const useManagePayout = () => {
 	};
 
 	const onClosePayoutModal = () => {
+		console.log("HE");
+		trackCancelPayoutDetails();
 		setPayoutModalOpen(false);
 		setEditInitialValues(null);
 	};

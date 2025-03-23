@@ -2,6 +2,7 @@ import { useNotification } from "@/store/SnackBarStore";
 import { useCreatePaymentLink } from "./orderHooks";
 import queryClient from "@/client/reactQClient";
 import { AxiosError } from "axios";
+import { trackNavigatingToPaymob } from "@/helpers/tracking";
 
 export const useHandleAcceptPayments = () => {
 	const { mutate: createLink, isPending: createLinkPending } =
@@ -24,6 +25,7 @@ export const useHandleAcceptPayments = () => {
 						queryKey: ["fetchOrderById", orderId],
 					});
 					callbacks?.onSuccess?.(response);
+					trackNavigatingToPaymob({ orderId });
 				},
 				onError: (error) => {
 					showAxiosErrorNotification(error as AxiosError);

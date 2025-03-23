@@ -26,7 +26,6 @@ const MSPayoutModal = ({
 	return (
 		<MSModal
 			open={payoutModalOpen}
-			onClose={onCancel}
 			showActions={false}
 			title={text.payoutDetails}
 		>
@@ -34,7 +33,7 @@ const MSPayoutModal = ({
 				{text.enterYourPayoutDetails}
 			</MSText>
 			<MSPayoutForm
-				onCancel={onCancel}
+				onCancel={() => onCancel()}
 				onSubmit={(details: PayoutDetailsT) => onSubmit(details)}
 				isPending={isPending}
 				initialValues={initialValues || undefined}

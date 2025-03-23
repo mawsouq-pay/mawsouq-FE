@@ -1,6 +1,7 @@
 import { PayoutMethodEnum, BankCode } from "@/constants";
 
 export interface User {
+	_id: string;
 	name: string;
 	phone: string;
 	email: string;

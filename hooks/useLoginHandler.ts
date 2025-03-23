@@ -9,6 +9,7 @@ import { LoginFormInput } from "@/components/Features/Authentication/LoginForm/t
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useHandleAcceptPayments } from "./useHandleAcceptPayment";
+import { trackIdentifyUser } from "@/helpers/tracking";
 
 export const useLoginHandler = (orderId?: string) => {
 	const router = useRouter();
@@ -37,6 +38,7 @@ export const useLoginHandler = (orderId?: string) => {
 
 					if (accessToken && refreshToken) {
 						const user: User = {
+							_id: response?.data?.id,
 							name: response?.data?.name,
 							email: response?.data?.email,
 							phone: response?.data?.phone,
@@ -48,6 +50,13 @@ export const useLoginHandler = (orderId?: string) => {
 						showErrorNotification(text.genericErrorMessage);
 					}
 					setSubmitting(false);
+					trackIdentifyUser({
+						_id: response?.data?.id,
+						name: response?.data?.name,
+						email: response?.data?.email,
+						phone: response?.data?.phone,
+						login: true,
+					});
 				},
 				onError: (error) => {
 					setSubmitting(false);

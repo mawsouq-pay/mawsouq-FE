@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export interface MSModalProps {
 	open: boolean;
-	onClose: () => void;
+	onClose?: () => void;
 	title?: string;
 	children: ReactNode;
 	confirmText?: string;
