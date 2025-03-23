@@ -151,6 +151,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 			console.log("-----------SAVING USER DETAILS--------", res);
 			if (res) {
 				get().user = {
+					_id: res.data.id,
 					email: res.data.email,
 					name: res.data.name,
 					phone: res.data.phone,
