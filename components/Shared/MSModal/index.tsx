@@ -4,15 +4,19 @@ import { MSModalProps } from "./types";
 import MSButton from "../MSButton";
 import { StyledDialog, StyledDialogContent } from "./MSModal.styles";
 import { colors } from "@/constants/theme";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
 
 const MSModal = (props: MSModalProps) => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	const {
 		open,
 		onClose,
 		title,
 		children,
-		confirmText = "Confirm",
-		cancelText = "Cancel",
+		confirmText = `${text.confirm}`,
+		cancelText = `${text.cancel}`,
 		onConfirm,
 		showActions = true,
 		confirmButtonProps = {},

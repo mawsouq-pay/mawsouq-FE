@@ -11,7 +11,7 @@ const ar = {
 	Selling: "أبيع",
 	for: "مقابل",
 	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
-	getStartedNow: "ابدأ الآن!",
+	getStartedNow: "ابدأ الآن !",
 	howMawsouqActs: "كيف يعمل Mawsouq كوسيط مؤمّن.",
 	mawsouqForAllKindsOfOrders: "اطلب أي شيء بثقة—Mawsouq يضمن أموالك",
 	simplifyYourDeals: "جاهز لتبسيط صفقاتك؟",
@@ -50,7 +50,7 @@ const ar = {
 	save: "حفظ",
 	edit: "تعديل",
 	logout: "تسجيل الخروج",
-	delete: "Delete",
+	delete: "حذف",
 
 	// Navigation and Overview
 	walletBalance: "رصيد المحفظة",
@@ -90,9 +90,7 @@ const ar = {
 	minLength: "الحد الأدنى للطول هو 3 أحرف",
 	maxLength: "الحد الأقصى للطول هو 100 حرفًا",
 	descriptionMaxLength: "الحد الأقصى للطول هو 1024 حرفًا",
-	descriptionMinLength:
-		"Please be more descriptive , with minimum 30 characters",
-
+	descriptionMinLength: "يرجى كتابة وصف أوضح لا يقل عن ٣٠ حرفًا",
 	requiredDescription: "الوصف مطلوب",
 	requiredAmount: "السعر مطلوب",
 	mustBePositive: "القيمة يجب أن تكون أكبر من الصفر",
@@ -139,7 +137,7 @@ const ar = {
 		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",
 	shareOrderLink: "نسخ رابط الطلب",
 	copyOrderLink: "نسخ رابط الطلب",
-	copied: "تم النسخ!",
+	copied: "تم النسخ !",
 	orderSuccessfullyCreated: "تم إنشاء الطلب بنجاح",
 	toJoinTheOrder: "للانضمام ودفع الطلب",
 	withThe: "مع",
@@ -210,12 +208,12 @@ const ar = {
 	contactUs: "اتصل بنا",
 	haveAQuestion: "عندك سؤال؟",
 	sendMessage: "ابعث لنا رسالة",
-	messageSent: "تم إرسال رسالتك بنجاح!",
+	messageSent: "تم إرسال رسالتك بنجاح !",
 
 	//fallbacks
 	pageNotFound: "Page Not Found",
 	pageNotFoundDescription: "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
-	goToHome: "العودة إلى الصفحة الرئيسية!",
+	goToHome: "العودة إلى الصفحة الرئيسية !",
 
 	//Success Snackbar Notifications
 	transactionReleased: "تم تحرير الدفعة بنجاح للبائع",
@@ -289,7 +287,7 @@ const ar = {
 	ORDER_DELIVERED_BUYER: "تم تسليم الطلب، في انتظار تأكيدك.",
 	ORDER_DELIVERED_SELLER: "تم تسليم الطلب، في انتظار المشتري للإفراج عن الدفع.",
 
-	ORDER_COMPLETED_BUYER: "شكرًا لك! تم إكمال طلبك.",
+	ORDER_COMPLETED_BUYER: "شكرًا لك ! تم إكمال طلبك.",
 	ORDER_COMPLETED_SELLER: "تم إكمال الطلب، وتم الإفراج عن الدفع.",
 
 	ORDER_DISPUTED_BUYER:
@@ -316,7 +314,7 @@ const ar = {
 	//Deleting A payout
 	deletePayoutMethod: "حذف طريقة الاستلام",
 	deletePayoutDescription: "هل أنت متأكد أنك تريد حذف طريقة الاستلام هذه؟",
-	payoutSuccessfullyDeleted: "تم حذف طريقة الاستلام بنجاح!",
+	payoutSuccessfullyDeleted: "تم حذف طريقة الاستلام بنجاح !",
 
 	//Dispute options
 	QUALITY_ISSUE: "العنصر به مشكلة في الجودة.",
@@ -344,7 +342,7 @@ const ar = {
 	//reset password
 	resetPassword: "إعادة تعيين كلمة المرور",
 	confirmNewPassword: "تأكيد كلمة المرور الجديدة",
-	passwordResetSuccess: "تم إعادة تعيين كلمة المرور بنجاح!",
+	passwordResetSuccess: "تم إعادة تعيين كلمة المرور بنجاح !",
 	forgotPassword: "نسيت كلمة المرور؟",
 	enterEmailToResetPassword:
 		"ادخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور",

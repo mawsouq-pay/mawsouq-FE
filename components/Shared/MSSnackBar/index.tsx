@@ -1,5 +1,7 @@
 import React from "react";
 import { Snackbar, Alert, AlertTitle } from "@mui/material";
+import { useLocaleStore } from "@/store";
+
 interface MSSnackBarProps {
 	open: boolean;
 	message: string;
@@ -17,17 +19,27 @@ const MSSnackBar = ({
 	onClose,
 	details,
 }: MSSnackBarProps) => {
+	const { locale } = useLocaleStore();
+	const isArabic = locale === "ar";
+
 	return (
 		<Snackbar
 			open={open}
 			autoHideDuration={autoHideDuration}
 			onClose={onClose}
 			anchorOrigin={{ vertical: "top", horizontal: "center" }}
+			dir={isArabic ? "rtl" : "ltr"}
 		>
 			<Alert
 				onClose={onClose}
 				severity={severity}
-				sx={{ width: "100%" }}
+				sx={{
+					width: "100%",
+					direction: isArabic ? "rtl" : "ltr",
+					display: "flex",
+					alignItems: "start",
+					gap: 3,
+				}}
 				variant="filled"
 			>
 				<AlertTitle>{message}</AlertTitle>
