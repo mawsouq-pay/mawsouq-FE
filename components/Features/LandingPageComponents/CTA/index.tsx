@@ -13,7 +13,12 @@ const CTA = () => {
 	const text = textTr(locale);
 	return (
 		<MainWrapper>
-			<MSText fontSize="40px" color="#222" fontWeight="bold">
+			<MSText
+				fontSize="30px"
+				mobileFontSize="18px"
+				color="#222"
+				fontWeight="bold"
+			>
 				{text.becomeAMawsouqSeller}
 			</MSText>
 			<MSText fontSize="1rem" color="#222" fontWeight="600">
