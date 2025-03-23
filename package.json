@@ -13,6 +13,7 @@
 		"@emotion/styled": "^11.13.5",
 		"@mui/icons-material": "^6.2.1",
 		"@mui/material": "^6.1.9",
+		"@react-email/components": "^0.0.34",
 		"@tanstack/react-query": "^5.62.7",
 		"axios": "^1.7.9",
 		"buffer": "^6.0.3",

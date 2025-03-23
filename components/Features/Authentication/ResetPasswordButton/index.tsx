@@ -17,6 +17,7 @@ const ResetPasswordButton = () => {
 		setIsModalOpen,
 		email,
 		setEmail,
+		isSendingEmailLoading,
 	} = useResetPasswordHook();
 
 	const [error, setError] = useState("");
@@ -34,7 +35,7 @@ const ResetPasswordButton = () => {
 		handleRequestResetPasswordEmail(email);
 		setError("");
 	};
-
+	const isLoading = isResetEmailPending || isSendingEmailLoading;
 	return (
 		<>
 			<div onClick={() => setIsModalOpen(true)}>
@@ -57,7 +58,12 @@ const ResetPasswordButton = () => {
 				showActions={true}
 				title={text.resetPassword}
 				onConfirm={handleConfirm}
-				confirmButtonProps={{ loading: isResetEmailPending }}
+				confirmButtonProps={{
+					loading: isLoading,
+				}}
+				cancelButtonProps={{
+					loading: isLoading,
+				}}
 			>
 				<MSText fontSize="14px" style={{ marginBottom: 10 }}>
 					{text.enterEmailToResetPassword}

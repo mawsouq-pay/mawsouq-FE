@@ -18,6 +18,7 @@ import { useLoginHandler } from "@/hooks/useLoginHandler";
 import { Eye, EyeOff } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
 import ResetPasswordButton from "../ResetPasswordButton";
+import { colors } from "@/constants/theme";
 
 const LoginForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
@@ -95,7 +96,7 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 									justifyContent: "center",
 								}}
 							>
-								<p>
+								<p style={{ fontSize: 12, color: colors.gray }}>
 									{text.dontHaveAnAccount}{" "}
 									<TextLink
 										href={

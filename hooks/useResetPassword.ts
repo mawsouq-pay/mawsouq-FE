@@ -20,6 +20,7 @@ export const useResetPasswordHook = () => {
 		useResetPassword();
 	const { mutate: updatePassword, isPending: isUpdatePasswordPending } =
 		useUpdatePassword();
+	const [isSendingEmailLoading, setIsSendingEmailLoading] = useState(false);
 	const {
 		showAxiosErrorNotification,
 		showErrorNotification,
@@ -51,6 +52,7 @@ export const useResetPasswordHook = () => {
 		name: string
 	) => {
 		try {
+			setIsSendingEmailLoading(true);
 			await sendEmail([email], text.resetPassword, "ResetPasswordEmail", {
 				firstName: name,
 				resetLink,
@@ -65,6 +67,7 @@ export const useResetPasswordHook = () => {
 		}
 		setIsModalOpen(false);
 		setEmail("");
+		setIsSendingEmailLoading(false);
 	};
 
 	const handleResetPassword = (newPassword: string, token: string) => {
@@ -93,5 +96,6 @@ export const useResetPasswordHook = () => {
 		setEmail,
 		handleResetPassword,
 		isUpdatePasswordPending,
+		isSendingEmailLoading,
 	};
 };

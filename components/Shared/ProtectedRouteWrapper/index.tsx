@@ -30,6 +30,7 @@ const ProtectedRouteWrapper = ({
 	);
 
 	useEffect(() => {
+		console.log("ad ne");
 		if (isProtected && !isLoggedIn && !isSetUpLoading) {
 			console.log(
 				"------PROTECTED WRAPPER UNAUTHORIZED: NAVIGATE TO LOGIN-------"
@@ -40,7 +41,7 @@ const ProtectedRouteWrapper = ({
 			console.log("------USER LOGGED IN: NAVIGATING TO HOME-------");
 			router.push(clientRoutes.homePage);
 		}
-	}, [isLoggedIn, isSetUpLoading]);
+	}, [isLoggedIn, isSetUpLoading, router.pathname]);
 
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;

@@ -16,7 +16,7 @@ export const registerValidationSchema = (locale: string) => {
 		email: yup.string().email(text.invalidEmail).required(text.requiredEmail),
 		phone: yup
 			.string()
-			.matches(/^[+0-9]{10,15}$/, text.invalidPhone)
+			.matches(/^01[0-9]{9}$/, text.invalidPhone)
 			.required(text.requiredPhone),
 		password: yup
 			.string()

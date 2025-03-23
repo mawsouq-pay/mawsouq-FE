@@ -16,6 +16,7 @@ import MSButton from "../../../Shared/MSButton";
 import useRegisterHandler from "@/hooks/useRegisterHandler";
 import { Eye, EyeOff } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
+import { colors } from "@/constants/theme";
 
 const RegisterForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
@@ -111,7 +112,7 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 									justifyContent: "center",
 								}}
 							>
-								<p>
+								<p style={{ fontSize: 12, color: colors.gray }}>
 									{text.alreadyHaveAnAccount}{" "}
 									<TextLink
 										href={orderId ? `/login?orderId=${orderId}` : "/login"}
