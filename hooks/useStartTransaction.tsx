@@ -106,14 +106,13 @@ export const useStartTransaction = () => {
 			description: updatedData.description,
 			fees: 50,
 		};
-
+		trackOrderSubmitted(orderData);
 		createOrder(orderData, {
 			onSuccess: (response) => {
 				const newOrderId = response?.data?.order?._id;
 				setOrderId(newOrderId);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
 				showSuccessNotification(text.orderSuccessfullyCreated);
-				trackOrderSubmitted(response?.data?.order);
 			},
 		});
 	};
