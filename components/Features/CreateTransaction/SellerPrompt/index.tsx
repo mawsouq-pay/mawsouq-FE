@@ -24,7 +24,12 @@ const SellPrompt = ({
 	return (
 		<PageWrapper>
 			<Card>
-				<MSText color={colors.green} fontWeight="600" fontSize="28px">
+				<MSText
+					color={colors.green}
+					fontWeight="600"
+					fontSize="28px"
+					mobileFontSize="18px"
+				>
 					{text.wantToStartSellingSomething}
 				</MSText>
 				<MSText
