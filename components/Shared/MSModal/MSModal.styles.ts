@@ -12,6 +12,7 @@ export const StyledDialog = styled(Dialog)`
 export const StyledDialogContent = styled(DialogContent)`
 	overflow: visible;
 	max-width: 100%;
+	padding: 30px 20px;
 `;
 export const CancelButton = styled.button`
 	display: flex;

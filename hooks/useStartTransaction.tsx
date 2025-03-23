@@ -11,6 +11,7 @@ import { PayoutDetailsT } from "@/types/authenticationTypes";
 import { useNotification } from "@/store/SnackBarStore";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
+import SellerPrompt from "@/components/Features/CreateTransaction/SellerPrompt";
 
 export const useStartTransaction = () => {
 	const { showSuccessNotification } = useNotification();
@@ -38,15 +39,18 @@ export const useStartTransaction = () => {
 
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const [activeStep, setActiveStep] = useState(0);
-	const steps = [text.transactionDetails, text.shareLink];
+	const steps = [text.approve, text.transactionDetails, text.shareLink];
 
 	const renderStep = () => {
 		return (
 			<>
-				{/* {activeStep === 0 && (
-					<RoleSelection initialValues={formData} onSubmit={handleNext} />
-				)} */}
 				{activeStep === 0 && (
+					<SellerPrompt
+						onSubmit={submitSellerPrompt}
+						disableButton={getUserPayoutOptionsLoading}
+					/>
+				)}
+				{activeStep === 1 && (
 					<TransactionForm
 						initialValues={formData}
 						onSubmit={handleConfirmOrder}
@@ -54,7 +58,7 @@ export const useStartTransaction = () => {
 						disableButton={getUserPayoutOptionsLoading}
 					/>
 				)}
-				{activeStep === 1 && (
+				{activeStep === 2 && (
 					<ShareLink
 						isPending={isPending}
 						error={error}
@@ -67,6 +71,11 @@ export const useStartTransaction = () => {
 		);
 	};
 
+	const submitSellerPrompt = () => {
+		if (checkPayoutOptions()) return;
+
+		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+	};
 	const checkPayoutOptions = () => {
 		if (
 			formData.role === RolesEnum.SELLER &&
@@ -80,8 +89,6 @@ export const useStartTransaction = () => {
 	};
 
 	const handleConfirmOrder = (updatedData: StartTransactionData) => {
-		if (checkPayoutOptions()) return;
-
 		setFormData((prev) => ({ ...prev, ...updatedData }));
 		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
 

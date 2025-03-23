@@ -17,6 +17,8 @@ const ar = {
 	simplifyYourDeals: "جاهز لتبسيط صفقاتك؟",
 	designedForBoth:
 		"مصمم للبائعين والمشترين. ابدأ الآن وابنِ الثقة في كل معاملة.",
+	becomeAMawsouqSeller: "عايز تبقى بائع Mawsouq؟",
+	wantToStartSellingSomething: "عايز تبدأ تبيع حاجة؟",
 
 	// Navbar
 	howItWorks: "كيف يعمل",
@@ -228,7 +230,7 @@ const ar = {
 	cardNumber: "رقم البطاقة",
 	payoutRequired: "مطلوب طريقة استلام",
 	payoutRequiredExplanation:
-		"بصفتك بائعًا، تحتاج إلى إعداد طريقة استلام في ملفك الشخصي قبل المتابعة.",
+		"قبل ما تكمل، محتاج تحدد هتستلم فلوسك إزاي. بنحوّلها ليك أول ما الطلب يتسلّم.",
 	noPayoutMethods: "لم يتم إضافة طرق استلام بعد.",
 	yourPayoutMethods: "طرق الاستلام الخاصة بك",
 	bank: "بنك",

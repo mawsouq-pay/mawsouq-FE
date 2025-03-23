@@ -32,28 +32,29 @@ import { useMediaQuery } from "@mui/material";
 export const howItWorksFeatures = [
 	{
 		icon: <FormIcon color="#01796f" />,
-		description: "The seller adds the details of the product or service.",
-		descriptionAr: "يقوم البائع بإضافة المنتج.",
+		description: "The seller submits the details of the product or service.",
+		descriptionAr: "البائع بيحدد تفاصيل الطلب.",
 	},
 	{
 		icon: <HoldIcon color="#01796f" />,
-		description: "The buyer pays using Mawsouq, and is held safely.",
-		descriptionAr: "يدفع المشتري باستخدام Mawsouq.",
+		description:
+			"The buyer pays through Mawsouq, and the money is held securely.",
+		descriptionAr: "الـمشتري بيدفع من خلال Mawsouq، والفلوس بتتأمن.",
 	},
 	{
 		icon: <DeliverIcon color="#01796f" />,
-		description: "The seller delivers the product or service.",
-		descriptionAr: "البائع يسلم المنتج أو الخدمة	",
+		description: "The seller prepares and delivers the order.",
+		descriptionAr: "البائع بيجهز وبيسلّم المنتج أو الخدمة.",
 	},
 	{
 		icon: <ApproveIcon color="#01796f" />,
-		description: "The buyer confirms receiving product as described.",
-		descriptionAr: "الـمشتري يوافق على الاستلام",
+		description: "The buyer confirms that everything was delivered as agreed.",
+		descriptionAr: "الـمشتري بيأكد إن الطلب اتسلم زي ما اتفقوا.",
 	},
 	{
 		icon: <ReleaseIcon color="#01796f" />,
-		description: "Mawsouq releases the money to the seller safely.",
-		descriptionAr: "Mawsouq يحوّل الفلوس للبائع",
+		description: "Mawsouq safely releases the payment to the seller.",
+		descriptionAr: "Mawsouq بيحوّل الفلوس للبائع بأمان.",
 	},
 ];
 

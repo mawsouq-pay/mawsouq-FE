@@ -40,7 +40,10 @@ const MSModal = (props: MSModalProps) => {
 			aria-describedby="modal-description"
 		>
 			{title && (
-				<DialogTitle id="modal-title" style={{ paddingTop: 20 }}>
+				<DialogTitle
+					id="modal-title"
+					style={{ paddingTop: 20, fontWeight: "550", color: colors.darkGreen }}
+				>
 					{title}
 				</DialogTitle>
 			)}

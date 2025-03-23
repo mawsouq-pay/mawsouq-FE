@@ -14,7 +14,7 @@ const CTA = () => {
 	return (
 		<MainWrapper>
 			<MSText fontSize="40px" color="#222" fontWeight="bold">
-				{text.simplifyYourDeals}
+				{text.becomeAMawsouqSeller}
 			</MSText>
 			<MSText fontSize="1rem" color="#222" fontWeight="600">
 				{text.designedForBoth}

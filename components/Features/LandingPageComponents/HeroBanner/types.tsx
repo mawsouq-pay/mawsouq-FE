@@ -6,7 +6,7 @@ export const heroBannerText = {
 			<span key="hold" style={{ color: "#01796f", fontWeight: "bold" }}>
 				Hold
 			</span>,
-			" Payments Safely,",
+			" Payments,",
 			<br key="br1" />,
 			"Until Delivery is ",
 			<span key="confirmed" style={{ color: "#01796f", fontWeight: "bold" }}>

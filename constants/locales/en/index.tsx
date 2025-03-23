@@ -17,6 +17,9 @@ const en = {
 	simplifyYourDeals: "Ready to simplify your_____deals?",
 	designedForBoth:
 		"Designed for both sellers and buyers. Start now and build trust with every transaction.",
+	becomeAMawsouqSeller: "Become A Mawsouq_____Seller?",
+	wantToStartSellingSomething: "Want to start selling something?",
+
 	//Navbar
 	howItWorks: "How it works",
 	msBenefits: "Benefits",
@@ -230,14 +233,14 @@ const en = {
 	cardNumber: "Card Number",
 	payoutRequired: "Payout Method Required",
 	payoutRequiredExplanation:
-		"As a seller, you need to set up a payout method in your profile before you can proceed.",
+		"To continue, you need to set up how you’ll receive your money. We’ll transfer it to you once the order is delivered.",
 	noPayoutMethods: "No payout methods added yet.",
 	yourPayoutMethods: "Your Payout Method",
 	bank: "Bank",
 	enterYourPayoutDetails:
 		"Enter your payout details to receive payments when an order is completed.",
 	payoutAddedNotification: "Payout successfully added",
-	addPayoutMethod: "Add Payout Method",
+	addPayoutMethod: "Add Method",
 
 	//profile General info
 	generalInformation: "General Information",
