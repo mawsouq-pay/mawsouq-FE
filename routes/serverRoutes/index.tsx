@@ -25,6 +25,8 @@ const serverRoutes = {
 	captureOrder: "/order/captureOrder",
 
 	createDispute: "/order/addDispute",
+
+	rateOrder: "/rating/addOrderRating",
 };
 
 export default serverRoutes;

@@ -19,6 +19,7 @@ import { textTr } from "@/constants/locales";
 import { useNotification } from "@/store/SnackBarStore";
 import { AxiosError } from "axios";
 import { useSendEmail } from "./useSendEmail";
+import { useRateOrder } from "./ratingHooks";
 
 export const useOrderActions = (
 	orderId: string,
@@ -35,7 +36,7 @@ export const useOrderActions = (
 		null
 	);
 	const [isDisputeFormOpen, setIsDisputeFormOpen] = useState(false);
-
+	const [isRateModalOpen, setIsRateModalOpen] = useState(false);
 	const [popupStatusMessage, setPopupStatusMessage] = useState<{
 		title: OrderConfirmationMessages;
 		message: OrderConfirmationMessages;
@@ -55,6 +56,7 @@ export const useOrderActions = (
 		useCaptureOrder();
 	const { mutate: createDispute, isPending: isCreateDisputePending } =
 		useCreateDispute();
+	const { mutate: rateOrder, isPending: isRateOrderPending } = useRateOrder();
 
 	const orderData = orderProgressBarData[orderStatus];
 
@@ -69,7 +71,7 @@ export const useOrderActions = (
 			updateOrder({ orderId, newStatus: OrderStatusEnum.IN_TRANSIT }),
 		updateOrderToDelivered: () =>
 			updateOrder({ orderId, newStatus: OrderStatusEnum.DELIVERED }),
-		releasePayment: () => sellerRelease({ orderId }),
+		releasePayment: () => releasePayment(),
 		openDispute: () => setIsDisputeFormOpen(true),
 	};
 
@@ -106,6 +108,32 @@ export const useOrderActions = (
 	const loadingAndDisable =
 		createLinkPending || updateOrderPending || sellerReleasePending;
 
+	const releasePayment = () => {
+		console.log("here");
+		sellerRelease(
+			{ orderId },
+			{
+				onSuccess: (response) => {
+					setIsRateModalOpen(true);
+				},
+			}
+		);
+	};
+
+	const cancelRatingModal = () => {
+		setIsRateModalOpen(false);
+	};
+	const submitRateModal = (values: { rating: number; comment: string }) => {
+		rateOrder(
+			{ orderId, rating: values.rating, comment: values.comment },
+			{
+				onSuccess: (response) => {
+					showSuccessNotification("RatingSent");
+					setIsRateModalOpen(false);
+				},
+			}
+		);
+	};
 	const submitDispute = async (values: {
 		type: DisputeTypeEnum;
 		description: string;
@@ -147,5 +175,9 @@ export const useOrderActions = (
 		isDisputeFormOpen,
 		setIsDisputeFormOpen,
 		submitDispute,
+		submitRateModal,
+		cancelRatingModal,
+		isRateModalOpen,
+		isRateOrderPending,
 	};
 };

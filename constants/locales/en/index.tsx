@@ -359,6 +359,13 @@ const en = {
 	forgotPassword: "Forgot Password?",
 	enterEmailToResetPassword:
 		"Enter your email so we can send you a link to reset your password",
+
+	//Rating
+	rateOrder: "Rate Your Order",
+	leaveComment: "Leave a Comment",
+	commentPlaceholder: "Write something about your experience...",
+	ratingInfo: "Your rating helps us keep the community safe and fair.",
+	selectRating: "Select a rating",
 };
 
 export default en;

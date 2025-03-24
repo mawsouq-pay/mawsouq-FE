@@ -346,6 +346,13 @@ const ar = {
 	forgotPassword: "نسيت كلمة المرور؟",
 	enterEmailToResetPassword:
 		"ادخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور",
+
+	//Rating
+	rateOrder: "قيّم الطلب",
+	leaveComment: "اترك تعليقًا",
+	commentPlaceholder: "اكتب شيئًا عن تجربتك...",
+	ratingInfo: "تساعدنا تقييماتك في الحفاظ على أمان المجتمع.",
+	selectRating: "Select a rating",
 };
 
 export default ar;

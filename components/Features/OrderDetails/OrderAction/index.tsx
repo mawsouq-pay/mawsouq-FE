@@ -10,6 +10,7 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { OrderActionCTAType, OrderActionT } from "@/constants";
 import DisputeFormModal from "../DisputeFormModal";
+import RateOrderModal from "../RateOrderModal";
 
 const OrderAction = (props: OrderActionProps) => {
 	const { locale } = useLocaleStore();
@@ -29,6 +30,10 @@ const OrderAction = (props: OrderActionProps) => {
 		isDisputeFormOpen,
 		setIsDisputeFormOpen,
 		submitDispute,
+		isRateModalOpen,
+		submitRateModal,
+		cancelRatingModal,
+		isRateOrderPending,
 	} = useOrderActions(orderId, isFetcherSeller, orderStatus);
 
 	return (
@@ -93,6 +98,12 @@ const OrderAction = (props: OrderActionProps) => {
 				open={isDisputeFormOpen}
 				setOpen={setIsDisputeFormOpen}
 				onSubmit={submitDispute}
+			/>
+			<RateOrderModal
+				open={isRateModalOpen}
+				onCancel={cancelRatingModal}
+				onSubmit={submitRateModal}
+				isRateOrderPending={isRateOrderPending}
 			/>
 		</MainWrapper>
 	);
