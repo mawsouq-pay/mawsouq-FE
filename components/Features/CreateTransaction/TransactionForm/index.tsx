@@ -69,13 +69,12 @@ const TransactionForm = (props: TransactionFormProps) => {
 							/>{" "}
 						</div>
 						<MSButton
-							title={text.next}
+							title={text.createOrder}
 							type="submit"
 							style={{
 								height: 40,
-								width: "fit-content",
-								alignSelf: "flex-end",
 								marginTop: 10,
+								width: "100%",
 							}}
 							disabled={disableButton || !(isValid && dirty)}
 						/>

@@ -41,21 +41,15 @@ const OrderAction = (props: OrderActionProps) => {
 			<div style={{ flexDirection: "column" }}>
 				<MSText
 					fontSize="18px"
-					mobileFontSize="16px"
-					fontWeight="600"
-					color={colors.blue}
+					fontWeight="bold"
+					color={colors.black}
 					style={{ alignSelf: "flex-start" }}
 				>
 					{" "}
 					{orderStatusText}
 				</MSText>
 				<MessageDiv>
-					<MSText
-						fontSize="20px"
-						mobileFontSize="18px"
-						fontWeight="600"
-						color={colors.blue}
-					>
+					<MSText fontSize="18px" fontWeight="bold" color={colors.black}>
 						{text[message]}
 					</MSText>
 				</MessageDiv>
@@ -74,7 +68,7 @@ const OrderAction = (props: OrderActionProps) => {
 									backgroundColor:
 										action.type === OrderActionCTAType.DANGER
 											? colors.red
-											: colors.blue,
+											: colors.green,
 								}}
 							/>
 						)

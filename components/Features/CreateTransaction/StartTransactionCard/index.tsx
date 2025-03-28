@@ -24,7 +24,7 @@ const StartTransactionCard = () => {
 		<MainWrapper>
 			<MSStepProgressBar steps={steps} activeStep={activeStep} />
 			<ContentWrapper>
-				<div style={{ marginTop: "10px" }}>{renderStep()}</div>
+				<div style={{ marginTop: "5px" }}>{renderStep()}</div>
 			</ContentWrapper>
 			<PayoutOptionRequiredModal
 				open={payoutModalOpen}

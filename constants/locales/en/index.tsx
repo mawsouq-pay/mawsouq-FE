@@ -119,7 +119,7 @@ const en = {
 	totalDue: "Total due",
 	paymentSummary: "Payment Summary",
 	escrowFeeDescription:
-		"A small protection fee paid by the buyer to keep the payment secure until delivery is confirmed.",
+		"A small fee paid by the buyer to secure the payment until delivery.",
 
 	//Button CTA
 	viewOrder: "View Order",
@@ -249,7 +249,10 @@ const en = {
 	selectAdisputeType: "Please select a complaint type",
 	disputeDetailsAreRequired: "Complaint details are required",
 	disputeSentSuccessfully:
-		"Complaint has been sent successfullt and is being reviewed by the team.",
+		"Complaint has been sent successfully and is being reviewed by the team.",
+	disputeSentToOther: "Complaint email has been sent to the seller/buyer",
+	disputeEmailFailedToOther:
+		"Failed to send the complaint email to the seller/buyer.",
 
 	//Order confirmation messages
 	ORDER_PENDING_PAYMENT_TITLE: "Mark as In Progress?",

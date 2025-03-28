@@ -4,6 +4,8 @@ import { colors } from "@/constants/theme";
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
 import { clientRoutes } from "@/routes";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
 
 const FooterWrapper = styled.footer`
 	background-color: #43d9a4;
@@ -77,6 +79,8 @@ const FooterText = styled.p`
 `;
 
 const FooterSection = () => {
+	const { locale } = useLocaleStore();
+	const text = textTr(locale);
 	return (
 		<FooterWrapper>
 			<FooterContent>
@@ -90,18 +94,18 @@ const FooterSection = () => {
 						<Instagram size={24} />
 					</a>
 					<a
-						href="https://www.facebook.com/mawsouq"
+						href="https://www.facebook.com/profile.php?id=61567454860427&sk=about"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<Facebook size={24} />
 					</a>
-					<a href="mailto:contact@mawsouq.com">
+					<a href="mailto:support@mawsouq-pay.com">
 						<Mail size={24} />
 					</a>
 				</SocialLinks>
 				<FooterLinks>
-					<a href="/contact">Contact Us</a>
+					<a href="/contact">{text.contactUs}</a>
 					<a href="/about">About Us</a>
 					<a href="/terms">Terms of Service</a>
 					<a href={clientRoutes.privacyPolicy}>Privacy Policy</a>

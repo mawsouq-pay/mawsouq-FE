@@ -4,6 +4,7 @@ import { WelcomeEmail } from "../../email_templates/first_email";
 import { error } from "console";
 import { ResetPasswordEmail } from "@/email_templates/reset_password";
 import SellerPaidNotificationEmail from "@/email_templates/SellerPaidNotificationEmail";
+import disputeNotificationEmail from "@/email_templates/disputeNotificationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -18,7 +19,7 @@ export default async function handler(
 		const { to, subject, templateName, templateProps } = req.body;
 
 		const data = await resend.emails.send({
-			from: "Mawsouq-Pay <onboarding@mawsouq-pay.com>",
+			from: "onboarding@mawsouq-pay.com",
 			to: to,
 			subject,
 			react:
@@ -26,7 +27,9 @@ export default async function handler(
 					? ResetPasswordEmail(templateProps)
 					: templateName === "SellerPaidEmail"
 						? SellerPaidNotificationEmail(templateProps)
-						: WelcomeEmail({ firstName: "John" }),
+						: templateName === "disputeNotificationEmail"
+							? disputeNotificationEmail(templateProps)
+							: WelcomeEmail({ firstName: "John" }),
 		});
 		if (data?.error) {
 			throw new Error();

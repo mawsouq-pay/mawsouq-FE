@@ -29,17 +29,9 @@ const OrderInfo = (props: OrderInfoProps) => {
 	];
 	return (
 		<MainWrapper>
-			<RowDiv>
-				<MSText fontSize="16px" fontWeight="bold" color={colors.black}>
-					{" "}
-					{text.orderDetails}
-				</MSText>
-				<ListAltIcon />
-			</RowDiv>
-
 			<ItemsContainer>
 				<ColumnDiv>
-					<MSText color={colors.black} fontSize="14px">
+					<MSText color={colors.black} fontSize="14px" fontWeight="600">
 						{text.description}
 					</MSText>
 					<MSText fontSize="14px" color={colors.black}>
@@ -58,7 +50,6 @@ const OrderInfo = (props: OrderInfoProps) => {
 						<TextValue>
 							<MSText
 								fontSize="14px"
-								fontWeight="600"
 								color={colors.black}
 								style={{ textWrap: "wrap" }}
 							>

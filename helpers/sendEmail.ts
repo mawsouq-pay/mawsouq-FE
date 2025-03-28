@@ -10,7 +10,7 @@ export const sendEmail = async (
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ to, subject, templateName, templateProps }),
+			// body: JSON.stringify({ to, subject, templateName, templateProps }),
 		});
 
 		const result = await response.json();

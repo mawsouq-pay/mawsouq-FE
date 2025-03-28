@@ -40,7 +40,7 @@ const ResetPasswordButton = () => {
 		<>
 			<div onClick={() => setIsModalOpen(true)}>
 				<MSText
-					fontSize="14px"
+					fontSize="12px"
 					color={colors.green}
 					style={{
 						cursor: "pointer",

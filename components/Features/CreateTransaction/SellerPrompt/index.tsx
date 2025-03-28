@@ -28,13 +28,13 @@ const SellPrompt = ({
 					color={colors.green}
 					fontWeight="600"
 					fontSize="28px"
-					mobileFontSize="18px"
+					mobileFontSize="22px"
 				>
 					{text.wantToStartSellingSomething}
 				</MSText>
 				<MSText
 					color={colors.semiBlack}
-					fontSize="14px"
+					fontSize="16px"
 					fontWeight="600"
 					style={{
 						marginTop: 12,

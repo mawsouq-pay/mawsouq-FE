@@ -13,14 +13,15 @@ import {
 	useSellerRelease,
 	useCaptureOrder,
 	useCreateDispute,
+	useFetchOrderById,
 } from "./orderHooks";
-import { useLocaleStore } from "@/store";
+import { useAuthStore, useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import { useNotification } from "@/store/SnackBarStore";
 import { AxiosError } from "axios";
 import { useSendEmail } from "./useSendEmail";
 import { useRateOrder } from "./ratingHooks";
-
+import { sendEmail } from "@/helpers/sendEmail";
 export const useOrderActions = (
 	orderId: string,
 	isFetcherSeller: boolean,
@@ -28,8 +29,12 @@ export const useOrderActions = (
 ) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { showAxiosErrorNotification, showSuccessNotification } =
-		useNotification();
+	const { user } = useAuthStore();
+	const {
+		showAxiosErrorNotification,
+		showErrorNotification,
+		showSuccessNotification,
+	} = useNotification();
 
 	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 	const [selectedAction, setSelectedAction] = useState<(() => void) | null>(
@@ -45,7 +50,12 @@ export const useOrderActions = (
 		message: OrderConfirmationMessages.ORDER_PENDING_PAYMENT_MESSAGE,
 	});
 
-	const { sendEmail } = useSendEmail();
+	const {
+		data: orderDetails,
+		isLoading,
+		error,
+	} = useFetchOrderById(orderId as string);
+	const { sendEmail: sendEmailToUs } = useSendEmail();
 	const { mutate: createLink, isPending: createLinkPending } =
 		useCreatePaymentLink();
 	const { mutate: updateOrder, isPending: updateOrderPending } =
@@ -155,11 +165,41 @@ export const useOrderActions = (
 				},
 			}
 		);
-		await sendEmail({
+		await sendEmailToUs({
 			name: `DISPUTE FOR ${orderId}`,
 			subject: "New Dispute Submitted",
 			message: `A new dispute has been submitted for order ID: ${orderId}.\n\nType: ${values.type}\n\nDescription: ${values.description}`,
 		});
+		await sendDisputeEmail(values.type, values.description);
+	};
+
+	const sendDisputeEmail = async (
+		type: DisputeTypeEnum,
+		description: string
+	) => {
+		const otherPartyEmail = isFetcherSeller
+			? orderDetails?.order?.buyer?.email
+			: orderDetails?.order?.seller?.email;
+		try {
+			await sendEmail(
+				[otherPartyEmail ?? ""],
+				text.DISPUTED,
+				"disputeNotificationEmail",
+				{
+					senderName: user?.name,
+					disputeType: type,
+					description,
+					orderId,
+					orderTitle: orderDetails?.order?.transactionTitle,
+					orderTotal: orderDetails?.order?.price,
+					orderDate: orderDetails?.order?.deliveryDate,
+				}
+			);
+
+			showSuccessNotification(text.disputeSentToOther);
+		} catch (error) {
+			showErrorNotification(text.disputeEmailFailedToOther);
+		}
 	};
 	return {
 		popupStatusMessage,

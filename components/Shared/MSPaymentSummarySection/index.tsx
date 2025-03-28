@@ -29,14 +29,14 @@ const MSPaymentSummarySection = ({
 			title: text.price,
 			value: `EGP ${price}`,
 			fontSize: "14px",
-			fontWeight: "500",
-			color: colors.black,
+			fontWeight: "600",
+			color: colors.semiBlack,
 		},
 		{
 			title: text.escrowFee,
 			value: `EGP ${escrowFee}`,
 			fontSize: "14px",
-			fontWeight: "500",
+			fontWeight: "600",
 			color: colors.red,
 			description: text.escrowFeeDescription,
 		},
@@ -45,7 +45,7 @@ const MSPaymentSummarySection = ({
 	return (
 		<MainWrapper>
 			{showTitle && (
-				<MSText fontSize="16px" fontWeight="600">
+				<MSText fontSize="16px" fontWeight="bold" color={colors.green}>
 					{text.paymentSummary}
 				</MSText>
 			)}

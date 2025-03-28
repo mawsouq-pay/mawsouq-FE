@@ -7,7 +7,7 @@ export const MainWrapper = styled.div`
 	flex: 1;
 	border-radius: 20px;
 	gap: 15px;
-	border: 0.5px solid ${colors.blue};
+	/* border: 0.5px solid ${colors.blue}; */
 	border-radius: 10px;
 	padding: 20px;
 `;
@@ -16,7 +16,7 @@ export const MessageDiv = styled.div`
 	border-radius: 8px;
 	padding: 15px;
 	display: flex;
-	border: 1px solid ${colors.blue};
+	border: 2px solid ${colors.green};
 	margin-top: 10px;
 	margin-bottom: 10px;
 `;

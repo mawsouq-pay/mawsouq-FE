@@ -30,8 +30,8 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 		<LinkSection>
 			<MSText
 				fontSize="22px"
-				mobileFontSize="16px"
-				color={colors.blue}
+				mobileFontSize="18px"
+				color={colors.black}
 				fontWeight="bold"
 				style={{ textAlign: "center" }}
 			>
@@ -46,6 +46,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 					overflowWrap: "break-word",
 					maxWidth: "100%",
 					textAlign: "center",
+					color: "black",
 				}}
 				target="_blank"
 				rel="noopener noreferrer"

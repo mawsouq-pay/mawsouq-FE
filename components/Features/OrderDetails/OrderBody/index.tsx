@@ -1,5 +1,5 @@
 import { useFetchOrderById } from "@/hooks/orderHooks";
-import React, { useState } from "react";
+import React from "react";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
@@ -92,17 +92,17 @@ const OrderBody = (props: OrderBodyProps) => {
 					>
 						{text.orderDetails}
 					</MSText>{" "}
-					<OrderPaymentSummary
-						price={data?.order.price || 0}
-						escrowFee={data?.order.fees || 0}
-						totalDue={(data?.order?.price || 0) + (data?.order.fees || 0)}
-					/>
 					<OrderInfo
 						transactionTitle={data?.order?.transactionTitle || ""}
 						description={data?.order?.description || ""}
 						price={data?.order?.price || 0}
 						status={data?.order?.status || OrderStatusEnum.PENDING_PAYMENT}
 						deliveryDate={data?.order?.deliveryDate || ""}
+					/>
+					<OrderPaymentSummary
+						price={data?.order.price || 0}
+						escrowFee={data?.order.fees || 0}
+						totalDue={(data?.order?.price || 0) + (data?.order.fees || 0)}
 					/>
 				</InfoSection>
 				<HistorySection>

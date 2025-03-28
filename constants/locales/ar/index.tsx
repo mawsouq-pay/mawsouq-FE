@@ -118,8 +118,7 @@ const ar = {
 	totalDue: "الإجمالي المستحق",
 	paymentSummary: "ملخص الدفع",
 	escrowFeeDescription:
-		"رسوم حماية صغيرة يدفعها المشتري لتأمين الدفعة حتى يتم تأكيد التسليم.",
-
+		"رسوم بسيطة يدفعها المشتري لحجز المبلغ حتى استلام الطلب.",
 	//Button CTA
 	viewOrder: "عرض الطلب",
 
@@ -245,6 +244,9 @@ const ar = {
 	disputeDetailsAreRequired: "تفاصيل الشكوى مطلوبة",
 	disputeSentSuccessfully:
 		"تم إرسال الشكوى بنجاح وهي قيد المراجعة من قبل الفريق.",
+	disputeSentToOther:
+		"تم إرسال الشكوى إلى البائع/المشتري عبر البريد الإلكتروني",
+	disputeEmailFailedToOther: "فشل في إرسال الشكوى إلى البائع/المشتري.",
 
 	//Order confirmation messages
 	ORDER_PENDING_PAYMENT_TITLE: "وضع الطلب قيد التنفيذ؟",
