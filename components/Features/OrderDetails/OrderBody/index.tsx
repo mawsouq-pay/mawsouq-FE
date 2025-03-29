@@ -8,7 +8,6 @@ import {
 	MainWrapper,
 	InfoSection,
 	HistorySection,
-	ActionBox,
 	TopSection,
 } from "./OrderBody.styles";
 import { OrderBodyProps } from "./types";
@@ -50,11 +49,6 @@ const OrderBody = (props: OrderBodyProps) => {
 			>
 				{text.trackYourOrder}
 			</MSText>
-			<ActionBox>
-				<MSText fontSize="14px" fontWeight="600" color={colors.white}>
-					action needed
-				</MSText>
-			</ActionBox>
 			<TopSection>
 				<OrderProgress
 					status={data?.order?.status || OrderStatusEnum.PENDING_PAYMENT}

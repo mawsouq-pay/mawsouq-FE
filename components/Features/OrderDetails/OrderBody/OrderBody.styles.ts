@@ -38,18 +38,6 @@ export const InfoSection = styled.div`
 	gap: 20px;
 `;
 
-export const ActionBox = styled.div`
-	display: flex;
-	width: fit-content;
-	background-color: ${colors.blue};
-	border: 0.5px solid ${colors.black};
-	padding: 5px;
-	border-radius: 8px;
-	text-align: center;
-
-	margin-top: 10px;
-	margin-bottom: 30px;
-`;
 export const TopSection = styled.div`
 	display: flex;
 	flex-direction: column;
