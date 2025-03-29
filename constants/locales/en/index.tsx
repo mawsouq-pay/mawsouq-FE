@@ -138,17 +138,22 @@ const en = {
 		"An email with the order details has also been sent to the buyer.",
 	shareOrderLink: "Share Order Link",
 	copyOrderLink: "Copy Order Link",
+	orderLinkIsReady: "Order Link is Ready",
 	copied: "Copied!",
 	orderSuccessfullyCreated: "Order Successfully Created",
 	toJoinTheOrder: "To join and pay for the order",
 	withThe: "with the",
 	linkCopiedSuccessfully: "Link copied successfully",
+	waitingForBuyerToPay: "Waiting for buyer to pay",
+	emailAfterBuyerPays:
+		"We'll send you an email once the buyer completes the payment.",
 
 	//OrderDetails
 	history: "History",
 	orderDetails: "Order Details",
 	orderStatus: "Order Status",
 	ordersList: "Orders List",
+	trackYourOrder: "Track your order",
 
 	//Register
 	register: "Register",

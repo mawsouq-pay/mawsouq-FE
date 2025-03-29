@@ -1,4 +1,5 @@
 import { colors } from "@/constants/theme";
+import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -11,6 +12,11 @@ export const Wrapper = styled.div`
 	max-width: 700px;
 	margin: 0 auto;
 	text-align: center;
+	${media.below925`
+	padding: 40px 10px;
+
+   	width: 100%;
+    `}
 `;
 
 export const LinkSection = styled.div`

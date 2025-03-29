@@ -39,15 +39,19 @@ const OrderBody = (props: OrderBodyProps) => {
 			displayErrorReason={true}
 		>
 			<MSText
-				fontSize="20px"
-				mobileFontSize="18px"
+				fontSize="22px"
+				mobileFontSize="20px"
 				fontWeight="bold"
 				color={colors.black}
+				style={{
+					borderBottom: `3px solid ${colors.green}`,
+					width: "180px",
+				}}
 			>
-				{text.orderDetails}
+				{text.trackYourOrder}
 			</MSText>
 			<ActionBox>
-				<MSText fontSize="14px" fontWeight="600" color={colors.red}>
+				<MSText fontSize="14px" fontWeight="600" color={colors.white}>
 					action needed
 				</MSText>
 			</ActionBox>
@@ -60,7 +64,8 @@ const OrderBody = (props: OrderBodyProps) => {
 						style={{
 							display: "flex",
 							justifyContent: "center",
-							marginTop: 40,
+							marginTop: 20,
+							marginBottom: 2,
 						}}
 					>
 						<ShareLinkSection
@@ -86,7 +91,7 @@ const OrderBody = (props: OrderBodyProps) => {
 						color={colors.black}
 						style={{
 							marginBottom: 10,
-							borderBottom: `3px solid ${colors.green}`,
+							// borderBottom: `3px solid ${colors.green}`,
 							width: "135px",
 						}}
 					>

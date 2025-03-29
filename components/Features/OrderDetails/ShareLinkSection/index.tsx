@@ -1,11 +1,17 @@
 import MSButton from "@/components/Shared/MSButton";
 import MSText from "@/components/Shared/MSText";
 import React, { useState } from "react";
-import { LinkSection, Tooltip } from "./ShareLink.styles";
+import {
+	LinkSection,
+	Tooltip,
+	CopyButtonWrapper,
+	FlexRow,
+} from "./ShareLink.styles";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { ShareLinkSectionProps } from "./types";
+import { CircleCheckBig, LinkIcon } from "lucide-react";
 const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
 
 const ShareLinkSection = (props: ShareLinkSectionProps) => {
@@ -29,39 +35,38 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 	return (
 		<LinkSection>
 			<MSText
-				fontSize="22px"
-				mobileFontSize="18px"
-				color={colors.black}
+				fontSize="24px"
 				fontWeight="bold"
+				color={colors.green}
 				style={{ textAlign: "center" }}
 			>
-				{text.shareOrderLink} {text.withThe}{" "}
-				{isPendingSeller ? text.seller : text.buyer} {text.toJoinTheOrder}!
+				{text.waitingForBuyerToPay}
 			</MSText>
-			<a
-				href={previewLink}
-				style={{
-					textDecoration: "none",
-					wordBreak: "break-word",
-					overflowWrap: "break-word",
-					maxWidth: "100%",
-					textAlign: "center",
-					color: "black",
-				}}
-				target="_blank"
-				rel="noopener noreferrer"
+			<MSText
+				fontSize="16px"
+				color={colors.black}
+				style={{ textAlign: "center" }}
 			>
-				{previewLink}
-			</a>
-			<MSButton
-				title={text.copyOrderLink}
-				style={{ backgroundColor: colors.blue }}
-				onClick={(e) => handleCopy(e)}
-			/>
+				{text.emailAfterBuyerPays}{" "}
+			</MSText>
+			<CopyButtonWrapper>
+				<FlexRow>
+					<LinkIcon />
+					<MSText fontSize="20px" fontWeight="600">
+						{text.shareLink}
+					</MSText>
+				</FlexRow>
+				<MSText>{previewLink}</MSText>
+				<MSButton
+					title={text.copyOrderLink}
+					style={{ backgroundColor: colors.green }}
+					onClick={(e) => handleCopy(e)}
+				/>
+			</CopyButtonWrapper>
 
 			{tooltip.visible && (
-				<Tooltip>
-					{text.copied} {""}
+				<Tooltip style={{ top: tooltip.y, left: tooltip.x }}>
+					{text.copied}
 				</Tooltip>
 			)}
 		</LinkSection>

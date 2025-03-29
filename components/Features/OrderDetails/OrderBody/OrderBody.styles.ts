@@ -41,8 +41,8 @@ export const InfoSection = styled.div`
 export const ActionBox = styled.div`
 	display: flex;
 	width: fit-content;
-	background-color: #ffebee;
-	border: 1px solid #f44336;
+	background-color: ${colors.blue};
+	border: 0.5px solid ${colors.black};
 	padding: 5px;
 	border-radius: 8px;
 	text-align: center;

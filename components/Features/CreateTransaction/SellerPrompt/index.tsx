@@ -1,11 +1,5 @@
 import React from "react";
-import {
-	PageWrapper,
-	Card,
-	Title,
-	Description,
-	StartButton,
-} from "./SellerPrompt.styles";
+import { PageWrapper, Card } from "./SellerPrompt.styles";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
@@ -28,12 +22,12 @@ const SellPrompt = ({
 					color={colors.green}
 					fontWeight="600"
 					fontSize="28px"
-					mobileFontSize="22px"
+					mobileFontSize="32px"
 				>
 					{text.wantToStartSellingSomething}
 				</MSText>
 				<MSText
-					color={colors.semiBlack}
+					color={colors.black}
 					fontSize="16px"
 					fontWeight="600"
 					style={{
@@ -43,7 +37,11 @@ const SellPrompt = ({
 				>
 					{text.moneyStaysSecure}
 				</MSText>
-				<MSButton title={text.startTransaction} onClick={onSubmit} />
+				<MSButton
+					title={text.startTransaction}
+					onClick={onSubmit}
+					disabled={disableButton}
+				/>
 			</Card>
 		</PageWrapper>
 	);

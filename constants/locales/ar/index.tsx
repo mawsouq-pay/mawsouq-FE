@@ -136,17 +136,21 @@ const ar = {
 		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",
 	shareOrderLink: "نسخ رابط الطلب",
 	copyOrderLink: "نسخ رابط الطلب",
+	orderLinkIsReady: "رابط الطلب جاهز",
 	copied: "تم النسخ !",
 	orderSuccessfullyCreated: "تم إنشاء الطلب بنجاح",
 	toJoinTheOrder: "للانضمام ودفع الطلب",
 	withThe: "مع",
 	linkCopiedSuccessfully: "تم نسخ الرابط بنجاح",
+	waitingForBuyerToPay: "في انتظار دفع المشتري",
+	emailAfterBuyerPays: "سنبعث لك بريدًا إلكترونيًا فور إتمام المشتري للدفع.",
 
 	//OrderDetails
 	history: "التاريخ",
 	orderDetails: "تفاصيل الطلب",
 	ordersList: "قائمة الطلبات",
 	orderStatus: "حالة الطلب",
+	trackYourOrder: "تتبع طلبك",
 
 	//Register
 	register: "تسجيل",

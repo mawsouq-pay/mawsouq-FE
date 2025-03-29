@@ -15,7 +15,7 @@ import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
 import MSButton from "../../../Shared/MSButton";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
-import { CircleCheckBig } from "lucide-react";
+import { CircleCheckBig, PartyPopper } from "lucide-react";
 import { useNotification } from "@/store/SnackBarStore";
 
 const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
@@ -71,8 +71,38 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 			displayErrorReason={true}
 		>
 			<Wrapper>
-				<CircleCheckBig size={"35px"} />
-				<LinkSection>
+				<CircleCheckBig size={"35px"} color={colors.green} />
+				<MSText
+					fontSize="24px"
+					fontWeight="bold"
+					color={colors.black}
+					style={{ textAlign: "center" }}
+				>
+					🥳
+					{text.orderLinkIsReady}
+				</MSText>
+				<MSText
+					fontSize="18px"
+					color={colors.black}
+					style={{ textAlign: "center" }}
+				>
+					{text.shareOrderLink} {text.withThe}{" "}
+					{isPendingSeller ? text.seller : text.buyer} {text.toJoinTheOrder}!
+				</MSText>
+				<CopyButtonWrapper>
+					<MSButton
+						title={text.copyOrderLink}
+						style={{ backgroundColor: colors.green, width: "80%" }}
+						onClick={(e) => handleCopy(e)}
+					/>
+				</CopyButtonWrapper>
+
+				{tooltip.visible && (
+					<Tooltip style={{ top: tooltip.y, left: tooltip.x }}>
+						{text.copied}
+					</Tooltip>
+				)}
+				{/* <LinkSection>
 					<MSText
 						fontSize="18px"
 						fontWeight="bold"
@@ -96,7 +126,7 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 							{text.copied}
 						</Tooltip>
 					)}
-				</LinkSection>
+				</LinkSection> */}
 			</Wrapper>
 		</MSErrorAndLoadingWrapper>
 	);
