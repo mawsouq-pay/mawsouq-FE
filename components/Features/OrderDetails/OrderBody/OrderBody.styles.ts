@@ -41,5 +41,6 @@ export const InfoSection = styled.div`
 export const TopSection = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 10px;
+	margin-top: 25px;
 `;
