@@ -56,7 +56,17 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 						{text.shareLink}
 					</MSText>
 				</FlexRow>
-				<MSText>{previewLink}</MSText>
+				<MSText
+					style={{
+						overflow: "hidden",
+						textOverflow: "ellipsis",
+						whiteSpace: "nowrap",
+						maxWidth: "100%",
+					}}
+				>
+					{previewLink}
+				</MSText>
+
 				<MSButton
 					title={text.copyOrderLink}
 					style={{ backgroundColor: colors.green }}
