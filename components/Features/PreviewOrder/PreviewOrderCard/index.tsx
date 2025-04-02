@@ -1,182 +1,119 @@
 import React from "react";
-import MSText from "@/components/Shared/MSText";
-import MSButton from "@/components/Shared/MSButton";
 import {
+	CardWrapper,
+	Section,
+	SummaryRow,
+	Divider,
+	PoweredBy,
+	FooterNote,
+	StepsBar,
+	Step,
+	StepIcon,
+	LineBetween,
+	Logo,
+	ContentDiv,
 	Wrapper,
-	LeftPanel,
-	RightPanel,
-	OrderDetailsCard,
-	DetailRow,
-	ProgressBar,
-	ProgressStep,
-	MawsouqBrand,
-	ButtonDiv,
-	FlexRow,
 } from "./PreviewOrderCard.styles";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
-import { CheckCircle } from "lucide-react";
-import { colors } from "@/constants/theme";
 import { MSLogo } from "@/assets/icons";
+import { Minus, Package, Check } from "lucide-react";
+import MSText from "@/components/Shared/MSText";
+import { colors } from "@/constants/theme";
+import MSButton from "@/components/Shared/MSButton";
+import PaymobImage from "@/assets/images/paymobImage.png";
+import Image from "next/image";
 
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
+
 	const {
 		transactionTitle,
 		description,
 		deliveryDate,
 		onConfirmPress,
 		price,
-		orderIsJoined,
 		sellerName,
 		sellerEmail,
+		orderIsJoined,
 	} = props;
 
-	const handleProceedToPayment = () => {
-		onConfirmPress();
-	};
-
 	const steps = [
-		text.buyerSendPayment,
-		text.paymentIsSecured,
-		text.sellerDeliversOrder,
-		text.buyerReceives,
-		text.paymentReleased,
+		{ icon: <Minus size={28} />, label: text.holdMoney },
+		{ icon: <Package size={26} />, label: text.receive },
+		{ icon: <Check size={28} />, label: text.release },
 	];
 
 	return (
-		<Wrapper>
-			<>
-				<LeftPanel>
-					<MawsouqBrand>
-						<MSLogo />
-						<MSText fontSize="14px" color="white">
-							{text.protectingYourOrder}
-						</MSText>
-					</MawsouqBrand>
+		<CardWrapper>
+			<Logo>
+				<MSLogo />
+			</Logo>
 
-					<ProgressBar>
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "column",
-								gap: 10,
-							}}
-						>
-							{steps.map((step, index) => (
-								<ProgressStep key={index} completed={index < 2}>
-									{index > 1 ? (
-										<MSText
-											fontSize="18px"
-											color={index < 2 ? "black" : "white"}
-										>
-											{index + 1}. {step}
-										</MSText>
-									) : (
-										<div
-											style={{
-												backgroundColor: "#222",
-												display: "flex",
-												flexDirection: "row",
-												gap: 8,
-												padding: "0px 2px",
-											}}
-										>
-											<MSText fontSize="18px" color={"white"}>
-												{index + 1}. {step}
-											</MSText>
-											<CheckCircle
-												style={{ color: "white", marginTop: 4 }}
-												size={"14px"}
-											/>
-										</div>
-									)}
-								</ProgressStep>
-							))}
-						</div>
-					</ProgressBar>
-					<ButtonDiv>
-						<MSButton
-							title={text.proceedToPayment}
-							onClick={handleProceedToPayment}
-							style={{
-								position: "relative",
-								bottom: 0,
-								width: "200px",
-								backgroundColor: ` ${colors.white}`,
-							}}
-							fontColor={colors.black}
-						/>
-					</ButtonDiv>
-				</LeftPanel>
+			<ContentDiv>
+				<MSText
+					fontWeight="600"
+					style={{ textAlign: "center", fontSize: 13, marginBottom: 10 }}
+				>
+					{text.orderPrevConfirmationDescription}
+				</MSText>
+				<StepsBar>
+					{steps.map((step, index) => (
+						<React.Fragment key={index}>
+							<Step>
+								<StepIcon>{step.icon}</StepIcon>
+								<MSText
+									fontWeight="600"
+									style={{ textAlign: "center", fontSize: 12 }}
+									color={colors.semiBlack}
+								>
+									{step.label}
+								</MSText>
+							</Step>
+							{index < steps.length - 1 && <LineBetween />}
+						</React.Fragment>
+					))}
+				</StepsBar>
 
-				<RightPanel>
-					<OrderDetailsCard>
-						<MSText
-							fontSize="14px"
-							fontWeight="600"
-							style={{ marginBottom: 20 }}
-						>
-							{text.orderDetails}
+				<Section>
+					<Wrapper>
+						<MSText fontWeight="600" style={{ marginBottom: 10 }}>
+							{text.orderSummary}
 						</MSText>
-						<DetailRow>
-							<MSText fontSize="14px" fontWeight="600">
-								{text.transactionTitle}:
-							</MSText>
-							<MSText fontSize="14px">{transactionTitle}</MSText>
-						</DetailRow>
-						<DetailRow>
-							<MSText fontSize="14px" fontWeight="600">
-								{text.price}
-							</MSText>
-							<MSText fontSize="14px">{price} EGP</MSText>
-						</DetailRow>
-						<DetailRow>
-							<MSText fontSize="14px" fontWeight="600">
-								{text.deliverDate}
-							</MSText>
-							<MSText fontSize="14px">{deliveryDate}</MSText>
-						</DetailRow>
-						<DetailRow>
-							<MSText fontSize="14px" fontWeight="600">
-								{text.description}
-							</MSText>
-							<MSText fontSize="14px">{description}</MSText>
-						</DetailRow>
-					</OrderDetailsCard>
+						<SummaryRow>
+							<MSText>{transactionTitle}</MSText>
+							<MSText>{price} EGP</MSText>
+						</SummaryRow>
 
-					<OrderDetailsCard>
-						<MSText
-							fontSize="14px"
-							fontWeight="600"
-							style={{ marginBottom: 20 }}
-						>
-							{text.sellerDetails}
+						<MSText>{deliveryDate}</MSText>
+						<MSText>{description}</MSText>
+					</Wrapper>
+				</Section>
+				<Section>
+					<Wrapper>
+						<MSText fontWeight="600" style={{ marginBottom: 10 }}>
+							{text.seller}
 						</MSText>
-						<FlexRow>
-							<MSText fontSize="14px" fontWeight="600">
-								{text.fullName}:
-							</MSText>
-							<MSText fontSize="14px">{sellerName}</MSText>
-						</FlexRow>
-						<FlexRow>
-							<MSText fontSize="14px" fontWeight="600">
-								{text.email}
-							</MSText>
-							<MSText fontSize="14px">{sellerEmail}</MSText>
-						</FlexRow>
-					</OrderDetailsCard>
-					<MSButton
-						title={
-							orderIsJoined ? text.loginToTrackOrder : text.proceedToPayment
-						}
-						onClick={handleProceedToPayment}
-						style={{ position: "relative", bottom: 0, width: "200px" }}
-					/>
-				</RightPanel>
-			</>
-		</Wrapper>
+						<MSText>{sellerName}</MSText>
+						<MSText>{sellerEmail}</MSText>
+					</Wrapper>
+				</Section>
+
+				<MSButton
+					title={orderIsJoined ? text.loginToTrackOrder : text.proceedToPayment}
+					onClick={onConfirmPress}
+					style={{ width: "100%" }}
+				/>
+				<Divider />
+
+				<PoweredBy>
+					<Image src={PaymobImage} alt="Release" width={100} height={30} />
+
+					<FooterNote>{text.securedByPaymob}</FooterNote>
+				</PoweredBy>
+			</ContentDiv>
+		</CardWrapper>
 	);
 };
 

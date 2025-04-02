@@ -191,6 +191,11 @@ const en = {
 	buyerReceives: "Buyer receives and inspects",
 	paymentReleased: "Payment released to seller",
 	loginToTrackOrder: "Login to track order",
+	pay: "Pay",
+	receive: "Receive",
+	release: "Release",
+	holdMoney: "Hold Money",
+	securedByPaymob: "All payments are secured and processed by Paymob",
 
 	//seller and buyer descriptions
 	sellerEmail: "Seller Email",
@@ -205,12 +210,13 @@ const en = {
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
-		"	Enjoy a safe transaction! Your payment is held until you confirm receipt of your order. Track your order, and once you're satisfied, the payment is released to the seller.",
+		"Your payment is held until you confirm delivery of your order.",
 	confirmOrder: "Confrim Order",
 	registerToConfirm: "Register to Confirm",
 	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
 	proceedByPaying: "Proceed by paying",
 	approveAndLinkOrder: "Proceed by approving order",
+	orderSummary: "Order Summary",
 
 	//contact form
 	contactUs: "Contact Us",
