@@ -17,11 +17,13 @@ import router from "next/router";
 import { clientRoutes } from "@/routes";
 import Image from "next/image";
 import ReleaseFrame from "@/assets/images/ENFrame.png";
+import { textTr } from "@/constants/locales";
 
 const HeroBanner = () => {
 	const { locale } = useLocaleStore();
 	const text = heroBannerText[locale];
 	const { isLoggedIn } = useAuthStore();
+	const translation = textTr(locale);
 
 	return (
 		<HeroContainer>
@@ -44,9 +46,7 @@ const HeroBanner = () => {
 				<FrameDive>
 					<Image src={ReleaseFrame} alt="Release" height={350} width={300} />
 					<MarqueeWrapper>
-						<MarqueeText>
-							All payments are secured and processed by Paymob
-						</MarqueeText>
+						<MarqueeText>{translation.securedByPaymob}</MarqueeText>
 					</MarqueeWrapper>
 				</FrameDive>
 			</FlexRow>

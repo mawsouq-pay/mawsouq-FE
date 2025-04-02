@@ -186,6 +186,12 @@ const ar = {
 	buyerReceives: "المشتري يستلم ويفحص الطلب",
 	paymentReleased: "تم الإفراج عن الدفعة للبائع",
 	loginToTrackOrder: "قم بتسجيل الدخول لتتبع الطلب",
+	pay: "Pay",
+	receive: "Receive",
+	orderSummary: "Order Summary",
+	release: "Release",
+	holdMoney: "Hold Money",
+	securedByPaymob: "All payments are secured and processed by Paymob",
 
 	//seller and buyer descriptions
 	sellerEmail: "البريد الإلكتروني للبائع",

@@ -1,122 +1,94 @@
-import styled from "styled-components";
 import { colors } from "@/constants/theme";
-import { media } from "@/helpers/mediaQueryHelper";
+import styled from "styled-components";
+
+export const CardWrapper = styled.div`
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	margin-bottom: 200px;
+	max-width: 600px;
+`;
+export const ContentDiv = styled.div`
+	padding: 16px 22px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+`;
+export const Section = styled.div`
+	margin-bottom: 20px;
+	padding: 15px 8px;
+	box-shadow:
+		0 2px 4px rgba(0, 0, 0, 0.05),
+		0 2px 16px rgba(0, 0, 0, 0.05),
+		0 2px 24px rgba(0, 0, 0, 0.05);
+	border-radius: 8px;
+`;
+
+export const SummaryRow = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
 export const Wrapper = styled.div`
 	display: flex;
-	height: 100vh;
-	width: 100%;
+	flex-direction: column;
+	margin-bottom: 20px;
+`;
+
+export const Divider = styled.hr`
+	margin: 20px 0 10px;
+	border: none;
+	border-top: 1px solid ${colors.darkGray};
+`;
+
+export const PoweredBy = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 12px;
+`;
+
+export const FooterNote = styled.div`
+	font-size: 12px;
+	color: #555;
+`;
+
+export const StepsBar = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 25px;
+	margin-top: 25px;
+`;
+
+export const Step = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+`;
+
+export const StepIcon = styled.div`
+	background-color: ${colors.green};
+	color: ${colors.white};
+	width: 32px;
+	height: 32px;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	${media.below925`
-		flex-direction: column;
-		height: auto;
-    `}
+	border-radius: 50%;
+	margin-bottom: 4px;
 `;
 
-export const LeftPanel = styled.div`
-	background: ${colors.green};
+export const LineBetween = styled.div`
+	height: 2px;
+	background-color: #008c4f;
 	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 20px;
-	height: 500px;
-	${media.below925`
-		width: 100%;
-		flex: none;
-		padding: 15px;  
-		height:340px
-		`}
+	margin: 0 6px;
+	border-radius: 2px;
 `;
-
-export const MawsouqBrand = styled.div`
+export const Logo = styled.div`
+	cursor: pointer;
 	text-align: center;
-	margin-top: 30px;
-
-	${media.below925`
-		margin-top: 0px;
-		margin-bottom: 8px;
-	`}
-`;
-
-export const ProgressBar = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	flex: 1;
-	height: 100%;
-	${media.below925`
-	align-items: flex-start;
-	margin-top:10px;
-	margin-bottom: 2px;
-	
-	height: fit-content;
-	`}
-`;
-
-export const ProgressStep = styled.div<{ completed: boolean }>`
-	display: flex;
-	gap: 10px;
-	color: ${({ completed }) => (completed ? "white" : colors.lightGray)};
-	font-size: 14px;
-	${media.below925`
-	font-size: 12px;
-
-	`}
-`;
-
-export const RightPanel = styled.div`
-	flex: 1.6;
-	background: white;
-	padding: 30px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 500px;
-
-	${media.below925`
 	width: 100%;
-	padding: 15px;
-	height: 100%;
-
-
-	`}
-`;
-
-export const OrderDetailsCard = styled.div`
-	background: #fff;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
-	padding: 20px;
-	width: 100%;
-	max-width: 500px;
-	margin-bottom: 20px;
-
-	${media.below925`
-	padding: 15px;
-
-	`}
-`;
-
-export const DetailRow = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 2px 0;
-	margin-top: 8px;
-
-	${media.below925`
-	flex-direction: column;
-		gap: 5px;
-
-	`}
-`;
-export const FlexRow = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 2px 0;
-`;
-export const ButtonDiv = styled.div`
-	@media (min-width: 925px) {
-		display: none;
-	}
+	background-color: ${colors.green};
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 0px;
 `;
