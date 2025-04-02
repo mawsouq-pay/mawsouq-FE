@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mawsouq-pay.com
+
+# Sitemaps
+Sitemap: https://mawsouq-pay.com/sitemap.xml

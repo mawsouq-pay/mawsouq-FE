@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"postbuild": "next-sitemap"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.13.5",
@@ -26,6 +27,7 @@
 		"js-cookie": "^3.0.5",
 		"lucide-react": "^0.475.0",
 		"next": "15.0.3",
+		"next-sitemap": "^4.2.3",
 		"posthog-js": "^1.232.4",
 		"posthog-node": "^4.10.1",
 		"prettier": "^3.4.2",
