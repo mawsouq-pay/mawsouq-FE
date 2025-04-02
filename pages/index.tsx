@@ -17,31 +17,33 @@ const LandingPage = () => {
 	return (
 		<>
 			<Head>
+				{/* Basic Meta */}
 				<title>Mawsouq – Secure Your Orders & Payments</title>
 				<meta
 					name="description"
-					content="Mawsouq is the trustworthy way to handle deposits between buyers and sellers on Instagram, Facebook & more."
+					content="Mawsouq helps protect custom orders with secure deposits, order tracking, and trusted delivery confirmation between buyers and sellers."
 				/>
 				<link rel="canonical" href="https://mawsouq-pay.com" />
 
-				{/* Open Graph */}
+				{/* Open Graph (Facebook, LinkedIn) */}
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://mawsouq-pay.com" />
 				<meta
 					property="og:title"
 					content="Mawsouq – Secure Your Orders & Payments"
 				/>
 				<meta
 					property="og:description"
-					content="Mawsouq helps protect custom orders with secure deposits, order tracking, and a trusted process."
+					content="Mawsouq is the trustworthy way to handle deposits between buyers and sellers. Prevent scams and gain confidence in every transaction."
 				/>
 				<meta
 					property="og:image"
 					content="https://mawsouq-pay.com/meta-preview.png"
 				/>
-				<meta property="og:url" content="https://mawsouq-pay.com" />
-				<meta property="og:type" content="website" />
 
 				{/* Twitter Card */}
 				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:url" content="https://mawsouq-pay.com" />
 				<meta
 					name="twitter:title"
 					content="Mawsouq – Secure Your Orders & Payments"
@@ -55,10 +57,41 @@ const LandingPage = () => {
 					content="https://mawsouq-pay.com/meta-preview.png"
 				/>
 
-				{/* Favicon (optional) */}
+				{/* Favicon */}
 				<link rel="icon" href="/favicon.ico" />
-			</Head>
 
+				{/* JSON-LD: Organization Logo Schema */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Organization",
+							name: "Mawsouq",
+							url: "https://mawsouq-pay.com",
+							logo: "https://mawsouq-pay.com/logo.png",
+						}),
+					}}
+				/>
+
+				{/* JSON-LD: Sitelinks Search Box Schema (if you have a search page) */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "WebSite",
+							name: "Mawsouq",
+							url: "https://mawsouq-pay.com/",
+							potentialAction: {
+								"@type": "SearchAction",
+								target: "https://mawsouq-pay.com/search?q={search_term_string}",
+								"query-input": "required name=search_term_string",
+							},
+						}),
+					}}
+				/>
+			</Head>
 			<Navbar isLandingPage={true} />
 			<MainDiv>
 				<MSAnimatedDiv>
