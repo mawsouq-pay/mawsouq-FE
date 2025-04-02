@@ -210,13 +210,16 @@ const en = {
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
-		"Your payment is held until you confirm delivery of your order.",
+		"Mawsouq is a secure payment service that holds your money until you receive your order",
 	confirmOrder: "Confrim Order",
 	registerToConfirm: "Register to Confirm",
 	securePaymentsWithMawsouq: "Secure your payments with Mawsouq",
 	proceedByPaying: "Proceed by paying",
 	approveAndLinkOrder: "Proceed by approving order",
 	orderSummary: "Order Summary",
+	youAreTheBuyer: "You're the buyer",
+	refundIfSellerDoesntDeliver: "Full refund if the seller doesn’t deliver",
+	support247: "24/7 Support on your order",
 
 	//contact form
 	contactUs: "Contact Us",
