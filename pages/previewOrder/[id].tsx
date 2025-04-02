@@ -65,11 +65,12 @@ const PreviewOrderSummary = () => {
 const PageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	/* height: 100%;
 	flex: 1;
-	height: 100vh;
+	height: 100vh; */
 
 	align-items: center;
+	margin-bottom: 70px;
 `;
 
 export default PreviewOrderSummary;

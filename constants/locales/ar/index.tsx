@@ -206,12 +206,15 @@ const ar = {
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
-		"استمتع بعملية آمنة! يتم الاحتفاظ بدفعتك حتى تؤكد استلام طلبك. تابع طلبك، وبمجرد رضاك، يتم تحويل الدفعة إلى البائع.",
+		"Mawsouq هي خدمة دفع آمنة تحتجز أموالك حتى تستلم طلبك",
 	confirmOrder: "تأكيد الطلب",
 	registerToConfirm: "سجّل لتأكيد الطلب",
 	securePaymentsWithMawsouq: "قم بتأمين مدفوعاتك مع مَوْسُوق",
 	proceedByPaying: "تابع بالدفع",
 	approveAndLinkOrder: "تابع بالموافقة على الطلب",
+	youAreTheBuyer: "You're the buyer",
+	refundIfSellerDoesntDeliver: "استرداد كامل إذا لم يقم البائع بالتسليم",
+	support247: "دعم متواصل 24/7 على طلبك",
 
 	//contact form
 	contactUs: "اتصل بنا",

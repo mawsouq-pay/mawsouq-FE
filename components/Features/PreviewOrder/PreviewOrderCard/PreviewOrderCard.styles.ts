@@ -2,59 +2,55 @@ import { colors } from "@/constants/theme";
 import styled from "styled-components";
 
 export const CardWrapper = styled.div`
-	background: #fff;
-	border-radius: 12px;
+	background: ${colors.white};
+	border-radius: 8px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-	margin-bottom: 200px;
-	max-width: 600px;
+	max-width: 500px;
 `;
+
 export const ContentDiv = styled.div`
-	padding: 16px 22px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	padding: 20px 20px;
 `;
+
 export const Section = styled.div`
 	margin-bottom: 20px;
-	padding: 15px 8px;
-	box-shadow:
-		0 2px 4px rgba(0, 0, 0, 0.05),
-		0 2px 16px rgba(0, 0, 0, 0.05),
-		0 2px 24px rgba(0, 0, 0, 0.05);
-	border-radius: 8px;
 `;
 
 export const SummaryRow = styled.div`
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 8px;
 `;
+
 export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 20px;
+	gap: 4px;
 `;
 
 export const Divider = styled.hr`
-	margin: 20px 0 10px;
 	border: none;
-	border-top: 1px solid ${colors.darkGray};
+	border-top: 1px solid ${colors.gray200};
+	margin: 16px 0;
 `;
 
 export const PoweredBy = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 12px;
+	margin-top: 10px;
 `;
 
 export const FooterNote = styled.div`
 	font-size: 12px;
-	color: #555;
+	color: ${colors.gray500};
 `;
 
 export const StepsBar = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 25px;
-	margin-top: 25px;
+	margin: 18px 0;
 `;
 
 export const Step = styled.div`
@@ -62,6 +58,7 @@ export const Step = styled.div`
 	flex-direction: column;
 	align-items: center;
 	flex: 1;
+	height: 44px;
 `;
 
 export const StepIcon = styled.div`
@@ -78,17 +75,25 @@ export const StepIcon = styled.div`
 
 export const LineBetween = styled.div`
 	height: 2px;
-	background-color: #008c4f;
+	background-color: ${colors.green};
 	flex: 1;
 	margin: 0 6px;
 	border-radius: 2px;
 `;
+
 export const Logo = styled.div`
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
 	background-color: ${colors.green};
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
 	padding: 0px;
+`;
+export const RowDiv = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+	align-items: center;
+	text-align: center;
 `;
