@@ -18,7 +18,7 @@ import {
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import { MSLogo } from "@/assets/icons";
-import { ShoppingCart, Lock, Repeat, Check } from "lucide-react";
+import { ShoppingCart, Lock, Repeat, Package } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import MSButton from "@/components/Shared/MSButton";
@@ -43,7 +43,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 
 	const steps = [
 		{ icon: <Lock size={18} />, label: text.holdMoney },
-		{ icon: <Check size={18} />, label: text.receive },
+		{ icon: <Package size={18} />, label: text.receive },
 		{ icon: <Repeat size={18} />, label: text.release },
 	];
 
