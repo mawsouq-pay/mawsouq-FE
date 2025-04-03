@@ -22,7 +22,7 @@ export default function Document() {
 				<meta name="theme-color" content="#000000" />
 
 				{/* Static Meta for Social Sharing */}
-				<meta
+				{/* <meta
 					property="og:title"
 					content="Mawsouq – Secure Your Orders & Payments"
 				/>
@@ -35,7 +35,7 @@ export default function Document() {
 					content="https://mawsouq-pay.com/layout/opengraph-image.png"
 				/>
 				<meta property="og:url" content="https://mawsouq-pay.com" />
-				<meta property="og:type" content="website" />
+				<meta property="og:type" content="website" /> */}
 
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
