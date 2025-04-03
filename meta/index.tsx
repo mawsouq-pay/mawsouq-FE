@@ -20,10 +20,11 @@ type PageMeta = {
 
 export const pageMetadata: Record<PageKey, PageMeta> = {
 	homePage: {
-		title: "Mawsouq – Secure Your Orders & Payments",
+		title: "Mawsouqs – Secure Your Orders & Payments",
 		description:
-			"Handle deposits safely with Mawsouq. Track, confirm, and pay only when you're sure.",
+			"Handles deposits safely with Mawsouq. Track, confirm, and pay only when you're sure.",
 		canonical: "https://mawsouq-pay.com/homePage",
+		image: "https://mawsouq-pay.com/layout/opengraph-image.png",
 	},
 	login: {
 		title: "Login – Mawsouq",
@@ -39,7 +40,6 @@ export const pageMetadata: Record<PageKey, PageMeta> = {
 		title: "Order Preview – Mawsouq",
 		description: "Review your order before confirming and paying.",
 		canonical: "https://mawsouq-pay.com/previewOrder",
-		image: "https://mawsouq-pay.com/layout/opengraph-image.png",
 	},
 	startTransaction: {
 		title: "Start Transaction – Mawsouq",
