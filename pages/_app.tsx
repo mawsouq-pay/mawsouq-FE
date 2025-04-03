@@ -10,7 +10,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import MSLoadingScreen from "@/components/Shared/MSFallBacks/MSLoadingScreen";
 import { NotificationProvider } from "@/store/SnackBarStore";
 import { BrowserRouter } from "react-router-dom";
-import { Roboto } from "next/font/google";
 import { useLocaleStore } from "@/store/LocaleStore";
 import rtlPlugin from "stylis-plugin-rtl";
 import { StyleSheetManager } from "styled-components";
@@ -19,11 +18,6 @@ import { useTheme } from "styled-components";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { Router } from "next/router";
-
-const roboto = Roboto({
-	weight: ["400", "700", "900"],
-	subsets: ["latin"],
-});
 
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
@@ -67,7 +61,7 @@ function MyApp({ Component, pageProps }: any) {
 
 	return (
 		<PostHogProvider client={posthog}>
-			<main className={roboto.className}>
+			<main>
 				<QueryClientProvider client={queryClient}>
 					<BrowserRouter>
 						<ProtectedRouteWrapper

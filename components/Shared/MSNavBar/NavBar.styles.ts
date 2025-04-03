@@ -42,7 +42,6 @@ export const SidebarLink = styled(LinkS)`
 	padding: 0;
 	height: 100%;
 	cursor: pointer;
-	font-family: "Roboto";
 	font-size: 18px;
 	&.active {
 		border-bottom: 4px solid #52ab98;
@@ -113,7 +112,6 @@ export const NavLinkss = styled(LinkS)`
 	height: 100%;
 	color: ${colors.white};
 	cursor: pointer;
-	font-family: "Roboto";
 	font-size: 14px;
 	&.active {
 		border-bottom: 4px solid #52ab98;
