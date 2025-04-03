@@ -44,7 +44,14 @@ const HeroBanner = () => {
 					</HeroButton>
 				</HeroContent>
 				<FrameDive>
-					<Image src={ReleaseFrame} alt="Release" height={350} width={300} />
+					<Image
+						src={ReleaseFrame}
+						priority
+						loading="eager"
+						alt="Release"
+						height={350}
+						width={300}
+					/>
 					<MarqueeWrapper>
 						<MarqueeText>{translation.securedByPaymob}</MarqueeText>
 					</MarqueeWrapper>
