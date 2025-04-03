@@ -11,7 +11,6 @@ import {
 	OrDivider,
 	TextLink,
 } from "./RegisterForm.styles";
-import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
 import useRegisterHandler from "@/hooks/useRegisterHandler";
 import { Eye, EyeOff } from "lucide-react";

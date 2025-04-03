@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import MSText from "../../../Shared/MSText";
 import { colors } from "@/constants/theme";
-import {
-	Wrapper,
-	LinkSection,
-	Tooltip,
-	CopyButtonWrapper,
-	ActionButtonWrapper,
-} from "./ShareLink.styles";
+import { Wrapper, Tooltip, CopyButtonWrapper } from "./ShareLink.styles";
 import { ShareLinkProps } from "./types";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
@@ -15,7 +9,7 @@ import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
 import MSButton from "../../../Shared/MSButton";
 import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapper";
-import { CircleCheckBig, PartyPopper } from "lucide-react";
+import { CircleCheckBig } from "lucide-react";
 import { useNotification } from "@/store/SnackBarStore";
 
 const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
@@ -102,31 +96,6 @@ const ShareOrderLink = (props: ShareLinkProps) => {
 						{text.copied}
 					</Tooltip>
 				)}
-				{/* <LinkSection>
-					<MSText
-						fontSize="18px"
-						fontWeight="bold"
-						color={colors.black}
-						style={{ textAlign: "center" }}
-					>
-						{text.shareOrderLink} {text.withThe}{" "}
-						{isPendingSeller ? text.seller : text.buyer} {text.toJoinTheOrder}!
-					</MSText>
-
-					<CopyButtonWrapper>
-						<MSButton
-							title={text.copyOrderLink}
-							style={{ backgroundColor: colors.blue, width: "100%" }}
-							onClick={(e) => handleCopy(e)}
-						/>
-					</CopyButtonWrapper>
-
-					{tooltip.visible && (
-						<Tooltip style={{ top: tooltip.y, left: tooltip.x }}>
-							{text.copied}
-						</Tooltip>
-					)}
-				</LinkSection> */}
 			</Wrapper>
 		</MSErrorAndLoadingWrapper>
 	);

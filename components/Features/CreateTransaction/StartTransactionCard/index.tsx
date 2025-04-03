@@ -14,7 +14,6 @@ const StartTransactionCard = () => {
 		setPayoutModalOpen,
 		onPayoutRequiredModalSubmit,
 		payoutModalFormOpen,
-		setPayoutModalFormOpen,
 		createUserPayoutPending,
 		onPayoutFormSubmit,
 		onPayoutFormCancel,

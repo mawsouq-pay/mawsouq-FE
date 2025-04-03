@@ -12,7 +12,6 @@ import {
 	PasswordDiv,
 	TextLink,
 } from "./LoginForm.styles";
-import MSText from "../../../Shared/MSText";
 import MSButton from "../../../Shared/MSButton";
 import { useLoginHandler } from "@/hooks/useLoginHandler";
 import { Eye, EyeOff } from "lucide-react";
@@ -43,17 +42,6 @@ const LoginForm = ({ orderId }: { orderId?: string }) => {
 						<MSLogo />
 					</Logo>
 					<FormWrapper>
-						{/* <MSText
-							fontSize="14px"
-							color="#75859E"
-							style={{
-								paddingBottom: "5px",
-								textAlign: "center",
-							}}
-						>
-							{text.securePaymentsWithMawsouq}
-						</MSText> */}
-
 						<Form style={{ gap: 20 }}>
 							<FormItem
 								label={text.email}
