@@ -57,9 +57,6 @@ const LandingPage = () => {
 					content="https://mawsouq-pay.com/meta-preview.png"
 				/>
 
-				{/* Favicon */}
-				<link rel="icon" href="/favicon.ico" />
-
 				{/* JSON-LD: Organization Logo Schema */}
 				<script
 					type="application/ld+json"
@@ -74,7 +71,7 @@ const LandingPage = () => {
 					}}
 				/>
 
-				{/* JSON-LD: Sitelinks Search Box Schema (if you have a search page) */}
+				{/* JSON-LD: Sitelinks Search Box Schema */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
