@@ -15,6 +15,7 @@ type PageMeta = {
 	title: string;
 	description: string;
 	canonical?: string;
+	image?: string;
 };
 
 export const pageMetadata: Record<PageKey, PageMeta> = {
@@ -38,6 +39,7 @@ export const pageMetadata: Record<PageKey, PageMeta> = {
 		title: "Order Preview – Mawsouq",
 		description: "Review your order before confirming and paying.",
 		canonical: "https://mawsouq-pay.com/previewOrder",
+		image: "https://mawsouq-pay.com/layout/opengraph-image.png",
 	},
 	startTransaction: {
 		title: "Start Transaction – Mawsouq",
