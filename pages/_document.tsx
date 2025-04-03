@@ -32,7 +32,7 @@ export default function Document() {
 				/>
 				<meta
 					property="og:image"
-					content="https://mawsouq-pay.com/opengraph-image.png"
+					content="https://mawsouq-pay.com/layout/opengraph-image.png"
 				/>
 				<meta property="og:url" content="https://mawsouq-pay.com" />
 				<meta property="og:type" content="website" />
