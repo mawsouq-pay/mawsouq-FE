@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import RegisterForm from "@/components/Features/Authentication/RegisterForm";
 import { useRouter } from "next/router";
+import { withMeta } from "@/layouts/MetaLayout";
 
 const RegisterPage = () => {
 	const router = useRouter();
@@ -18,4 +19,4 @@ const PageContainer = styled.div`
 	justify-content: center;
 `;
 
-export default RegisterPage;
+export default withMeta("register", RegisterPage);

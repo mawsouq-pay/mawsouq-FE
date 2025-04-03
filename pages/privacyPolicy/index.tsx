@@ -1,6 +1,7 @@
 import React from "react";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store";
+import { withMeta } from "@/layouts/MetaLayout";
 
 const SectionText = ({
 	title,
@@ -201,4 +202,4 @@ const PrivacyPolicy = () => {
 	);
 };
 
-export default PrivacyPolicy;
+export default withMeta("privacyPolicy", PrivacyPolicy);

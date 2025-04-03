@@ -3,6 +3,7 @@ import PaymentSuccess from "@/components/Shared/PaymentSuccess";
 import React from "react";
 import { useRouter } from "next/router";
 import MSLoader from "@/components/Shared/MSLoader";
+import { withMeta } from "@/layouts/MetaLayout";
 
 const PaymentRedirect = () => {
 	const router = useRouter();
@@ -26,4 +27,4 @@ const PaymentRedirect = () => {
 	);
 };
 
-export default PaymentRedirect;
+export default withMeta("paymentRedirect", PaymentRedirect);

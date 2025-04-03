@@ -1,4 +1,5 @@
 import LoginForm from "@/components/Features/Authentication/LoginForm";
+import { withMeta } from "@/layouts/MetaLayout";
 import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
@@ -22,4 +23,4 @@ const PageContainer = styled.div`
 	height: 80dvh;
 `;
 
-export default LoginPage;
+export default withMeta("login", LoginPage);

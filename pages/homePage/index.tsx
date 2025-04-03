@@ -7,6 +7,7 @@ import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapp
 import MSButton from "@/components/Shared/MSButton";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
+import { withMeta } from "@/layouts/MetaLayout";
 
 const HomePage = () => {
 	const { locale } = useLocaleStore();
@@ -46,4 +47,4 @@ const HomePageWrapper = styled.div`
 `;
 
 HomePage.CustomLayout = HomePageLayout;
-export default HomePage;
+export default withMeta("homePage", HomePage);

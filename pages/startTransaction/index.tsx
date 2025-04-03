@@ -3,6 +3,7 @@ import MSText from "@/components/Shared/MSText";
 import { textTr } from "@/constants/locales";
 import { colors } from "@/constants/theme";
 import HomePageLayout from "@/layouts/HomePageLayout";
+import { withMeta } from "@/layouts/MetaLayout";
 import { useLocaleStore } from "@/store";
 
 const StartTransaction = () => {
@@ -30,4 +31,4 @@ const StartTransaction = () => {
 };
 
 StartTransaction.CustomLayout = HomePageLayout;
-export default StartTransaction;
+export default withMeta("startTransaction", StartTransaction);

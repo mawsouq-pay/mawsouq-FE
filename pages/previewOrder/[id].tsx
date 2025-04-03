@@ -9,6 +9,7 @@ import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapp
 import { clientRoutes } from "@/routes";
 import { useAuthStore } from "@/store";
 import MSLoader from "@/components/Shared/MSLoader";
+import { withMeta } from "@/layouts/MetaLayout";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -65,12 +66,9 @@ const PreviewOrderSummary = () => {
 const PageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* height: 100%;
-	flex: 1;
-	height: 100vh; */
 
 	align-items: center;
 	margin-bottom: 70px;
 `;
 
-export default PreviewOrderSummary;
+export default withMeta("previewOrder", PreviewOrderSummary);

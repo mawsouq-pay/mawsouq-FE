@@ -1,4 +1,5 @@
 import ResetPasswordForm from "@/components/Features/Authentication/ResetPasswordForm";
+import { withMeta } from "@/layouts/MetaLayout";
 import router from "next/router";
 import React from "react";
 
@@ -8,4 +9,4 @@ const ResetPassword = () => {
 	return <ResetPasswordForm token={token as string} />;
 };
 
-export default ResetPassword;
+export default withMeta("resetPassword", ResetPassword);
