@@ -9,8 +9,6 @@ import MSErrorAndLoadingWrapper from "@/components/Shared/MSErrorAndLoadingWrapp
 import { clientRoutes } from "@/routes";
 import { useAuthStore } from "@/store";
 import MSLoader from "@/components/Shared/MSLoader";
-import { withMeta } from "@/layouts/MetaLayout";
-import Head from "next/head";
 
 const PreviewOrderSummary = () => {
 	const router = useRouter();
@@ -30,26 +28,7 @@ const PreviewOrderSummary = () => {
 	}
 	return (
 		<>
-			<Head>
-				<title>Order Preview – Mawsouq</title>
-				<meta
-					name="description"
-					content="Review your order before confirming and paying."
-				/>
-				<meta property="og:title" content="Order Preview – Mawsouq" />
-				<meta
-					property="og:description"
-					content="Review your order before confirming and paying."
-				/>
-				<meta
-					property="og:image"
-					content="https://mawsouq-pay.com/layout/opengraph-image.png"
-				/>
-				{/* <meta
-					property="og:url"
-					content="https://mawsouq-pay.com/previewOrder/67e7da7f692185513dceabce"
-				/> */}
-			</Head>
+			{" "}
 			<PageContainer>
 				<MSErrorAndLoadingWrapper
 					isLoading={isLoading}
