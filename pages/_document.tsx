@@ -17,6 +17,7 @@ export default function Document() {
 					href="/layout/favicon-96x96.png"
 				/>
 				<link rel="icon" type="image/svg+xml" href="/layout/favicon.svg" />
+				{/* Display in tab */}
 				<link rel="shortcut icon" href="/layout/favicon.ico" />
 				<link rel="manifest" href="/layout/site.webmanifest" />
 				<meta name="theme-color" content="#000000" />
@@ -28,7 +29,7 @@ export default function Document() {
 				/>
 				<meta
 					property="og:description"
-					content="Mawsouq helps protect custom orders with secure deposits, order tracking, and trusted delivery confirmation between buyers and sellers."
+					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint if needed."
 				/>
 				<meta
 					property="og:image"
@@ -44,7 +45,7 @@ export default function Document() {
 				/>
 				<meta
 					name="twitter:description"
-					content="Secure your deposits and protect your custom orders from scams."
+					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint if needed."
 				/>
 				<meta
 					name="twitter:image"
