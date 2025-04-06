@@ -16,7 +16,8 @@ export const HeroContainer = styled.section`
 	${media.below925`
 	padding: 20px 4% 40px 4%;
 
-	height: 900px;
+	height: 800px;
+	max-height: 3800px;
 	`}
 `;
 export const FlexRow = styled.div`
