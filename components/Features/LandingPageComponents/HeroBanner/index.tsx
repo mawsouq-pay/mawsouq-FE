@@ -33,7 +33,7 @@ const HeroBanner = () => {
 				<HeroContent>
 					<MSText
 						fontSize="3.5rem"
-						mobileFontSize="2.5rem"
+						mobileFontSize="2.2rem"
 						fontWeight="bold"
 						style={{ marginTop: 10 }}
 					>
@@ -59,7 +59,7 @@ const HeroBanner = () => {
 						{text.buttonText}
 					</HeroButton>
 				</HeroContent>
-				<FrameDive>
+				<FrameDive isArabic={locale === "ar"}>
 					<Image
 						src={ReleaseFrame}
 						priority

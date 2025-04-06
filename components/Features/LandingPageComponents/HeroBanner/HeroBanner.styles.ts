@@ -14,10 +14,9 @@ export const HeroContainer = styled.section`
 	border-bottom-right-radius: 30px;
 	background-color: ${colors.backgroundColor};
 	${media.below925`
-	padding: 35px 4% 40px 4%;
+	padding: 20px 4% 40px 4%;
 
 	height: 900px;
-	max-height: 3800px;
 	`}
 `;
 export const FlexRow = styled.div`
@@ -29,7 +28,7 @@ export const FlexRow = styled.div`
 	flex-direction: column;
 		text-align: center;
 		min-height: auto;
-		padding: 0px 20px;
+		padding: 0px 10px;
     `}
 `;
 
@@ -81,7 +80,7 @@ export const HeroButton = styled.button`
 	}
 `;
 
-export const FrameDive = styled.div`
+export const FrameDive = styled.div<{ isArabic: boolean }>`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -90,9 +89,8 @@ export const FrameDive = styled.div`
 	@media (max-width: 1024px) {
 		max-width: 100%;
 		justify-content: center;
-
-		${({ theme }) =>
-			theme.rtl ? "margin-right: 30px;" : "margin-right: 30px;"}
+		margin-left: ${({ isArabic }) => (isArabic ? "30px" : "0px")};
+		margin-right: ${({ isArabic }) => (isArabic ? "0px" : "30px")};
 	}
 `;
 
