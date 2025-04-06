@@ -18,6 +18,8 @@ import { clientRoutes } from "@/routes";
 import Image from "next/image";
 import ReleaseFrame from "@/assets/images/ENFrame.png";
 import { textTr } from "@/constants/locales";
+import MSText from "@/components/Shared/MSText";
+import { colors } from "@/constants/theme";
 
 const HeroBanner = () => {
 	const { locale } = useLocaleStore();
@@ -29,8 +31,22 @@ const HeroBanner = () => {
 		<HeroContainer>
 			<FlexRow>
 				<HeroContent>
-					<HeroTitle>{text.title}</HeroTitle>
-					<HeroSubtitle>{text.subtitle}</HeroSubtitle>
+					<MSText
+						fontSize="3.5rem"
+						mobileFontSize="2.5rem"
+						fontWeight="bold"
+						style={{ marginTop: 10 }}
+					>
+						{text.title}
+					</MSText>
+					<MSText
+						fontSize="1.5rem"
+						mobileFontSize="1rem"
+						color={colors.lightBlack}
+						style={{ marginTop: 10, marginBottom: 10 }}
+					>
+						{text.subtitle}
+					</MSText>
 					<HeroButton
 						onClick={() => {
 							router.push(

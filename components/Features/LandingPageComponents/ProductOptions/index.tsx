@@ -148,14 +148,14 @@ const ProductOptions = () => {
 								<ContentDiv>
 									{item.icon}
 									<MSText
-										fontSize="1rem"
+										fontSize="1.2rem"
 										mobileFontSize="16px"
 										fontWeight="600"
 										color="#01796f"
 									>
 										{item.title}
 									</MSText>
-									<MSText fontSize="14px" color="#444">
+									<MSText fontSize="16px" color="#444">
 										{item.description}
 									</MSText>
 								</ContentDiv>
@@ -169,14 +169,14 @@ const ProductOptions = () => {
 						<ContentDiv key={index}>
 							{item.icon}
 							<MSText
-								fontSize="1rem"
+								fontSize="1.2rem"
 								mobileFontSize="16px"
 								fontWeight="600"
 								color="#01796f"
 							>
 								{item.title}
 							</MSText>
-							<MSText fontSize="14px" color="#444">
+							<MSText fontSize="16px" color="#444">
 								{item.description}
 							</MSText>
 						</ContentDiv>

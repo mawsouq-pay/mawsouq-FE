@@ -3,19 +3,9 @@ import {
 	FeaturesContainer,
 	FeatureItem,
 	FeatureIcon,
-	FeatureDescription,
 } from "./HowItWorks.styles";
-import {
-	CreditCard,
-	Lock,
-	PackageCheck,
-	ExternalLink,
-	ClipboardList,
-} from "lucide-react";
+
 import { useLocaleStore } from "@/store";
-import ScribbledCircleText from "../ScribbledCircleText";
-import Image from "next/image";
-import ArrowScribble from "@/assets/images/ArrowScribbled.png";
 import {
 	ApproveIcon,
 	ArrowDownScribbledIcon,
@@ -95,9 +85,14 @@ const HowItWorks = () => {
 						<React.Fragment key={index}>
 							<FeatureItem>
 								<FeatureIcon>{feature.icon}</FeatureIcon>
-								<FeatureDescription>
+								<MSText
+									fontSize="22px"
+									fontWeight="600"
+									color={colors.darkGreen}
+									style={{ maxWidth: "300" }}
+								>
 									{locale == "ar" ? feature.descriptionAr : feature.description}
-								</FeatureDescription>
+								</MSText>
 							</FeatureItem>
 							{index < selectedFeatures.length - 1 &&
 								(!isMobile ? (

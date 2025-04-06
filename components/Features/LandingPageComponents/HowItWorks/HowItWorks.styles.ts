@@ -41,12 +41,7 @@ export const FeatureTitle = styled.h3`
 	font-weight: bold;
 	color: #222;
 `;
-export const FeatureDescription = styled.p`
-	font-size: 22px;
-	max-width: 300px;
-	color: #01796f;
-	font-weight: 600;
-`;
+
 export const DashedLine = styled.div`
 	width: 50px;
 	height: 2px;
