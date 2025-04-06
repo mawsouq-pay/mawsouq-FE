@@ -29,7 +29,7 @@ export default function Document() {
 				/>
 				<meta
 					property="og:description"
-					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint if needed."
+					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint when needed."
 				/>
 				<meta
 					property="og:image"
@@ -45,7 +45,7 @@ export default function Document() {
 				/>
 				<meta
 					name="twitter:description"
-					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint if needed."
+					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint when needed."
 				/>
 				<meta
 					name="twitter:image"
