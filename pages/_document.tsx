@@ -21,7 +21,10 @@ export default function Document() {
 				<link rel="shortcut icon" href="/layout/favicon.ico" />
 				<link rel="manifest" href="/layout/site.webmanifest" />
 				<meta name="theme-color" content="#000000" />
-
+				<meta
+					name="description"
+					content="Mawsouq protects your money until delivery is confirmed. Track your order and file a complaint when needed."
+				/>
 				{/* Static Meta for Social Sharing */}
 				<meta
 					property="og:title"
