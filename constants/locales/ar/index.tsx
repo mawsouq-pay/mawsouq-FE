@@ -24,6 +24,7 @@ const ar = {
 	howItWorks: "كيف يعمل",
 	msBenefits: "الفوائد",
 	contact: "تواصل معنا",
+	mawsouqBenefits: "Mawsouq Benefits",
 
 	//paymob
 	paymobInfo:

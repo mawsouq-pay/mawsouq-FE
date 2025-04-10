@@ -16,7 +16,7 @@ export const sendEmail = async (
 		const result = await response.json();
 
 		if (!response.ok) {
-			console.log("a");
+			console.log(result, "RESULT");
 			throw new Error(result.error || "Failed to send email");
 		}
 

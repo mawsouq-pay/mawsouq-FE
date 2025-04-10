@@ -2,6 +2,7 @@ import React from "react";
 import { NavItem, NavLinkss } from "../NavBar.styles";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
+import MSText from "../../MSText";
 
 const NavLinks = () => {
 	const { locale } = useLocaleStore();
@@ -17,7 +18,7 @@ const NavLinks = () => {
 					spy={true}
 					offset={0}
 				>
-					{text.howItWorks}
+					<MSText fontWeight="600">{text.howItWorks}</MSText>
 				</NavLinkss>
 			</NavItem>
 			<NavItem>
@@ -28,7 +29,7 @@ const NavLinks = () => {
 					spy={true}
 					offset={-121}
 				>
-					{text.msBenefits}
+					<MSText fontWeight="600">{text.msBenefits}</MSText>
 				</NavLinkss>
 			</NavItem>
 			<NavItem>
@@ -39,7 +40,7 @@ const NavLinks = () => {
 					spy={true}
 					offset={-141}
 				>
-					{text.contact}
+					<MSText fontWeight="600">{text.contact}</MSText>
 				</NavLinkss>
 			</NavItem>
 		</>

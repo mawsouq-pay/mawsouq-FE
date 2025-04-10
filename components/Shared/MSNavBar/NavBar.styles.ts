@@ -14,7 +14,7 @@ export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
 	padding: 5px 64px;
 	justify-content: center;
 	align-items: center;
-	background-color: ${colors.green};
+	background-color: ${colors.white};
 	font-size: 1rem;
 	position: sticky;
 	${media.below925`
@@ -75,18 +75,6 @@ export const NavbarContainer = styled.div`
 	width: 100%;
 `;
 
-// export const NavLogo = styled(LinkR)`
-// 	color: #000;
-// 	justify-self: flex-start;
-// 	cursor: pointer;
-// 	font-size: 1.5rem;
-// 	display: flex;
-// 	align-items: center;
-// 	margin-left: -5px;
-// 	font-weight: bold;
-// 	text-decoration: none;
-// `;
-
 export const NavMenu = styled.ul`
 	position: absolute;
 	left: 50%;
@@ -104,15 +92,15 @@ export const NavMenu = styled.ul`
 export const NavItem = styled.li``;
 
 export const NavLinkss = styled(LinkS)`
-	color: #fff;
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 	padding: 0 1rem;
 	height: 100%;
-	color: ${colors.white};
+	color: ${colors.black};
 	cursor: pointer;
 	font-size: 14px;
+	font-weight: 600;
 	&.active {
 		border-bottom: 4px solid #52ab98;
 	}

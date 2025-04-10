@@ -5,8 +5,8 @@ import { useLocaleStore, localeEnum } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { clientRoutes } from "@/routes";
 import MSButton from "../../MSButton";
+import { GlobeIcon } from "lucide-react";
 import { colors } from "@/constants/theme";
-
 const NavButtons = () => {
 	const { isLoggedIn, logout } = useAuthStore();
 	const router = useRouter();
@@ -24,23 +24,12 @@ const NavButtons = () => {
 					<MSButton
 						title={text.getStarted}
 						style={{
-							backgroundColor: "#0D3B66",
+							backgroundColor: `${colors.green}`,
 							padding: "5px 12px",
 							borderRadius: 8,
 						}}
-						fontColor="white"
 						onClick={() => router.push(clientRoutes.register)}
 					/>
-					{/* <MSButton
-						title={text.register}
-						style={{
-							backgroundColor: "transparent",
-							padding: 0,
-							textDecoration: "underline",
-						}}
-						fontColor="black"
-						onClick={() => router.push(clientRoutes.register)}
-					/> */}
 				</>
 			) : (
 				<MSButton
@@ -55,19 +44,29 @@ const NavButtons = () => {
 				/>
 			)}
 
-			<MSButton
-				title={locale === "en" ? "العربية 🌍" : "En 🌍"}
-				onClick={toggleLanguage}
+			<div
 				style={{
 					background: "none",
-					padding: "5px 12px",
-					marginInlineStart: 30,
+					padding: "5px 2px",
+					marginInlineStart: 10,
 					marginInlineEnd: "-50px",
 				}}
-				fontColor="black"
-			/>
+			>
+				<LanguageToggle locale={locale} toggleLanguage={toggleLanguage} />
+			</div>
 		</>
 	);
 };
+const LanguageToggle = ({
+	locale,
+	toggleLanguage,
+}: {
+	locale: string;
+	toggleLanguage: () => void;
+}) => (
+	<div style={{ display: "flex", flexDirection: "row", gap: 4 }}>
+		<GlobeIcon color={colors.green} onClick={toggleLanguage} />
+	</div>
+);
 
 export default NavButtons;

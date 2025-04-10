@@ -8,8 +8,8 @@ export const FeaturesContainer = styled.div`
 	/* align-items: center; */
 	width: 100%;
 	padding: 4rem 2rem 7rem 2rem;
-	background-color: #ecf9ee;
-	border-radius: 40px;
+	/* background-color: #ecf9ee; */
+	/* border-radius: 40px; */
 	gap: 24px;
 
 	${media.below925`
@@ -32,7 +32,7 @@ export const FeatureIcon = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 5px;
-	width: 60px;
+	width: 80px;
 	height: 60px;
 `;
 

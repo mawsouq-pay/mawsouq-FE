@@ -24,6 +24,7 @@ const en = {
 	howItWorks: "How it works",
 	msBenefits: "Benefits",
 	contact: "Contact",
+	mawsouqBenefits: "Mawsouq Benefits",
 
 	//paymob
 	paymobInfo:

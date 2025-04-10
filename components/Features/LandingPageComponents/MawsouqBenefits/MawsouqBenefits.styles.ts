@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const BenefitsContainer = styled.div`
 	text-align: center;
-	padding: 6rem 0rem 6rem 0rem;
+	padding: 30px 20px 20px 20px;
 	/* background: white; */
 	border-radius: 40px;
 	/* margin-top: 50px; */
-	background-color: #ecf9ee;
+	/* background-color: #ecf9ee; */
 `;
 
 export const BenefitsGrid = styled.div`

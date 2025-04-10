@@ -16,6 +16,7 @@ import {
 	NavBtn,
 	MenuButton,
 } from "./NavBar.styles";
+import { colors } from "@/constants/theme";
 
 const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	const [open, setOpen] = useState(false);
@@ -33,7 +34,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	return (
 		<NavWrapper isLandingPage={isLandingPage}>
 			<NavbarContainer>
-				<MSLogo width={90} height={40} />
+				<MSLogo width={110} height={40} fill={colors.green} />
 
 				{isMobile ? (
 					isLandingPage ? (
@@ -61,7 +62,7 @@ const LanguageToggle = ({
 	toggleLanguage: () => void;
 }) => (
 	<div style={{ display: "flex", flexDirection: "row", gap: 4 }}>
-		<GlobeIcon color="white" onClick={toggleLanguage} />
+		<GlobeIcon color={colors.green} onClick={toggleLanguage} />
 		<MSText fontWeight="400">{locale === "en" ? "عر" : "En"}</MSText>
 	</div>
 );

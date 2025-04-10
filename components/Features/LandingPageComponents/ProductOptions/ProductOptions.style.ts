@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 	justify-content: center;
 	text-align: center;
 	padding: 2rem 2rem 4rem 2rem;
-	background-color: ${colors.backgroundColor};
+	/* background-color: ${colors.backgroundColor}; */
 	border-radius: 40px;
 `;
 
@@ -26,7 +26,7 @@ export const MainWrapper = styled.div`
 `;
 
 export const ContentDiv = styled.div`
-	background: ${colors.backgroundColor};
+	background: ${colors.white};
 	border-radius: 12px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 	/* border: 1px solid #01796f; */

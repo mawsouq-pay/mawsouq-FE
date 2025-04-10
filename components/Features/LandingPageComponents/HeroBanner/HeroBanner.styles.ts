@@ -12,7 +12,7 @@ export const HeroContainer = styled.section`
 	padding: 80px 4% 40px 4%;
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
-	background-color: ${colors.backgroundColor};
+	background-color: ${colors.white};
 	${media.below925`
 	padding: 20px 4% 40px 4%;
 

@@ -57,13 +57,14 @@ const HowItWorks = () => {
 	return (
 		<div
 			id="howItWorks"
-			style={{
-				backgroundColor: "#ecf9ee",
-				paddingTop: "70px",
-				borderRadius: 40,
-			}}
+			style={
+				{
+					// backgroundColor: "#ecf9ee",
+					// paddingTop: "70px",
+				}
+			}
 		>
-			<div
+			{/* <div
 				style={{
 					display: "flex",
 					justifyContent: "center",
@@ -73,22 +74,36 @@ const HowItWorks = () => {
 					fontWeight="bold"
 					fontSize="2rem"
 					mobileFontSize="22px"
-					color={colors.green}
+					color={colors.darkGreen}
 					style={{ textAlign: "center" }}
 				>
 					{text.howMawsouqActs}
 				</MSText>
-			</div>
-			<div style={{ marginTop: 15 }}>
+			</div> */}
+			<div>
+				<MSText
+					fontSize="24px"
+					mobileFontSize="20px"
+					fontWeight="bold"
+					color={colors.black}
+					style={{
+						display: "inline-block",
+						borderBottom: `3px solid ${colors.green}`,
+						paddingBottom: "5px",
+						marginLeft: "4%",
+					}}
+				>
+					{text.howItWorks}
+				</MSText>{" "}
 				<FeaturesContainer>
 					{selectedFeatures.map((feature, index) => (
 						<React.Fragment key={index}>
 							<FeatureItem>
 								<FeatureIcon>{feature.icon}</FeatureIcon>
 								<MSText
-									fontSize="22px"
-									fontWeight="600"
-									color={colors.darkGreen}
+									fontSize="20px"
+									// fontWeight="600"
+									color={"#2C2D2D"}
 									style={{ maxWidth: "300" }}
 								>
 									{locale == "ar" ? feature.descriptionAr : feature.description}

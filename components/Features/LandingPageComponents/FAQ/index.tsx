@@ -24,7 +24,7 @@ const FAQ = () => {
 		<div
 			id="faq"
 			style={{
-				backgroundColor: `${colors.backgroundColor}`,
+				// backgroundColor: `${colors.backgroundColor}`,
 				paddingTop: "50px",
 				borderRadius: 40,
 				paddingBottom: "50px",
