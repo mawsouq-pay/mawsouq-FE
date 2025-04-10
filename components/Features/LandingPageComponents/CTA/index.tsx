@@ -6,6 +6,8 @@ import { textTr } from "@/constants/locales";
 import { useAuthStore } from "@/store";
 import { clientRoutes } from "@/routes";
 import router from "next/router";
+import MSButton from "@/components/Shared/MSButton";
+import { colors } from "@/constants/theme";
 
 const CTA = () => {
 	const { locale } = useLocaleStore();
@@ -14,17 +16,22 @@ const CTA = () => {
 	return (
 		<MainWrapper>
 			<MSText
-				fontSize="30px"
-				mobileFontSize="18px"
+				fontSize="28px"
+				mobileFontSize="20px"
 				color="#222"
 				fontWeight="bold"
 			>
 				{text.becomeAMawsouqSeller}
 			</MSText>
-			<MSText fontSize="1rem" color="#222" fontWeight="600">
+			<MSText
+				fontSize="25px"
+				mobileFontSize="18px"
+				color="#222"
+				style={{ marginTop: 5 }}
+			>
 				{text.designedForBoth}
 			</MSText>
-			<MainButton
+			<MSButton
 				onClick={() => {
 					if (isLoggedIn) {
 						router.push(clientRoutes.startTransaction);
@@ -32,9 +39,10 @@ const CTA = () => {
 						router.push(clientRoutes.login);
 					}
 				}}
-			>
-				{text.startTransaction}
-			</MainButton>
+				title={text.startTransaction}
+				style={{ backgroundColor: colors.white }}
+				fontColor={colors.black}
+			/>
 		</MainWrapper>
 	);
 };

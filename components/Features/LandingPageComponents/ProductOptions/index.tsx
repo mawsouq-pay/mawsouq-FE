@@ -113,7 +113,7 @@ const ProductOptions = () => {
 				<MSText
 					fontWeight="600"
 					fontSize="26px"
-					mobileFontSize="14px"
+					mobileFontSize="18px"
 					color={colors.darkGreen}
 				>
 					{text.mawsouqForAllKindsOfOrders}

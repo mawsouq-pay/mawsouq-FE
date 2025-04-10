@@ -3,8 +3,8 @@ import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
-	background: #43d9a4;
-	padding: 90px 40px;
+	background: ${colors.green};
+	padding: 40px 40px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;

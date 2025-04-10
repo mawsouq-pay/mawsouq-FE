@@ -17,7 +17,7 @@ const en = {
 	simplifyYourDeals: "Ready to simplify your_____deals?",
 	designedForBoth:
 		"Designed for both sellers and buyers. Start now and build trust with every transaction.",
-	becomeAMawsouqSeller: "Become A Mawsouq_____Seller?",
+	becomeAMawsouqSeller: "Become A Mawsouq Seller?",
 	wantToStartSellingSomething: "Want to start selling something?",
 
 	//Navbar
