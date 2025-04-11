@@ -5,118 +5,6 @@ import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 import { MenuIcon, X } from "lucide-react";
 
-export const NavWrapper = styled.nav<{ isLandingPage: boolean }>`
-	top: 0;
-	/* padding-top: 12px; */
-	z-index: 100;
-	opacity: 0.8;
-	display: flex;
-	padding: 5px 64px;
-	justify-content: center;
-	align-items: center;
-	background-color: ${colors.white};
-	font-size: 1rem;
-	position: sticky;
-	${media.below925`
-	height: 30px;
-	padding:25px 20px;
-
-
- 	 `}
-`;
-
-export const Sidebar = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	gap: 14px;
-	padding: 20px 20px;
-`;
-
-export const SidebarLink = styled(LinkS)`
-	color: ${colors.black};
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	padding: 0;
-	height: 100%;
-	cursor: pointer;
-	font-size: 18px;
-	&.active {
-		border-bottom: 4px solid #52ab98;
-	}
-	&:hover {
-		color: #31c48d;
-	}
-	gap: 4px;
-`;
-
-export const LogoutButton = styled.button`
-	margin-top: auto;
-	background-color: ${colors.white};
-	color: ${colors.black};
-	font-weight: bold;
-	padding: 8px;
-	border: none;
-	cursor: pointer;
-	border-radius: 4px;
-
-	&:hover {
-		background-color: #244826;
-	}
-`;
-
-export const NavbarContainer = styled.div`
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-`;
-
-export const NavMenu = styled.ul`
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-	align-items: center;
-	list-style: none;
-	text-align: center;
-
-	@media screen and (max-width: 768px) {
-		display: none;
-	}
-`;
-
-export const NavItem = styled.li``;
-
-export const NavLinkss = styled(LinkS)`
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	padding: 0 1rem;
-	height: 100%;
-	color: ${colors.black};
-	cursor: pointer;
-	font-size: 14px;
-	font-weight: 600;
-	&.active {
-		border-bottom: 4px solid #52ab98;
-	}
-	&:hover {
-		color: black;
-	}
-`;
-export const NavBtn = styled.nav`
-	display: flex;
-	//align-items: center;
-
-	@media screen and (max-width: 768px) {
-		display: none;
-	}
-`;
-
 export const MenuButton = styled.div<{ open: boolean }>`
 	display: flex;
 	align-items: center;
@@ -160,12 +48,77 @@ export const MenuButton = styled.div<{ open: boolean }>`
       `}
 	}
 `;
-export const Logo = styled.div`
+export const Header = styled.header`
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: ${colors.white};
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+`;
+
+export const Container = styled.div`
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+`;
+
+export const NavRow = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 0;
+`;
+
+export const LogoWrapper = styled.div`
 	cursor: pointer;
-	text-align: center;
-	width: 100%;
-	background-color: ${colors.green};
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	padding: 5px;
+`;
+
+export const NavLinks = styled.nav`
+	display: none;
+	gap: 32px;
+
+	@media (min-width: 768px) {
+		display: flex;
+	}
+`;
+
+export const NavAnchor = styled(LinkS)`
+	color: ${colors.gray600};
+	text-decoration: none;
+
+	&:hover {
+		color: ${colors.green};
+	}
+`;
+
+export const CTAWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 12px;
+`;
+
+export const SidebarLink = styled(LinkS)`
+	color: ${colors.black};
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	padding: 0;
+	height: 100%;
+	cursor: pointer;
+	font-size: 18px;
+	&.active {
+		border-bottom: 4px solid #52ab98;
+	}
+	&:hover {
+		color: #31c48d;
+	}
+	gap: 4px;
+`;
+export const Sidebar = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 20px 20px;
 `;

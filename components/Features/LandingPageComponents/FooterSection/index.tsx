@@ -8,7 +8,7 @@ import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 
 const FooterWrapper = styled.footer`
-	background-color: #43d9a4;
+	background-color: ${colors.gray900};
 	padding: 50px 20px;
 	display: flex;
 	flex-direction: column;
@@ -17,8 +17,6 @@ const FooterWrapper = styled.footer`
 	border-top: 1px solid ${colors.lightGray};
 	text-align: center;
 	width: 100%;
-	border-top-right-radius: 40px;
-	border-top-left-radius: 40px;
 `;
 
 const FooterContent = styled.div`

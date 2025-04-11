@@ -35,7 +35,7 @@ const MSText: React.FC<MSTextProps> = ({
 					<Text
 						{...props}
 						style={style}
-						className={`${Styles.text} ${className}`}
+						// className={`${Styles.text} ${className}`}
 						fontSize={adjustedFontSize}
 						color={color}
 						fontWeight={fontWeight}

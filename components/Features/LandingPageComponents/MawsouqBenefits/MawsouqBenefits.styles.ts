@@ -7,6 +7,7 @@ export const BenefitsContainer = styled.div`
 	border-radius: 40px;
 	/* margin-top: 50px; */
 	/* background-color: #ecf9ee; */
+	margin-top: 30px;
 `;
 
 export const BenefitsGrid = styled.div`
@@ -55,19 +56,4 @@ export const BenefitIcon = styled.div`
 	flex-direction: column;
 	width: 100%;
 	justify-content: flex-start;
-`;
-
-export const BenefitTitle = styled.h3`
-	font-size: 1.2rem;
-	font-weight: bold;
-	color: #111;
-	margin-bottom: 5px;
-	margin-top: 10px;
-	width: 100%;
-`;
-
-export const BenefitDescription = styled.p`
-	font-size: 1rem;
-	color: #555;
-	line-height: 1.5;
 `;

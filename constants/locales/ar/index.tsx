@@ -25,6 +25,8 @@ const ar = {
 	msBenefits: "الفوائد",
 	contact: "تواصل معنا",
 	mawsouqBenefits: "Mawsouq Benefits",
+	howItWorksDescription:
+		"المدفوعات الآمنة بقت أسهل للبائعين والمشترين على الإنترنت",
 
 	//paymob
 	paymobInfo:

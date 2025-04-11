@@ -25,6 +25,8 @@ const en = {
 	msBenefits: "Benefits",
 	contact: "Contact",
 	mawsouqBenefits: "Mawsouq Benefits",
+	howItWorksDescription:
+		"Secure payments made simple for online sellers and buyers",
 
 	//paymob
 	paymobInfo:

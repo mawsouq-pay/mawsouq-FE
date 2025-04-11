@@ -3,7 +3,7 @@ import { colors } from "@/constants/theme";
 
 export const StyledButton = styled.button`
 	padding: 10px 18px;
-	background-color: ${colors.buttonGreenBackground};
+	background-color: ${colors.green};
 	border: none;
 	border-radius: 8px;
 	cursor: pointer;

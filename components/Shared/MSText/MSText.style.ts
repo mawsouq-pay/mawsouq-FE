@@ -5,7 +5,7 @@ export const Text = styled.p<{
 	fontWeight?: string;
 	fontStyle?: string;
 }>`
-	font-family: "Inter", sans-serif;
+	font-family: var(--font-inter), sans-serif;
 	font-size: ${({ fontSize }) => fontSize || "16px"};
 	font-weight: ${({ fontWeight }) => fontWeight || "400"};
 	font-style: ${({ fontStyle }) => fontStyle || "normal"};

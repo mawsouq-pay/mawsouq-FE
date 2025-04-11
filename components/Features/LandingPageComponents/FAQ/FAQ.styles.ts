@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { colors } from "@/constants/theme";
 
 export const MainDiv = styled.div`
-	padding: 3rem 2rem 0rem 2rem;
+	padding: 2rem 2rem 5rem 2rem;
 	max-width: 800px;
 	margin: 0 auto;
 	${media.below925`

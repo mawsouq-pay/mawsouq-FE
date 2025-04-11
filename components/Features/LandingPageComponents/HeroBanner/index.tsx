@@ -1,80 +1,82 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { colors } from "@/constants/theme";
+import MSButton from "@/components/Shared/MSButton";
 import {
-	HeroContainer,
-	HeroContent,
-	HeroTitle,
-	HeroSubtitle,
-	HeroButton,
+	ButtonRow,
+	Container,
 	FrameDive,
-	MarqueeWrapper,
-	MarqueeText,
-	FlexRow,
+	Grid,
+	HeroWrapper,
+	LeftColumn,
 } from "./HeroBanner.styles";
-import { useLocaleStore } from "@/store/LocaleStore";
-import { heroBannerText } from "./types";
-import { useAuthStore } from "@/store";
-import router from "next/router";
-import { clientRoutes } from "@/routes";
 import Image from "next/image";
 import ReleaseFrame from "@/assets/images/ENFrame.png";
-import { textTr } from "@/constants/locales";
+
 import MSText from "@/components/Shared/MSText";
-import { colors } from "@/constants/theme";
+import { useLocaleStore } from "@/store";
+import { arTexts, enTexts } from "./types";
 
-const HeroBanner = () => {
+export default function HeroSection() {
 	const { locale } = useLocaleStore();
-	const text = heroBannerText[locale];
-	const { isLoggedIn } = useAuthStore();
-	const translation = textTr(locale);
-
+	const textObj = locale === "en" ? enTexts : arTexts;
 	return (
-		<HeroContainer>
-			<FlexRow>
-				<HeroContent>
-					<MSText
-						fontSize="3.5rem"
-						mobileFontSize="2.2rem"
-						fontWeight="bold"
-						style={{ marginTop: 10 }}
+		<HeroWrapper>
+			<Container>
+				<Grid>
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6 }}
 					>
-						{text.title}
-					</MSText>
-					<MSText
-						fontSize="1.5rem"
-						mobileFontSize="1rem"
-						color={colors.lightBlack}
-						style={{ marginTop: 10, marginBottom: 10 }}
-					>
-						{text.subtitle}
-					</MSText>
-					<HeroButton
-						onClick={() => {
-							router.push(
-								isLoggedIn
-									? clientRoutes.startTransaction
-									: clientRoutes.register
-							);
-						}}
-					>
-						{text.buttonText}
-					</HeroButton>
-				</HeroContent>
-				<FrameDive isArabic={locale === "ar"}>
-					<Image
-						src={ReleaseFrame}
-						priority
-						loading="eager"
-						alt="Release"
-						height={350}
-						width={300}
-					/>
-					<MarqueeWrapper>
-						<MarqueeText>{translation.securedByPaymob}</MarqueeText>
-					</MarqueeWrapper>
-				</FrameDive>
-			</FlexRow>
-		</HeroContainer>
-	);
-};
+						<LeftColumn>
+							<MSText
+								fontSize="3rem"
+								mobileFontSize="2rem"
+								fontWeight="700"
+								style={{ lineHeight: "1.25", color: "#111827" }}
+							>
+								{textObj.title}
+							</MSText>
 
-export default HeroBanner;
+							<MSText
+								fontSize="1.2rem"
+								mobileFontSize="0.8rem"
+								fontWeight="400"
+								color={colors.gray600}
+								style={{ marginTop: "0.5rem" }}
+							>
+								{textObj.description}
+							</MSText>
+
+							<ButtonRow>
+								<MSButton title="Create Payment Link" />
+								{/* <MSButton
+									title="See How It Works"
+									style={{ borderColor: colors.green, color: colors.green }}
+								/> */}
+							</ButtonRow>
+						</LeftColumn>
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, x: 20 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.6, delay: 0.2 }}
+					>
+						<FrameDive isArabic={locale === "ar"}>
+							<Image
+								src={ReleaseFrame}
+								priority
+								loading="eager"
+								alt="Release"
+								height={350}
+								width={300}
+							/>
+						</FrameDive>
+					</motion.div>
+				</Grid>
+			</Container>
+		</HeroWrapper>
+	);
+}

@@ -2,44 +2,31 @@ import React from "react";
 import Navbar from "@/components/Shared/MSNavBar";
 import LandingPageLayout from "@/layouts/LandingPageLayout";
 import styled from "styled-components";
-import Head from "next/head";
 import {
 	HeroBanner,
 	HowItWorks,
 	CTA,
 	FAQ,
 	MawsouqBenefits,
-	ProductOptions,
 	FooterSection,
+	SecurityBanner,
 } from "@/components/Features/LandingPageComponents";
-import MSAnimatedDiv from "@/components/Shared/MSAnimated/MSAnimatedDiv";
+import ProductPreviewSection from "@/components/Features/LandingPageComponents/ProductPreviewSection";
 const LandingPage = () => {
 	return (
 		<>
 			<Navbar isLandingPage={true} />
 			<MainDiv>
-				<MSAnimatedDiv>
-					<HeroBanner />
-				</MSAnimatedDiv>
-				<MSAnimatedDiv>
-					<HowItWorks />
-				</MSAnimatedDiv>
+				<HeroBanner />
+				<SecurityBanner />
+				<HowItWorks />
+				<MawsouqBenefits />
+				<ProductPreviewSection />
 
-				<MSAnimatedDiv>
-					<CTA />
-				</MSAnimatedDiv>
-				<MSAnimatedDiv>
-					<FAQ />
-				</MSAnimatedDiv>
-				<MSAnimatedDiv>
-					<MawsouqBenefits />
-				</MSAnimatedDiv>
-				<MSAnimatedDiv>
-					<ProductOptions />
-				</MSAnimatedDiv>
-				<MSAnimatedDiv>
-					<FooterSection />
-				</MSAnimatedDiv>
+				<FAQ />
+				<CTA />
+
+				<FooterSection />
 			</MainDiv>
 		</>
 	);

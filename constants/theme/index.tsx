@@ -1,9 +1,9 @@
 export const colors = {
 	white: "#FFFFFF",
 	black: "#000000",
-	green: "#27ba88",
+	green: "#18b451",
+	mintGreen: "#f0fdf4",
 	darkGreen: "#01796f",
-	pastelGreen: "#e0f0e3",
 	// green: "#43d9a4",
 	blue: "#2072fb",
 	backgroundColor: "#ECF0F1",
@@ -15,6 +15,9 @@ export const colors = {
 	gray22: "#CDD9EC",
 	gray200: "#e0e0e0",
 	gray500: "#555",
+	gray600: "#4B5563",
+	gray700: "#374151",
+	gray900: "#101828",
 
 	semiBlack: "#232b2b",
 	lightBlack: "#2C2D2D",
@@ -24,7 +27,7 @@ export const colors = {
 	divBackground: "#fafafa",
 	divBorder: "#e5e7eb",
 	buttonGreenBackground: " #31C48D",
-	buttonGreenHover: "#2a9d75",
+	buttonGreenHover: "#18b451",
 	//OrderListItem:
 	LabelValue: "#75859E",
 	NameContainerBackground: "#F7F9FC",

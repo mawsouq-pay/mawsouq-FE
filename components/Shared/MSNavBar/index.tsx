@@ -1,81 +1,101 @@
-// Navbar.tsx
 import React, { useState } from "react";
-import { useMediaQuery } from "@mui/material";
-import { GlobeIcon, MenuIcon, X } from "lucide-react";
+import { MenuIcon, X, GlobeIcon } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
-import { useLocaleStore } from "@/store";
-import { localeEnum } from "@/store/LocaleStore";
-import MSText from "../MSText";
-import SidebarNav from "./SideBarNav";
-import NavLinks from "./NavLinks";
-import NavButtons from "./NavButtons";
-import {
-	NavWrapper,
-	NavbarContainer,
-	NavMenu,
-	NavBtn,
-	MenuButton,
-} from "./NavBar.styles";
+import { useMediaQuery } from "@mui/material";
+import MSButton from "@/components/Shared/MSButton";
 import { colors } from "@/constants/theme";
+import {
+	CTAWrapper,
+	Container,
+	Header,
+	LogoWrapper,
+	MenuButton,
+	NavAnchor,
+	NavLinks,
+	NavRow,
+} from "./NavBar.styles";
+import { useLocaleStore } from "@/store";
+import { textTr } from "@/constants/locales";
+import { localeEnum } from "@/store/LocaleStore";
+import SidebarNav from "./SideBarNav";
+import MSText from "../MSText";
+import { clientRoutes } from "@/routes";
+import { useRouter } from "next/router";
 
 const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
+	const router = useRouter();
 	const [open, setOpen] = useState(false);
 	const isMobile = useMediaQuery("(max-width: 925px)");
-
 	const toggleMenu = () => setOpen(!open);
-
 	const { locale, setLocale } = useLocaleStore();
+	const text = textTr(locale);
 	const toggleLanguage = () => {
 		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
 	};
+	const navLinks = [
+		{ name: text.howItWorks, to: "HowItWorksS" },
+		{ name: text.msBenefits, to: "BenefitsS" },
+		{ name: "Product", to: "ProductS" },
+		{ name: "FAQs", to: "FAQS" },
+	];
 
 	if (!isMobile && !isLandingPage) return null;
-
 	return (
-		<NavWrapper isLandingPage={isLandingPage}>
-			<NavbarContainer>
-				<MSLogo width={110} height={40} fill={colors.green} />
+		<Header>
+			<Container>
+				<NavRow>
+					<LogoWrapper>
+						<a href="/">
+							<MSLogo width={110} height={40} fill={colors.green} />
+						</a>
+					</LogoWrapper>
 
-				{isMobile ? (
-					isLandingPage ? (
-						<MenuButton onClick={toggleMenu} open={open}>
-							{open ? <X size={28} /> : <MenuIcon size={28} />}
-						</MenuButton>
-					) : (
-						<LanguageToggle locale={locale} toggleLanguage={toggleLanguage} />
-					)
-				) : (
-					isLandingPage && <DesktopNav />
-				)}
-			</NavbarContainer>
+					<NavLinks>
+						{navLinks.map((link) => (
+							<NavAnchor
+								to={link.to}
+								smooth={true}
+								duration={500}
+								spy={true}
+								offset={-141}
+							>
+								<MSText fontWeight="500" fontSize="14px">
+									{link.name}
+								</MSText>
+							</NavAnchor>
+						))}
+					</NavLinks>
 
+					<CTAWrapper>
+						{isMobile
+							? isLandingPage && (
+									<MenuButton onClick={toggleMenu} open={open}>
+										{open ? <X size={20} /> : <MenuIcon size={20} />}
+									</MenuButton>
+								)
+							: isLandingPage && (
+									<MSButton
+										title={text.getStarted}
+										onClick={() => router.push(clientRoutes.register)}
+									/>
+								)}
+						<LanguageToggle toggleLanguage={toggleLanguage} />
+					</CTAWrapper>
+				</NavRow>
+			</Container>
 			{isMobile && <SidebarNav open={open} toggleMenu={toggleMenu} />}
-		</NavWrapper>
+		</Header>
 	);
 };
-
-const LanguageToggle = ({
-	locale,
-	toggleLanguage,
-}: {
-	locale: string;
-	toggleLanguage: () => void;
-}) => (
-	<div style={{ display: "flex", flexDirection: "row", gap: 4 }}>
-		<GlobeIcon color={colors.green} onClick={toggleLanguage} />
-		<MSText fontWeight="400">{locale === "en" ? "عر" : "En"}</MSText>
+export default Navbar;
+const LanguageToggle = ({ toggleLanguage }: { toggleLanguage: () => void }) => (
+	<div
+		style={{
+			display: "flex",
+			flexDirection: "row",
+			gap: "4px",
+		}}
+	>
+		<GlobeIcon color={colors.lightBlack} onClick={toggleLanguage} size={20} />
 	</div>
 );
-
-const DesktopNav = () => (
-	<>
-		<NavMenu>
-			<NavLinks />
-		</NavMenu>
-		<NavBtn>
-			<NavButtons />
-		</NavBtn>
-	</>
-);
-
-export default Navbar;

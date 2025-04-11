@@ -18,7 +18,8 @@ import { useTheme } from "styled-components";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { Router } from "next/router";
-
+import { Inter } from "next/font/google";
+import { inter } from "@/constants/theme/fonts";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
@@ -61,7 +62,8 @@ function MyApp({ Component, pageProps }: any) {
 
 	return (
 		<PostHogProvider client={posthog}>
-			<main>
+			<main className={inter.variable}>
+				{" "}
 				<QueryClientProvider client={queryClient}>
 					<BrowserRouter>
 						<ProtectedRouteWrapper

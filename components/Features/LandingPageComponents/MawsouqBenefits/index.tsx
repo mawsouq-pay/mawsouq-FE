@@ -4,9 +4,8 @@ import {
 	BenefitsGrid,
 	BenefitItem,
 	BenefitIcon,
-	BenefitTitle,
-	BenefitDescription,
 } from "./MawsouqBenefits.styles";
+import styled from "styled-components";
 
 import { ShieldCheck, ListOrdered, Vault, Loader } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
@@ -19,69 +18,110 @@ const MawsouqBenefits = () => {
 	const { locale } = useLocaleStore();
 	const text = benefitsText[locale];
 	const text2 = textTr(locale);
+
 	return (
-		<>
+		<Wrapper>
 			<MSText
 				fontSize="24px"
 				mobileFontSize="20px"
 				fontWeight="bold"
 				color={colors.black}
-				style={{
-					display: "inline-block",
-					borderBottom: `3px solid ${colors.green}`,
-					marginLeft: "4%",
-				}}
 			>
 				{text2.mawsouqBenefits}
+			</MSText>
+
+			<MSText
+				fontSize="16px"
+				mobileFontSize="14px"
+				fontWeight="400"
+				color={colors.gray600}
+				style={{ margin: "16px 4% 0" }}
+			>
+				{text2.howItWorksDescription}
 			</MSText>
 
 			<BenefitsContainer id="benefits">
 				<BenefitsGrid>
 					<BenefitItem>
 						<BenefitIcon>
-							<ShieldCheck size={30} color="#01796f" />
+							<ShieldCheck size={30} color={colors.green} />
 						</BenefitIcon>
-						<BenefitTitle style={{ textAlign: "start" }}>
+						<MSText
+							fontWeight="600"
+							fontSize="16px"
+							color={colors.semiBlack}
+							style={{ marginTop: 10, marginBottom: 5 }}
+						>
 							{text.safePaymentsTitle}
-						</BenefitTitle>
-						<BenefitDescription>
+						</MSText>
+						<MSText fontSize="14px" color={colors.gray600}>
 							{text.safePaymentsDescription}
-						</BenefitDescription>
+						</MSText>
 					</BenefitItem>
 
 					<BenefitItem>
 						<BenefitIcon>
-							<ListOrdered size={30} color="#01796f" />
+							<ListOrdered size={30} color={colors.green} />
 						</BenefitIcon>
-						<BenefitTitle>{text.easyProcessTitle}</BenefitTitle>
-						<BenefitDescription>
+						<MSText
+							fontWeight="600"
+							fontSize="16px"
+							color={colors.semiBlack}
+							style={{ marginTop: 10, marginBottom: 5 }}
+						>
+							{text.easyProcessTitle}
+						</MSText>
+						<MSText fontSize="14px" color={colors.gray600}>
 							{text.easyProcessDescription}
-						</BenefitDescription>
+						</MSText>
 					</BenefitItem>
 
 					<BenefitItem>
 						<BenefitIcon>
-							<Vault size={30} color="#01796f" />
+							<Vault size={30} color={colors.green} />
 						</BenefitIcon>
-						<BenefitTitle>{text.buyerProtectionTitle}</BenefitTitle>
-						<BenefitDescription>
+						<MSText
+							fontWeight="600"
+							fontSize="16px"
+							color={colors.semiBlack}
+							style={{ marginTop: 10, marginBottom: 5 }}
+						>
+							{text.buyerProtectionTitle}
+						</MSText>
+						<MSText fontSize="14px" color={colors.gray600}>
 							{text.buyerProtectionDescription}
-						</BenefitDescription>
+						</MSText>
 					</BenefitItem>
 
 					<BenefitItem>
 						<BenefitIcon>
-							<Loader size={30} color="#01796f" />
+							<Loader size={30} color={colors.green} />
 						</BenefitIcon>
-						<BenefitTitle>{text.trustedSellersTitle}</BenefitTitle>
-						<BenefitDescription>
+						<MSText
+							fontWeight="600"
+							fontSize="16px"
+							color={colors.semiBlack}
+							style={{ marginTop: 10, marginBottom: 5 }}
+						>
+							{text.trustedSellersTitle}
+						</MSText>
+						<MSText fontSize="14px" color={colors.gray600}>
 							{text.trustedSellersDescription}
-						</BenefitDescription>
+						</MSText>
 					</BenefitItem>
 				</BenefitsGrid>
 			</BenefitsContainer>
-		</>
+		</Wrapper>
 	);
 };
+
+const Wrapper = styled.div`
+	padding-top: 80px;
+	padding-bottom: 80px;
+	align-items: center;
+	text-align: center;
+	background-color: ${colors.mintGreen};
+	margin-top: 50px;
+`;
 
 export default MawsouqBenefits;
