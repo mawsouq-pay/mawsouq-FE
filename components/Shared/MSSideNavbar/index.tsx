@@ -22,6 +22,7 @@ import { clientRoutes } from "@/routes";
 import router from "next/router";
 import { localeEnum } from "@/store/LocaleStore";
 import { MSLogo } from "@/assets/icons";
+import MSText from "../MSText";
 
 const Sidebar = () => {
 	const { isSideNavbarOpen, setIsSideNavbarOpen, locale, setLocale } =
@@ -59,7 +60,9 @@ const Sidebar = () => {
 							onClick={() => router.push(clientRoutes.homePage)}
 						>
 							<HomeIcon size={22} />
-							{isSideNavbarOpen && <span>{text.myTransactions}</span>}
+							{isSideNavbarOpen && (
+								<MSText fontSize="16px">{text.myTransactions}</MSText>
+							)}
 						</NavItem>
 					</Tooltip>
 
@@ -75,7 +78,9 @@ const Sidebar = () => {
 							onClick={() => router.push(clientRoutes.startTransaction)}
 						>
 							<CirclePlusIcon size={22} />
-							{isSideNavbarOpen && <span>{text.startTransaction}</span>}
+							{isSideNavbarOpen && (
+								<MSText fontSize="16px">{text.startTransaction}</MSText>
+							)}
 						</NavItem>
 					</Tooltip>
 
@@ -91,7 +96,9 @@ const Sidebar = () => {
 							onClick={() => router.push(clientRoutes.profilePage)}
 						>
 							<UserIcon size={22} />
-							{isSideNavbarOpen && <span>{text.profilePage}</span>}
+							{isSideNavbarOpen && (
+								<MSText fontSize="16px">{text.profilePage}</MSText>
+							)}
 						</NavItem>
 					</Tooltip>
 				</div>
@@ -105,7 +112,9 @@ const Sidebar = () => {
 						<NavItem isOpen={isSideNavbarOpen} onClick={toggleLanguage}>
 							<GlobeIcon size={22} />
 							{isSideNavbarOpen && (
-								<span>{locale === "en" ? "العربية" : "English"}</span>
+								<MSText fontSize="16px">
+									{locale === "en" ? "العربية" : "English"}
+								</MSText>
 							)}
 						</NavItem>
 					</Tooltip>
@@ -118,7 +127,9 @@ const Sidebar = () => {
 					>
 						<NavItem isOpen={isSideNavbarOpen} onClick={logout}>
 							<LogOut size={22} />
-							{isSideNavbarOpen && <span>{text.logout}</span>}
+							{isSideNavbarOpen && (
+								<MSText fontSize="16px">{text.logout}</MSText>
+							)}
 						</NavItem>
 					</Tooltip>
 				</div>

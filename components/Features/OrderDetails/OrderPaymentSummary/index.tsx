@@ -16,7 +16,7 @@ const OrderPaymentSummary = (props: OrderPaymentSummaryProps) => {
 	return (
 		<MainWrapper>
 			<RowDiv>
-				<MSText fontSize="16px" fontWeight="bold" color={colors.black}>
+				<MSText fontSize="16px" fontWeight="600" color={colors.black}>
 					{text.paymentSummary}
 				</MSText>
 				<PaymentIcon />

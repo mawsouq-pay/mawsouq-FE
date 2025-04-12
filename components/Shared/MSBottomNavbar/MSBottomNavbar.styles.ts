@@ -7,7 +7,7 @@ export const BottomNavContainer = styled.div`
 	left: 0;
 	width: 100%;
 	height: 60px;
-	background: ${colors.green};
+	background: ${colors.sideBarGreen};
 	display: flex;
 	justify-content: space-around;
 	align-items: center;

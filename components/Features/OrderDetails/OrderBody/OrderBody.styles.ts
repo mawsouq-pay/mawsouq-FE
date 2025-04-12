@@ -4,9 +4,6 @@ import { media } from "@/helpers/mediaQueryHelper";
 
 export const ProgressWrapper = styled.div`
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin-bottom: 20px;
 `;
 
 export const ProgressSection = styled.div`

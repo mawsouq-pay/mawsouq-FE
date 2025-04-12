@@ -9,6 +9,7 @@ const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
 	const { isSideNavbarOpen } = useLocaleStore();
+
 	return (
 		<>
 			<Navbar />
@@ -40,7 +41,7 @@ const Content = styled.div<{ isOpen: boolean }>`
 
 	@media (max-width: 768px) {
 		margin: 0;
-		padding: 20px 20px 200px 20px;
+		padding: 20px 15px 100px 15px;
 	}
 `;
 

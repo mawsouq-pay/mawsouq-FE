@@ -9,6 +9,7 @@ import {
 	InfoSection,
 	HistorySection,
 	TopSection,
+	ProgressWrapper,
 } from "./OrderBody.styles";
 import { OrderBodyProps } from "./types";
 import MSErrorAndLoadingWrapper from "../../../Shared/MSErrorAndLoadingWrapper";
@@ -40,7 +41,7 @@ const OrderBody = (props: OrderBodyProps) => {
 			<MSText
 				fontSize="22px"
 				mobileFontSize="20px"
-				fontWeight="bold"
+				fontWeight="600"
 				color={colors.black}
 				style={{
 					borderBottom: `3px solid ${colors.green}`,
@@ -50,9 +51,12 @@ const OrderBody = (props: OrderBodyProps) => {
 				{text.trackYourOrder}
 			</MSText>
 			<TopSection>
-				<OrderProgress
-					status={data?.order?.status || OrderStatusEnum.PENDING_PAYMENT}
-				/>
+				<ProgressWrapper>
+					<OrderProgress
+						status={data?.order?.status || OrderStatusEnum.PENDING_PAYMENT}
+					/>
+				</ProgressWrapper>
+
 				{isOrderPendingJoin && (
 					<div
 						style={{

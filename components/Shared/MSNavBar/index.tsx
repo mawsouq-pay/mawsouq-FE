@@ -21,6 +21,7 @@ import MobileMenuNav from "./MobileMenuNav";
 import MSText from "../MSText";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
+import MobileHomeNav from "./MobileHomeNav";
 
 const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	const router = useRouter();
@@ -40,6 +41,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	];
 
 	if (!isMobile && !isLandingPage) return null;
+	if (isMobile && !isLandingPage) return <MobileHomeNav />;
 	return (
 		<Header>
 			<Container>

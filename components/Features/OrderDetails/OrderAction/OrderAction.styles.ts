@@ -9,7 +9,7 @@ export const MainWrapper = styled.div`
 	gap: 15px;
 	/* border: 0.5px solid ${colors.blue}; */
 	border-radius: 10px;
-	padding: 20px;
+	padding: 20px 5px;
 `;
 
 export const MessageDiv = styled.div`

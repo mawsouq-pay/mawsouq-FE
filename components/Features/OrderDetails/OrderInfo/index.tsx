@@ -31,7 +31,7 @@ const OrderInfo = (props: OrderInfoProps) => {
 		<MainWrapper>
 			<ItemsContainer>
 				<ColumnDiv>
-					<MSText color={colors.black} fontSize="14px" fontWeight="600">
+					<MSText color={colors.black} fontSize="14px" fontWeight="500">
 						{text.description}
 					</MSText>
 					<MSText fontSize="14px" color={colors.black}>
@@ -43,7 +43,7 @@ const OrderInfo = (props: OrderInfoProps) => {
 				{OrderItems.map((item, index) => (
 					<ItemWrapper key={index}>
 						<LabelValue>
-							<MSText color={colors.black} fontSize="14px" fontWeight="600">
+							<MSText color={colors.black} fontSize="14px" fontWeight="500">
 								{item.title}
 							</MSText>
 						</LabelValue>

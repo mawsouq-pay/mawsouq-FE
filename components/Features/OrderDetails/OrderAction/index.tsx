@@ -41,7 +41,7 @@ const OrderAction = (props: OrderActionProps) => {
 			<div style={{ flexDirection: "column" }}>
 				<MSText
 					fontSize="18px"
-					fontWeight="bold"
+					fontWeight="500"
 					color={colors.black}
 					style={{ alignSelf: "flex-start" }}
 				>
@@ -49,7 +49,7 @@ const OrderAction = (props: OrderActionProps) => {
 					{orderStatusText}
 				</MSText>
 				<MessageDiv>
-					<MSText fontSize="18px" fontWeight="bold" color={colors.black}>
+					<MSText fontSize="18px" fontWeight="600" color={colors.black}>
 						{text[message]}
 					</MSText>
 				</MessageDiv>

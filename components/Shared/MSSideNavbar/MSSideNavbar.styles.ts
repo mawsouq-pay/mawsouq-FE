@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const SidebarContainer = styled.div<{ isOpen: boolean }>`
 	width: ${({ isOpen }) => (isOpen ? "240px" : "60px")};
 	height: 100vh;
-	background: ${colors.green};
+	background: ${colors.sideBarGreen};
 	color: white;
 	display: flex;
 	flex-direction: column;
