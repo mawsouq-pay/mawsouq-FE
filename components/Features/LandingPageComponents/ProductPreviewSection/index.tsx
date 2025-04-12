@@ -88,8 +88,7 @@ export const ProductPreviewSection = () => {
 							<Image
 								src={locale === "ar" ? SellerMSExpAr : SellerMSExpEng}
 								alt="Seller Experience"
-								width={500}
-								height={300}
+								style={{ width: "100%", height: "auto" }}
 							/>
 						</Card>
 					</motion.div>
@@ -131,8 +130,7 @@ export const ProductPreviewSection = () => {
 							<Image
 								src={locale === "ar" ? BuyerMSExpAr : BuyerMSExpEng}
 								alt="Buyer Experience"
-								width={500}
-								height={300}
+								style={{ width: "100%", height: "auto" }}
 							/>
 						</BuyerCard>
 					</motion.div>
