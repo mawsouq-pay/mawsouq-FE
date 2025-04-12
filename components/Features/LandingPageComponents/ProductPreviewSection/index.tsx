@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { colors } from "@/constants/theme";
 import MSText from "@/components/Shared/MSText";
@@ -18,13 +17,19 @@ import {
 	StepContent,
 	Card,
 	BuyerCard,
+	ToggleButton,
+	ToggleWrapper,
+	FlexRow,
 } from "./ProductPreviewSection.styles";
 import { useLocaleStore } from "@/store";
 import { arTexts, enTexts } from "./types";
 
-export const ProductPreviewSection = () => {
+const ProductPreviewSection = () => {
 	const { locale } = useLocaleStore();
 	const text = locale === "ar" ? arTexts : enTexts;
+	const [selectedRole, setSelectedRole] = useState<"seller" | "buyer">(
+		"seller"
+	);
 
 	return (
 		<Section>
@@ -50,90 +55,114 @@ export const ProductPreviewSection = () => {
 					</MSText>
 				</motion.div>
 
+				{/* Toggle Buttons */}
+				<ToggleWrapper>
+					<ToggleButton
+						active={selectedRole === "seller"}
+						onClick={() => setSelectedRole("seller")}
+					>
+						{text.forSellers}
+					</ToggleButton>
+					<ToggleButton
+						active={selectedRole === "buyer"}
+						onClick={() => setSelectedRole("buyer")}
+					>
+						{text.forBuyers}
+					</ToggleButton>
+				</ToggleWrapper>
+
 				<Grid>
-					<motion.div
-						initial={{ opacity: 0, x: -20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6 }}
-					>
-						<MSText
-							fontSize="24px"
-							fontWeight="600"
-							style={{ color: colors.jetBlack, marginBottom: 16 }}
+					{selectedRole === "seller" && (
+						<motion.div
+							initial={{ opacity: 0, x: -20 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.6 }}
 						>
-							{text.forSellers}
-						</MSText>
-						<Steps>
-							{text.sellerSteps.map((step) => (
-								<Step key={step.number}>
-									<StepCircle>{step.number}</StepCircle>
-									<StepContent>
-										<MSText
-											fontSize="16px"
-											fontWeight="500"
-											style={{ marginBottom: 4 }}
-										>
-											{step.title}
-										</MSText>
-										<MSText fontSize="14px" color={colors.gray600}>
-											{step.description}
-										</MSText>
-									</StepContent>
-								</Step>
-							))}
-						</Steps>
+							<MSText
+								fontSize="24px"
+								fontWeight="600"
+								style={{ color: colors.jetBlack, marginBottom: 16 }}
+							>
+								{text.forSellers}
+							</MSText>
+							<FlexRow>
+								<Steps>
+									{text.sellerSteps.map((step) => (
+										<Step key={step.number}>
+											<StepCircle>{step.number}</StepCircle>
+											<StepContent>
+												<MSText
+													fontSize="16px"
+													fontWeight="500"
+													style={{ marginBottom: 4 }}
+												>
+													{step.title}
+												</MSText>
+												<MSText fontSize="14px" color={colors.gray600}>
+													{step.description}
+												</MSText>
+											</StepContent>
+										</Step>
+									))}
+								</Steps>
 
-						<Card>
-							<Image
-								src={locale === "ar" ? SellerMSExpAr : SellerMSExpEng}
-								alt="Seller Experience"
-								style={{ width: "100%", height: "auto" }}
-							/>
-						</Card>
-					</motion.div>
+								<Card>
+									<Image
+										src={locale === "ar" ? SellerMSExpAr : SellerMSExpEng}
+										alt="Seller Experience"
+										style={{ width: "100%", height: "auto" }}
+									/>
+								</Card>
+							</FlexRow>
+						</motion.div>
+					)}
 
-					<motion.div
-						initial={{ opacity: 0, x: 20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6, delay: 0.2 }}
-					>
-						<MSText
-							fontSize="24px"
-							fontWeight="600"
-							style={{ color: colors.jetBlack, marginBottom: 16 }}
+					{selectedRole === "buyer" && (
+						<motion.div
+							initial={{ opacity: 0, x: 20 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.6, delay: 0.2 }}
 						>
-							{text.forBuyers}
-						</MSText>
-						<Steps>
-							{text.buyerSteps.map((step) => (
-								<Step key={step.number}>
-									<StepCircle>{step.number}</StepCircle>
-									<StepContent>
-										<MSText
-											fontSize="16px"
-											fontWeight="500"
-											style={{ marginBottom: 4 }}
-										>
-											{step.title}
-										</MSText>
-										<MSText fontSize="14px" color={colors.gray600}>
-											{step.description}
-										</MSText>
-									</StepContent>
-								</Step>
-							))}
-						</Steps>
+							<MSText
+								fontSize="24px"
+								fontWeight="600"
+								style={{ color: colors.jetBlack, marginBottom: 16 }}
+							>
+								{text.forBuyers}
+							</MSText>
+							<FlexRow>
+								<Steps>
+									{text.buyerSteps.map((step) => (
+										<Step key={step.number}>
+											<StepCircle>{step.number}</StepCircle>
+											<StepContent>
+												<MSText
+													fontSize="16px"
+													fontWeight="500"
+													style={{ marginBottom: 4 }}
+												>
+													{step.title}
+												</MSText>
+												<MSText fontSize="14px" color={colors.gray600}>
+													{step.description}
+												</MSText>
+											</StepContent>
+										</Step>
+									))}
+								</Steps>
 
-						<BuyerCard>
-							<Image
-								src={locale === "ar" ? BuyerMSExpAr : BuyerMSExpEng}
-								alt="Buyer Experience"
-								style={{ width: "100%", height: "auto" }}
-							/>
-						</BuyerCard>
-					</motion.div>
+								<BuyerCard>
+									<Image
+										src={locale === "ar" ? BuyerMSExpAr : BuyerMSExpEng}
+										alt="Buyer Experience"
+										style={{ width: "100%", height: "auto" }}
+									/>
+								</BuyerCard>
+							</FlexRow>
+						</motion.div>
+					)}
 				</Grid>
 			</Container>
 		</Section>
