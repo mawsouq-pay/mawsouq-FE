@@ -71,7 +71,11 @@ const MawsouqBenefits = () => {
 							fontWeight="600"
 							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginBottom: 10 }}
+							style={{
+								marginBottom: 10,
+								display: "flex",
+								width: "100%",
+							}}
 						>
 							{text.easyProcessTitle}
 						</MSText>
@@ -88,7 +92,11 @@ const MawsouqBenefits = () => {
 							fontWeight="600"
 							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginBottom: 10 }}
+							style={{
+								marginBottom: 10,
+								display: "flex",
+								width: "100%",
+							}}
 						>
 							{text.buyerProtectionTitle}
 						</MSText>
@@ -105,7 +113,11 @@ const MawsouqBenefits = () => {
 							fontWeight="600"
 							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginBottom: 10 }}
+							style={{
+								marginBottom: 10,
+								display: "flex",
+								width: "100%",
+							}}
 						>
 							{text.trustedSellersTitle}
 						</MSText>
