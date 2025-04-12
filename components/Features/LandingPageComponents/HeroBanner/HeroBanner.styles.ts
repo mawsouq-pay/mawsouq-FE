@@ -10,7 +10,6 @@ export const Container = styled.div`
 
 export const HeroWrapper = styled.section`
 	background: linear-gradient(to bottom, ${colors.mintGreen}, ${colors.white});
-	overflow: hidden;
 `;
 
 export const Grid = styled.div`
@@ -31,10 +30,9 @@ export const LeftColumn = styled.div`
 export const ButtonRow = styled.div`
 	display: flex;
 	flex-direction: row;
-	gap: 12px;
 	margin-top: 20px;
 	${media.below925`
-		flex-direction: column;
+		width: 92%;
 
 	`}
 `;
@@ -48,7 +46,7 @@ export const FrameDive = styled.div<{ isArabic: boolean }>`
 	@media (max-width: 1024px) {
 		max-width: 100%;
 		justify-content: center;
-		margin-left: ${({ isArabic }) => (isArabic ? "30px" : "0px")};
-		margin-right: ${({ isArabic }) => (isArabic ? "0px" : "30px")};
+		/* margin-left: ${({ isArabic }) => (isArabic ? "30px" : "0px")};
+		margin-right: ${({ isArabic }) => (isArabic ? "0px" : "30px")}; */
 	}
 `;

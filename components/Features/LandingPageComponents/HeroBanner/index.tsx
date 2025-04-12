@@ -54,13 +54,17 @@ export default function HeroSection() {
 								mobileFontSize="0.8rem"
 								fontWeight="400"
 								color={colors.gray600}
-								style={{ marginTop: "0.5rem" }}
+								style={{ marginTop: "0.5rem", textWrap: "wrap" }}
 							>
 								{textObj.description}
 							</MSText>
 
 							<ButtonRow>
-								<MSButton title={textObj.cta} onClick={onCtaPress} />
+								<MSButton
+									title={textObj.cta}
+									onClick={onCtaPress}
+									style={{ width: "100%", maxWidth: "350px" }}
+								/>
 							</ButtonRow>
 						</LeftColumn>
 					</motion.div>
