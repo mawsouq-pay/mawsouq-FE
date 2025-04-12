@@ -29,3 +29,12 @@ export const benefitsText = {
 			"فقط البائعون الموثوق بهم يتلقون المدفوعات، مما يقلل من عمليات الاحتيال.",
 	},
 };
+
+export const enTexts = {
+	title: "Benefits For Sellers & Buyers",
+	description: "Everything you need to sell and buy confidently online",
+};
+export const arTexts = {
+	title: "راحة وأمان للبائع والمشتري",
+	description: "كل اللي محتاجه عشان تبيع وتشتري وانت مطمن أونلاين",
+};

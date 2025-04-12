@@ -8,6 +8,7 @@ export const colors = {
 	blue: "#2072fb",
 	backgroundColor: "#ECF0F1",
 	lightBlue: "#F7F9FC",
+	green100: "#dcfce7",
 
 	gray: "gray",
 	darkGray: "#4A4A4A",

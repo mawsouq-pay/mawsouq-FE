@@ -18,7 +18,7 @@ export const MainDiv = styled.div`
 export const StyledAccordion = styled(Accordion)`
 	background: white;
 	border-radius: 10px !important;
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
 	margin-bottom: 10px;
 	transition: 0.3s ease-in-out;
 	&:before {
@@ -27,7 +27,7 @@ export const StyledAccordion = styled(Accordion)`
 `;
 
 export const StyledSummary = styled(AccordionSummary)`
-	padding: 15px 20px;
+	padding: 12px 20px;
 	border-radius: 10px;
 	&:hover {
 		background-color: ${colors.lightGray};

@@ -5,7 +5,7 @@ import { media } from "@/helpers/mediaQueryHelper";
 export const Container = styled.div`
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 35px 20px 20px 20px;
+	padding: 25px 20px 20px 20px;
 `;
 
 export const HeroWrapper = styled.section`
@@ -44,7 +44,7 @@ export const FrameDive = styled.div<{ isArabic: boolean }>`
 	justify-content: flex-end;
 	align-items: center;
 	flex-direction: column;
-
+	margin-top: 10px;
 	@media (max-width: 1024px) {
 		max-width: 100%;
 		justify-content: center;

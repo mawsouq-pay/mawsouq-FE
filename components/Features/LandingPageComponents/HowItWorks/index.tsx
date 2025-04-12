@@ -1,20 +1,22 @@
 import React from "react";
-import styled from "styled-components";
 import { colors } from "@/constants/theme";
-import { useLocaleStore } from "@/store";
+import { useAuthStore, useLocaleStore } from "@/store";
 import MSText from "@/components/Shared/MSText";
-import { media } from "@/helpers/mediaQueryHelper";
-import {
-	FormIcon,
-	HoldIcon,
-	DeliverIcon,
-	ApproveIcon,
-	ArrowDownScribbledIcon,
-} from "@/assets/icons";
-import { textTr } from "@/constants/locales";
-import { useMediaQuery } from "@mui/material";
+import { FormIcon, HoldIcon, DeliverIcon, ApproveIcon } from "@/assets/icons";
 import { motion } from "framer-motion";
 import MSButton from "@/components/Shared/MSButton";
+import { useRouter } from "next/router";
+
+import {
+	Wrapper,
+	FeaturesContainer,
+	StepCard,
+	CircleWrapper,
+	StepCircle,
+	Line,
+} from "./HowItWorks.styles";
+import { enTexts, arTexts } from "./types";
+import { clientRoutes } from "@/routes";
 
 export const howItWorksSteps = [
 	{
@@ -44,9 +46,19 @@ export const howItWorksSteps = [
 ];
 
 const HowItWorks = () => {
+	const router = useRouter();
+
 	const { locale } = useLocaleStore();
-	const text = textTr(locale);
-	const isMobile = useMediaQuery("(max-width: 925px)");
+	const textObj = locale === "en" ? enTexts : arTexts;
+	const { isLoggedIn } = useAuthStore();
+
+	const onCtaPress = () => {
+		if (!isLoggedIn) {
+			router.push(clientRoutes.register);
+			return;
+		}
+		router.push(clientRoutes.startTransaction);
+	};
 
 	return (
 		<Wrapper>
@@ -62,7 +74,7 @@ const HowItWorks = () => {
 					fontWeight="bold"
 					color={colors.black}
 				>
-					{text.howItWorks}
+					{textObj.title}
 				</MSText>
 
 				<MSText
@@ -72,7 +84,7 @@ const HowItWorks = () => {
 					color={colors.gray600}
 					style={{ margin: "16px 4% 0" }}
 				>
-					{text.howItWorksDescription}
+					{textObj.description}
 				</MSText>
 			</motion.div>
 
@@ -98,74 +110,13 @@ const HowItWorks = () => {
 				))}
 			</FeaturesContainer>
 
-			<MSButton title="Create Your First Payment Link" style={{ height: 45 }} />
+			<MSButton
+				title={textObj.cta}
+				style={{ height: 45 }}
+				onClick={onCtaPress}
+			/>
 		</Wrapper>
 	);
 };
 
 export default HowItWorks;
-
-const Wrapper = styled.div`
-	padding-top: 60px;
-	padding-bottom: 2rem;
-	align-items: center;
-	text-align: center;
-`;
-
-export const FeaturesContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	width: 100%;
-	padding: 4rem 2rem;
-	gap: 24px;
-
-	${media.below925`
-    flex-direction: column;
-    align-items: center;
-  `}
-`;
-
-const StepCard = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	flex: 1;
-	min-width: 200px;
-	position: relative;
-	gap: 10px;
-`;
-
-const CircleWrapper = styled.div`
-	position: relative;
-	margin-bottom: 16px;
-`;
-
-const StepCircle = styled.div`
-	width: 60px;
-	height: 60px;
-	background-color: ${colors.mintGreen};
-	color: ${colors.green};
-	font-size: 24px;
-	font-weight: 700;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 2;
-`;
-
-const Line = styled.div`
-	position: absolute;
-	top: 50%;
-	left: 100%;
-	transform: translateY(-50%);
-	height: 2px;
-	width: 60px;
-	background-color: ${colors.green};
-
-	@media (max-width: 925px) {
-		display: none;
-	}
-`;

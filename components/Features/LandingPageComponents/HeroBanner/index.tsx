@@ -11,15 +11,25 @@ import {
 	LeftColumn,
 } from "./HeroBanner.styles";
 import Image from "next/image";
-import ReleaseFrame from "@/assets/images/ENFrame.png";
-
+import HeroImg from "@/assets/images/HeroImg.png";
+import { useRouter } from "next/router";
 import MSText from "@/components/Shared/MSText";
-import { useLocaleStore } from "@/store";
+import { useAuthStore, useLocaleStore } from "@/store";
 import { arTexts, enTexts } from "./types";
+import { clientRoutes } from "@/routes";
 
 export default function HeroSection() {
+	const router = useRouter();
+	const { isLoggedIn } = useAuthStore();
 	const { locale } = useLocaleStore();
 	const textObj = locale === "en" ? enTexts : arTexts;
+	const onCtaPress = () => {
+		if (!isLoggedIn) {
+			router.push(clientRoutes.register);
+			return;
+		}
+		router.push(clientRoutes.startTransaction);
+	};
 	return (
 		<HeroWrapper>
 			<Container>
@@ -50,11 +60,7 @@ export default function HeroSection() {
 							</MSText>
 
 							<ButtonRow>
-								<MSButton title="Create Payment Link" />
-								{/* <MSButton
-									title="See How It Works"
-									style={{ borderColor: colors.green, color: colors.green }}
-								/> */}
+								<MSButton title={textObj.cta} onClick={onCtaPress} />
 							</ButtonRow>
 						</LeftColumn>
 					</motion.div>
@@ -66,12 +72,12 @@ export default function HeroSection() {
 					>
 						<FrameDive isArabic={locale === "ar"}>
 							<Image
-								src={ReleaseFrame}
+								src={HeroImg}
 								priority
 								loading="eager"
 								alt="Release"
-								height={350}
-								width={300}
+								height={360}
+								width={360}
 							/>
 						</FrameDive>
 					</motion.div>

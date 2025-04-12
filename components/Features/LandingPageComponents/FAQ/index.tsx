@@ -40,12 +40,12 @@ const FAQ = () => {
 							aria-controls={`panel${index}-content`}
 							id={`panel${index}-header`}
 						>
-							<MSText fontSize="18px" fontWeight="600" color={colors.black}>
+							<MSText fontSize="16px" fontWeight="600" color={colors.gray900}>
 								{item.question}
 							</MSText>
 						</StyledSummary>
 						<AccordionDetails>
-							<MSText fontSize="16px" color={colors.black}>
+							<MSText fontSize="16px" color={colors.gray900}>
 								{item.answer}
 							</MSText>
 						</AccordionDetails>

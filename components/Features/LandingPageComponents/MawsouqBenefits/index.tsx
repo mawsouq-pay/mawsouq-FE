@@ -10,14 +10,14 @@ import styled from "styled-components";
 import { ShieldCheck, ListOrdered, Vault, Loader } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
-import { benefitsText } from "./types";
+import { arTexts, benefitsText, enTexts } from "./types";
 import { colors } from "@/constants/theme";
 import { textTr } from "@/constants/locales";
 
 const MawsouqBenefits = () => {
 	const { locale } = useLocaleStore();
 	const text = benefitsText[locale];
-	const text2 = textTr(locale);
+	const textObj = locale === "en" ? enTexts : arTexts;
 
 	return (
 		<Wrapper>
@@ -27,7 +27,7 @@ const MawsouqBenefits = () => {
 				fontWeight="bold"
 				color={colors.black}
 			>
-				{text2.mawsouqBenefits}
+				{textObj.title}
 			</MSText>
 
 			<MSText
@@ -37,20 +37,20 @@ const MawsouqBenefits = () => {
 				color={colors.gray600}
 				style={{ margin: "16px 4% 0" }}
 			>
-				{text2.howItWorksDescription}
+				{textObj.description}
 			</MSText>
 
 			<BenefitsContainer id="benefits">
 				<BenefitsGrid>
 					<BenefitItem>
 						<BenefitIcon>
-							<ShieldCheck size={30} color={colors.green} />
+							<ShieldCheck size={28} strokeWidth={1.3} color={colors.green} />
 						</BenefitIcon>
 						<MSText
 							fontWeight="600"
-							fontSize="16px"
+							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginTop: 10, marginBottom: 5 }}
+							style={{ marginBottom: 10 }}
 						>
 							{text.safePaymentsTitle}
 						</MSText>
@@ -61,13 +61,13 @@ const MawsouqBenefits = () => {
 
 					<BenefitItem>
 						<BenefitIcon>
-							<ListOrdered size={30} color={colors.green} />
+							<ListOrdered size={28} strokeWidth={1.3} color={colors.green} />
 						</BenefitIcon>
 						<MSText
 							fontWeight="600"
-							fontSize="16px"
+							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginTop: 10, marginBottom: 5 }}
+							style={{ marginBottom: 10 }}
 						>
 							{text.easyProcessTitle}
 						</MSText>
@@ -78,13 +78,13 @@ const MawsouqBenefits = () => {
 
 					<BenefitItem>
 						<BenefitIcon>
-							<Vault size={30} color={colors.green} />
+							<Vault size={28} strokeWidth={1.3} color={colors.green} />
 						</BenefitIcon>
 						<MSText
 							fontWeight="600"
-							fontSize="16px"
+							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginTop: 10, marginBottom: 5 }}
+							style={{ marginBottom: 10 }}
 						>
 							{text.buyerProtectionTitle}
 						</MSText>
@@ -95,13 +95,13 @@ const MawsouqBenefits = () => {
 
 					<BenefitItem>
 						<BenefitIcon>
-							<Loader size={30} color={colors.green} />
+							<Loader size={28} strokeWidth={1.3} color={colors.green} />
 						</BenefitIcon>
 						<MSText
 							fontWeight="600"
-							fontSize="16px"
+							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginTop: 10, marginBottom: 5 }}
+							style={{ marginBottom: 10 }}
 						>
 							{text.trustedSellersTitle}
 						</MSText>

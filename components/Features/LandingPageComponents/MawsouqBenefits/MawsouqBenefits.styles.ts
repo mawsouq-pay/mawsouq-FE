@@ -1,12 +1,10 @@
+import { colors } from "@/constants/theme";
 import styled from "styled-components";
 
 export const BenefitsContainer = styled.div`
 	text-align: center;
-	padding: 30px 20px 20px 20px;
-	/* background: white; */
+	padding: 0px 20px 20px 20px;
 	border-radius: 40px;
-	/* margin-top: 50px; */
-	/* background-color: #ecf9ee; */
 	margin-top: 30px;
 `;
 
@@ -51,9 +49,33 @@ export const BenefitItem = styled.div`
 `;
 
 export const BenefitIcon = styled.div`
-	display: flex;
+	/* display: flex;
 	margin-bottom: 10px;
 	flex-direction: column;
-	width: 100%;
-	justify-content: flex-start;
+	width: 32px;
+	height: 32px;
+	background-color: ${colors.green100};
+	justify-content: center;
+	align-items: center;
+	padding: 2px; */
+
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: ${colors.green100};
+	border-radius: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
 `;
+// export const IconWrapper = styled.div`
+// 	width: 3rem; // 12 * 0.25rem
+// 	height: 3rem;
+// 	background-color: ${colors.green100}; // Adjust based on your theme
+// 	border-radius: 0.5rem;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	margin-bottom: 1rem;
+// 	color: ${colors.primary}; // Replace with actual primary color from your theme
+// `;
