@@ -11,8 +11,7 @@ import MSButton from "../../MSButton";
 import { localeEnum } from "@/store/LocaleStore";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import MawsouqLogo from "@/assets/images/Logo.png";
+import { MSLogo } from "@/assets/icons";
 
 const CustomDrawer = styled(Drawer)`
 	.MuiDrawer-paper {
@@ -24,7 +23,7 @@ const CustomDrawer = styled(Drawer)`
 	}
 `;
 
-const SidebarNav = ({
+const MobileMenuNav = ({
 	open,
 	toggleMenu,
 }: {
@@ -62,7 +61,7 @@ const SidebarNav = ({
 						paddingRight: 15,
 					}}
 				>
-					<Image src={MawsouqLogo} alt="Mawsouq image" />
+					<MSLogo width={110} height={40} fill={colors.green} />
 
 					<MenuButton onClick={toggleMenu} open={open}>
 						{open ? <X size={28} /> : <MenuIcon size={28} />}
@@ -149,4 +148,4 @@ const SidebarNav = ({
 	);
 };
 
-export default SidebarNav;
+export default MobileMenuNav;

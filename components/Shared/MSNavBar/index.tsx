@@ -17,7 +17,7 @@ import {
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import { localeEnum } from "@/store/LocaleStore";
-import SidebarNav from "./SideBarNav";
+import MobileMenuNav from "./MobileMenuNav";
 import MSText from "../MSText";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
@@ -45,9 +45,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 			<Container>
 				<NavRow>
 					<LogoWrapper>
-						<a href="/">
-							<MSLogo width={110} height={40} fill={colors.green} />
-						</a>
+						<MSLogo width={110} height={40} fill={colors.green} />
 					</LogoWrapper>
 
 					<NavLinks>
@@ -83,7 +81,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 					</CTAWrapper>
 				</NavRow>
 			</Container>
-			{isMobile && <SidebarNav open={open} toggleMenu={toggleMenu} />}
+			{isMobile && <MobileMenuNav open={open} toggleMenu={toggleMenu} />}
 		</Header>
 	);
 };
