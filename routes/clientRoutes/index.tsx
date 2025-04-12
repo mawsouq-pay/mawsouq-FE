@@ -6,6 +6,7 @@ const clientRoutes = {
 	contactPage: "/contactPage",
 	resetPassword: "/resetPassword",
 	privacyPolicy: "/privacyPolicy",
+	termsAndConditions: "/termsAndConditions",
 
 	startTransaction: "/startTransaction",
 	orderConfirmation: "/orderConfirmation",
@@ -23,6 +24,7 @@ const publicRoutes = [
 	clientRoutes.previewOrder,
 	clientRoutes.resetPassword,
 	clientRoutes.privacyPolicy,
+	clientRoutes.termsAndConditions,
 ];
 const protectedRoutes = Object.values(clientRoutes).filter(
 	(route) => !publicRoutes.includes(route)

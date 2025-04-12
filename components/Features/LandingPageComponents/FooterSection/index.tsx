@@ -1,84 +1,32 @@
 import React from "react";
-import styled from "styled-components";
-import { colors } from "@/constants/theme";
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
 import { clientRoutes } from "@/routes";
 import { useLocaleStore } from "@/store";
-import { textTr } from "@/constants/locales";
+import {
+	FooterContent,
+	FooterLinks,
+	FooterText,
+	FooterWrapper,
+	SocialLinks,
+} from "./FooterSection.styles";
 
-const FooterWrapper = styled.footer`
-	background-color: ${colors.gray900};
-	padding: 50px 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 25px;
-	border-top: 1px solid ${colors.lightGray};
-	text-align: center;
-	width: 100%;
-`;
+const en = {
+	terms: "Terms of Service",
+	privacy: "Privacy Policy",
+	copyright: `© ${new Date().getFullYear()} Mawsouq. All rights reserved.`,
+};
 
-const FooterContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 20px;
-	width: 100%;
-	max-width: 1200px;
-`;
-
-const Logo = styled.img`
-	width: 150px;
-	margin-bottom: 15px;
-`;
-
-const SocialLinks = styled.div`
-	display: flex;
-	gap: 20px;
-
-	a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: ${colors.white};
-		text-decoration: none;
-		transition: 0.3s;
-
-		&:hover {
-			color: ${colors.darkGreen};
-		}
-	}
-`;
-
-const FooterLinks = styled.div`
-	display: flex;
-	gap: 15px;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-
-	a {
-		color: ${colors.white};
-		text-decoration: none;
-		font-weight: 500;
-		font-size: 16px;
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-`;
-
-const FooterText = styled.p`
-	color: ${colors.gray};
-	font-size: 14px;
-	margin: 0;
-`;
+const ar = {
+	terms: "شروط الاستخدام",
+	privacy: "سياسة الخصوصية",
+	copyright: `© ${new Date().getFullYear()} موصوق. جميع الحقوق محفوظة.`,
+};
 
 const FooterSection = () => {
 	const { locale } = useLocaleStore();
-	const text = textTr(locale);
+	const text = locale === "ar" ? ar : en;
+
 	return (
 		<FooterWrapper>
 			<FooterContent>
@@ -103,14 +51,10 @@ const FooterSection = () => {
 					</a>
 				</SocialLinks>
 				<FooterLinks>
-					<a href="/contact">{text.contactUs}</a>
-					<a href="/about">About Us</a>
-					<a href="/terms">Terms of Service</a>
-					<a href={clientRoutes.privacyPolicy}>Privacy Policy</a>
+					<a href={clientRoutes.termsAndConditions}>{text.terms}</a>
+					<a href={clientRoutes.privacyPolicy}>{text.privacy}</a>
 				</FooterLinks>
-				<FooterText>
-					&copy; {new Date().getFullYear()} Mawsouq. All rights reserved.
-				</FooterText>
+				<FooterText>{text.copyright}</FooterText>
 			</FooterContent>
 		</FooterWrapper>
 	);
