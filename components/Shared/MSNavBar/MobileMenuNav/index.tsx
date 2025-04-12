@@ -1,7 +1,7 @@
 import React from "react";
 import { Drawer } from "@mui/material";
 import { ArrowRightCircle, MenuIcon, X } from "lucide-react";
-import { MenuButton, Sidebar, SidebarLink } from "../NavBar.styles";
+import { MenuButton, NavAnchor, Sidebar, SidebarLink } from "../NavBar.styles";
 import { useAuthStore, useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import MSText from "../../MSText";
@@ -37,6 +37,14 @@ const MobileMenuNav = ({
 	const toggleLanguage = () => {
 		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
 	};
+
+	const navLinks = [
+		{ name: text.howItWorks, to: "HowItWorksS", offset: 0 },
+		{ name: text.msBenefits, to: "BenefitsS", offset: -121 },
+		{ name: "Product", to: "ProductS", offset: -141 },
+		{ name: "FAQs", to: "FAQS", offset: -141 },
+	];
+
 	return (
 		<CustomDrawer
 			anchor="top"
@@ -69,51 +77,27 @@ const MobileMenuNav = ({
 				</div>
 
 				<Sidebar>
-					<SidebarLink
-						to="howItWorks"
-						smooth
-						duration={500}
-						spy
-						offset={0}
-						onClick={toggleMenu}
-					>
-						<ArrowRightCircle size={15} color={`${colors.green}`} />
-
-						<MSText fontSize="16px">{text.howItWorks}</MSText>
-					</SidebarLink>
-					<SidebarLink
-						to="benefits"
-						smooth
-						duration={500}
-						spy
-						offset={-121}
-						onClick={toggleMenu}
-					>
-						<ArrowRightCircle size={15} color={`${colors.green}`} />
-
-						<MSText fontSize="16px">{text.msBenefits}</MSText>
-					</SidebarLink>
-					<SidebarLink
-						to="contact"
-						smooth
-						duration={500}
-						spy
-						offset={-141}
-						onClick={toggleMenu}
-					>
-						<ArrowRightCircle size={15} color={`${colors.green}`} />
-
-						<MSText fontSize="16px">{text.contact}</MSText>
-					</SidebarLink>
+					{navLinks.map((link) => (
+						<NavAnchor
+							key={link.to}
+							to={link.to}
+							smooth
+							duration={500}
+							spy
+							offset={link.offset}
+							onClick={toggleMenu}
+						>
+							<ArrowRightCircle size={15} color={colors.green} />
+							<MSText fontSize="16px">{link.name}</MSText>
+						</NavAnchor>
+					))}
 					<MSButton
 						title={locale === "en" ? "العربية 🌍" : "En 🌍"}
 						onClick={() => {
 							toggleLanguage();
 							toggleMenu();
 						}}
-						style={{
-							backgroundColor: "#ddf8ed",
-						}}
+						style={{ backgroundColor: "#ddf8ed" }}
 						fontColor="black"
 					/>
 					{!isLoggedIn ? (

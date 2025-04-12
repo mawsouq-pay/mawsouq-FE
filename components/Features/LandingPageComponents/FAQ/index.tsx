@@ -22,7 +22,7 @@ const FAQ = () => {
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	return (
 		<div
-			id="faq"
+			id="FAQS"
 			style={{
 				paddingTop: "80px",
 				borderRadius: 40,

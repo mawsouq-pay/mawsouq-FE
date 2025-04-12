@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 import { colors } from "@/constants/theme";
-import { media } from "@/helpers/mediaQueryHelper";
-import { MenuIcon, X } from "lucide-react";
 
 export const MenuButton = styled.div<{ open: boolean }>`
 	display: flex;
@@ -83,9 +80,12 @@ export const NavLinks = styled.nav`
 `;
 
 export const NavAnchor = styled(LinkS)`
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
 	color: ${colors.gray600};
 	text-decoration: none;
-
+	gap: 5px;
 	&:hover {
 		color: ${colors.green};
 	}
@@ -98,21 +98,14 @@ export const CTAWrapper = styled.div`
 `;
 
 export const SidebarLink = styled(LinkS)`
-	color: ${colors.black};
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	padding: 0;
-	height: 100%;
 	cursor: pointer;
-	font-size: 18px;
-	&.active {
-		border-bottom: 4px solid #52ab98;
-	}
+
+	color: ${colors.gray600};
+	text-decoration: none;
+
 	&:hover {
-		color: #31c48d;
+		color: ${colors.green};
 	}
-	gap: 4px;
 `;
 export const Sidebar = styled.div`
 	display: flex;

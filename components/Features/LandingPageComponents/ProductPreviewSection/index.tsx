@@ -32,7 +32,7 @@ const ProductPreviewSection = () => {
 	);
 
 	return (
-		<Section>
+		<Section id="ProductS">
 			<Container>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}

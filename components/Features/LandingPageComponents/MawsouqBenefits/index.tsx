@@ -19,7 +19,7 @@ const MawsouqBenefits = () => {
 	const textObj = locale === "en" ? enTexts : arTexts;
 
 	return (
-		<Wrapper>
+		<Wrapper id="BenefitsS">
 			<MSText
 				fontSize="24px"
 				mobileFontSize="20px"
