@@ -22,7 +22,7 @@ import { ShoppingCart, Lock, Repeat, Package } from "lucide-react";
 import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import MSButton from "@/components/Shared/MSButton";
-import PaymobImage from "@/assets/images/paymobImage.png";
+import PaymobImage from "@/assets/images/paymob.png";
 import Image from "next/image";
 import GuaranteeList from "../GuaranteeList";
 

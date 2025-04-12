@@ -2,7 +2,7 @@ import React from "react";
 import { colors } from "@/constants/theme";
 import { ShieldCheck, Lock, CreditCard } from "lucide-react";
 import { Wrapper, Section, IconsRow, Feature } from "./SecurityBanner.styles";
-import PaymobImage from "@/assets/images/paymobImage.png";
+import PaymobImage from "@/assets/images/paymob.png";
 import Image from "next/image";
 import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store";
