@@ -50,7 +50,11 @@ const MawsouqBenefits = () => {
 							fontWeight="600"
 							fontSize="18px"
 							color={colors.semiBlack}
-							style={{ marginBottom: 10 }}
+							style={{
+								marginBottom: 10,
+								display: "flex",
+								width: "100%",
+							}}
 						>
 							{text.safePaymentsTitle}
 						</MSText>

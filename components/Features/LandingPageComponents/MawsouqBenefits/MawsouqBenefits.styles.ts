@@ -67,6 +67,7 @@ export const BenefitIcon = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 1rem;
+	align-self: flex-start;
 `;
 // export const IconWrapper = styled.div`
 // 	width: 3rem; // 12 * 0.25rem
