@@ -12,7 +12,6 @@ import MSText from "@/components/Shared/MSText";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { arTexts, benefitsText, enTexts } from "./types";
 import { colors } from "@/constants/theme";
-import { textTr } from "@/constants/locales";
 
 const MawsouqBenefits = () => {
 	const { locale } = useLocaleStore();

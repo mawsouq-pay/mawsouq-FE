@@ -16,7 +16,7 @@ const SecurityBanner = () => {
 				<MSText fontSize="14px" fontWeight="500" color={colors.gray700}>
 					{securityText.label}
 				</MSText>
-				<Image src={PaymobImage} alt="Paymob" width={100} height={30} />
+				<Image src={PaymobImage} alt="Paymob" width={90} height={15} />
 			</Section>
 
 			<IconsRow>

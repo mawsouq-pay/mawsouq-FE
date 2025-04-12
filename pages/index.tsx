@@ -10,6 +10,7 @@ import {
 	MawsouqBenefits,
 	FooterSection,
 	SecurityBanner,
+	AboutUsSection,
 } from "@/components/Features/LandingPageComponents";
 import ProductPreviewSection from "@/components/Features/LandingPageComponents/ProductPreviewSection";
 import TrustSection from "@/components/Features/LandingPageComponents/TrustSection";
@@ -24,7 +25,7 @@ const LandingPage = () => {
 				<MawsouqBenefits />
 				<TrustSection />
 				<ProductPreviewSection />
-
+				<AboutUsSection />
 				<FAQ />
 				<CTA />
 

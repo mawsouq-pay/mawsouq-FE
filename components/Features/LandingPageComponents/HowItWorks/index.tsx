@@ -16,48 +16,26 @@ import {
 	Line,
 } from "./HowItWorks.styles";
 import { enTexts, arTexts } from "./types";
-import { clientRoutes } from "@/routes";
 
-export const howItWorksSteps = [
-	{
-		number: 1,
-		title: "Seller Creates Transaction",
-		description: "Set up product details and generate a secure payment link",
-		icon: <FormIcon color={colors.green} />,
-	},
-	{
-		number: 2,
-		title: "Buyer Pays via Paymob",
-		description: "Payment is secured and held in escrow until delivery",
-		icon: <HoldIcon color={colors.green} />,
-	},
-	{
-		number: 3,
-		title: "Seller Delivers Product",
-		description: "Complete the service or ship the product to the buyer",
-		icon: <DeliverIcon color={colors.green} />,
-	},
-	{
-		number: 4,
-		title: "Buyer Confirms",
-		description: "Funds are released to the seller after confirmation",
-		icon: <ApproveIcon color={colors.green} />,
-	},
+const howItWorksIcons = [
+	<FormIcon color={colors.green} />,
+	<HoldIcon color={colors.green} />,
+	<DeliverIcon color={colors.green} />,
+	<ApproveIcon color={colors.green} />,
 ];
 
 const HowItWorks = () => {
 	const router = useRouter();
-
 	const { locale } = useLocaleStore();
 	const textObj = locale === "en" ? enTexts : arTexts;
 	const { isLoggedIn } = useAuthStore();
 
 	const onCtaPress = () => {
 		if (!isLoggedIn) {
-			router.push(clientRoutes.register);
+			router.push("/register");
 			return;
 		}
-		router.push(clientRoutes.startTransaction);
+		router.push("/start-transaction");
 	};
 
 	return (
@@ -89,16 +67,19 @@ const HowItWorks = () => {
 			</motion.div>
 
 			<FeaturesContainer>
-				{howItWorksSteps.map((step, index) => (
+				{textObj.steps.map((step, index) => (
 					<StepCard key={index}>
 						<CircleWrapper>
 							<StepCircle>
-								<MSText fontWeight="600" fontSize="22px">
-									{step.number}
-								</MSText>
+								{howItWorksIcons[index]}
+								{/* <MSText fontWeight="600" fontSize="22px">
+									{index + 1}
+								</MSText> */}
 							</StepCircle>
-							{index < howItWorksSteps.length - 1 && <Line />}
+							{index < textObj.steps.length - 1 && <Line />}
 						</CircleWrapper>
+
+						{/*  */}
 
 						<MSText fontSize="18px" fontWeight="600" color={colors.black}>
 							{step.title}

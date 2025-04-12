@@ -1,22 +1,23 @@
 import React from "react";
-import styled from "styled-components";
 import { colors } from "@/constants/theme";
 import MSText from "@/components/Shared/MSText";
 import MSButton from "@/components/Shared/MSButton";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useLocaleStore } from "@/store";
-import { textTr } from "@/constants/locales";
+import {
+	Section,
+	Container,
+	ButtonRow,
+	FeaturesRow,
+	ListItem,
+} from "./CTA.styles";
+import { ar, en } from "./types";
 
 const CTASection = () => {
 	const { locale } = useLocaleStore();
-	const text = textTr(locale);
-	const isArabic = locale === "ar";
-	const features = [
-		text.refundIfSellerDoesntDeliver,
-		text.trackYourOrder,
-		text.support247,
-	];
+	const text = locale === "ar" ? ar : en;
+
 	return (
 		<Section>
 			<Container>
@@ -33,7 +34,7 @@ const CTASection = () => {
 						color={colors.jetBlack}
 						style={{ textAlign: "center", marginBottom: 16 }}
 					>
-						Protect your work. Sell with confidence.
+						{text.heading}
 					</MSText>
 
 					<MSText
@@ -42,14 +43,13 @@ const CTASection = () => {
 						color={colors.gray600}
 						style={{ textAlign: "center", marginBottom: 32 }}
 					>
-						Join hundreds of sellers who use Mawsouq to securely receive
-						payments for their products and services.
+						{text.subheading}
 					</MSText>
 
 					<ButtonRow>
-						<MSButton title="Get Started Free" />
+						<MSButton title={text.buttons[0]} />
 						<MSButton
-							title="Learn More"
+							title={text.buttons[1]}
 							style={{ borderColor: colors.green, color: colors.green }}
 						/>
 					</ButtonRow>
@@ -62,7 +62,7 @@ const CTASection = () => {
 						transition={{ duration: 0.6, delay: 0.2 }}
 					>
 						<FeaturesRow>
-							{features.map((item) => (
+							{text.features.map((item) => (
 								<ListItem key={item}>
 									<Check size={16} color={colors.green} />
 									<MSText fontSize="14px" style={{ marginInlineStart: 8 }}>
@@ -79,33 +79,3 @@ const CTASection = () => {
 };
 
 export default CTASection;
-
-const Section = styled.section`
-	background: ${colors.mintGreen};
-	padding: 70px 0;
-`;
-
-const Container = styled.div`
-	max-width: 1100px;
-	margin: 0 auto;
-	padding: 0 24px;
-`;
-
-const ButtonRow = styled.div`
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 16px;
-	margin-bottom: 40px;
-`;
-
-const FeaturesRow = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 24px;
-`;
-const ListItem = styled.div`
-	display: flex;
-	align-items: center;
-`;

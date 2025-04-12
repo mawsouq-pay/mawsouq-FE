@@ -42,7 +42,7 @@ export const CircleWrapper = styled.div`
 export const StepCircle = styled.div`
 	width: 60px;
 	height: 60px;
-	background-color: ${colors.mintGreen};
+	background-color: ${colors.white};
 	color: ${colors.green};
 	font-size: 24px;
 	font-weight: 700;
