@@ -4,7 +4,7 @@ import MSText from "@/components/Shared/MSText";
 import MSButton from "@/components/Shared/MSButton";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
-import { useLocaleStore } from "@/store";
+import { useAuthStore, useLocaleStore } from "@/store";
 import {
 	Section,
 	Container,
@@ -13,11 +13,20 @@ import {
 	ListItem,
 } from "./CTA.styles";
 import { ar, en } from "./types";
-
+import { useRouter } from "next/router";
+import { clientRoutes } from "@/routes";
 const CTASection = () => {
 	const { locale } = useLocaleStore();
 	const text = locale === "ar" ? ar : en;
-
+	const { isLoggedIn } = useAuthStore();
+	const router = useRouter();
+	const onCtaPress = () => {
+		if (!isLoggedIn) {
+			router.push(clientRoutes.register);
+			return;
+		}
+		router.push(clientRoutes.startTransaction);
+	};
 	return (
 		<Section>
 			<Container>
@@ -51,6 +60,7 @@ const CTASection = () => {
 						<MSButton
 							title={text.buttons[1]}
 							style={{ borderColor: colors.green, color: colors.green }}
+							onClick={onCtaPress}
 						/>
 					</ButtonRow>
 

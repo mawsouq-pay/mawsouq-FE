@@ -16,6 +16,7 @@ import {
 	Line,
 } from "./HowItWorks.styles";
 import { enTexts, arTexts } from "./types";
+import { clientRoutes } from "@/routes";
 
 const howItWorksIcons = [
 	<FormIcon color={colors.green} />,
@@ -32,10 +33,10 @@ const HowItWorks = () => {
 
 	const onCtaPress = () => {
 		if (!isLoggedIn) {
-			router.push("/register");
+			router.push(clientRoutes.register);
 			return;
 		}
-		router.push("/start-transaction");
+		router.push(clientRoutes.startTransaction);
 	};
 
 	return (
