@@ -25,6 +25,9 @@ const en = {
 	msBenefits: "Benefits",
 	contact: "Contact",
 	mawsouqBenefits: "Mawsouq Benefits",
+	aboutUs: "About Us",
+	contactUs: "Contact Us",
+	company: "Company",
 
 	//paymob
 	paymobInfo:
@@ -223,7 +226,6 @@ const en = {
 	support247: "24/7 Support on your order",
 
 	//contact form
-	contactUs: "Contact Us",
 	haveAQuestion: "Have a question?",
 	sendMessage: "Send us a message",
 	messageSent: "Your message has been sent successfully!",

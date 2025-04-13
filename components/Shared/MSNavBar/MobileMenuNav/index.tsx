@@ -39,10 +39,12 @@ const MobileMenuNav = ({
 	};
 
 	const navLinks = [
-		{ name: text.howItWorks, to: "HowItWorksS", offset: 0 },
-		{ name: text.msBenefits, to: "BenefitsS", offset: -121 },
-		{ name: "Product", to: "ProductS", offset: -141 },
-		{ name: "FAQs", to: "FAQS", offset: -141 },
+		{ name: text.howItWorks, to: "HowItWorksS", offset: 0, isRoute: false },
+		{ name: text.msBenefits, to: "BenefitsS", offset: -121, isRoute: false },
+		{ name: "Product", to: "ProductS", offset: -141, isRoute: false },
+		{ name: "FAQs", to: "FAQS", offset: -141, isRoute: false },
+		{ name: text.aboutUs, to: clientRoutes.aboutUs, isRoute: true },
+		{ name: text.contactUs, to: clientRoutes.contactUs, isRoute: true },
 	];
 
 	return (
@@ -77,29 +79,34 @@ const MobileMenuNav = ({
 				</div>
 
 				<Sidebar>
-					{navLinks.map((link) => (
-						<NavAnchor
-							key={link.to}
-							to={link.to}
-							smooth
-							duration={500}
-							spy
-							offset={link.offset}
-							onClick={toggleMenu}
-						>
-							<ArrowRightCircle size={15} color={colors.green} />
-							<MSText fontSize="16px">{link.name}</MSText>
-						</NavAnchor>
-					))}
-					<MSButton
-						title={locale === "en" ? "العربية 🌍" : "En 🌍"}
-						onClick={() => {
-							toggleLanguage();
-							toggleMenu();
-						}}
-						style={{ backgroundColor: "#ddf8ed" }}
-						fontColor="black"
-					/>
+					{navLinks.map((link) =>
+						link.isRoute ? (
+							<SidebarLink
+								key={link.to}
+								onClick={() => {
+									router.push(link.to);
+									toggleMenu();
+								}}
+							>
+								<ArrowRightCircle size={15} color={colors.green} />
+								<MSText fontSize="16px">{link.name}</MSText>
+							</SidebarLink>
+						) : (
+							<NavAnchor
+								key={link.to}
+								to={link.to}
+								smooth
+								duration={500}
+								spy
+								offset={link.offset}
+								onClick={toggleMenu}
+							>
+								<ArrowRightCircle size={15} color={colors.green} />
+								<MSText fontSize="16px">{link.name}</MSText>
+							</NavAnchor>
+						)
+					)}
+
 					{!isLoggedIn ? (
 						<>
 							<MSButton

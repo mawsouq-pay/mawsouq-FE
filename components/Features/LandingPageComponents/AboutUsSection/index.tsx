@@ -13,7 +13,7 @@ import {
 	TeamGrid,
 	TeamCard,
 	ProfilePic,
-} from "./AboutUs.styles";
+} from "./AboutUsSection.styles";
 
 const en = {
 	heading: "About Us – Mawsouq-Pay",

@@ -7,7 +7,6 @@ import HowItWorks from "./HowItWorks";
 import MawsouqBenefits from "./MawsouqBenefits";
 import ScribbledCircleText from "./ScribbledCircleText";
 import SecurityBanner from "./SecurityBanner";
-import AboutUsSection from "./AboutUs";
 export {
 	ContactForm,
 	CTA,
@@ -18,5 +17,4 @@ export {
 	MawsouqBenefits,
 	ScribbledCircleText,
 	SecurityBanner,
-	AboutUsSection,
 };

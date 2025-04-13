@@ -25,6 +25,10 @@ const ar = {
 	msBenefits: "الفوائد",
 	contact: "تواصل معنا",
 	mawsouqBenefits: "Mawsouq Benefits",
+	aboutUs: "من نحن",
+	contactUs: "تواصل معنا",
+	company: "الشركة",
+
 	//paymob
 	paymobInfo:
 		"معالجة المدفوعات باستخدام Paymob تتيح لنا تقديم أمان على مستوى عالمي، مما يضمن حماية جميع المدفوعات والبيانات بالكامل.",
@@ -217,7 +221,6 @@ const ar = {
 	support247: "دعم متواصل 24/7 على طلبك",
 
 	//contact form
-	contactUs: "اتصل بنا",
 	haveAQuestion: "عندك سؤال؟",
 	sendMessage: "ابعث لنا رسالة",
 	messageSent: "تم إرسال رسالتك بنجاح !",

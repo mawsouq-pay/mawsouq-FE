@@ -9,7 +9,7 @@ import { colors } from "@/constants/theme";
 import MSText from "@/components/Shared/MSText";
 const FORM_PUBLIC_KEY = process.env.NEXT_PUBLIC_FORM_PUBLIC_KEY;
 
-const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
+const ContactForm = ({ onCancel }: { onCancel?: () => void }) => {
 	const { locale } = useLocaleStore();
 	const { showErrorNotification } = useNotification();
 	const text = textTr(locale);
@@ -68,8 +68,6 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
 				maxWidth: "500px",
 				margin: "auto",
 				padding: "20px 20px 20px 20px",
-				backgroundColor: "white",
-				borderRadius: 40,
 			}}
 		>
 			{success && <Alert severity="success">{success}</Alert>}
@@ -130,12 +128,14 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
 				loading={loading}
 				style={{ marginTop: "10px" }}
 			/>
-			<MSButton
-				title={text.cancel}
-				style={{ backgroundColor: "white" }}
-				fontColor="black"
-				onClick={onCancel}
-			/>
+			{onCancel && (
+				<MSButton
+					title={text.cancel}
+					style={{ backgroundColor: "white" }}
+					fontColor="black"
+					onClick={onCancel}
+				/>
+			)}
 		</form>
 	);
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { colors } from "@/constants/theme";
-import { ShieldCheck, Lock, CreditCard } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { Wrapper, Section, IconsRow, Feature } from "./SecurityBanner.styles";
 import PaymobImage from "@/assets/images/paymob.png";
 import Image from "next/image";
@@ -26,18 +26,6 @@ const SecurityBanner = () => {
 						{securityText.secureCheckout}
 					</MSText>
 				</Feature>
-				<Feature>
-					<Lock size={18} color={colors.green} />
-					<MSText fontSize="14px" fontWeight="500" color={colors.gray700}>
-						{securityText.sslEncrypted}
-					</MSText>
-				</Feature>
-				<Feature>
-					<CreditCard size={18} color={colors.green} />
-					<MSText fontSize="14px" fontWeight="500" color={colors.gray700}>
-						{securityText.pciCompliant}
-					</MSText>
-				</Feature>
 			</IconsRow>
 		</Wrapper>
 	);
@@ -48,12 +36,8 @@ export default SecurityBanner;
 export const securityTextEn = {
 	label: "Payments processed by:",
 	secureCheckout: "Secure Checkout",
-	sslEncrypted: "SSL Encrypted",
-	pciCompliant: "PCI-DSS Compliant",
 };
 export const securityTextAr = {
 	label: "المدفوعات من خلال:",
 	secureCheckout: "دفع آمن",
-	sslEncrypted: "مشفر بالكامل",
-	pciCompliant: "متوافق مع PCI-DSS",
 };

@@ -73,7 +73,7 @@ export const LogoWrapper = styled.div`
 export const NavLinks = styled.nav`
 	display: none;
 	gap: 32px;
-
+	align-items: center;
 	@media (min-width: 768px) {
 		display: flex;
 	}
@@ -97,16 +97,6 @@ export const CTAWrapper = styled.div`
 	gap: 12px;
 `;
 
-export const SidebarLink = styled(LinkS)`
-	cursor: pointer;
-
-	color: ${colors.gray600};
-	text-decoration: none;
-
-	&:hover {
-		color: ${colors.green};
-	}
-`;
 export const Sidebar = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -114,4 +104,10 @@ export const Sidebar = styled.div`
 	align-items: flex-start;
 	gap: 14px;
 	padding: 20px 20px;
+`;
+export const SidebarLink = styled.div`
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 5px;
 `;

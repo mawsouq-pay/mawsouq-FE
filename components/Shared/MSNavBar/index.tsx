@@ -22,6 +22,7 @@ import MSText from "../MSText";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
 import MobileHomeNav from "./MobileHomeNav";
+import CompanyDropdown from "./CompanyDropdown";
 
 const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	const router = useRouter();
@@ -64,6 +65,7 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 								</MSText>
 							</NavAnchor>
 						))}
+						<CompanyDropdown />
 					</NavLinks>
 
 					<CTAWrapper>
