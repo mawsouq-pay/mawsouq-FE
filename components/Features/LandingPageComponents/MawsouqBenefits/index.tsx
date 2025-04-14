@@ -78,7 +78,11 @@ const MawsouqBenefits = () => {
 						>
 							{text.easyProcessTitle}
 						</MSText>
-						<MSText fontSize="14px" color={colors.gray600}>
+						<MSText
+							fontSize="14px"
+							color={colors.gray600}
+							style={{ width: "100%", textAlign: "start" }}
+						>
 							{text.easyProcessDescription}
 						</MSText>
 					</BenefitItem>

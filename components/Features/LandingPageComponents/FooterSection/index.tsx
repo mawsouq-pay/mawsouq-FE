@@ -20,7 +20,7 @@ const en = {
 const ar = {
 	terms: "شروط الاستخدام",
 	privacy: "سياسة الخصوصية",
-	copyright: `© ${new Date().getFullYear()} موصوق. جميع الحقوق محفوظة.`,
+	copyright: `© ${new Date().getFullYear()} موثوق. جميع الحقوق محفوظة.`,
 };
 
 const FooterSection = () => {

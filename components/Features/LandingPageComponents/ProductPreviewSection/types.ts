@@ -45,7 +45,7 @@ export const enTexts = {
 };
 
 export const arTexts = {
-	heading: "تجربة موثوقة مع موصوق",
+	heading: "تجربة موثوقة مع موثوق",
 	subheading: "شوف إزاي منصتنا بتخدم البايعين والمشترين",
 	forSellers: "للبايعين",
 	forBuyers: "للمشترين",

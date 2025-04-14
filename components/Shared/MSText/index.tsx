@@ -23,10 +23,17 @@ const MSText: React.FC<MSTextProps> = ({
 	const isArabic = locale === "ar";
 
 	const rawFontSize = isMobile && mobileFontSize ? mobileFontSize : fontSize;
+
 	const adjustedFontSize =
-		rawFontSize && typeof rawFontSize === "string" && rawFontSize.endsWith("px")
-			? `${parseInt(rawFontSize) + (isArabic ? 4 : 0)}px`
-			: rawFontSize;
+		typeof rawFontSize === "string"
+			? rawFontSize.endsWith("px")
+				? `${parseInt(rawFontSize) + (isArabic ? 4 : 0)}px`
+				: rawFontSize.endsWith("rem")
+					? `${parseFloat(rawFontSize) + (isArabic ? 0.25 : 0)}rem`
+					: rawFontSize
+			: typeof rawFontSize === "number"
+				? rawFontSize + (isArabic ? 2 : 0)
+				: undefined;
 
 	return isLoading ? (
 		<Skeleton
