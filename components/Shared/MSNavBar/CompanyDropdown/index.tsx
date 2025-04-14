@@ -27,7 +27,9 @@ const CompanyDropdown = () => {
 	return (
 		<>
 			<CompanyButton onClick={handleClick}>
-				{text.company}
+				<MSText fontWeight="500" fontSize="14px">
+					{text.company}
+				</MSText>
 				<CircleChevronDown size={15} color={colors.green} />{" "}
 			</CompanyButton>
 			<Menu

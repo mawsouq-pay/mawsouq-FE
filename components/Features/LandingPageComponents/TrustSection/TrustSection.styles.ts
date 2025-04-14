@@ -28,7 +28,7 @@ export const FlexRow = styled.div`
 	flex-direction: column;
 	gap: 2rem;
 	align-items: center;
-
+	flex: 1;
 	@media (min-width: 768px) {
 		flex-direction: row;
 		align-items: flex-start;
@@ -37,7 +37,11 @@ export const FlexRow = styled.div`
 
 export const LeftCol = styled.div`
 	width: 100%;
-
+	align-items: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	@media (min-width: 768px) {
 		width: 50%;
 	}
@@ -79,20 +83,5 @@ export const InfoHeader = styled.div`
 	display: flex;
 	align-items: center;
 	margin-bottom: 1rem;
-`;
-
-export const Placeholder = styled.div`
-	background-color: #e5e7eb;
-	height: 1.5rem;
-	width: 6rem;
-	border-radius: 0.375rem;
-	margin-right: 0.75rem;
-`;
-
-export const ProfileCard = styled.div`
-	background-color: white;
-	border-radius: 0.75rem;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-	padding: 1.5rem;
-	margin-top: 10px;
+	gap: 10px;
 `;

@@ -4,9 +4,7 @@ import { colors } from "@/constants/theme";
 
 export const CompanyButton = styled(Button)`
 	text-transform: none;
-	font-size: 14px;
-	font-weight: 500;
-	color: #1c1c1c;
+	color: ${colors.gray600};
 	gap: 5px;
 	&:hover {
 		color: ${colors.green};

@@ -10,7 +10,7 @@ const ar = {
 	im: "أنا",
 	Selling: "أبيع",
 	for: "مقابل",
-	moneyStaysSecure: "أموالك تبقى آمنة حتى تكتمل الصفقة.",
+	moneyStaysSecure: "فلوسك في أمان لحد ما العميل يستلم طلبه.",
 	getStartedNow: "ابدأ الآن !",
 	howMawsouqActs: "كيف يعمل Mawsouq كوسيط مؤمّن.",
 	mawsouqForAllKindsOfOrders: "اطلب أي شيء بثقة—Mawsouq يضمن أموالك",
@@ -28,6 +28,8 @@ const ar = {
 	aboutUs: "من نحن",
 	contactUs: "تواصل معنا",
 	company: "الشركة",
+	faqs: "الأسئلة الشائعة",
+	product: "المنتج",
 
 	//paymob
 	paymobInfo:
@@ -64,15 +66,15 @@ const ar = {
 	actionsRequired: "إجراءات مطلوبة",
 	actionRequired: "إجراء مطلوب",
 	noTransactionsFound: "لم يتم العثور على معاملات.",
-	startTransaction: "ابدأ معاملة جديدة",
+	startTransaction: "ابدأ معاملة",
 	goToProfile: "الذهاب إلى الملف الشخصي",
 	profileManagement: "إدارة الملف الشخصي",
-	profilePage: "صفحة الملف الشخصي",
+	profilePage: "صفحتك الشخصية",
 	home: "الصفحة الرئيسية",
 
 	// Order Attributes
 	description: "الوصف",
-	deliverDate: "تاريخ التسليم",
+	deliverDate: "تاريخ التسليم (المتوقع)",
 	phoneNumber: "رقم الهاتف",
 	email: "البريد الإلكتروني",
 	transactionTitle: "عنوان المعاملة",
@@ -82,12 +84,12 @@ const ar = {
 	// Placeholders
 	phoneNumberPlaceHolder: "أدخل رقم الهاتف",
 	emailPlaceHolder: "أدخل البريد الإلكتروني",
-	enterDescription: "أدخل الوصف",
+	enterDescription: "ادخل تفاصيل المنتج أو الخدمة بالتفصيل",
 	enterTitle: "أدخل عنوان المعاملة",
 	enterCardNumber: "أدخل رقم البطاقة",
 	passwordPlaceHolder: "أدخل كلمة المرور الخاصة بك",
 	namePlaceHolder: "أدخل اسمك",
-	iAmSelling: "أنا أبيع",
+	iAmSelling: "اسم المنتج أو الخدمة",
 
 	// FORM Error Messages
 	requiredTitle: "عنوان المعاملة مطلوب",
@@ -128,7 +130,7 @@ const ar = {
 
 	//Start transaction steps
 	transactionDetails: "تفاصيل المعاملة",
-	shareLink: "مشاركة الرابط",
+	shareLink: "ابعت الرابط للعميل",
 
 	//Track Order steps
 	pendingPayment: "قيد الدفع",
@@ -138,9 +140,9 @@ const ar = {
 	//Order Success messages
 	emailSentToOtherParty:
 		"تم إرسال بريد إلكتروني يحتوي على تفاصيل الطلب إلى المشتري أيضًا.",
-	shareOrderLink: "نسخ رابط الطلب",
-	copyOrderLink: "نسخ رابط الطلب",
-	orderLinkIsReady: "رابط الطلب جاهز",
+	shareOrderLink: "نسخ رابط الدفع",
+	copyOrderLink: "نسخ رابط الدفع",
+	orderLinkIsReady: "رابط الدفع جاهز دلوقتي",
 	copied: "تم النسخ !",
 	orderSuccessfullyCreated: "تم إنشاء الطلب بنجاح",
 	toJoinTheOrder: "للانضمام ودفع الطلب",

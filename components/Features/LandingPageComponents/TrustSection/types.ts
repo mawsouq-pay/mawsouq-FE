@@ -5,7 +5,11 @@ export const enTexts = {
 	partner: "Official Payment Partner",
 	partnerDesc:
 		"Paymob is a licensed payment service provider offering secure and compliant payment processing for businesses across Egypt.",
-	features: ["Secure Checkout", "SSL Encrypted", "PCI-DSS Compliant"],
+	features: [
+		"Secure Checkout",
+		"Encrypted Passwords",
+		"No Payment Details Stored",
+	],
 	trustPoints: [
 		{
 			title: "Money is Held Until Delivery",
@@ -20,6 +24,8 @@ export const enTexts = {
 			body: "When customers know their money is safe until delivery, they feel more confident placing larger or custom orders.",
 		},
 	],
+	mawsouqPrivacy:
+		"Your data stays private, and your passwords are encrypted. We never store payment info — just protect your money until delivery.",
 };
 
 export const arTexts = {
@@ -29,7 +35,7 @@ export const arTexts = {
 	partner: "شريك الدفع الرسمي",
 	partnerDesc:
 		"بايموب هو مزود خدمة دفع مرخّص يوفر حلول دفع آمنة ومتوافقة للأعمال في جميع أنحاء مصر.",
-	features: ["دفع آمن", "تشفير SSL", "متوافق مع PCI-DSS"],
+	features: ["دفع آمن", "كلمات سر مشفّرة", "مفيش بيانات دفع بتتخزن"],
 	trustPoints: [
 		{
 			title: "الفلوس محجوزة لحد التسليم",
@@ -44,4 +50,6 @@ export const arTexts = {
 			body: "العميل بيحس بأمان لما يعرف إن الفلوس مش هتتحول غير بعد ما يستلم، وده بيشجعه يطلب أكتر أو يطلب حسب الطلب.",
 		},
 	],
+	mawsouqPrivacy:
+		"بياناتك في أمان، والباسورد متشفر. مش بنخزن معلومات الدفع، بس بنأمن الفلوس لحد ما الطلب يوصل.",
 };

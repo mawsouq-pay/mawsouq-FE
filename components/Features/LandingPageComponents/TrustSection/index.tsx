@@ -13,11 +13,13 @@ import {
 	IconContainer,
 	InfoBox,
 	InfoHeader,
-	Placeholder,
 	RightCol,
-	ProfileCard,
 } from "./TrustSection.styles";
 import { arTexts, enTexts } from "./types";
+import StartSellingSection from "../StartSellingSection";
+import PaymobImage from "@/assets/images/paymob.png";
+import Image from "next/image";
+
 export default function TrustSection() {
 	const { locale } = useLocaleStore();
 	const text = locale === "ar" ? arTexts : enTexts;
@@ -36,18 +38,24 @@ export default function TrustSection() {
 							<MSText
 								fontSize="28px"
 								fontWeight="bold"
+								mobileFontSize="20px"
 								color={colors.black}
-								style={{ marginBottom: "16px" }}
+								style={{
+									marginBottom: "16px",
+									width: "100%",
+									textAlign: "start",
+								}}
 							>
 								{text.heading}
 							</MSText>
 							<MSText
 								fontSize="16px"
-								fontWeight="400"
-								color={colors.gray600}
+								fontWeight="500"
+								color={colors.gray700}
 								style={{ marginBottom: "24px" }}
+								mobileFontSize="14px"
 							>
-								{text.description}
+								{text.mawsouqPrivacy}
 							</MSText>
 
 							<FeatureGrid>
@@ -75,17 +83,15 @@ export default function TrustSection() {
 
 							<InfoBox>
 								<InfoHeader>
-									<Placeholder />
-									<MSText
-										fontSize="12px"
-										fontWeight="500"
-										color={colors.gray600}
-									>
-										{text.partner}
-									</MSText>
+									<Image
+										src={PaymobImage}
+										alt="Paymob"
+										width={90}
+										height={15}
+									/>
 								</InfoHeader>
 								<MSText fontSize="12px" fontWeight="400" color={colors.gray500}>
-									{text.partnerDesc}
+									{text.description}
 								</MSText>
 							</InfoBox>
 						</LeftCol>
@@ -96,20 +102,7 @@ export default function TrustSection() {
 							viewport={{ once: true }}
 							transition={{ duration: 0.6, delay: 0.2 }}
 						>
-							{text.trustPoints.map((point, index) => (
-								<ProfileCard key={index}>
-									<MSText fontSize="16px" fontWeight="600" color={colors.black}>
-										{point.title}
-									</MSText>
-									<MSText
-										fontSize="14px"
-										fontWeight="400"
-										color={colors.gray700}
-									>
-										{point.body}
-									</MSText>
-								</ProfileCard>
-							))}
+							<StartSellingSection />
 						</RightCol>
 					</FlexRow>
 				</GradientBox>

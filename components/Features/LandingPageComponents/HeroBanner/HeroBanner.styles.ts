@@ -46,7 +46,5 @@ export const FrameDive = styled.div<{ isArabic: boolean }>`
 	@media (max-width: 1024px) {
 		max-width: 100%;
 		justify-content: center;
-		/* margin-left: ${({ isArabic }) => (isArabic ? "30px" : "0px")};
-		margin-right: ${({ isArabic }) => (isArabic ? "0px" : "30px")}; */
 	}
 `;

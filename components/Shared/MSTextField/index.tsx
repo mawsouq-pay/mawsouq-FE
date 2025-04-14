@@ -40,7 +40,7 @@ const MSTextField: React.FC<MSTextFieldProps> = ({
 					backgroundColor: colors.white,
 				},
 				"& .MuiOutlinedInput-notchedOutline": {
-					borderColor: error ? colors.red : colors.gray,
+					borderColor: error ? colors.red : colors.gray200,
 				},
 				"&:hover .MuiOutlinedInput-notchedOutline": {
 					borderColor: colors.green,

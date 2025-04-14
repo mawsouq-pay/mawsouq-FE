@@ -28,6 +28,8 @@ const en = {
 	aboutUs: "About Us",
 	contactUs: "Contact Us",
 	company: "Company",
+	faqs: "FAQ",
+	product: "Product",
 
 	//paymob
 	paymobInfo:

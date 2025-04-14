@@ -19,7 +19,7 @@ import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { Router } from "next/router";
 import { Inter } from "next/font/google";
-import { inter } from "@/constants/theme/fonts";
+import { cairo, inter } from "@/constants/theme/fonts";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
@@ -59,10 +59,11 @@ function MyApp({ Component, pageProps }: any) {
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
+	const fontClass = locale === "ar" ? cairo.variable : inter.variable;
 
 	return (
 		<PostHogProvider client={posthog}>
-			<main className={inter.variable}>
+			<main className={fontClass}>
 				{" "}
 				<QueryClientProvider client={queryClient}>
 					<BrowserRouter>

@@ -45,7 +45,11 @@ export const useStartTransaction = () => {
 
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const [activeStep, setActiveStep] = useState(0);
-	const steps = [text.approve, text.transactionDetails, text.shareLink];
+	const steps = [
+		text.startTransaction,
+		text.transactionDetails,
+		text.shareLink,
+	];
 
 	const renderStep = () => {
 		return (

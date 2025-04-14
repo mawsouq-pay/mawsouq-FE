@@ -32,13 +32,14 @@ export const Grid = styled.div`
 export const Steps = styled.ul`
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 25px;
 	/* margin-bottom: 32px; */
 `;
 
 export const Step = styled.li`
 	display: flex;
 	align-items: flex-start;
+	gap: 5px;
 `;
 
 export const StepCircle = styled.div`

@@ -12,6 +12,8 @@ import {
 } from "./HeroBanner.styles";
 import Image from "next/image";
 import HeroImg from "@/assets/images/HeroImg.png";
+import HeroImgAr from "@/assets/images/HeroImgAr.png";
+
 import { useRouter } from "next/router";
 import MSText from "@/components/Shared/MSText";
 import { useAuthStore, useLocaleStore } from "@/store";
@@ -76,12 +78,11 @@ export default function HeroSection() {
 					>
 						<FrameDive isArabic={locale === "ar"}>
 							<Image
-								src={HeroImg}
+								src={locale === "en" ? HeroImg : HeroImgAr}
 								priority
 								loading="eager"
 								alt="Release"
 								height={360}
-								width={360}
 							/>
 						</FrameDive>
 					</motion.div>

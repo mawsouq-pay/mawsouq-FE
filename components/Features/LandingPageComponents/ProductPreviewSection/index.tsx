@@ -55,7 +55,6 @@ const ProductPreviewSection = () => {
 					</MSText>
 				</motion.div>
 
-				{/* Toggle Buttons */}
 				<ToggleWrapper>
 					<ToggleButton
 						active={selectedRole === "seller"}
@@ -93,13 +92,13 @@ const ProductPreviewSection = () => {
 											<StepCircle>{step.number}</StepCircle>
 											<StepContent>
 												<MSText
-													fontSize="16px"
+													fontSize="20px"
 													fontWeight="500"
 													style={{ marginBottom: 4 }}
 												>
 													{step.title}
 												</MSText>
-												<MSText fontSize="14px" color={colors.gray600}>
+												<MSText fontSize="18px" color={colors.gray600}>
 													{step.description}
 												</MSText>
 											</StepContent>

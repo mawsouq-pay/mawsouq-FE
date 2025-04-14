@@ -2,14 +2,14 @@ import { Skeleton } from "@mui/material";
 import { Text } from "./MSText.style";
 import { MSTextProps } from "./types";
 import useCustomBreakpoint from "@/helpers/screenSizes";
-import Styles from "./MSText.module.css";
+import { useLocaleStore } from "@/store";
 
 const MSText: React.FC<MSTextProps> = ({
 	children,
 	className = "",
 	style,
 	color,
-	fontSize,
+	fontSize = "16px",
 	fontWeight,
 	isLoading,
 	skeletonHeight,
@@ -19,33 +19,33 @@ const MSText: React.FC<MSTextProps> = ({
 	...props
 }) => {
 	const { isMobile } = useCustomBreakpoint();
+	const { locale } = useLocaleStore();
+	const isArabic = locale === "ar";
+
+	const rawFontSize = isMobile && mobileFontSize ? mobileFontSize : fontSize;
 	const adjustedFontSize =
-		isMobile && mobileFontSize ? mobileFontSize : fontSize;
-	return (
-		<>
-			{isLoading ? (
-				<Skeleton
-					animation={false}
-					variant="text"
-					width={skeletonWidth}
-					height={skeletonHeight}
-				/>
-			) : (
-				<>
-					<Text
-						{...props}
-						style={style}
-						// className={`${Styles.text} ${className}`}
-						fontSize={adjustedFontSize}
-						color={color}
-						fontWeight={fontWeight}
-						fontStyle={fontStyle}
-					>
-						{children}
-					</Text>
-				</>
-			)}
-		</>
+		rawFontSize && typeof rawFontSize === "string" && rawFontSize.endsWith("px")
+			? `${parseInt(rawFontSize) + (isArabic ? 4 : 0)}px`
+			: rawFontSize;
+
+	return isLoading ? (
+		<Skeleton
+			animation={false}
+			variant="text"
+			width={skeletonWidth}
+			height={skeletonHeight}
+		/>
+	) : (
+		<Text
+			{...props}
+			style={style}
+			fontSize={adjustedFontSize}
+			color={color}
+			fontWeight={fontWeight}
+			fontStyle={fontStyle}
+		>
+			{children}
+		</Text>
 	);
 };
 

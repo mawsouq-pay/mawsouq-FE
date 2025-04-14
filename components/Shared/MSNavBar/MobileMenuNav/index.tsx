@@ -30,19 +30,16 @@ const MobileMenuNav = ({
 	open: boolean;
 	toggleMenu: () => void;
 }) => {
-	const { locale, setLocale } = useLocaleStore();
+	const { locale } = useLocaleStore();
 	const { logout, isLoggedIn } = useAuthStore();
 	const text = textTr(locale);
 	const router = useRouter();
-	const toggleLanguage = () => {
-		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
-	};
 
 	const navLinks = [
 		{ name: text.howItWorks, to: "HowItWorksS", offset: 0, isRoute: false },
 		{ name: text.msBenefits, to: "BenefitsS", offset: -121, isRoute: false },
-		{ name: "Product", to: "ProductS", offset: -141, isRoute: false },
-		{ name: "FAQs", to: "FAQS", offset: -141, isRoute: false },
+		{ name: text.product, to: "ProductS", offset: -141, isRoute: false },
+		{ name: text.faqs, to: "FAQS", offset: -141, isRoute: false },
 		{ name: text.aboutUs, to: clientRoutes.aboutUs, isRoute: true },
 		{ name: text.contactUs, to: clientRoutes.contactUs, isRoute: true },
 	];
