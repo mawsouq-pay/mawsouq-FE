@@ -7,13 +7,11 @@ import {
 	HowItWorks,
 	CTA,
 	FAQ,
-	MawsouqBenefits,
 	FooterSection,
 	SecurityBanner,
 } from "@/components/Features/LandingPageComponents";
 import ProductPreviewSection from "@/components/Features/LandingPageComponents/ProductPreviewSection";
 import TrustSection from "@/components/Features/LandingPageComponents/TrustSection";
-import StartSellingSection from "@/components/Features/LandingPageComponents/StartSellingSection";
 const LandingPage = () => {
 	return (
 		<>
@@ -23,8 +21,6 @@ const LandingPage = () => {
 				<SecurityBanner />
 				<HowItWorks />
 				<ProductPreviewSection />
-
-				{/* <MawsouqBenefits /> */}
 				<TrustSection />
 				<FAQ />
 				<CTA />

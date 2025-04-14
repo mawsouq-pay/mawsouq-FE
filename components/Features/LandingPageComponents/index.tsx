@@ -4,7 +4,6 @@ import FAQ from "./FAQ";
 import FooterSection from "./FooterSection";
 import HeroBanner from "./HeroBanner";
 import HowItWorks from "./HowItWorks";
-import MawsouqBenefits from "./MawsouqBenefits";
 import ScribbledCircleText from "./ScribbledCircleText";
 import SecurityBanner from "./SecurityBanner";
 export {
@@ -14,7 +13,6 @@ export {
 	FooterSection,
 	HeroBanner,
 	HowItWorks,
-	MawsouqBenefits,
 	ScribbledCircleText,
 	SecurityBanner,
 };

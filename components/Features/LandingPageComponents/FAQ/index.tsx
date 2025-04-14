@@ -30,7 +30,9 @@ const FAQ = () => {
 			}}
 		>
 			<div style={{ textAlign: "center", marginBottom: "20px" }}>
-				<ScribbledCircleText text="FAQs" />
+				<ScribbledCircleText
+					text={locale === "en" ? "FAQs" : "الأسئلة الشائعة"}
+				/>
 			</div>
 			<MainDiv>
 				{finalData.map((item, index) => (
