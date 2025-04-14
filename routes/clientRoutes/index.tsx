@@ -28,6 +28,7 @@ const publicRoutes = [
 	clientRoutes.privacyPolicy,
 	clientRoutes.termsAndConditions,
 	clientRoutes.aboutUs,
+	clientRoutes.contactUs,
 ];
 const protectedRoutes = Object.values(clientRoutes).filter(
 	(route) => !publicRoutes.includes(route)
