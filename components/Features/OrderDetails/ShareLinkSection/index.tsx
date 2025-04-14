@@ -36,6 +36,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 		<LinkSection>
 			<MSText
 				fontSize="24px"
+				mobileFontSize="22"
 				fontWeight="bold"
 				color={colors.green}
 				style={{ textAlign: "center" }}
@@ -44,6 +45,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 			</MSText>
 			<MSText
 				fontSize="16px"
+				mobileFontSize="15px"
 				color={colors.black}
 				style={{ textAlign: "center" }}
 			>
@@ -56,7 +58,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 						{text.shareLink}
 					</MSText>
 				</FlexRow>
-				<MSText
+				{/* <MSText
 					style={{
 						overflow: "hidden",
 						textOverflow: "ellipsis",
@@ -65,7 +67,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 					}}
 				>
 					{previewLink}
-				</MSText>
+				</MSText> */}
 
 				<MSButton
 					title={text.copyOrderLink}
