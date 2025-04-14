@@ -90,6 +90,7 @@ export const ToggleButton = styled.button<{ active: boolean }>`
 	color: ${({ active }) => (active ? "#fff" : colors.gray700)};
 	border: 1px solid ${colors.green};
 	border-radius: 8px;
+	font-family: inherit;
 	padding: 10px 22px;
 	font-weight: 500;
 	cursor: pointer;

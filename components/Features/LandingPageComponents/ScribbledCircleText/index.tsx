@@ -1,3 +1,4 @@
+import MSText from "@/components/Shared/MSText";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import React, { useRef, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -37,15 +38,14 @@ const ScribbledCircleText = ({ text }: { text: string }) => {
 			<div
 				ref={textRef}
 				style={{
-					fontSize: "1.8rem",
-					fontWeight: "900",
 					position: "relative",
 					zIndex: 2,
 					textAlign: isMobile ? "center" : "left",
 				}}
 			>
-				{" "}
-				{text}
+				<MSText fontSize="1.8rem" fontWeight="700">
+					{text}
+				</MSText>{" "}
 			</div>
 			<svg
 				width={svgWidth}

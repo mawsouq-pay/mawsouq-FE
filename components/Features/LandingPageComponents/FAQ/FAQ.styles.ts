@@ -24,11 +24,14 @@ export const StyledAccordion = styled(Accordion)`
 	&:before {
 		display: none;
 	}
+	font-family: inherit;
 `;
 
 export const StyledSummary = styled(AccordionSummary)`
 	padding: 12px 20px;
 	border-radius: 10px;
+	font-family: inherit;
+
 	&:hover {
 		background-color: ${colors.lightGray};
 	}
