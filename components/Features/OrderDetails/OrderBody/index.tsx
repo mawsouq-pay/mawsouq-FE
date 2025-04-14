@@ -43,10 +43,6 @@ const OrderBody = (props: OrderBodyProps) => {
 				mobileFontSize="20px"
 				fontWeight="600"
 				color={colors.black}
-				style={{
-					borderBottom: `3px solid ${colors.green}`,
-					width: "180px",
-				}}
 			>
 				{text.trackYourOrder}
 			</MSText>
