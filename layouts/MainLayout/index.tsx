@@ -36,13 +36,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	const toggleLanguage = () => {
 		setLocale(locale === localeEnum.en ? localeEnum.ar : localeEnum.en);
 	};
-	const localeToShow = locale === localeEnum.en ? "العربية" : "English";
+	const localeToShow = locale === localeEnum.en ? "العربية" : "En";
 
 	return (
 		<StyledWrapper>
 			<LanguageToggle onClick={toggleLanguage}>
 				<GlobeIcon size={22} />
-				<MSText>{localeToShow.toUpperCase()}</MSText>
+				<MSText>{localeToShow}</MSText>
 			</LanguageToggle>
 			<div style={{ marginTop: 35 }}>{children}</div>
 		</StyledWrapper>
