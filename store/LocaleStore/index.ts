@@ -15,7 +15,7 @@ export const useLocaleStore = create<LocaleStore>((set) => ({
 		if (typeof window !== "undefined") {
 			return (localStorage.getItem("locale") as localeEnum) || localeEnum.en;
 		}
-		return localeEnum.en;
+		return localeEnum.ar;
 	})(),
 	setLocale: (locale) => {
 		if (typeof window !== "undefined") {
