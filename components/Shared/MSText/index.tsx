@@ -31,9 +31,7 @@ const MSText: React.FC<MSTextProps> = ({
 				: rawFontSize.endsWith("rem")
 					? `${parseFloat(rawFontSize) + (isArabic ? 0.25 : 0)}rem`
 					: rawFontSize
-			: typeof rawFontSize === "number"
-				? rawFontSize + (isArabic ? 2 : 0)
-				: undefined;
+			: "16px";
 
 	return isLoading ? (
 		<Skeleton
