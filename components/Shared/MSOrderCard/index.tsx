@@ -70,7 +70,7 @@ const MSOrderCard = (props: OrderCardProps) => {
 						value: `${price}`,
 						color: colors.semiBlack,
 						size: "20px",
-						weight: "bold",
+						weight: "600",
 						currencyText: "EGP",
 					})}
 
@@ -104,16 +104,6 @@ const MSOrderCard = (props: OrderCardProps) => {
 						weight: "normal",
 					})}
 				</FlexEnd>
-
-				{/* <FlexEnd>
-					<DueDateIcon />
-					{renderValue({
-						value: formattedDate,
-						color: colors.gray,
-						size: "14px",
-						weight: "normal",
-					})}
-				</FlexEnd> */}
 			</MobileCardWrapper>
 		</MainWrapper>
 	);
