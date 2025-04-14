@@ -1,7 +1,7 @@
 export const enTexts = {
 	title: "Hold Payments. Track Orders. Build Trust.",
 	description:
-		"We keep the money safe until delivery, with full order tracking for both buyers and sellers.",
+		"Your Trusted Middleman for Online Transactions,We keep the money safe until delivery, with full order tracking for both buyers and sellers.",
 	cta: "Create Payment Link",
 };
 export const arTexts = {

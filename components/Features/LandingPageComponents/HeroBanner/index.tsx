@@ -53,7 +53,7 @@ export default function HeroSection() {
 
 							<MSText
 								fontSize="1.2rem"
-								mobileFontSize="0.8rem"
+								mobileFontSize="1rem"
 								fontWeight="400"
 								color={colors.gray600}
 								style={{ marginTop: "0.5rem", textWrap: "wrap" }}
