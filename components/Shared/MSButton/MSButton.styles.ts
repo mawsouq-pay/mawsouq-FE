@@ -12,7 +12,7 @@ export const StyledButton = styled.button`
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-
+	font-family: inherit;
 	&:hover {
 		background-color: ${colors.buttonGreenHover};
 	}

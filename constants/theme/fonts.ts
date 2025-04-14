@@ -1,6 +1,6 @@
 // styles/fonts.ts
 import { Inter } from "next/font/google";
-import { Fustat } from "next/font/google";
+import { Cairo } from "next/font/google";
 
 export const inter = Inter({
 	subsets: ["latin"],
@@ -8,8 +8,8 @@ export const inter = Inter({
 	display: "swap",
 });
 
-export const cairo = Fustat({
+export const cairo = Cairo({
 	subsets: ["arabic"],
-	variable: "--font-fustat",
+	variable: "--font-cairo",
 	display: "swap",
 });

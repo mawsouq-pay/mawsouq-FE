@@ -26,6 +26,7 @@ export const enTexts = {
 	],
 	mawsouqPrivacy:
 		"Your data stays private, and your passwords are encrypted. We never store payment info — just protect your money until delivery.",
+	paymentsProvidedBy: "Payments Processed By",
 };
 
 export const arTexts = {
@@ -52,4 +53,5 @@ export const arTexts = {
 	],
 	mawsouqPrivacy:
 		"بياناتك في أمان، والباسورد متشفر. مش بنخزن معلومات الدفع، بس بنأمن الفلوس لحد ما الطلب يوصل.",
+	paymentsProvidedBy: "المدفوعات من خلال:",
 };

@@ -23,7 +23,7 @@ import Image from "next/image";
 export default function TrustSection() {
 	const { locale } = useLocaleStore();
 	const text = locale === "ar" ? arTexts : enTexts;
-
+	console.log(enTexts);
 	return (
 		<Section>
 			<Container>
@@ -83,10 +83,17 @@ export default function TrustSection() {
 
 							<InfoBox>
 								<InfoHeader>
+									<MSText
+										fontSize="12px"
+										fontWeight="400"
+										color={colors.gray500}
+									>
+										{text.paymentsProvidedBy}
+									</MSText>
 									<Image
 										src={PaymobImage}
 										alt="Paymob"
-										width={90}
+										width={60}
 										height={15}
 									/>
 								</InfoHeader>

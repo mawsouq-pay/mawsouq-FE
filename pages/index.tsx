@@ -22,9 +22,10 @@ const LandingPage = () => {
 				<HeroBanner />
 				<SecurityBanner />
 				<HowItWorks />
-				<MawsouqBenefits />
-				<TrustSection />
 				<ProductPreviewSection />
+
+				{/* <MawsouqBenefits /> */}
+				<TrustSection />
 				<FAQ />
 				<CTA />
 				<FooterSection />

@@ -60,13 +60,13 @@ const ProductPreviewSection = () => {
 						active={selectedRole === "seller"}
 						onClick={() => setSelectedRole("seller")}
 					>
-						{text.forSellers}
+						<MSText>{text.forSellers}</MSText>
 					</ToggleButton>
 					<ToggleButton
 						active={selectedRole === "buyer"}
 						onClick={() => setSelectedRole("buyer")}
 					>
-						{text.forBuyers}
+						<MSText>{text.forBuyers}</MSText>
 					</ToggleButton>
 				</ToggleWrapper>
 
@@ -93,12 +93,17 @@ const ProductPreviewSection = () => {
 											<StepContent>
 												<MSText
 													fontSize="20px"
+													mobileFontSize="18px"
 													fontWeight="500"
 													style={{ marginBottom: 4 }}
 												>
 													{step.title}
 												</MSText>
-												<MSText fontSize="18px" color={colors.gray600}>
+												<MSText
+													fontSize="18px"
+													mobileFontSize="16px"
+													color={colors.gray600}
+												>
 													{step.description}
 												</MSText>
 											</StepContent>
@@ -138,13 +143,18 @@ const ProductPreviewSection = () => {
 											<StepCircle>{step.number}</StepCircle>
 											<StepContent>
 												<MSText
-													fontSize="16px"
+													fontSize="20px"
+													mobileFontSize="18px"
 													fontWeight="500"
 													style={{ marginBottom: 4 }}
 												>
 													{step.title}
 												</MSText>
-												<MSText fontSize="14px" color={colors.gray600}>
+												<MSText
+													fontSize="18px"
+													mobileFontSize="16px"
+													color={colors.gray600}
+												>
 													{step.description}
 												</MSText>
 											</StepContent>

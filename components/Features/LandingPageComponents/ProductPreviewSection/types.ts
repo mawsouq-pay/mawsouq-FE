@@ -37,7 +37,7 @@ export const enTexts = {
 		},
 		{
 			number: 3,
-			title: "Confirm receipt",
+			title: "Confirm delivery",
 			description:
 				"Verify you've received the product or service before payment is released",
 		},
@@ -45,7 +45,7 @@ export const enTexts = {
 };
 
 export const arTexts = {
-	heading: "تجربة موثوقة مع موثوق",
+	heading: "تجربة موثوقة",
 	subheading: "شوف إزاي منصتنا بتخدم البايعين والمشترين",
 	forSellers: "للبايعين",
 	forBuyers: "للمشترين",
@@ -53,7 +53,7 @@ export const arTexts = {
 		{
 			number: 1,
 			title: "انشئ روابط دفع في ثواني",
-			description: "اكتب تفاصيل المنتج والسعر وولّد رابط دفع آمن",
+			description: "اكتب تفاصيل المنتج والسعر، وابعت رابط الدفع الآمن",
 		},
 		{
 			number: 2,

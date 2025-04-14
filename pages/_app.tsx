@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }: any) {
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
-	const fontClass = locale === "ar" ? cairo.variable : inter.variable;
+	const fontClass = locale === "ar" ? cairo.className : inter.className;
 
 	return (
 		<PostHogProvider client={posthog}>

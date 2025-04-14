@@ -56,12 +56,7 @@ const CTASection = () => {
 					</MSText>
 
 					<ButtonRow>
-						<MSButton title={text.cta} />
-						<MSButton
-							title={text.cta}
-							style={{ borderColor: colors.green, color: colors.green }}
-							onClick={onCtaPress}
-						/>
+						<MSButton title={text.cta} onClick={onCtaPress} />
 					</ButtonRow>
 
 					<motion.div

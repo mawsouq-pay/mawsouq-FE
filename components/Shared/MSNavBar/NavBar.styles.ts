@@ -86,6 +86,7 @@ export const NavAnchor = styled(LinkS)`
 	color: ${colors.gray600};
 	text-decoration: none;
 	gap: 5px;
+	font-family: inherit;
 	&:hover {
 		color: ${colors.green};
 	}
@@ -104,10 +105,12 @@ export const Sidebar = styled.div`
 	align-items: flex-start;
 	gap: 14px;
 	padding: 20px 20px;
+	font-family: inherit;
 `;
 export const SidebarLink = styled.div`
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 	gap: 5px;
+	font-family: inherit;
 `;

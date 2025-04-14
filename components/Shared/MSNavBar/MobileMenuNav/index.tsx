@@ -20,6 +20,7 @@ const CustomDrawer = styled(Drawer)`
 		border-radius: 0px 0px 20px 20px;
 		padding-bottom: 20px;
 		background: ${colors.green};
+		font-family: inherit;
 	}
 `;
 
