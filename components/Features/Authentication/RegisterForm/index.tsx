@@ -101,6 +101,7 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 								style={{ width: "100%", height: 45, marginTop: 30 }}
 								disabled={!(isValid && dirty) || isSubmitting || isPending}
 								loading={isPending}
+								type="submit"
 							/>
 
 							<OrDivider>or</OrDivider>

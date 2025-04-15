@@ -159,7 +159,7 @@ const ar = {
 	trackYourOrder: "تتبع طلبك",
 
 	//Register
-	register: "تسجيل",
+	register: "إنشاء حساب",
 	registerSubtitle: "يرجى إدخال التفاصيل للمتابعة",
 	fullName: "اسم المستخدم",
 	password: "كلمة المرور",

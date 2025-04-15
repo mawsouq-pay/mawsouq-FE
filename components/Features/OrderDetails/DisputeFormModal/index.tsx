@@ -76,7 +76,7 @@ const DisputeFormModal = ({
 							dispute and get back to you.
 						</MSText>
 						<FlexRow>
-							<CancelButton onClick={() => setOpen(false)}>
+							<CancelButton onClick={() => setOpen(false)} type="button">
 								{text.cancel}
 							</CancelButton>
 							<MSButton

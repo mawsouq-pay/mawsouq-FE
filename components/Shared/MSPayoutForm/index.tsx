@@ -116,7 +116,9 @@ const MSPayoutForm = ({
 						)}
 
 						<FlexRow>
-							<BackButton onClick={onCancel}>{text.cancel}</BackButton>
+							<BackButton type="button" onClick={onCancel}>
+								{text.cancel}
+							</BackButton>
 							<MSButton
 								title={text.confirm}
 								type="submit"

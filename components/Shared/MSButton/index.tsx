@@ -11,7 +11,7 @@ const MSButton = (props: MSButtonProps) => {
 		loading,
 		disabled,
 		title,
-		type = "submit",
+		type = "button",
 		fontColor,
 	} = props;
 	return (

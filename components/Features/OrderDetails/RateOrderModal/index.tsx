@@ -81,7 +81,9 @@ const RateOrderModal = ({
 						</MSText>
 
 						<FlexRow>
-							<CancelButton onClick={onCancel}>{text.cancel}</CancelButton>
+							<CancelButton onClick={onCancel} type="button">
+								{text.cancel}
+							</CancelButton>
 							<MSButton
 								type="submit"
 								disabled={!(isValid && dirty)}
