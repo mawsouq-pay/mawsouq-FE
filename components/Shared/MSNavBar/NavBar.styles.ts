@@ -113,4 +113,5 @@ export const SidebarLink = styled.div`
 	cursor: pointer;
 	gap: 5px;
 	font-family: inherit;
+	color: ${colors.gray600};
 `;
