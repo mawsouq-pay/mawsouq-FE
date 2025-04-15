@@ -28,7 +28,7 @@ export const useLogin = () => {
 };
 export const useCreatePayoutMethod = () => {
 	return usePost<CreatePaymentMethodResponse, CreatePaymentMethodInput>(
-		serverRoutes.createPayouttMethod
+		serverRoutes.createPayoutMethod
 	);
 };
 
