@@ -27,9 +27,9 @@ const MSText: React.FC<MSTextProps> = ({
 	const adjustedFontSize =
 		typeof rawFontSize === "string"
 			? rawFontSize.endsWith("px")
-				? `${parseInt(rawFontSize) + (isArabic ? 2 : 0)}px`
+				? `${parseInt(rawFontSize) + (isArabic ? 1 : 0)}px`
 				: rawFontSize.endsWith("rem")
-					? `${parseFloat(rawFontSize) + (isArabic ? 0.12 : 0)}rem`
+					? `${parseFloat(rawFontSize) + (isArabic ? 0.6 : 0)}rem`
 					: rawFontSize
 			: "16px";
 
