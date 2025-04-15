@@ -6,6 +6,7 @@ import { StyledDialog, StyledDialogContent } from "./MSModal.styles";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
+import { cairo, inter } from "@/constants/theme/fonts";
 
 const MSModal = (props: MSModalProps) => {
 	const { locale } = useLocaleStore();
@@ -25,6 +26,7 @@ const MSModal = (props: MSModalProps) => {
 
 	const descriptionElementRef = useRef<HTMLElement>(null);
 	const scroll: DialogProps["scroll"] = "paper";
+	const fontClass = locale === "ar" ? cairo.className : inter.className;
 
 	useEffect(() => {
 		if (open) {
@@ -55,8 +57,9 @@ const MSModal = (props: MSModalProps) => {
 				style={{ overflowY: "auto", maxHeight: "70vh" }}
 				dividers={scroll === "paper"}
 				ref={descriptionElementRef}
+				className={fontClass}
 			>
-				<div tabIndex={-1} id="modal-description">
+				<div tabIndex={-1} id="modal-description" className={fontClass}>
 					{children}
 				</div>
 			</StyledDialogContent>
@@ -69,7 +72,7 @@ const MSModal = (props: MSModalProps) => {
 						padding: "16px",
 					}}
 				>
-					<Box>
+					<Box className={fontClass}>
 						<MSButton
 							title={cancelText}
 							onClick={onClose}
