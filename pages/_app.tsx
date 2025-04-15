@@ -13,13 +13,11 @@ import { BrowserRouter } from "react-router-dom";
 import { useLocaleStore } from "@/store/LocaleStore";
 import rtlPlugin from "stylis-plugin-rtl";
 import { StyleSheetManager } from "styled-components";
-import { useTheme } from "styled-components";
-// PostHog imports
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { Router } from "next/router";
-import { Inter } from "next/font/google";
 import { cairo, inter } from "@/constants/theme/fonts";
+import { createMuiTheme } from "@/constants/theme/theme";
 function MyApp({ Component, pageProps }: any) {
 	const authStore = useAuthStore();
 	const { setUpApp, isSetUpLoading } = authStore;
@@ -53,13 +51,16 @@ function MyApp({ Component, pageProps }: any) {
 		};
 	}, []);
 
-	const theme = createTheme({
-		direction: "ltr",
+	const theme2 = createTheme({
+		//direction: "ltr",
 	});
 	if (isSetUpLoading) {
 		return <MSLoadingScreen />;
 	}
+	const fontVariable =
+		locale === "ar" ? "var(--font-cairo)" : "var(--font-inter)";
 	const fontClass = locale === "ar" ? cairo.className : inter.className;
+	const theme = createMuiTheme(fontVariable);
 
 	return (
 		<PostHogProvider client={posthog}>
