@@ -36,7 +36,7 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 		<LinkSection>
 			<MSText
 				fontSize="24px"
-				mobileFontSize="22"
+				mobileFontSize="22px"
 				fontWeight="bold"
 				color={colors.green}
 				style={{ textAlign: "center" }}
@@ -45,7 +45,6 @@ const ShareLinkSection = (props: ShareLinkSectionProps) => {
 			</MSText>
 			<MSText
 				fontSize="16px"
-				mobileFontSize="15px"
 				color={colors.black}
 				style={{ textAlign: "center" }}
 			>

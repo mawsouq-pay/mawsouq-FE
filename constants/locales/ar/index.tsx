@@ -133,9 +133,9 @@ const ar = {
 	shareLink: "ابعت الرابط للعميل",
 
 	//Track Order steps
-	pendingPayment: "قيد الدفع",
-	moneyOnHold: "الأموال محتجزة",
-	orderCompleted: "تم إكمال الطلب",
+	pendingPayment: "في انتظار الدفع",
+	moneyOnHold: "الدفع تم – الفلوس في أمان",
+	orderCompleted: "الطلب تم بنجاح",
 
 	//Order Success messages
 	emailSentToOtherParty:
@@ -148,15 +148,15 @@ const ar = {
 	toJoinTheOrder: "للانضمام ودفع الطلب",
 	withThe: "مع",
 	linkCopiedSuccessfully: "تم نسخ الرابط بنجاح",
-	waitingForBuyerToPay: "في انتظار دفع المشتري",
-	emailAfterBuyerPays: "سنبعث لك بريدًا إلكترونيًا فور إتمام المشتري للدفع.",
+	waitingForBuyerToPay: "في انتظار دفع العميل",
+	emailAfterBuyerPays: "هيوصلك إيميل بمجرد ما العميل يتم الدفع.",
 
 	//OrderDetails
 	history: "التاريخ",
 	orderDetails: "تفاصيل الطلب",
 	ordersList: "قائمة الطلبات",
 	orderStatus: "حالة الطلب",
-	trackYourOrder: "تتبع طلبك",
+	trackYourOrder: "تابع طلبك",
 
 	//Register
 	register: "إنشاء حساب",
@@ -193,11 +193,11 @@ const ar = {
 	paymentReleased: "تم الإفراج عن الدفعة للبائع",
 	loginToTrackOrder: "قم بتسجيل الدخول لتتبع الطلب",
 	pay: "Pay",
-	receive: "Receive",
-	orderSummary: "Order Summary",
-	release: "Release",
-	holdMoney: "Hold Money",
-	securedByPaymob: "All payments are secured and processed by Paymob",
+	receive: "تستلم الأوردر",
+	orderSummary: "ملخص الأوردر",
+	release: "الفلوس هتتحول للبائع",
+	holdMoney: "الفلوس بتتحجز",
+	securedByPaymob: "عملية الدفع مؤمّنة بالكامل عن طريق Paymob",
 
 	//seller and buyer descriptions
 	sellerEmail: "البريد الإلكتروني للبائع",
@@ -212,7 +212,7 @@ const ar = {
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
-		"Mawsouq هي خدمة دفع آمنة تحتجز أموالك حتى تستلم طلبك",
+		"موثوق هو الوسيط اللي بيأمّنلك الفلوسك لحد ما تستلم أوردرك	وتقدر تتابع الأوردر خطوة بخطوة لحد ما يوصل لحد بابك.",
 	confirmOrder: "تأكيد الطلب",
 	registerToConfirm: "سجّل لتأكيد الطلب",
 	securePaymentsWithMawsouq: "قم بتأمين مدفوعاتك مع مَوْسُوق",
@@ -220,7 +220,7 @@ const ar = {
 	approveAndLinkOrder: "تابع بالموافقة على الطلب",
 	youAreTheBuyer: "You're the buyer",
 	refundIfSellerDoesntDeliver: "استرداد كامل إذا لم يقم البائع بالتسليم",
-	support247: "دعم متواصل 24/7 على طلبك",
+	support247: "دعم 24 ساعة على أوردرك",
 
 	//contact form
 	haveAQuestion: "عندك سؤال؟",
