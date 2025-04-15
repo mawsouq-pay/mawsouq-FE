@@ -4,7 +4,7 @@ import FAQ from "./FAQ";
 import FooterSection from "./FooterSection";
 import HeroBanner from "./HeroBanner";
 import HowItWorks from "./HowItWorks";
-import ScribbledCircleText from "./ScribbledCircleText";
+import ScribbledCircleText from "../../Shared/ScribbledCircleText";
 import SecurityBanner from "./SecurityBanner";
 export {
 	ContactForm,

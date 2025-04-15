@@ -47,7 +47,7 @@ export const enTexts = {
 export const arTexts = {
 	heading: "تجربة موثوقة",
 	subheading: "شوف إزاي منصتنا بتخدم البايعين والمشترين",
-	forSellers: "للبايعين",
+	forSellers: "للبائعين",
 	forBuyers: "للمشترين",
 	sellerSteps: [
 		{
@@ -75,7 +75,7 @@ export const arTexts = {
 		{
 			number: 2,
 			title: "ادفع بأمان",
-			description: "ادفع بأمان تام من خلال مزود الدفع المعتمد",
+			description: "ادفع بأمان تام من خلال طرق الدفع المعتمدة",
 		},
 		{
 			number: 3,

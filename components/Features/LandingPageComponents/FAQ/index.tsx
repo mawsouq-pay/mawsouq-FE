@@ -3,7 +3,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import { colors } from "@/constants/theme";
 import { faqData, faqDataAr } from "./types";
 import MSText from "@/components/Shared/MSText";
-import ScribbledCircleText from "../ScribbledCircleText";
+import ScribbledCircleText from "../../../Shared/ScribbledCircleText";
 import {
 	MainDiv,
 	StyledAccordion,
