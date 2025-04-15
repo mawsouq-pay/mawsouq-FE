@@ -9,18 +9,19 @@ const serverRoutes = {
 	updatePassword: "/user/updatePassword",
 
 	// Payout
-	createPayoutMethod: "/payout/create",
-	getUserPayoutOptions: "/payout/user-options",
-	deletePayoutOption: "/payout/delete",
-	editPayoutOption: "/payout/edit",
-	getPayoutMethodById: "/payout/:payoutId",
+	createPayoutMethod: "/payout/createPayoutMethod",
+	getUserPayoutOptions: "/payout/getUserPayoutOptions",
+	deletePayoutOption: "/payout/deleteUserPayoutOption",
+	editPayoutOption: "/payout/editPayoutMethod",
+	getPayoutMethodById: "/payout/getPayoutMethodById",
 
 	// Order
-	createOrder: "/order/create",
 	fetchOrders: "/order/my-orders",
+	createOrder: "/order/create",
+	linkOrder: "/order/linkOrder",
+	fetchOrderById: "/order", // "/order/:_id"
+	fetchOrderPreview: "/order/preview", // "/order/preview/:orderId"
 	updateOrderStatus: "/order/update",
-	fetchOrderById: "/order/:_id",
-	fetchOrderPreview: "/order/preview/:orderId",
 
 	// Payment
 	createPaymentLink: "/payment/payment-link",
@@ -28,9 +29,10 @@ const serverRoutes = {
 	captureOrder: "/payment/captureOrder",
 
 	// Dispute
-	createDispute: "/dispute/add",
+	createDispute: "/dispute/addDispute",
 
 	// Rating
-	rateOrder: "/rating/add",
+	rateOrder: "/rating/addOrderRating",
 };
+
 export default serverRoutes;
