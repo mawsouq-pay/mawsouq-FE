@@ -1,4 +1,5 @@
 const serverRoutes = {
+	// User
 	login: "/user/login",
 	register: "/user/register",
 	regenerateTokens: "/user/refreshTokens",
@@ -7,26 +8,29 @@ const serverRoutes = {
 	resetPassword: "/user/resetPassword",
 	updatePassword: "/user/updatePassword",
 
-	createPayouttMethod: "/user/createPayoutMethod",
-	getUserPayoutOptions: "/user/getUserPayoutOptions",
-	deletePayoutOption: "/user/deleteUserPayoutOption",
-	editPayoutOption: "/user/editPayoutMethod",
+	// Payout
+	createPayoutMethod: "/payout/create",
+	getUserPayoutOptions: "/payout/user-options",
+	deletePayoutOption: "/payout/delete",
+	editPayoutOption: "/payout/edit",
+	getPayoutMethodById: "/payout/:payoutId",
 
-	fetchOrders: "/order/my-orders",
+	// Order
 	createOrder: "/order/create",
-	linkOrder: "/order/linkOrder",
-	fetchOrderById: "/order", //"/order:_id"
-	fetchOrderPreview: "/order/preview", //"/order/preview:_id"
-
-	createPaymentLink: "/order/payment-link", //POST
+	fetchOrders: "/order/my-orders",
 	updateOrderStatus: "/order/update",
+	fetchOrderById: "/order/:_id",
+	fetchOrderPreview: "/order/preview/:orderId",
 
-	sellerRelease: "/order/sellerRelease",
-	captureOrder: "/order/captureOrder",
+	// Payment
+	createPaymentLink: "/payment/payment-link",
+	sellerRelease: "/payment/sellerRelease",
+	captureOrder: "/payment/captureOrder",
 
-	createDispute: "/order/addDispute",
+	// Dispute
+	createDispute: "/dispute/add",
 
-	rateOrder: "/rating/addOrderRating",
+	// Rating
+	rateOrder: "/rating/add",
 };
-
 export default serverRoutes;

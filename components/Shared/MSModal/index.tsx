@@ -44,6 +44,7 @@ const MSModal = (props: MSModalProps) => {
 			scroll={scroll}
 			aria-labelledby="modal-title"
 			aria-describedby="modal-description"
+			className={fontClass}
 		>
 			{title && (
 				<DialogTitle

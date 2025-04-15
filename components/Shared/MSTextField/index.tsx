@@ -11,6 +11,9 @@ interface MSTextFieldProps {
 	fullWidth?: boolean;
 	error?: boolean;
 	helperText?: string;
+	required?: boolean;
+	pattern?: string;
+	inputMode?: "text" | "email" | "numeric" | "tel" | "url";
 }
 
 const MSTextField: React.FC<MSTextFieldProps> = ({
@@ -22,6 +25,9 @@ const MSTextField: React.FC<MSTextFieldProps> = ({
 	fullWidth = true,
 	error = false,
 	helperText = "",
+	inputMode,
+	required,
+	pattern,
 }) => {
 	return (
 		<TextField
@@ -34,6 +40,12 @@ const MSTextField: React.FC<MSTextFieldProps> = ({
 			fullWidth={fullWidth}
 			error={error}
 			helperText={helperText}
+			slotProps={{
+				input: {
+					required,
+					inputMode,
+				},
+			}}
 			sx={{
 				"& .MuiOutlinedInput-root": {
 					borderRadius: "8px",

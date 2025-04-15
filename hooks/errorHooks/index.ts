@@ -1,33 +1,41 @@
 import { AxiosError } from "axios";
 
+interface LocalizedField {
+	en: string;
+	ar?: string;
+}
+
 interface BackendError {
-	code: string;
-	message: {
-		en: string;
-		ar?: string;
+	error: {
+		code: string;
+		message: LocalizedField;
+		details?: LocalizedField;
 	};
-	details?: string;
+	status?: number;
 }
 
 export const extractErrorMessage = (
-	error: AxiosError
+	error: AxiosError,
+	locale: "en" | "ar"
 ): { message: string; details: string } => {
-	if (error) {
-		if (error?.response?.data) {
-			const backendError = error.response.data as BackendError;
-			console.log(backendError);
-			if (backendError) {
-				const message =
-					typeof backendError.message === "string"
-						? backendError.message
-						: backendError.message.en;
+	const fallbackMessage = {
+		en: "An unknown error occurred.",
+		ar: "حدث خطأ غير متوقع.",
+	};
 
-				const details = backendError.details ?? "";
-
-				return { message: message || "An unknown error occurred.", details };
-			}
-		}
-		return { message: "An unknown error occurred.", details: "" };
+	if (!error?.response?.data) {
+		return { message: fallbackMessage[locale], details: "" };
 	}
-	return { message: "", details: "" };
+
+	const { error: backendError } = error.response.data as BackendError;
+
+	const message =
+		backendError?.message?.[locale] ||
+		backendError?.message?.en ||
+		fallbackMessage[locale];
+
+	const details =
+		backendError?.details?.[locale] || backendError?.details?.en || "";
+
+	return { message, details };
 };

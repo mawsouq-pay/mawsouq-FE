@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 import { AxiosError } from "axios";
 import { extractErrorMessage } from "@/hooks/errorHooks";
 import MSSnackBar from "@/components/Shared/MSSnackBar";
+import { useLocaleStore } from "..";
 
 type NotificationContextType = {
 	showNotification: (
@@ -29,6 +30,7 @@ export const useNotification = (): NotificationContextType => {
 export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
+	const { locale } = useLocaleStore();
 	const [open, setOpen] = useState(false);
 	const [message, setMessage] = useState("");
 	const [details, setDetails] = useState<string | undefined>("");
@@ -60,7 +62,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 	};
 
 	const showAxiosErrorNotification = (error: AxiosError) => {
-		const errorMessage = extractErrorMessage(error);
+		const errorMessage = extractErrorMessage(error, locale);
 		showNotification(errorMessage.message, "error", errorMessage.details);
 	};
 

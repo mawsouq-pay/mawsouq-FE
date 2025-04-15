@@ -360,12 +360,12 @@ const ar = {
 	SUBMIT_COMPLAINT: "تقديم شكوى",
 
 	//reset password
-	resetPassword: "إعادة تعيين كلمة المرور",
+	resetPassword: "تغيير كلمة المرور",
+	passwordResetSuccess: "تم تغيير كلمة المرور بنجاح!",
 	confirmNewPassword: "تأكيد كلمة المرور الجديدة",
-	passwordResetSuccess: "تم إعادة تعيين كلمة المرور بنجاح !",
 	forgotPassword: "نسيت كلمة المرور؟",
 	enterEmailToResetPassword:
-		"ادخل بريدك الإلكتروني لإرسال رابط إعادة تعيين كلمة المرور",
+		"ادخل بريدك الإلكتروني لإرسال رابط تغيير كلمة المرور",
 
 	//Rating
 	rateOrder: "قيّم الطلب",

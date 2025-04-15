@@ -24,7 +24,7 @@ const MSErrorAndLoadingWrapper = ({
 }: ErrorAndLoadingWrapperProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const { message, details } = extractErrorMessage(error);
+	const { message, details } = extractErrorMessage(error, locale);
 	if (isLoading) {
 		return <Wrapper>{loadingComponent}</Wrapper>;
 	}
