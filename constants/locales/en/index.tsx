@@ -133,6 +133,8 @@ const en = {
 	//Start transaction steps
 	transactionDetails: "Transaction Details",
 	shareLink: "Share Link",
+	shareLinkDescription:
+		"Send the payment link to the client to pay and you can start working safely",
 
 	//Track Order steps
 	pendingPayment: "Pending Payment",

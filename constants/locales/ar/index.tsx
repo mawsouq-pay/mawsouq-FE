@@ -107,8 +107,7 @@ const ar = {
 	requiredEmail: "البريد الإلكتروني مطلوب",
 	invalidEmail: "عنوان البريد الإلكتروني غير صالح",
 	requiredPhone: "رقم الهاتف مطلوب",
-	invalidPhone:
-		"يرجى إدخال رقم هاتف صالح بالتنسيق الصحيح. يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
+	invalidPhone: "يجب أن يبدأ رقم الهاتف الصالح بـ '01' تليه 9 أرقام.",
 	invalidStatus: "قيمة الحالة غير صالحة",
 	requiredPrice: "السعر مطلوب",
 	requiredField: "هذا الحقل مطلوب",
@@ -131,6 +130,8 @@ const ar = {
 	//Start transaction steps
 	transactionDetails: "تفاصيل المعاملة",
 	shareLink: "ابعت الرابط للعميل",
+	shareLinkDescription:
+		"ابعث رابط الدفع للعميل علشان يدفع الطلب وتبدئي الشغل بأمان.",
 
 	//Track Order steps
 	pendingPayment: "في انتظار الدفع",
@@ -218,7 +219,7 @@ const ar = {
 	securePaymentsWithMawsouq: "قم بتأمين مدفوعاتك مع مَوْسُوق",
 	proceedByPaying: "تابع بالدفع",
 	approveAndLinkOrder: "تابع بالموافقة على الطلب",
-	youAreTheBuyer: "You're the buyer",
+	youAreTheBuyer: "أنت المشتري",
 	refundIfSellerDoesntDeliver: "استرداد كامل إذا لم يقم البائع بالتسليم",
 	support247: "دعم 24 ساعة على أوردرك",
 

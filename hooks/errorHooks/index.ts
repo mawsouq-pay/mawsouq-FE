@@ -6,12 +6,9 @@ interface LocalizedField {
 }
 
 interface BackendError {
-	error: {
-		code: string;
-		message: LocalizedField;
-		details?: LocalizedField;
-	};
-	status?: number;
+	code: string;
+	message: LocalizedField;
+	details: LocalizedField;
 }
 
 export const extractErrorMessage = (
@@ -27,7 +24,7 @@ export const extractErrorMessage = (
 		return { message: fallbackMessage[locale], details: "" };
 	}
 
-	const { error: backendError } = error.response.data as BackendError;
+	const backendError = error.response.data as BackendError;
 
 	const message =
 		backendError?.message?.[locale] ||

@@ -63,6 +63,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	const showAxiosErrorNotification = (error: AxiosError) => {
 		const errorMessage = extractErrorMessage(error, locale);
+		console.log(error, "error errorerror");
 		showNotification(errorMessage.message, "error", errorMessage.details);
 	};
 

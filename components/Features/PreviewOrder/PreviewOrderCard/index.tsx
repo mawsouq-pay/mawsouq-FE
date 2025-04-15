@@ -54,7 +54,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 			</Logo>
 
 			<ContentDiv>
-				<MSText style={{ fontSize: 13, marginBottom: 10 }}>
+				<MSText fontSize={"15px"} style={{ marginBottom: 10 }}>
 					{text.orderPrevConfirmationDescription}
 				</MSText>
 				<RowDiv>
@@ -96,14 +96,16 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<Section>
 					<Wrapper>
 						<SummaryRow>
-							<MSText fontWeight="600">{text.orderSummary}</MSText>
+							<MSText fontWeight="600" fontSize="14px">
+								{text.orderSummary}
+							</MSText>
 							<MSText>{price} EGP</MSText>
 						</SummaryRow>
 
-						<MSText>{transactionTitle}</MSText>
+						<MSText fontSize="14px">{transactionTitle}</MSText>
 
-						<MSText>{deliveryDate}</MSText>
-						<MSText>{description}</MSText>
+						<MSText fontSize="14px">{deliveryDate}</MSText>
+						<MSText fontSize="14px">{description}</MSText>
 					</Wrapper>
 				</Section>
 				<Divider />
@@ -111,10 +113,12 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<Section>
 					<Wrapper>
 						<SummaryRow>
-							<MSText fontWeight="600">{text.seller}</MSText>
+							<MSText fontWeight="600" fontSize="14px">
+								{text.seller}
+							</MSText>
 						</SummaryRow>
-						<MSText>{sellerName}</MSText>
-						<MSText>{sellerEmail}</MSText>
+						<MSText fontSize="14px">{sellerName}</MSText>
+						<MSText fontSize="14px">{sellerEmail}</MSText>
 					</Wrapper>
 				</Section>
 
@@ -126,7 +130,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<Divider />
 				<GuaranteeList />
 				<PoweredBy>
-					<Image src={PaymobImage} alt="Release" width={100} height={30} />
+					<Image src={PaymobImage} alt="Release" width={80} height={20} />
 
 					<FooterNote>{text.securedByPaymob}</FooterNote>
 				</PoweredBy>
