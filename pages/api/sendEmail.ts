@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 import { WelcomeEmail } from "../../email_templates/first_email";
-import { error } from "console";
 import { ResetPasswordEmail } from "@/email_templates/reset_password";
 import SellerPaidNotificationEmail from "@/email_templates/SellerPaidNotificationEmail";
 import disputeNotificationEmail from "@/email_templates/disputeNotificationEmail";
@@ -15,6 +14,7 @@ export default async function handler(
 	if (req.method !== "POST") {
 		return res.status(405).json({ error: "Method Not Allowed" });
 	}
+
 	try {
 		const { to, subject, templateName, templateProps } = req.body;
 
@@ -31,14 +31,16 @@ export default async function handler(
 							? disputeNotificationEmail(templateProps)
 							: WelcomeEmail({ firstName: "John" }),
 		});
+
 		if (data?.error) {
-			throw new Error();
+			throw new Error(data.error.message || "Unknown Resend error");
 		}
-		console.log("Email sent successfully:", data);
+
+		console.log("✅ Email sent successfully:", data);
 
 		return res.status(200).json({ message: "Email sent successfully", data });
 	} catch (error: any) {
-		console.error("Email sending error:", error);
+		console.error("❌ Email sending error:", error);
 		return res
 			.status(500)
 			.json({ error: error.message || "Internal Server Error" });

@@ -14,10 +14,10 @@ export const sendEmail = async (
 		});
 
 		const result = await response.json();
-
 		if (!response.ok) {
-			console.log(result, "RESULT");
-			throw new Error(result.error || "Failed to send email");
+			const message =
+				result?.error?.message || result?.error || "Failed to send email";
+			throw new Error(message);
 		}
 
 		return result;
