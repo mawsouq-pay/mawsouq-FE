@@ -12,6 +12,7 @@ export const MainWrapper = styled.div`
 	flex-direction: column;
 	gap: 5px;
 	border-radius: 10px;
+	margin-top: 10px;
 `;
 export const FormWrapper = styled.div`
 	padding: 5px 30px 30px 30px;

@@ -60,14 +60,26 @@ export default function HeroSection() {
 							>
 								{textObj.description}
 							</MSText>
-
-							<ButtonRow>
+							<div
+								style={{
+									flexDirection: "row",
+									alignItems: "center",
+									display: "flex",
+									flex: 1,
+									justifyContent: "center",
+									marginTop: 20,
+								}}
+							>
 								<MSButton
 									title={textObj.cta}
 									onClick={onCtaPress}
-									style={{ width: "100%", maxWidth: "350px" }}
+									style={{
+										width: "100%",
+										maxWidth: "280px",
+										alignSelf: "center",
+									}}
 								/>
-							</ButtonRow>
+							</div>
 						</LeftColumn>
 					</motion.div>
 
@@ -83,7 +95,6 @@ export default function HeroSection() {
 								loading="eager"
 								alt="Release"
 								height={360}
-								width={380}
 							/>
 						</FrameDive>
 					</motion.div>

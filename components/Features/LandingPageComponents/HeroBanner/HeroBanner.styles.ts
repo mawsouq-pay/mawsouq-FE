@@ -31,6 +31,8 @@ export const ButtonRow = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: 20px;
+	/* align-items: center; */
+	margin: 0px auto;
 	${media.below925`
 		width: 92%;
 
