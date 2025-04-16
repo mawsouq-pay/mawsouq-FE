@@ -204,6 +204,7 @@ const en = {
 	release: "Release",
 	holdMoney: "Hold Money",
 	securedByPaymob: "All payments are secured and processed by Paymob",
+	signUpToPay: "Sign Up to Pay",
 
 	//seller and buyer descriptions
 	sellerEmail: "Seller Email",
@@ -228,6 +229,10 @@ const en = {
 	youAreTheBuyer: "You're the buyer",
 	refundIfSellerDoesntDeliver: "Full refund if the seller doesn’t deliver",
 	support247: "24/7 Support on your order",
+	yourPaymentIsSafeWithMawsouq: "Your payment is safe with Mawsouq",
+	trackUntilDelivery: "Track your order until delivery",
+	confirmAndReleaseWhenApproved:
+		"Confirm & release the payment to the seller when done",
 
 	//contact form
 	haveAQuestion: "Have a question?",
@@ -311,17 +316,17 @@ const en = {
 		"The buyer has not made the payment yet. Please share the payment link with them to proceed.",
 
 	ORDER_IN_PROGRESS_BUYER:
-		"Your order is being prepared. Track progress and release payment when delivered.",
+		"Order is being prepared. Track progress and release payment to seller when delivered.",
 	ORDER_IN_PROGRESS_SELLER:
 		"Payment received. Notify us when the order is out for delivery.",
 
 	ORDER_IN_TRANSIT_BUYER:
-		"Your order is on its way. Please confirm delivery once you receive it.",
+		"Order is on its way.Track progress and release payment to seller when delivered.",
 	ORDER_IN_TRANSIT_SELLER:
-		"The order is in transit, awaiting buyer confirmation. Please contact them if needed.",
+		"Oder is in transit, awaiting buyer confirmation. Please contact them if needed.",
 
 	ORDER_DELIVERED_BUYER: "Order is delivered, awaiting your confirmation.",
-	ORDER_DELIVERED_SELLER: "Order is delivered, awaiting buyer release.",
+	ORDER_DELIVERED_SELLER: "Order is delivered, awaiting buyer confirmation.",
 
 	ORDER_COMPLETED_BUYER: "Thank you! Your order is completed.",
 	ORDER_COMPLETED_SELLER:

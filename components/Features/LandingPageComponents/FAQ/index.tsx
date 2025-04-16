@@ -9,6 +9,7 @@ import {
 	StyledAccordion,
 	StyledSummary,
 	StyledExpandIcon,
+	StyledContainer,
 } from "./FAQ.styles";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
@@ -21,14 +22,7 @@ const FAQ = () => {
 	const finalData = locale === "ar" ? faqDataAr : faqData;
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	return (
-		<div
-			id="FAQS"
-			style={{
-				paddingTop: "80px",
-				borderRadius: 40,
-				paddingBottom: "50px",
-			}}
-		>
+		<StyledContainer>
 			<div style={{ textAlign: "center", marginBottom: "20px" }}>
 				<ScribbledCircleText
 					text={locale === "en" ? "FAQs" : "الأسئلة الشائعة"}
@@ -76,7 +70,7 @@ const FAQ = () => {
 			>
 				<ContactForm onCancel={() => setIsContactModalOpen(false)} />
 			</MSModal>
-		</div>
+		</StyledContainer>
 	);
 };
 

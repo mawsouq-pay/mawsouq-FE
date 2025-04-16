@@ -14,6 +14,15 @@ export const MainDiv = styled.div`
 		padding: 2rem;
   `}
 `;
+export const StyledContainer = styled.div`
+	padding-top: 80px;
+	padding-bottom: 50px;
+	border-radius: 40px;
+	${media.below925`
+    	text-align: center;
+		padding-top:20px;
+  `}
+`;
 
 export const StyledAccordion = styled(Accordion)`
 	background: white;

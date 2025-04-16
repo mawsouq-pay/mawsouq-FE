@@ -1,8 +1,8 @@
 // styles/fonts.ts
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans, Poppins, Roboto } from "next/font/google";
 import { Cairo } from "next/font/google";
 
-export const inter = Inter({
+export const inter = Noto_Sans({
 	subsets: ["latin"],
 	variable: "--font-inter",
 	display: "swap",

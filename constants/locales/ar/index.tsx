@@ -153,7 +153,7 @@ const ar = {
 	emailAfterBuyerPays: "هيوصلك إيميل بمجرد ما العميل يتم الدفع.",
 
 	//OrderDetails
-	history: "التاريخ",
+	history: "مراحل الطلب",
 	orderDetails: "تفاصيل الطلب",
 	ordersList: "قائمة الطلبات",
 	orderStatus: "حالة الطلب",
@@ -199,6 +199,7 @@ const ar = {
 	release: "الفلوس هتتحول للبائع",
 	holdMoney: "الفلوس بتتحجز",
 	securedByPaymob: "عملية الدفع مؤمّنة بالكامل عن طريق Paymob",
+	signUpToPay: "سجّل علشان تدفع",
 
 	//seller and buyer descriptions
 	sellerEmail: "البريد الإلكتروني للبائع",
@@ -213,7 +214,7 @@ const ar = {
 
 	//order Preview Confirmation
 	orderPrevConfirmationDescription:
-		"موثوق هو الوسيط اللي بيأمّنلك الفلوسك لحد ما تستلم أوردرك	وتقدر تتابع الأوردر خطوة بخطوة لحد ما يوصل لحد بابك.",
+		"موثوق هو الوسيط اللي بيأمّن فلوسك لحد ما تستلم أوردرِك، وتقدر تتابع كل خطوة لحد ما يوصل لبابك.",
 	confirmOrder: "تأكيد الطلب",
 	registerToConfirm: "سجّل لتأكيد الطلب",
 	securePaymentsWithMawsouq: "قم بتأمين مدفوعاتك مع مَوْسُوق",
@@ -222,6 +223,9 @@ const ar = {
 	youAreTheBuyer: "أنت المشتري",
 	refundIfSellerDoesntDeliver: "استرداد كامل إذا لم يقم البائع بالتسليم",
 	support247: "دعم 24 ساعة على أوردرك",
+	yourPaymentIsSafeWithMawsouq: "فلوسك في أمان مع موثوق",
+	trackUntilDelivery: "تابع أوردرك لحد ما يوصل",
+	confirmAndReleaseWhenApproved: "أكد الاستلام وحوّل الفلوس للبائع لما تتأكد",
 
 	//contact form
 	haveAQuestion: "عندك سؤال؟",
@@ -299,12 +303,13 @@ const ar = {
 		"لم يقم المشتري بالدفع بعد. يرجى مشاركة رابط الدفع معه للمتابعة.",
 
 	ORDER_IN_PROGRESS_BUYER:
-		"يتم تجهيز طلبك. تابع تقدمه وقم بإطلاق الدفعة عند التوصيل.",
+		"طلبك بيتجهز دلوقتي. تابع الأوردر ولما تستلمه إفْرِج عن الفلوس المحجوزة.",
 	ORDER_IN_PROGRESS_SELLER: "تم استلام الدفعة. أبلغنا عند خروج الطلب للتوصيل.",
 
-	ORDER_IN_TRANSIT_BUYER: "طلبك في الطريق. يرجى تأكيد الاستلام عند استلامه.",
+	ORDER_IN_TRANSIT_BUYER:
+		"طلبك في الطريق. يُرجى تأكيد الاستلام وإفْرِج عن الفلوس المحجوزة.",
 	ORDER_IN_TRANSIT_SELLER:
-		"الطلب قيد الشحن وينتظر تأكيد المشتري. يرجى التواصل معه إذا لزم الأمر.",
+		"الطلب في الطريق ومستني تأكيد المشتري. يرجى التواصل معه إذا لزم الأمر.",
 	ORDER_DELIVERED_BUYER: "تم تسليم الطلب، في انتظار تأكيدك.",
 	ORDER_DELIVERED_SELLER: "تم تسليم الطلب، في انتظار المشتري للإفراج عن الدفع.",
 
@@ -355,9 +360,9 @@ const ar = {
 
 	//Order Action labels
 	MAKE_PAYMENT: "قم بالدفع",
-	CONFIRM_RELEASE: "تأكيد الإصدار",
+	CONFIRM_RELEASE: "فكّ الفلوس المحجوزة",
 	SEND_COMPLAINT: "إرسال شكوى",
-	MARK_AS_OUT_FOR_DELIVERY: "وضع قيد التوصيل",
+	MARK_AS_OUT_FOR_DELIVERY: "خرج للتوصيل",
 	SUBMIT_COMPLAINT: "تقديم شكوى",
 
 	//reset password

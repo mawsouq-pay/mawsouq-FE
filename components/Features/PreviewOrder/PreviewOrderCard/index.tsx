@@ -58,8 +58,10 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 					{text.orderPrevConfirmationDescription}
 				</MSText>
 				<RowDiv>
-					<ShoppingCart />
-					<MSText style={{ fontSize: 13 }}>{text.youAreTheBuyer}</MSText>
+					<ShoppingCart color={colors.darkGreen} strokeWidth={1.2} />
+					<MSText fontSize="13px" fontWeight="500" color={colors.darkGreen}>
+						{text.youAreTheBuyer}
+					</MSText>
 				</RowDiv>
 				<StepsBar>
 					{steps.map((step, index) => (
@@ -96,14 +98,13 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<Section>
 					<Wrapper>
 						<SummaryRow>
-							<MSText fontWeight="600" fontSize="14px">
+							<MSText fontWeight="700" fontSize="14px">
 								{text.orderSummary}
 							</MSText>
 							<MSText>{price} EGP</MSText>
 						</SummaryRow>
 
 						<MSText fontSize="14px">{transactionTitle}</MSText>
-
 						<MSText fontSize="14px">{deliveryDate}</MSText>
 						<MSText fontSize="14px">{description}</MSText>
 					</Wrapper>
@@ -113,12 +114,16 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 				<Section>
 					<Wrapper>
 						<SummaryRow>
-							<MSText fontWeight="600" fontSize="14px">
+							<MSText fontWeight="700" fontSize="14px">
 								{text.seller}
 							</MSText>
 						</SummaryRow>
-						<MSText fontSize="14px">{sellerName}</MSText>
-						<MSText fontSize="14px">{sellerEmail}</MSText>
+						<MSText fontSize="14px" style={{ marginTop: "-5px" }}>
+							{sellerName}
+						</MSText>
+						<MSText fontSize="14px" style={{ marginTop: "-5px" }}>
+							{sellerEmail}
+						</MSText>
 					</Wrapper>
 				</Section>
 

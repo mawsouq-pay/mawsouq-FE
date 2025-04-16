@@ -43,8 +43,8 @@ export default function HeroSection() {
 					>
 						<LeftColumn>
 							<MSText
-								fontSize="3rem"
-								mobileFontSize="2rem"
+								fontSize="3.2rem"
+								mobileFontSize="2.1rem"
 								fontWeight="700"
 								style={{ lineHeight: "1.25", color: "#111827" }}
 							>
@@ -83,6 +83,7 @@ export default function HeroSection() {
 								loading="eager"
 								alt="Release"
 								height={360}
+								width={380}
 							/>
 						</FrameDive>
 					</motion.div>

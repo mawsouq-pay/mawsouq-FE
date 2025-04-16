@@ -15,6 +15,7 @@ export const HistorySection = styled.div`
 	display: flex;
 	flex-direction: column;
 	border-radius: 8px;
+	margin-top: 12px;
 `;
 
 export const MainWrapper = styled.div`

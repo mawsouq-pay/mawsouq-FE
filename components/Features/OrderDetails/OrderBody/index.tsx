@@ -85,7 +85,6 @@ const OrderBody = (props: OrderBodyProps) => {
 						color={colors.black}
 						style={{
 							marginBottom: 10,
-							// borderBottom: `3px solid ${colors.green}`,
 							width: "135px",
 						}}
 					>

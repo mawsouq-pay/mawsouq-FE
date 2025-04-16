@@ -40,7 +40,6 @@ const MSModal = (props: MSModalProps) => {
 	return (
 		<StyledDialog
 			open={open}
-			// onClose={onClose}
 			scroll={scroll}
 			aria-labelledby="modal-title"
 			aria-describedby="modal-description"
@@ -70,7 +69,8 @@ const MSModal = (props: MSModalProps) => {
 						display: "flex",
 						justifyContent: "space-between",
 						width: "100%",
-						padding: "16px",
+						padding: "16px 24px 24px",
+						marginTop: "0px",
 					}}
 				>
 					<Box className={fontClass}>
@@ -85,6 +85,7 @@ const MSModal = (props: MSModalProps) => {
 							}}
 							fontColor={colors.black}
 							{...cancelButtonProps}
+							type="button"
 						/>
 					</Box>
 
