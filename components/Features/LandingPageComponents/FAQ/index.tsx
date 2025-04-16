@@ -22,7 +22,7 @@ const FAQ = () => {
 	const finalData = locale === "ar" ? faqDataAr : faqData;
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	return (
-		<StyledContainer>
+		<StyledContainer id="FAQS">
 			<div style={{ textAlign: "center", marginBottom: "20px" }}>
 				<ScribbledCircleText
 					text={locale === "en" ? "FAQs" : "الأسئلة الشائعة"}

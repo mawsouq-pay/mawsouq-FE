@@ -36,7 +36,6 @@ const Navbar = ({ isLandingPage = false }: { isLandingPage?: boolean }) => {
 	};
 	const navLinks = [
 		{ name: text.howItWorks, to: "HowItWorksS" },
-		{ name: text.msBenefits, to: "BenefitsS" },
 		{ name: text.product, to: "ProductS" },
 		{ name: text.faqs, to: "FAQS" },
 	];
