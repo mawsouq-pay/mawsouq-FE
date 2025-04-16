@@ -23,7 +23,6 @@ import Image from "next/image";
 export default function TrustSection() {
 	const { locale } = useLocaleStore();
 	const text = locale === "ar" ? arTexts : enTexts;
-	console.log(enTexts);
 	return (
 		<Section>
 			<Container>
@@ -48,7 +47,7 @@ export default function TrustSection() {
 							>
 								{text.heading}
 							</MSText>
-							<MSText
+							{/* <MSText
 								fontSize="16px"
 								fontWeight="500"
 								color={colors.gray700}
@@ -56,7 +55,7 @@ export default function TrustSection() {
 								mobileFontSize="14px"
 							>
 								{text.mawsouqPrivacy}
-							</MSText>
+							</MSText> */}
 
 							<FeatureGrid>
 								{text.features.map((title, index) => (
@@ -97,7 +96,7 @@ export default function TrustSection() {
 										height={15}
 									/>
 								</InfoHeader>
-								<MSText fontSize="12px" fontWeight="400" color={colors.gray500}>
+								<MSText fontSize="14px" fontWeight="400" color={colors.gray500}>
 									{text.description}
 								</MSText>
 							</InfoBox>
