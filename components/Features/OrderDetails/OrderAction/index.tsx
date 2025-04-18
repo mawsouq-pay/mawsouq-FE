@@ -1,28 +1,30 @@
 import React from "react";
 import { FlexRow, MainWrapper, MessageDiv } from "./OrderAction.styles";
-import MSText from "../../../Shared/MSText";
+import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import { OrderActionProps } from "./types";
-import MSModal from "../../../Shared/MSModal";
-import MSButton from "../../../Shared/MSButton";
+import MSModal from "@/components/Shared/MSModal";
+import MSButton from "@/components/Shared/MSButton";
 import { useOrderActions } from "@/hooks/useOrderActions";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { OrderActionCTAType, OrderActionT } from "@/constants";
+import { OrderStatusEnum } from "@/constants";
 import DisputeFormModal from "../DisputeFormModal";
 import RateOrderModal from "../RateOrderModal";
 
-const OrderAction = (props: OrderActionProps) => {
+const OrderAction = ({
+	isFetcherSeller,
+	orderStatus,
+	orderId,
+}: OrderActionProps) => {
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
-	const { isFetcherSeller, orderStatus, orderId } = props;
 	const {
 		popupStatusMessage,
 		message,
 		isConfirmModalOpen,
 		loadingAndDisable,
-		actions,
 		orderStatusText,
 		handleOpenConfirmationModal,
 		handleConfirmAction,
@@ -34,6 +36,11 @@ const OrderAction = (props: OrderActionProps) => {
 		submitRateModal,
 		cancelRatingModal,
 		isRateOrderPending,
+		handleReleasePayment,
+		handleMarkAsOutForDelivery,
+		handleOpenDisputeForm,
+		sellerReleasePending,
+		updateOrderPending,
 	} = useOrderActions(orderId, isFetcherSeller, orderStatus);
 
 	return (
@@ -45,9 +52,9 @@ const OrderAction = (props: OrderActionProps) => {
 					color={colors.black}
 					style={{ alignSelf: "flex-start" }}
 				>
-					{" "}
 					{orderStatusText}
 				</MSText>
+
 				<MessageDiv>
 					<MSText fontSize="18px" fontWeight="600" color={colors.black}>
 						{text[message]}
@@ -55,30 +62,46 @@ const OrderAction = (props: OrderActionProps) => {
 				</MessageDiv>
 			</div>
 
-			{actions.length > 0 && (
-				<FlexRow>
-					{actions.map(
-						(action: OrderActionT & { handler: () => void }, index) => (
+			<FlexRow>
+				{(orderStatus === OrderStatusEnum.IN_PROGRESS ||
+					orderStatus === OrderStatusEnum.IN_TRANSIT) &&
+					!isFetcherSeller && (
+						<>
 							<MSButton
-								key={index}
-								title={text[action.label]}
-								onClick={() => handleOpenConfirmationModal(action)}
-								loading={loadingAndDisable}
-								style={{
-									backgroundColor:
-										action.type === OrderActionCTAType.DANGER
-											? colors.red
-											: colors.green,
-								}}
+								title={text.CONFIRM_RELEASE}
+								onClick={() =>
+									handleOpenConfirmationModal(
+										handleReleasePayment,
+										OrderStatusEnum.COMPLETED
+									)
+								}
+								loading={sellerReleasePending}
 							/>
-						)
+							<MSButton
+								title={text.SUBMIT_COMPLAINT}
+								onClick={handleOpenDisputeForm}
+								style={{ backgroundColor: colors.red }}
+							/>
+						</>
 					)}
-				</FlexRow>
-			)}
+
+				{orderStatus === OrderStatusEnum.IN_PROGRESS && isFetcherSeller && (
+					<MSButton
+						title={text.MARK_AS_OUT_FOR_DELIVERY}
+						onClick={() =>
+							handleOpenConfirmationModal(
+								handleMarkAsOutForDelivery,
+								OrderStatusEnum.IN_TRANSIT
+							)
+						}
+						loading={updateOrderPending}
+					/>
+				)}
+			</FlexRow>
 
 			<MSModal
 				open={isConfirmModalOpen}
-				onClose={() => handleCloseConfirmationModal()}
+				onClose={handleCloseConfirmationModal}
 				title={text[popupStatusMessage?.title as keyof typeof text]}
 				onConfirm={handleConfirmAction}
 			>
@@ -88,11 +111,13 @@ const OrderAction = (props: OrderActionProps) => {
 					</MSText>
 				</div>
 			</MSModal>
+
 			<DisputeFormModal
 				open={isDisputeFormOpen}
 				setOpen={setIsDisputeFormOpen}
 				onSubmit={submitDispute}
 			/>
+
 			<RateOrderModal
 				open={isRateModalOpen}
 				onCancel={cancelRatingModal}
