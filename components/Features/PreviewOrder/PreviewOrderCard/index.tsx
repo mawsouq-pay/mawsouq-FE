@@ -25,6 +25,7 @@ import MSButton from "@/components/Shared/MSButton";
 import PaymobImage from "@/assets/images/paymob.png";
 import Image from "next/image";
 import GuaranteeList from "../GuaranteeList";
+import MSPaymentSummarySection from "@/components/Shared/MSPaymentSummarySection";
 
 const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 	const { locale } = useLocaleStore();
@@ -39,6 +40,7 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 		sellerName,
 		sellerEmail,
 		orderIsJoined,
+		fees,
 	} = props;
 
 	const steps = [
@@ -125,6 +127,17 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 							{sellerEmail}
 						</MSText>
 					</Wrapper>
+				</Section>
+				<Divider />
+				<Section>
+					<MSText fontWeight="700" fontSize="14px">
+						{text.paymentSummary}
+					</MSText>
+					<MSPaymentSummarySection
+						price={price}
+						escrowFee={fees}
+						totalDue={price + fees}
+					/>
 				</Section>
 
 				<MSButton

@@ -29,7 +29,12 @@ const MSPayoutModal = ({
 			showActions={false}
 			title={text.payoutDetails}
 		>
-			<MSText fontSize="16px" color={colors.black} style={{ marginBottom: 15 }}>
+			<MSText
+				fontSize="16px"
+				fontWeight="600"
+				color={colors.black}
+				style={{ marginBottom: 2 }}
+			>
 				{text.enterYourPayoutDetails}
 			</MSText>
 			<MSPayoutForm

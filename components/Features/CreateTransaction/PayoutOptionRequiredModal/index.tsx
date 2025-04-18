@@ -32,7 +32,12 @@ const PayoutOptionRequiredModal = ({
 			cancelText={text.cancel}
 			onConfirm={onPayoutRequiredModalSubmit}
 		>
-			<MSText fontSize="16px" color={colors.black} style={{ marginBottom: 15 }}>
+			<MSText
+				fontSize="18px"
+				fontWeight="600"
+				color={colors.black}
+				style={{ marginBottom: 15 }}
+			>
 				{text.payoutRequiredExplanation}
 			</MSText>
 		</MSModal>

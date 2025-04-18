@@ -73,10 +73,12 @@ export const IconContainer = styled.div`
 `;
 
 export const InfoBox = styled.div`
-	background-color: white;
-	border: 1px solid #f3f4f6;
+	/* background-color: white; */
+	/* border: 1px solid #f3f4f6; */
 	border-radius: 0.5rem;
-	padding: 1rem;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
 `;
 
 export const InfoHeader = styled.div`

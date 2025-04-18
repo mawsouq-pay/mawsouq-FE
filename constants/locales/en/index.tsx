@@ -259,7 +259,7 @@ const en = {
 	cardNumber: "Card Number",
 	payoutRequired: "Payout Method Required",
 	payoutRequiredExplanation:
-		"To continue, you need to set up how you’ll receive your money. We’ll transfer it to you once the order is delivered.",
+		"To continue, you need to add how you’ll receive your money. We’ll transfer it to you once the order is delivered.",
 	noPayoutMethods: "No payout methods added yet.",
 	yourPayoutMethods: "Your Payout Method",
 	bank: "Bank",

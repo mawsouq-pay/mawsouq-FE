@@ -7,4 +7,5 @@ interface PreviewOrderCardProps {
 	price: number;
 	onConfirmPress: () => void;
 	orderIsJoined: boolean;
+	fees: number;
 }

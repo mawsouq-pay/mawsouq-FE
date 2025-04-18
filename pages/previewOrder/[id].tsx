@@ -41,7 +41,8 @@ const PreviewOrderSummary = () => {
 						deliveryDate={formatDate(data?.order?.deliveryDate ?? "")}
 						sellerEmail={data?.order?.seller?.email ?? ""}
 						sellerName={data?.order?.seller?.name ?? ""}
-						price={data?.order?.price ?? 1}
+						price={data?.order?.price ?? 0}
+						fees={data?.order?.fees ?? 0}
 						onConfirmPress={() => {
 							if (orderIsJoined) {
 								router.replace({

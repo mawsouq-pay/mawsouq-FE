@@ -15,8 +15,6 @@ import {
 } from "./TrustSection.styles";
 import { arTexts, enTexts } from "./types";
 import StartSellingSection from "../StartSellingSection";
-import PaymobImage from "@/assets/images/paymob.png";
-import Image from "next/image";
 
 export default function TrustSection() {
 	const { locale } = useLocaleStore();
@@ -31,10 +29,6 @@ export default function TrustSection() {
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
 				>
-					<FlexRow>
-						<StartSellingSection />
-					</FlexRow>
-
 					<InfoBox style={{ marginTop: "30px" }}>
 						<InfoHeader>
 							<MSText fontSize="20px" fontWeight="600" color={colors.black}>
@@ -74,6 +68,9 @@ export default function TrustSection() {
 							))}
 						</FeatureGrid>
 					</InfoBox>
+					<FlexRow>
+						<StartSellingSection />
+					</FlexRow>
 				</GradientBox>
 			</Container>
 		</Section>
