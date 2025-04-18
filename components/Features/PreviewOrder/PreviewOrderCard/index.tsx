@@ -103,7 +103,6 @@ const PreviewOrderCard = (props: PreviewOrderCardProps) => {
 							<MSText fontWeight="700" fontSize="14px">
 								{text.orderSummary}
 							</MSText>
-							<MSText>{price} EGP</MSText>
 						</SummaryRow>
 
 						<MSText fontSize="14px">{transactionTitle}</MSText>
