@@ -46,6 +46,7 @@ export const FrameDive = styled.div<{ isArabic: boolean }>`
 	flex-direction: column;
 	margin-top: 10px;
 	@media (max-width: 1024px) {
+		display: none;
 		max-width: 100%;
 		justify-content: center;
 	}

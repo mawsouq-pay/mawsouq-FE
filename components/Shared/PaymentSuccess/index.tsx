@@ -9,7 +9,7 @@ import { clientRoutes } from "@/routes";
 import { CheckImage } from "@/assets/images";
 import Image from "next/image";
 import queryClient from "@/client/reactQClient";
-import { preFetchOrderById, useFetchOrderById } from "@/hooks/orderHooks";
+import { preFetchOrderById } from "@/hooks/orderHooks";
 import { sendEmail } from "@/helpers/sendEmail";
 const NEXT_PUBLIC_FE_BASE_URL = process.env.NEXT_PUBLIC_FE_BASE_URL;
 
