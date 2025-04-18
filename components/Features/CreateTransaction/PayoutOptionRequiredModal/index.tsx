@@ -4,7 +4,6 @@ import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { trackCancelPayoutPrompt } from "@/helpers/tracking";
 
 interface PayoutOptionRequiredModalProps {
 	open: boolean;
@@ -24,7 +23,6 @@ const PayoutOptionRequiredModal = ({
 		<MSModal
 			open={open}
 			onClose={() => {
-				trackCancelPayoutPrompt();
 				setOpen(false);
 			}}
 			title={text.payoutRequired}
