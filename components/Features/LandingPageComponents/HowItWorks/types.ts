@@ -9,8 +9,8 @@ export const enTexts = {
 			description: "Set up product details and generate a secure payment link",
 		},
 		{
-			title: "Buyer Pays via Paymob",
-			description: "Payment is secured and held in escrow until delivery",
+			title: "Buyer Pays using Mawsouq",
+			description: "Payment is secured and is on hold until delivery",
 		},
 		{
 			title: "Seller Delivers Product",
@@ -18,7 +18,7 @@ export const enTexts = {
 		},
 		{
 			title: "Buyer Confirms",
-			description: "Funds are released to the seller after confirmation",
+			description: "Payment is released to the seller after confirmation",
 		},
 	],
 };

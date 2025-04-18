@@ -32,6 +32,11 @@ export const StepCard = styled.div`
 	min-width: 200px;
 	position: relative;
 	gap: 10px;
+	${media.below925`
+	flex-direction: row;
+	text-align: start;
+
+    `}
 `;
 
 export const CircleWrapper = styled.div`

@@ -71,23 +71,17 @@ const HowItWorks = () => {
 				{textObj.steps.map((step, index) => (
 					<StepCard key={index}>
 						<CircleWrapper>
-							<StepCircle>
-								{howItWorksIcons[index]}
-								{/* <MSText fontWeight="600" fontSize="22px">
-									{index + 1}
-								</MSText> */}
-							</StepCircle>
+							<StepCircle>{howItWorksIcons[index]}</StepCircle>
 							{index < textObj.steps.length - 1 && <Line />}
 						</CircleWrapper>
-
-						{/*  */}
-
-						<MSText fontSize="18px" fontWeight="600" color={colors.black}>
-							{step.title}
-						</MSText>
-						<MSText fontSize="16px" color={colors.gray600}>
-							{step.description}
-						</MSText>
+						<div>
+							<MSText fontSize="18px" fontWeight="600" color={colors.black}>
+								{step.title}
+							</MSText>
+							<MSText fontSize="16px" color={colors.gray600}>
+								{step.description}
+							</MSText>
+						</div>
 					</StepCard>
 				))}
 			</FeaturesContainer>
