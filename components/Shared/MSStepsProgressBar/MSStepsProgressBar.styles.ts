@@ -4,7 +4,7 @@ import StepConnector, {
 } from "@mui/material/StepConnector";
 import { colors } from "@/constants/theme";
 
-export const VerticalConnector = styled(StepConnector)(({ theme }) => ({
+export const VerticalConnector = styled(StepConnector)(() => ({
 	[`& .${stepConnectorClasses.line}`]: {
 		borderColor: `${colors.green}`,
 		borderLeftWidth: 3,

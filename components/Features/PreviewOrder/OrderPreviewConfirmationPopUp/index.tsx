@@ -6,18 +6,15 @@ import { useRouter } from "next/router";
 import { OrderPreviewConfirmationPopUpProps } from "./types";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
-import { ShieldCheck } from "lucide-react";
 import {
 	ModalContainer,
-	IconWrapper,
 	StepsWrapper,
 	StepRow,
 } from "./OrderPreviewConfirmationPopUp.styles";
-import MSButton from "@/components/Shared/MSButton";
 import { useHandleAcceptPayments } from "@/hooks/useHandleAcceptPayment";
 import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
-import { ShoppingCart, Lock, Repeat, Package, Check } from "lucide-react";
+import { Package, Check } from "lucide-react";
 
 const OrderPreviewConfirmationPopUp = ({
 	open,

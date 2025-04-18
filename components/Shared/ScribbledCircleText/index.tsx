@@ -1,12 +1,11 @@
 import MSText from "@/components/Shared/MSText";
 import useCustomBreakpoint from "@/helpers/screenSizes";
 import React, { useRef, useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
 
 const ScribbledCircleText = ({ text }: { text: string }) => {
 	const textRef = useRef<HTMLDivElement>(null);
 	const [svgWidth, setSvgWidth] = useState(380);
-	const { isMobile, xxl } = useCustomBreakpoint();
+	const { isMobile } = useCustomBreakpoint();
 
 	useEffect(() => {
 		const updateWidth = () => {

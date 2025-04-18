@@ -10,9 +10,7 @@ import {
 } from "./OrderCard.style";
 import { OrderCardProps, RenderValueProps } from "./types";
 import { colors } from "@/constants/theme";
-import useCustomBreakpoint from "@/helpers/screenSizes";
 import { orderStatusObject } from "@/constants";
-import { formatDate } from "@/helpers";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 
@@ -21,7 +19,6 @@ const MSOrderCard = (props: OrderCardProps) => {
 		transactionTitle,
 		price,
 		status,
-		deliveryDate,
 		onPress,
 		isFetcherSeller,
 		otherPartyName,
@@ -29,7 +26,6 @@ const MSOrderCard = (props: OrderCardProps) => {
 	const orderStatusInfo = orderStatusObject[status];
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
-	const formattedDate = formatDate(deliveryDate);
 	const renderValue = ({
 		value,
 		color,

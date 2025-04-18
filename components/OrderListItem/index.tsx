@@ -38,7 +38,7 @@ const OrderListItem = (props: OrderListItemProps) => {
 	return (
 		<MainWrapper>
 			<ItemsContainer>
-				{OrderItems.map((item, index) => {
+				{OrderItems.map((item) => {
 					return (
 						<ItemWrapper>
 							<LabelValue>

@@ -45,7 +45,7 @@ const MSStepProgressBar = (props: StepProgressBarProps) => {
 			style={{ display: "flex", width: "100%" }}
 			sx={{ direction: isRTL ? "rtl" : "ltr" }}
 		>
-			{steps.map((label, index) => (
+			{steps.map((label) => (
 				<Step key={label}>
 					<StepLabel StepIconComponent={QontoStepIcon}>
 						<MSText fontSize={"14px"}>{label}</MSText>

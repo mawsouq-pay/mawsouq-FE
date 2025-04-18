@@ -1,4 +1,3 @@
-import { colors } from "@/constants/theme";
 import styled from "styled-components";
 
 export const LinkSection = styled.div`

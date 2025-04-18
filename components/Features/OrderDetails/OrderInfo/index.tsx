@@ -6,14 +6,12 @@ import {
 	LabelValue,
 	MainWrapper,
 	TextValue,
-	RowDiv,
 } from "./OrderInfo.styles";
 import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { OrderInfoProps } from "./types";
 import { formatDate } from "@/helpers";
-import ListAltIcon from "@mui/icons-material/ListAlt";
 import { Divider } from "@mui/material";
 import MSText from "@/components/Shared/MSText";
 const OrderInfo = (props: OrderInfoProps) => {

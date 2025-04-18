@@ -7,13 +7,11 @@ import {
 	Container,
 	GradientBox,
 	FlexRow,
-	LeftCol,
 	FeatureGrid,
 	FeatureItem,
 	IconContainer,
 	InfoBox,
 	InfoHeader,
-	RightCol,
 } from "./TrustSection.styles";
 import { arTexts, enTexts } from "./types";
 import StartSellingSection from "../StartSellingSection";

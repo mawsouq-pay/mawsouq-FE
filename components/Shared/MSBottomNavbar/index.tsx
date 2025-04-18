@@ -1,8 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { HomeIcon, CirclePlusIcon, SettingsIcon, UserIcon } from "lucide-react";
+import { HomeIcon, CirclePlusIcon, UserIcon } from "lucide-react";
 import { clientRoutes } from "@/routes";
-import { colors } from "@/constants/theme";
 import { BottomNavContainer, NavItem } from "./MSBottomNavbar.styles";
 
 const MobileBottomNav = () => {

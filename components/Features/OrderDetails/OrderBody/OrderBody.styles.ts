@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "@/constants/theme";
 import { media } from "@/helpers/mediaQueryHelper";
 
 export const ProgressWrapper = styled.div`

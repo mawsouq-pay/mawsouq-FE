@@ -1,5 +1,4 @@
 import { colors } from "@/constants/theme";
-import { media } from "@/helpers/mediaQueryHelper";
 import styled from "styled-components";
 
 export const Section = styled.section`

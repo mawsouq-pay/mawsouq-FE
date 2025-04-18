@@ -11,11 +11,11 @@ import { colors } from "@/constants/theme";
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { ShareLinkSectionProps } from "./types";
-import { CircleCheckBig, LinkIcon } from "lucide-react";
+import { LinkIcon } from "lucide-react";
 const PREVIEW_ORDER_LINK = process.env.NEXT_PUBLIC_PREVIEW_ORDER_LINK;
 
 const ShareLinkSection = (props: ShareLinkSectionProps) => {
-	const { isPendingSeller, orderId } = props;
+	const { orderId } = props;
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 	const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0 });

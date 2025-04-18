@@ -1,3 +1,0 @@
-interface NavBarProps {
-	isLandingPage?: boolean;
-}

@@ -8,7 +8,6 @@ import MSText from "../../MSText";
 import styled from "styled-components";
 import { colors } from "@/constants/theme";
 import MSButton from "../../MSButton";
-import { localeEnum } from "@/store/LocaleStore";
 import { clientRoutes } from "@/routes";
 import { useRouter } from "next/router";
 import { MSLogo } from "@/assets/icons";

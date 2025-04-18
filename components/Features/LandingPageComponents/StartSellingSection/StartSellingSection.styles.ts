@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { TextField } from "@mui/material";
-import { colors } from "@/constants/theme";
 
 export const Wrapper = styled.div`
 	width: 100%;

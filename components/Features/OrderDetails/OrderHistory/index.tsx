@@ -1,6 +1,5 @@
 import React from "react";
 import { HistoryProps } from "./types";
-import { Icon } from "@mui/material";
 import {
 	HistoryContainer,
 	Entry,
