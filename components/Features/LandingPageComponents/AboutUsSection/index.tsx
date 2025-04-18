@@ -4,7 +4,7 @@ import MSText from "@/components/Shared/MSText";
 import { colors } from "@/constants/theme";
 import Image from "next/image";
 import AmrImage from "@/assets/images/AmrImage.png";
-import NadaImage from "@/assets/images/AmrImage.png";
+import NadaImage from "@/assets/images/NadaImage.png";
 import { useLocaleStore } from "@/store";
 import {
 	Section,
@@ -18,23 +18,23 @@ import {
 const en = {
 	heading: "About Us – Mawsouq-Pay",
 	subheading: "Built for trust. Designed for today.",
-	about: `Mawsouq-Pay is Egypt’s first digital escrow solution, designed to make online payments safer and more transparent. Whether you’re buying a custom product, hiring a freelancer, or running an online business, Mawsouq-Pay protects your transaction until both parties are satisfied.
+	about: `Mawsouq-Pay is a platform designed to build trust between online buyers and sellers by securing payments until orders are delivered.
 
-We started with a simple idea: people should be able to pay online without the fear of being scammed or ghosted. So we built a system where money is only released when the job is done — no more risks, no more uncertainty.
-
-We’re not just another fintech — we’re here to fix a real problem. Backed by strong partners and a vision for the future, we’re making trust a standard in Egypt’s digital economy.`,
+	We help sellers request deposits safely and provide buyers with peace of mind, knowing their money is protected.
+	
+	Through Mawsouq-Pay, sellers can easily create payment links, track their orders, and manage all transactions through a simple dashboard.
+	
+	Our mission is to make online transactions safer, smoother, and more reliable for everyone.`,
 	meet: "Meet the Team",
 	team: [
 		{
 			name: "Amr Ibrahim",
 			role: "Founder & CEO",
-			desc: "Leads strategy, product, and partnerships. Passionate about building solutions that earn people’s trust online.",
 			image: AmrImage,
 		},
 		{
 			name: "Nada Nazeer",
 			role: "Co-Founder & CTO",
-			desc: "Drives the tech behind Mawsouq-Pay. Focused on building secure, scalable infrastructure that makes trust seamless and effortless.",
 			image: NadaImage,
 		},
 	],
@@ -53,13 +53,11 @@ const ar = {
 		{
 			name: "عمرو إبراهيم",
 			role: "المؤسس والرئيس التنفيذي",
-			desc: "بيقود الاستراتيجية والمنتج والشراكات. شغوف ببناء حلول تكسب ثقة الناس أونلاين.",
 			image: AmrImage,
 		},
 		{
 			name: "ندى نظير",
 			role: "الشريك المؤسس والمدير التقني",
-			desc: "مسؤولة عن التقنية في Mawsouq-Pay. بتركز على بناء بنية تحتية آمنة وقابلة للتوسع بتخلي الثقة عملية سهلة وطبيعية.",
 			image: NadaImage,
 		},
 	],
@@ -152,13 +150,6 @@ const AboutUsSection = () => {
 								</MSText>
 								<MSText fontSize="14px" color={colors.gray600}>
 									{member.role}
-								</MSText>
-								<MSText
-									fontSize="14px"
-									color={colors.gray500}
-									style={{ marginTop: 8 }}
-								>
-									{member.desc}
 								</MSText>
 							</TeamCard>
 						))}

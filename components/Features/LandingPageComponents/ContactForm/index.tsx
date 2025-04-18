@@ -5,7 +5,6 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useNotification } from "@/store/SnackBarStore";
 import MSButton from "@/components/Shared/MSButton";
-import { colors } from "@/constants/theme";
 import MSText from "@/components/Shared/MSText";
 const FORM_PUBLIC_KEY = process.env.NEXT_PUBLIC_FORM_PUBLIC_KEY;
 
