@@ -10,13 +10,13 @@ const StartTransactionCard = () => {
 		steps,
 		activeStep,
 		renderStep,
-		payoutModalOpen,
-		setPayoutModalOpen,
-		onPayoutRequiredModalSubmit,
-		payoutModalFormOpen,
-		createUserPayoutPending,
-		onPayoutFormSubmit,
-		onPayoutFormCancel,
+		isPayoutPromptOpen,
+		setIsPayoutPromptOpen,
+		handlePayoutPromptSubmit,
+		isPayoutFormOpen,
+		handlePayoutFormSubmit,
+		isCreatingPayout,
+		handlePayoutFormCancel,
 	} = useStartTransaction();
 
 	return (
@@ -25,16 +25,18 @@ const StartTransactionCard = () => {
 			<ContentWrapper>
 				<div style={{ marginTop: "5px" }}>{renderStep()}</div>
 			</ContentWrapper>
+
 			<PayoutOptionRequiredModal
-				open={payoutModalOpen}
-				setOpen={setPayoutModalOpen}
-				onPayoutRequiredModalSubmit={onPayoutRequiredModalSubmit}
+				open={isPayoutPromptOpen}
+				setOpen={setIsPayoutPromptOpen}
+				onPayoutRequiredModalSubmit={handlePayoutPromptSubmit}
 			/>
+
 			<MSPayoutModal
-				payoutModalOpen={payoutModalFormOpen}
-				onCancel={onPayoutFormCancel}
-				onSubmit={onPayoutFormSubmit}
-				isPending={createUserPayoutPending}
+				payoutModalOpen={isPayoutFormOpen}
+				onCancel={handlePayoutFormCancel}
+				onSubmit={handlePayoutFormSubmit}
+				isPending={isCreatingPayout}
 			/>
 		</MainWrapper>
 	);

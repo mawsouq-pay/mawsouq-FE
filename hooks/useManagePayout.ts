@@ -46,7 +46,13 @@ export const useManagePayout = () => {
 	const { mutate: editPayout, isPending: isEditPayoutPending } =
 		useEditPayoutMethod();
 
-	const createUserPayoutMethod = (details: PayoutDetailsT) => {
+	const createUserPayoutMethod = (
+		details: PayoutDetailsT,
+		options?: {
+			onSuccess?: () => void;
+			onError?: (error: any) => void;
+		}
+	) => {
 		trackSubmitPayoutDetails(details);
 
 		if (editInitialValues) {
@@ -56,9 +62,11 @@ export const useManagePayout = () => {
 					onSuccess: (response) => {
 						showSuccessNotification("Payout Method Successfully edited");
 						setPayoutModalOpen(false);
+						options?.onSuccess?.(); // call external success if passed
 					},
 					onError: (error) => {
 						showAxiosErrorNotification(error as AxiosError);
+						options?.onError?.(error);
 					},
 				}
 			);
@@ -70,9 +78,11 @@ export const useManagePayout = () => {
 					});
 					showSuccessNotification(text.payoutAddedNotification);
 					setPayoutModalOpen(false);
+					options?.onSuccess?.();
 				},
 				onError: (error) => {
 					showAxiosErrorNotification(error as AxiosError);
+					options?.onError?.(error);
 				},
 			});
 		}

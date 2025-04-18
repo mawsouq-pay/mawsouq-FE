@@ -20,21 +20,26 @@ import {
 } from "@/helpers/tracking";
 
 export const useStartTransaction = () => {
-	const { showSuccessNotification } = useNotification();
 	const { locale } = useLocaleStore();
 	const text = textTr(locale);
 
-	const { mutate: createOrder, isPending, error } = useCreateOrder();
+	const { showSuccessNotification } = useNotification();
+
 	const {
-		userPayoutOptions: userPayoutOptionsData,
+		mutate: createOrder,
+		isPending: isCreatingOrder,
+		error: createOrderError,
+	} = useCreateOrder();
+
+	const {
+		userPayoutOptions: payoutOptions,
 		getUserPayoutOptionsLoading,
 		createUserPayoutMethod,
-		isPending: createUserPayoutPending,
-		payoutModalOpen: payoutModalFormOpen,
-		setPayoutModalOpen: setPayoutModalFormOpen,
+		isPending: isCreatingPayout,
+		payoutModalOpen: isPayoutFormOpen,
+		setPayoutModalOpen: setPayoutFormOpen,
 	} = useManagePayout();
 
-	const [payoutModalOpen, setPayoutModalOpen] = useState(false);
 	const [formData, setFormData] = useState<StartTransactionData>({
 		role: RolesEnum.SELLER,
 		transactionTitle: "",
@@ -42,58 +47,65 @@ export const useStartTransaction = () => {
 		price: "",
 		deliveryDate: "",
 	});
-
 	const [orderId, setOrderId] = useState<string | null>(null);
 	const [activeStep, setActiveStep] = useState(0);
+	const [isPayoutPromptOpen, setIsPayoutPromptOpen] = useState(false);
+
 	const steps = [
 		text.startTransaction,
 		text.transactionDetails,
 		text.shareLink,
 	];
 
+	const nextStep = () =>
+		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+	const prevStep = () => setActiveStep((prev) => Math.max(prev - 1, 0));
+	const resetSteps = () => setActiveStep(0);
+
 	const renderStep = () => {
-		return (
-			<>
-				{activeStep === 0 && (
+		switch (activeStep) {
+			case 0:
+				return (
 					<SellerPrompt
-						onSubmit={submitSellerPrompt}
+						onSubmit={handleSellerPromptSubmit}
 						disableButton={getUserPayoutOptionsLoading}
 					/>
-				)}
-				{activeStep === 1 && (
+				);
+			case 1:
+				return (
 					<TransactionForm
 						initialValues={formData}
 						onSubmit={handleConfirmOrder}
-						onBack={handleBack}
+						onBack={prevStep}
 						disableButton={getUserPayoutOptionsLoading}
 					/>
-				)}
-				{activeStep === 2 && (
+				);
+			case 2:
+				return (
 					<ShareLink
-						isPending={isPending}
-						error={error}
-						navigateToFirstStep={navigateToFirstStep}
+						isPending={isCreatingOrder}
+						error={createOrderError}
+						navigateToFirstStep={resetSteps}
 						orderId={orderId}
 						isPendingSeller={formData.role === RolesEnum.BUYER}
 					/>
-				)}
-			</>
-		);
+				);
+			default:
+				return null;
+		}
 	};
 
-	const submitSellerPrompt = () => {
-		if (checkPayoutOptions()) return;
-
-		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+	const handleSellerPromptSubmit = () => {
+		if (shouldShowPayoutModal()) return;
+		nextStep();
 	};
-	const checkPayoutOptions = () => {
-		if (
-			formData.role === RolesEnum.SELLER &&
-			!getUserPayoutOptionsLoading &&
-			userPayoutOptionsData?.length === 0
-		) {
+
+	const shouldShowPayoutModal = () => {
+		const noPayoutOptions =
+			!getUserPayoutOptionsLoading && payoutOptions?.length === 0;
+		if (formData.role === RolesEnum.SELLER && noPayoutOptions) {
 			trackOpenedPayoutPrompt();
-			setPayoutModalOpen(true);
+			setIsPayoutPromptOpen(true);
 			return true;
 		}
 		return false;
@@ -101,19 +113,21 @@ export const useStartTransaction = () => {
 
 	const handleConfirmOrder = (updatedData: StartTransactionData) => {
 		setFormData((prev) => ({ ...prev, ...updatedData }));
-		setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+		nextStep();
 
-		const orderData: CreateOrderInput = {
+		const orderPayload: CreateOrderInput = {
 			...updatedData,
 			price: parseFloat(updatedData.price),
 			deliveryDate: new Date(updatedData.deliveryDate),
 			description: updatedData.description,
 			fees: 50,
 		};
-		trackOrderSubmitted(orderData);
-		createOrder(orderData, {
+
+		trackOrderSubmitted(orderPayload);
+
+		createOrder(orderPayload, {
 			onSuccess: (response) => {
-				const newOrderId = response?.data?.order?._id;
+				const newOrderId = response?.data?.order?._id ?? null;
 				setOrderId(newOrderId);
 				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
 				showSuccessNotification(text.orderSuccessfullyCreated);
@@ -121,45 +135,36 @@ export const useStartTransaction = () => {
 		});
 	};
 
-	const handleBack = () => {
-		setActiveStep((prev) => Math.max(prev - 1, 0));
-	};
-
-	const navigateToFirstStep = () => {
-		setActiveStep(0);
-	};
-
-	const onPayoutRequiredModalSubmit = () => {
+	const handlePayoutPromptSubmit = () => {
 		trackConfirmPayoutPrompt();
-		setPayoutModalOpen(false);
-		setPayoutModalFormOpen(true);
+		setIsPayoutPromptOpen(false);
+		setPayoutFormOpen(true);
 	};
 
-	const onPayoutFormSubmit = (details: PayoutDetailsT) => {
-		createUserPayoutMethod(details);
+	const handlePayoutFormSubmit = (details: PayoutDetailsT) => {
+		createUserPayoutMethod(details, {
+			onSuccess: () => {
+				setPayoutFormOpen(false);
+				nextStep();
+			},
+		});
 	};
-	const onPayoutFormCancel = () => {
-		setPayoutModalFormOpen(false);
+
+	const handlePayoutFormCancel = () => {
 		trackCancelPayoutDetails();
+		setPayoutFormOpen(false);
 	};
+
 	return {
 		steps,
-		formData,
-		orderId,
 		activeStep,
-		error,
-		handleConfirmOrder,
-		handleBack,
-		navigateToFirstStep,
 		renderStep,
-		payoutModalOpen,
-		setPayoutModalOpen,
-		onPayoutRequiredModalSubmit,
-		payoutModalFormOpen,
-		setPayoutModalFormOpen,
-		onPayoutFormSubmit,
-		createUserPayoutPending,
-		getUserPayoutOptionsLoading,
-		onPayoutFormCancel,
+		isPayoutPromptOpen,
+		setIsPayoutPromptOpen,
+		handlePayoutPromptSubmit,
+		isPayoutFormOpen,
+		handlePayoutFormSubmit,
+		isCreatingPayout,
+		handlePayoutFormCancel,
 	};
 };

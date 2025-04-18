@@ -18,18 +18,18 @@ export const createValidationSchema = (locale: any) => {
 			.required(text.requiredTitle)
 			.min(3, text.minLength)
 			.max(100, text.maxLength),
-		// Description
 		description: Yup.string()
-			.trim()
 			.required(text.requiredDescription)
-			.min(30, text.descriptionMinLength)
+			.test(
+				"min-characters",
+				text.descriptionMinLength,
+				(value) => value?.trim().length >= 30
+			)
 			.max(1024, text.descriptionMaxLength),
-		//Price
 		price: Yup.number()
 			.required(text.requiredPrice)
 			.min(1, text.mustBePositive)
 			.typeError(text.mustBeNumber),
-		// Delivery Date
 		deliveryDate: Yup.date()
 			.required(text.deliveryDateRequired)
 			.min(new Date(), text.futureDateOnly),
