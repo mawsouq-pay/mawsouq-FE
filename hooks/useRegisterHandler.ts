@@ -51,12 +51,7 @@ const useRegisterHandler = (orderId?: string) => {
 							phone: response?.data?.phone,
 						};
 						storeRegister({ accessToken, refreshToken }, user);
-						trackIdentifyUser({
-							_id: response?.data?.id,
-							name: response?.data?.name,
-							email: response?.data?.email,
-							phone: response?.data?.phone,
-						});
+
 						navigateUser();
 					} else {
 						showErrorNotification("Something went wrong. Please try again.");

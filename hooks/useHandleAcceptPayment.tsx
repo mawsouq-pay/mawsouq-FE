@@ -2,7 +2,10 @@ import { useNotification } from "@/store/SnackBarStore";
 import { useCreatePaymentLink } from "./orderHooks";
 import queryClient from "@/client/reactQClient";
 import { AxiosError } from "axios";
-import { trackNavigatingToPaymob } from "@/helpers/tracking";
+import {
+	OrderPaymentLinkTracker,
+	trackNavigatingToPaymob,
+} from "@/helpers/tracking";
 
 export const useHandleAcceptPayments = () => {
 	const { mutate: createLink, isPending: createLinkPending } =
@@ -16,6 +19,7 @@ export const useHandleAcceptPayments = () => {
 			onError?: (error: any) => void;
 		}
 	) => {
+		OrderPaymentLinkTracker.generatePaymentLinkIntent(orderId);
 		createLink(
 			{ orderId },
 			{

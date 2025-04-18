@@ -3,6 +3,12 @@ import { useFetch, usePost } from "@/client/customHooks";
 import queryClient from "@/client/reactQClient";
 import { OrderStatusEnum } from "@/constants";
 import { textTr } from "@/constants/locales";
+import {
+	FetchOrderTracker,
+	OrderActionsTracker,
+	OrderPaymentLinkTracker,
+	OrderTracker,
+} from "@/helpers/tracking";
 import { serverRoutes } from "@/routes";
 import { localeEnum } from "@/store/LocaleStore";
 import { useNotification } from "@/store/SnackBarStore";
@@ -23,19 +29,30 @@ import {
 	UpdateOrderStatusInput,
 	UpdateOrderStatusResponse,
 } from "@/types/ordersTypes";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 
 export const useCreateOrder = () => {
 	return usePost<CreateOrderResponse, CreateOrderInput>(
-		serverRoutes.createOrder
+		serverRoutes.createOrder,
+		{
+			onSuccess(data) {
+				OrderTracker.submitSuccess(data?.data);
+				queryClient.invalidateQueries({ queryKey: ["fetchOrders"] });
+			},
+			onError(error, variables) {
+				OrderTracker.submitFailed(error, variables);
+			},
+		}
 	);
 };
 
 export const useFetchOrders = () => {
+	FetchOrderTracker.fetchOrdersIntent();
 	return useFetch<FetchOrdersResponse>(serverRoutes.fetchOrders, {
 		queryKey: ["fetchOrders"],
 	});
 };
+
 export const useFetchOrderById = (orderId: string) => {
 	return useFetch<FetchOrderDetailsResponse>(
 		`${serverRoutes.fetchOrderById}/${orderId}`,
@@ -55,7 +72,18 @@ export const preFetchOrderById = async (
 
 export const useCreatePaymentLink = () => {
 	return usePost<CreatePaymentLinkResponse, CreatePaymentLinkInput>(
-		serverRoutes.createPaymentLink
+		serverRoutes.createPaymentLink,
+		{
+			onSuccess(data, variables, context) {
+				OrderPaymentLinkTracker.generatePaymentLinkSuccess(variables?.orderId);
+			},
+			onError(error, variables) {
+				OrderPaymentLinkTracker.generatePaymentLinkFailed(
+					error,
+					variables.orderId
+				);
+			},
+		}
 	);
 };
 export const useUpdateOrderStatus = () => {
@@ -78,10 +106,20 @@ export const useUpdateOrderStatus = () => {
 						};
 					}
 				);
+				OrderActionsTracker.updateOrderStatusSuccess(
+					orderId,
+					newStatus,
+					response?.data?.order?.isFetcherSeller
+				);
 			},
-			onError(error) {
+			onError(error, variables) {
 				console.log("-----ERROR IN UPDATING STATUS-------", error);
 				showAxiosErrorNotification(error as AxiosError);
+				OrderActionsTracker.updateOrderStatusFailed(
+					error,
+					variables?.orderId,
+					variables?.newStatus
+				);
 			},
 		}
 	);
@@ -117,17 +155,13 @@ export const useSellerRelease = (locale: localeEnum) => {
 					}
 				);
 				showSuccessNotification(text.transactionReleased);
+				OrderActionsTracker.releasePaymentSuccess(orderId);
 			},
-			onError(error, variables, context) {
+			onError(error, variables) {
 				showAxiosErrorNotification(error as AxiosError);
+				OrderActionsTracker.releasePaymentFailed(error, variables.orderId);
 			},
 		}
-	);
-};
-
-export const useCaptureOrder = () => {
-	return usePost<CaptureOrderResponse, CaptureOrderInput>(
-		serverRoutes.captureOrder
 	);
 };
 
@@ -149,6 +183,15 @@ export const useCreateDispute = () => {
 							},
 						};
 					}
+				);
+				OrderActionsTracker.disputeSubmissionSuccess(data?.data);
+			},
+			onError(error, variables) {
+				OrderActionsTracker.disputeSubmissionFailed(
+					error,
+					variables?.orderId,
+					variables?.type,
+					variables?.description
 				);
 			},
 		}

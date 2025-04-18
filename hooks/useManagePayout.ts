@@ -11,10 +11,7 @@ import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useState } from "react";
 import queryClient from "@/client/reactQClient";
-import {
-	trackCancelPayoutDetails,
-	trackSubmitPayoutDetails,
-} from "@/helpers/tracking";
+import { PayoutTracker } from "@/helpers/tracking";
 
 export const useManagePayout = () => {
 	const { locale } = useLocaleStore();
@@ -53,8 +50,7 @@ export const useManagePayout = () => {
 			onError?: (error: any) => void;
 		}
 	) => {
-		trackSubmitPayoutDetails(details);
-
+		PayoutTracker.formSubmitIntent(details);
 		if (editInitialValues) {
 			editPayout(
 				{ payoutMethod: details },
@@ -62,7 +58,7 @@ export const useManagePayout = () => {
 					onSuccess: (response) => {
 						showSuccessNotification("Payout Method Successfully edited");
 						setPayoutModalOpen(false);
-						options?.onSuccess?.(); // call external success if passed
+						options?.onSuccess?.();
 					},
 					onError: (error) => {
 						showAxiosErrorNotification(error as AxiosError);
@@ -78,11 +74,13 @@ export const useManagePayout = () => {
 					});
 					showSuccessNotification(text.payoutAddedNotification);
 					setPayoutModalOpen(false);
+					PayoutTracker.formSubmitSuccess(response?.data);
 					options?.onSuccess?.();
 				},
 				onError: (error) => {
 					showAxiosErrorNotification(error as AxiosError);
 					options?.onError?.(error);
+					PayoutTracker.formSubmitFailed(error);
 				},
 			});
 		}
@@ -91,7 +89,7 @@ export const useManagePayout = () => {
 
 	const onClosePayoutModal = () => {
 		console.log("HE");
-		trackCancelPayoutDetails();
+		PayoutTracker.formCancelled();
 		setPayoutModalOpen(false);
 		setEditInitialValues(null);
 	};

@@ -19,6 +19,8 @@ import { useSendEmail } from "./useSendEmail";
 import { useRateOrder } from "./ratingHooks";
 import { sendEmail } from "@/helpers/sendEmail";
 import { AxiosError } from "axios";
+import { OrderActionsTracker, OrderTracker } from "@/helpers/tracking";
+import OrderId from "@/pages/paymentRedirect/[orderId]";
 
 export const useOrderActions = (
 	orderId: string,
@@ -55,6 +57,7 @@ export const useOrderActions = (
 		title: OrderConfirmationMessages;
 		message: OrderConfirmationMessages;
 	} | null>(null);
+	const [newStatus, setNewStatus] = useState(orderStatus);
 
 	const orderData = orderProgressBarData[orderStatus];
 	const message = isFetcherSeller
@@ -62,13 +65,16 @@ export const useOrderActions = (
 		: orderData.messageForBuyer;
 	const orderStatusText = text[orderStatus];
 
-	const handleMarkAsOutForDelivery = () =>
+	const handleMarkAsOutForDelivery = () => {
+		OrderActionsTracker.markAsOutForDeliveryIntent(orderId);
 		updateOrder({
 			orderId,
 			newStatus: OrderStatusEnum.IN_TRANSIT,
 		});
+	};
 
 	const handleReleasePayment = () => {
+		OrderActionsTracker.releasePaymentIntent(orderId);
 		sellerRelease(
 			{ orderId },
 			{
@@ -77,27 +83,46 @@ export const useOrderActions = (
 		);
 	};
 
-	const handleOpenDisputeForm = () => setIsDisputeFormOpen(true);
+	const handleOpenDisputeForm = () => {
+		setIsDisputeFormOpen(true);
+		OrderActionsTracker.disputeFormOpened(orderId, isFetcherSeller);
+	};
 
 	const handleOpenConfirmationModal = (
 		actionCallback: () => void,
-		status: OrderStatusEnum
+		newStatus: OrderStatusEnum
 	) => {
 		setSelectedAction(() => actionCallback);
-		setPopupStatusMessage(orderStatusConfirmationMessages[status]);
+		setPopupStatusMessage(orderStatusConfirmationMessages[newStatus]);
 		setIsConfirmModalOpen(true);
+		setNewStatus(newStatus);
+		OrderActionsTracker.confirmationModalOpened(
+			newStatus,
+			orderId,
+			isFetcherSeller
+		);
 	};
 
 	const handleCloseConfirmationModal = () => {
 		setSelectedAction(null);
 		setPopupStatusMessage(null);
 		setIsConfirmModalOpen(false);
+		OrderActionsTracker.confirmationModalCancelled(
+			newStatus,
+			orderId,
+			isFetcherSeller
+		);
 	};
 
 	const handleConfirmAction = () => {
 		if (selectedAction) {
 			selectedAction();
 			handleCloseConfirmationModal();
+			OrderActionsTracker.confirmationModalConfirmed(
+				newStatus,
+				orderId,
+				isFetcherSeller
+			);
 		}
 	};
 
@@ -105,6 +130,11 @@ export const useOrderActions = (
 		type: DisputeTypeEnum;
 		description: string;
 	}) => {
+		OrderActionsTracker.disputeFormSubmitIntent(
+			values.type,
+			values.description,
+			isFetcherSeller
+		);
 		createDispute(
 			{ orderId, type: values.type, description: values.description },
 			{
@@ -112,7 +142,9 @@ export const useOrderActions = (
 					showSuccessNotification(text.disputeSentSuccessfully);
 					setIsDisputeFormOpen(false);
 				},
-				onError: (error) => showAxiosErrorNotification(error as AxiosError),
+				onError: (error) => {
+					showAxiosErrorNotification(error as AxiosError);
+				},
 			}
 		);
 		await sendEmailToUs({

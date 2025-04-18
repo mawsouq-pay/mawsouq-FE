@@ -12,12 +12,7 @@ import { useNotification } from "@/store/SnackBarStore";
 import { useLocaleStore } from "@/store";
 import { textTr } from "@/constants/locales";
 import SellerPrompt from "@/components/Features/CreateTransaction/SellerPrompt";
-import {
-	trackCancelPayoutDetails,
-	trackConfirmPayoutPrompt,
-	trackOpenedPayoutPrompt,
-	trackOrderSubmitted,
-} from "@/helpers/tracking";
+import { OrderTracker, PayoutTracker } from "@/helpers/tracking";
 
 export const useStartTransaction = () => {
 	const { locale } = useLocaleStore();
@@ -104,7 +99,7 @@ export const useStartTransaction = () => {
 		const noPayoutOptions =
 			!getUserPayoutOptionsLoading && payoutOptions?.length === 0;
 		if (formData.role === RolesEnum.SELLER && noPayoutOptions) {
-			trackOpenedPayoutPrompt();
+			PayoutTracker.promptOpened();
 			setIsPayoutPromptOpen(true);
 			return true;
 		}
@@ -123,7 +118,7 @@ export const useStartTransaction = () => {
 			fees: 50,
 		};
 
-		trackOrderSubmitted(orderPayload);
+		OrderTracker.submitIntent(orderPayload);
 
 		createOrder(orderPayload, {
 			onSuccess: (response) => {
@@ -136,7 +131,7 @@ export const useStartTransaction = () => {
 	};
 
 	const handlePayoutPromptSubmit = () => {
-		trackConfirmPayoutPrompt();
+		PayoutTracker.promptConfirmed();
 		setIsPayoutPromptOpen(false);
 		setPayoutFormOpen(true);
 	};
@@ -151,7 +146,7 @@ export const useStartTransaction = () => {
 	};
 
 	const handlePayoutFormCancel = () => {
-		trackCancelPayoutDetails();
+		PayoutTracker.promptCancelled();
 		setPayoutFormOpen(false);
 	};
 

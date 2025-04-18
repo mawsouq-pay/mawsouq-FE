@@ -3,6 +3,8 @@ import { serverRoutes } from "@/routes";
 import apiClient from "@/client/axiosClient";
 import { User } from "@/types/authenticationTypes";
 import Cookies from "js-cookie";
+import mixpanel from "mixpanel-browser";
+import { trackIdentifyUser } from "@/helpers/tracking";
 
 export interface AuthStore {
 	isLoggedIn: boolean;
@@ -103,6 +105,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 		});
 
 		apiClient.defaults.headers["x-auth-token"] = accessToken;
+		trackIdentifyUser({ user, login: true });
 	},
 
 	register: ({ accessToken, refreshToken }, user) => {
@@ -117,6 +120,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 		});
 
 		apiClient.defaults.headers["x-auth-token"] = accessToken;
+		trackIdentifyUser({ user, login: false });
 	},
 
 	logout: async () => {

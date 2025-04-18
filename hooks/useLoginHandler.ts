@@ -50,13 +50,6 @@ export const useLoginHandler = (orderId?: string) => {
 						showErrorNotification(text.genericErrorMessage);
 					}
 					setSubmitting(false);
-					trackIdentifyUser({
-						_id: response?.data?.id,
-						name: response?.data?.name,
-						email: response?.data?.email,
-						phone: response?.data?.phone,
-						login: true,
-					});
 				},
 				onError: (error) => {
 					setSubmitting(false);
