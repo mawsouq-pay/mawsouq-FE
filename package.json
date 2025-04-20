@@ -10,6 +10,7 @@
 		"postbuild": "next-sitemap"
 	},
 	"dependencies": {
+		"@base-ui-components/react": "^1.0.0-alpha.8",
 		"@emotion/react": "^11.13.5",
 		"@emotion/styled": "^11.13.5",
 		"@mui/icons-material": "^6.2.1",

@@ -168,6 +168,7 @@ const ar = {
 	confirmPasswordPlaceHolder: "أكد كلمة المرور الخاصة بك",
 	alreadyHaveAnAccount: "هل لديك حساب بالفعل؟",
 	dontHaveAnAccount: "ليس لديك حساب؟",
+	pleaseEnterOtp: "أدخل رمز التحقق",
 
 	login: "تسجيل",
 	getStarted: "ابدأ الآن",

@@ -15,6 +15,23 @@ export interface PayoutDetailsT {
 	cardNumber?: string;
 	bankCode?: BankCode;
 }
+
+export interface GenerateUserOtpInput {
+	email: string;
+	phone: string;
+}
+export interface GenerateUserOtpResponse {
+	email: string;
+	phone: string;
+}
+export interface VerifyUserOtpInput {
+	phone: string;
+	otp: string;
+}
+export interface VerifyUserOtpResponse {
+	verified: string;
+	message: string;
+}
 export interface LoginInput {
 	email: string;
 	password: string;
@@ -39,6 +56,7 @@ export interface RegisterResponse {
 	phone: string;
 	name: string;
 	email: string;
+	need_verification: boolean;
 }
 
 export interface CreatePaymentMethodInput extends PayoutDetailsT {}

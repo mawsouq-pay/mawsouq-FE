@@ -7,6 +7,8 @@ const serverRoutes = {
 	logout: "/user/logout",
 	resetPassword: "/user/resetPassword",
 	updatePassword: "/user/updatePassword",
+	generateUserOtp: "/user/generateUserOtp",
+	verifyUserOtp: "/user/verifyUserOtp",
 
 	// Payout
 	createPayoutMethod: "/payout/createPayoutMethod",

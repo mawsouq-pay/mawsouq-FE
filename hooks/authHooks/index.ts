@@ -7,6 +7,8 @@ import {
 	DeletePayoutOptionInput,
 	DeletePayoutOptionResponse,
 	EditPayoutOptionResponse,
+	GenerateUserOtpInput,
+	GenerateUserOtpResponse,
 	GetUserPayoutOptionsResponse,
 	LoginInput,
 	LoginResponse,
@@ -17,8 +19,20 @@ import {
 	ResetPasswordResponse,
 	UpdatePasswordInput,
 	UpdatePasswordResponse,
+	VerifyUserOtpInput,
+	VerifyUserOtpResponse,
 } from "@/types/authenticationTypes";
 
+export const useGenerateUserOtp = () => {
+	return usePost<GenerateUserOtpResponse, GenerateUserOtpInput>(
+		serverRoutes.generateUserOtp
+	);
+};
+export const useVerifyUserOtp = () => {
+	return usePost<VerifyUserOtpResponse, VerifyUserOtpInput>(
+		serverRoutes.verifyUserOtp
+	);
+};
 export const useRegister = () => {
 	return usePost<RegisterResponse, RegisterInput>(serverRoutes.register);
 };

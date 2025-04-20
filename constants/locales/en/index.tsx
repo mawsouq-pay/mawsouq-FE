@@ -170,6 +170,7 @@ const en = {
 	password: "Password",
 	confirmPassword: "Confirm Password",
 	confirmPasswordPlaceHolder: "Confirm Your Password",
+	pleaseEnterOtp: "Please Enter OTP",
 
 	alreadyHaveAnAccount: "Already have an account?",
 	dontHaveAnAccount: "Don't have an account?",

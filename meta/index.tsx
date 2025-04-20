@@ -20,7 +20,7 @@ type PageMeta = {
 
 export const pageMetadata: Record<PageKey, PageMeta> = {
 	homePage: {
-		title: "Mawsouqs – Secure Your Orders & Payments",
+		title: "Mawsouq – Secure Your Orders & Payments",
 		description:
 			"Handles deposits safely with Mawsouq. Track, confirm, and pay only when you're sure.",
 		canonical: "https://mawsouq-pay.com/homePage",
