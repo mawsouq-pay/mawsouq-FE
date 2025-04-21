@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"postbuild": "next-sitemap",
-		"deploy:staging": "vercel --yes && vercel alias $(vercel --yes) staging.mawsouq-pay.com"
+		"deploy:staging": "vercel --yes && vercel alias $(vercel --no-clipboard) staging.mawsouq-pay.com"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.13.5",
