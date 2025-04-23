@@ -109,7 +109,7 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
 	},
 
 	register: ({ accessToken, refreshToken }, user) => {
-		console.log("----------------REGISTER (STORE)  ------------------");
+		console.log("----------------REGISTERING (STORE)  ------------------");
 
 		Cookies.set("refreshToken", refreshToken, { expires: 1 });
 
