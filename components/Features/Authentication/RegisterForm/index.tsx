@@ -10,12 +10,18 @@ import {
 	MainWrapper,
 	OrDivider,
 	TextLink,
+	TermsContainer,
+	TermsLink,
+	TermsCheckbox,
+	TermsText,
 } from "./RegisterForm.styles";
 import MSButton from "../../../Shared/MSButton";
 import useRegisterHandler from "@/hooks/useRegisterHandler";
 import { Eye, EyeOff } from "lucide-react";
 import { MSLogo } from "@/assets/icons";
 import { colors } from "@/constants/theme";
+import { clientRoutes } from "@/routes";
+import MSText from "@/components/Shared/MSText";
 
 const RegisterForm = ({ orderId }: { orderId?: string }) => {
 	const { locale } = useLocaleStore();
@@ -36,7 +42,7 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 				handleRegister(values, setSubmitting)
 			}
 		>
-			{({ isSubmitting, isValid, dirty }) => (
+			{({ isSubmitting, isValid, dirty, values, setFieldValue }) => (
 				<MainWrapper>
 					<Logo>
 						<MSLogo />
@@ -96,9 +102,36 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 								type={showConfirmPassword ? "text" : "password"}
 							/>
 
+							<TermsContainer>
+								<TermsCheckbox
+									id="termsAccepted"
+									name="termsAccepted"
+									checked={values.termsAccepted}
+									onChange={(e) => setFieldValue("termsAccepted", e.target.checked)}
+								/>
+								<TermsText>
+									<MSText fontSize="14px" color={colors.gray}>
+										{text.acceptTerms}
+									</MSText>
+									<TermsLink href={clientRoutes.termsAndConditions}>
+										<MSText fontSize="14px" color={colors.green} fontWeight="600">
+											{text.terms}
+										</MSText>
+									</TermsLink>
+									<MSText fontSize="14px" color={colors.gray}>
+										{text.and}
+									</MSText>
+									<TermsLink href={clientRoutes.privacyPolicy}>
+										<MSText fontSize="14px" color={colors.green} fontWeight="600">
+											{text.privacy}
+										</MSText>
+									</TermsLink>
+								</TermsText>
+							</TermsContainer>
+
 							<MSButton
 								title={text.register}
-								style={{ width: "100%", height: 45, marginTop: 30 }}
+								style={{ width: "100%", height: 45, marginTop: 20 }}
 								disabled={!(isValid && dirty) || isSubmitting || isPending}
 								loading={isPending}
 								type="submit"
@@ -112,14 +145,14 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 									justifyContent: "center",
 								}}
 							>
-								<p style={{ fontSize: 12, color: colors.gray }}>
+								<MSText fontSize="12px" color={colors.gray}>
 									{text.alreadyHaveAnAccount}{" "}
 									<TextLink
 										href={orderId ? `/login?orderId=${orderId}` : "/login"}
 									>
 										{text.login}!
 									</TextLink>
-								</p>
+								</MSText>
 							</div>
 						</Form>
 					</FormWrapper>

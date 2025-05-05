@@ -14,6 +14,7 @@ export const MainWrapper = styled.div`
 	border-radius: 10px;
 	margin-top: 15px;
 `;
+
 export const FormWrapper = styled.div`
 	padding: 5px 30px 30px 30px;
 
@@ -21,25 +22,6 @@ export const FormWrapper = styled.div`
    	width: 100%;
 	   padding: 0px 20px 30px 20px;
     `}
-`;
-
-export const OrDivider = styled.div`
-	text-align: center;
-	color: #888;
-	font-size: 14px;
-	margin: 10px 0;
-`;
-
-export const TextLink = styled.a`
-	color: #31c48d;
-	text-decoration: none;
-	font-weight: bold;
-	cursor: pointer;
-	text-align: center;
-
-	&:hover {
-		text-decoration: underline;
-	}
 `;
 export const Logo = styled.div`
 	cursor: pointer;
@@ -49,4 +31,70 @@ export const Logo = styled.div`
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	padding: 5px;
+`;
+
+
+export const OrDivider = styled.div`
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: ${colors.gray};
+	font-size: 14px;
+	margin: 20px 0;
+
+	&::before,
+	&::after {
+		content: "";
+		flex: 1;
+		border-bottom: 1px solid ${colors.gray};
+	}
+
+	&::before {
+		margin-right: 10px;
+	}
+
+	&::after {
+		margin-left: 10px;
+	}
+`;
+
+export const TextLink = styled.a`
+	color: ${colors.green};
+	text-decoration: none;
+	font-weight: 600;
+
+	&:hover {
+		text-decoration: underline;
+	}
+`;
+
+export const TermsContainer = styled.div`
+	display: flex;
+	align-items: center;
+	margin-top: 15px;
+	gap: 8px;
+`;
+
+export const TermsCheckbox = styled.input.attrs({ type: "checkbox" })`
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+`;
+
+export const TermsText = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 14px;
+	color: ${colors.gray};
+`;
+
+export const TermsLink = styled.a`
+	color: ${colors.green};
+	text-decoration: none;
+	font-weight: 600;
+
+	&:hover {
+		text-decoration: underline;
+	}
 `;

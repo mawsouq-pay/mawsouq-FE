@@ -182,6 +182,13 @@ const en = {
 	requiredPassword: "Password is required",
 	requiredName: "Full Name is required",
 
+	// Terms and Conditions
+	acceptTerms: "I accept the ",
+	termsRequired: "You must accept the Terms and Conditions and Privacy Policy",
+	terms: "Terms and Conditions",
+	privacy: "Privacy Policy",
+	and: "and",
+
 	//paymentSuccess
 	paymentHasBeenReceivedSuccessfully:
 		"Your order has been placed successfully.",
@@ -227,7 +234,7 @@ const en = {
 	approveAndLinkOrder: "Proceed by approving order",
 	orderSummary: "Order Summary",
 	youAreTheBuyer: "You're the buyer",
-	refundIfSellerDoesntDeliver: "Full refund if the seller doesn’t deliver",
+	refundIfSellerDoesntDeliver: "Full refund if the seller doesn't deliver",
 	support247: "24/7 Support on your order",
 	yourPaymentIsSafeWithMawsouq: "Your payment is safe with Mawsouq",
 	trackUntilDelivery: "Track your order until delivery",
@@ -259,7 +266,7 @@ const en = {
 	cardNumber: "Card Number",
 	payoutRequired: "Payout Method Required",
 	payoutRequiredExplanation:
-		"To continue, you need to add how you’ll receive your money. We’ll transfer it to you once the order is delivered.",
+		"To continue, you need to add how you'll receive your money. We'll transfer it to you once the order is delivered.",
 	noPayoutMethods: "No payout methods added yet.",
 	yourPayoutMethods: "Your Payout Method",
 	bank: "Bank",

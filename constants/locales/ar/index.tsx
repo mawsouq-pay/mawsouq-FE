@@ -177,6 +177,13 @@ const ar = {
 	requiredPassword: "كلمة المرور مطلوبة",
 	requiredName: "اسم المستخدم مطلوب",
 
+	// Terms and Conditions
+	acceptTerms: "أوافق على",
+	termsRequired: "يجب الموافقة على شروط الاستخدام وسياسة الخصوصية",
+	terms: "شروط الاستخدام",
+	privacy: "سياسة الخصوصية",
+	and: "و",
+
 	//paymentSuccess
 	paymentHasBeenReceivedSuccessfully: "تم تقديم طلبك بنجاح.",
 	preparingOrderPr:

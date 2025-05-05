@@ -7,7 +7,9 @@ export interface RegisterFormInput {
 	phone: string;
 	password: string;
 	confirmPassword: string;
+	termsAccepted: boolean;
 }
+
 export const registerValidationSchema = (locale: string) => {
 	const text = textTr(locale);
 
@@ -26,6 +28,10 @@ export const registerValidationSchema = (locale: string) => {
 			.string()
 			.oneOf([yup.ref("password")], text.matchPasswords)
 			.required(text.requiredConfirmPassword),
+		termsAccepted: yup
+			.boolean()
+			.oneOf([true], text.termsRequired)
+			.required(text.termsRequired),
 	});
 };
 
@@ -35,4 +41,5 @@ export const registerInitialValues: RegisterFormInput = {
 	phone: "",
 	password: "",
 	confirmPassword: "",
+	termsAccepted: false,
 };
