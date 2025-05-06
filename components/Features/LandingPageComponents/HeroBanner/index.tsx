@@ -48,7 +48,7 @@ export default function HeroSection() {
 								fontWeight="700"
 								style={{ lineHeight: "1.25", color: "#111827" }}
 							>
-								{textObj.title} TESTTSTTS
+								{textObj.title}
 							</MSText>
 
 							<MSText

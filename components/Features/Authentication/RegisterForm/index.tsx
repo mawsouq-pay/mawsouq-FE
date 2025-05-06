@@ -107,25 +107,53 @@ const RegisterForm = ({ orderId }: { orderId?: string }) => {
 									id="termsAccepted"
 									name="termsAccepted"
 									checked={values.termsAccepted}
-									onChange={(e) => setFieldValue("termsAccepted", e.target.checked)}
+									onChange={(e) =>
+										setFieldValue("termsAccepted", e.target.checked)
+									}
 								/>
 								<TermsText>
-									<MSText fontSize="14px" color={colors.gray}>
-										{text.acceptTerms}
-									</MSText>
-									<TermsLink href={clientRoutes.termsAndConditions}>
-										<MSText fontSize="14px" color={colors.green} fontWeight="600">
-											{text.terms}
+									<div style={{ display: "inline" }}>
+										<MSText
+											fontSize="14px"
+											color={colors.gray}
+											style={{ display: "inline" }}
+										>
+											{text.acceptTerms}{" "}
 										</MSText>
-									</TermsLink>
-									<MSText fontSize="14px" color={colors.gray}>
-										{text.and}
-									</MSText>
-									<TermsLink href={clientRoutes.privacyPolicy}>
-										<MSText fontSize="14px" color={colors.green} fontWeight="600">
-											{text.privacy}
+										<TermsLink
+											href={clientRoutes.termsAndConditions}
+											style={{ display: "inline" }}
+										>
+											<MSText
+												fontSize="14px"
+												color={colors.green}
+												fontWeight="600"
+												style={{ display: "inline" }}
+											>
+												{text.terms}{" "}
+											</MSText>
+										</TermsLink>
+										<MSText
+											fontSize="14px"
+											color={colors.gray}
+											style={{ display: "inline" }}
+										>
+											{text.and}{" "}
 										</MSText>
-									</TermsLink>
+										<TermsLink
+											href={clientRoutes.privacyPolicy}
+											style={{ display: "inline" }}
+										>
+											<MSText
+												fontSize="14px"
+												color={colors.green}
+												fontWeight="600"
+												style={{ display: "inline" }}
+											>
+												{text.privacy}{" "}
+											</MSText>
+										</TermsLink>
+									</div>
 								</TermsText>
 							</TermsContainer>
 
