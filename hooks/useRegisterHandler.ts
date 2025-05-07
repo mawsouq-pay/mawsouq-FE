@@ -9,7 +9,6 @@ import { RegisterFormInput } from "@/components/Features/Authentication/Register
 import { useLocaleStore } from "@/store/LocaleStore";
 import { textTr } from "@/constants/locales";
 import { useHandleAcceptPayments } from "./useHandleAcceptPayment";
-import { trackIdentifyUser } from "@/helpers/tracking";
 
 const useRegisterHandler = (orderId?: string) => {
 	const { locale } = useLocaleStore();
@@ -17,14 +16,10 @@ const useRegisterHandler = (orderId?: string) => {
 
 	const { mutate: registerSubmit, isPending: registerPending } = useRegister();
 	const { register: storeRegister } = useAuthStore();
-	const {
-		showAxiosErrorNotification,
-		showErrorNotification,
-		showSuccessNotification,
-	} = useNotification();
+	const { showAxiosErrorNotification, showErrorNotification } =
+		useNotification();
 	const router = useRouter();
-	// const { mutate: LinkOrderMutate, isPending: linkOrderPending } =
-	// 	useLinkOrder();
+
 	const { handleBuyerPayment, isBuyerPaymentPending } =
 		useHandleAcceptPayments();
 	const handleRegister = (
